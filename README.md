@@ -223,7 +223,7 @@ const registry = await NameRegistryState.retrieve(connection, subDomainKey);
 
 <a name="domain-find-for-owner"></a>
 
-### Find all the domain names owner by a public key
+### Find all the domain names owned by a public key
 
 You can retrieve all the domains owned by a public key using a `MemcmpFilter` filter
 
