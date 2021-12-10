@@ -9,7 +9,27 @@
 </p>
 <br />
 
+<br />
+<h2 align="center">Table of content</h2>
+<br />
+
+1. [Installation](#installation)
+2. [Name Registry](#registry)
+3. [Domain Name](#domains)
+   - [TLD](#domain-tld)
+   - [Direct look up](#domain-direct-lookup)
+   - [Reverse look up](#domain-reverse-lookup)
+   - [Subdomain look up](#subdomain-lookup)
+   - [Find owner domain](#domain-find-for-owner)
+4. [Twitter](#twitter)
+   - [TLD](#twitter-tld)
+   - [Direct look up](#twitter-direct-lookup)
+   - [Reverse look up](#twitter-reverse-lookup)
+
+<br />
+<a name="installation"></a>
 <h2 align="center">Installation</h2>
+<br />
 
 To install the JS library
 
@@ -24,6 +44,7 @@ yarn add @bonfida/spl-name-service
 ```
 
 <br />
+<a name="registry"></a>
 <h2 align="center">Name registry</h2>
 <br />
 
@@ -86,10 +107,13 @@ export class NameRegistryState {
 ```
 
 <br />
+<a name="domains"></a>
  <h2 align="center">Domain names</h2>
  <br />
 
 To register a domain name click [here](https://naming.bonfida.org/#/auctions)
+
+<a name="domain-tld"></a>
 
 ### TLD
 
@@ -110,6 +134,8 @@ export const ROOT_TLD_AUTHORITY = new PublicKey(
   "ZoAhWEqTVqHVqupYmEanDobY7dee5YKbQox9BNASZzU"
 );
 ```
+
+<a name="domain-direct-lookup"></a>
 
 ### Resolve a domain name
 
@@ -143,6 +169,8 @@ const domainKey = await getNameAccountKey(
 const registry = await NameRegistryState.retrieve(connection, domainKey);
 ```
 
+<a name="domain-reverse-lookup"></a>
+
 ### Reverse look up
 
 This can be used to resolve the domain name from its public key
@@ -155,6 +183,8 @@ const domainKey = new PublicKey("Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb");
 
 const domainName = await performReverseLookup(connection, domainKey); // bonfida
 ```
+
+<a name="subdomain-lookup"></a>
 
 ### Subdomain look up
 
@@ -191,6 +221,8 @@ const subDomainKey = await getDNSRecordAddress(parentDomainKey, subDomain);
 const registry = await NameRegistryState.retrieve(connection, subDomainKey);
 ```
 
+<a name="domain-find-for-owner"></a>
+
 ### Find all the domain names owner by a public key
 
 You can retrieve all the domains owned by a public key using a `MemcmpFilter` filter
@@ -216,10 +248,13 @@ export async function findOwnedNameAccountsForUser(
 ```
 
 <br />
+<a name="twitter"></a>
 <h2 align="center">Twitter handles</h2>
 <br />
 
 To register a Twitter handle click [here](https://naming.bonfida.org/#/twitter-registration)
+
+<a name="twitter-tld"></a>
 
 ### TLD
 
@@ -230,6 +265,8 @@ export const TWITTER_ROOT_PARENT_REGISTRY_KEY = new PublicKey(
   "4YcexoW3r78zz16J2aqmukBLRwGq6rAvWzJpkYAXqebv"
 );
 ```
+
+<a name="twitter-direct-lookup"></a>
 
 ### Resolve a Twitter handle
 
@@ -242,6 +279,8 @@ const pubkey = new PublicKey("FidaeBkZkvDqi1GXNEwB8uWmj9Ngx2HXSS5nyGRuVFcZ");
 
 const [handle, registryKey] = await getHandleAndRegistryKey(connection, pubkey);
 ```
+
+<a name="twitter-reverse-lookup"></a>
 
 ### Reverse look up
 
