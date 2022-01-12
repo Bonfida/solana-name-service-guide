@@ -240,7 +240,7 @@ export async function findOwnedNameAccountsForUser(
       },
     },
   ];
-  const accounts = await onnection.getProgramAccounts(NAME_PROGRAM_ID, {
+  const accounts = await connection.getProgramAccounts(NAME_PROGRAM_ID, {
     filters,
   });
   return accounts.map((a) => a.publicKey);
