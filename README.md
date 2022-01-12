@@ -243,7 +243,7 @@ export async function findOwnedNameAccountsForUser(
   const accounts = await connection.getProgramAccounts(NAME_PROGRAM_ID, {
     filters,
   });
-  return accounts.map((a) => a.publicKey);
+  return accounts.map((a) => a.pubkey);
 }
 ```
 
