@@ -21,6 +21,7 @@
    - [Reverse look up](#domain-reverse-lookup)
    - [Subdomain look up](#subdomain-lookup)
    - [Find owner domain](#domain-find-for-owner)
+   - [Favorite domain](#favorite-domain)
 4. [Twitter](#twitter)
    - [TLD](#twitter-tld)
    - [Direct look up](#twitter-direct-lookup)
@@ -245,6 +246,38 @@ export async function findOwnedNameAccountsForUser(
   });
   return accounts.map((a) => a.pubkey);
 }
+```
+
+<a name="favorite-domain"></a>
+
+### Favorite domain
+
+Users have the possibility to select a domain name as their favorite one. You can retrieve it with the following
+
+```js
+import { FavouriteDomain, NAME_OFFERS_ID } from "@bonfida/name-offers";
+import { performReverseLookup } from "@bonfida/name-auctioning";
+import { PublicKey } from "@solana/web3.js";
+
+const findFavoriteDomainName = async (owner: PublicKey) => {
+  try {
+    const [favKey] = await FavouriteDomain.getKey(
+      NAME_OFFERS_ID,
+      new PublicKey(owner)
+    );
+
+    const favourite = await FavouriteDomain.retrieve(connection, favKey);
+
+    const reverse = await performReverseLookup(
+      connection,
+      favourite.nameAccount
+    );
+
+    return reverse;
+  } catch (err) {
+    console.log(err);
+  }
+};
 ```
 
 <br />
