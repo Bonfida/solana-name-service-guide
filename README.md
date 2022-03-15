@@ -22,6 +22,7 @@
    - [Subdomain look up](#subdomain-lookup)
    - [Find owner domain](#domain-find-for-owner)
    - [Favorite domain](#favorite-domain)
+   - [Tokenization](#tokenization)
 4. [Twitter](#twitter)
    - [TLD](#twitter-tld)
    - [Direct look up](#twitter-direct-lookup)
@@ -167,8 +168,19 @@ const domainKey = await getNameAccountKey(
 
 // Step 3
 // The registry object contains all the info about the domain name (cf struct above)
-const registry = await NameRegistryState.retrieve(connection, domainKey);
+// The NFT owner is of type PublicKey | undefined
+const { registry, nftOwner } = await NameRegistryState.retrieve(
+  connection,
+  domainKey
+);
 ```
+
+The `retrieve` method returns an object made of two fields:
+
+- `registry` is of type `NameRegistryState`
+- `nftOwner` is of type `PublicKey | undefined`
+  - When `nftOwner` is of type `PublicKey` it means that the domain is tokenized and the current NFT holder is `nftOwner`. When a domain is tokenized `registry.owner` is an escrow account that is program owner. Funds should be sent to `nftOwner`
+  - When `nftOwner` is of type `undefined` it means that the domain is not tokenized and funds should be sent to `registry.owner`
 
 <a name="domain-reverse-lookup"></a>
 
@@ -219,7 +231,7 @@ const parentDomainKey = await getNameAccountKey(
 const subDomainKey = await getDNSRecordAddress(parentDomainKey, subDomain);
 
 // Step 3
-const registry = await NameRegistryState.retrieve(connection, subDomainKey);
+const { registry } = await NameRegistryState.retrieve(connection, subDomainKey);
 ```
 
 <a name="domain-find-for-owner"></a>
@@ -278,6 +290,29 @@ const findFavoriteDomainName = async (owner: PublicKey) => {
     console.log(err);
   }
 };
+```
+
+<a name="favorite-domain"></a>
+
+### Tokenization
+
+Domain names can be tokenized in NFTs that follow the metaplex standard.
+
+To retrieve all the tokenized domain names
+
+```js
+import { retrieveNfts } from "@bonfida/spl-name-service";
+
+// nfts is of type PublicKey[] and contains all the mints of the tokenized domain names
+const nfts = await retrieveNfts(connection);
+```
+
+To retrieve the owner of the NFT that represent a tokenized domain name
+
+```js
+import { retrieveNftOwner } from "@bonfida/spl-name-service";
+
+const owner = await retrieveNftOwner(connection, nameKey);
 ```
 
 <br />
