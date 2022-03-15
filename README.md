@@ -9,6 +9,12 @@
 </p>
 <br />
 
+⚠️ In version `0.1.26` the signature of `NameRegistryState.retrieve` changed, it is now returning an object of type:
+
+`{ registry: NameRegistryState, nftOwner: PublicKey | undefined }`
+
+When `nftOwner` is **NOT** `undefined` it means that the domain name has been tokenized and **FUNDS SHOULD NOT BE SENT TO** `registry.owner`
+
 <br />
 <h2 align="center">Table of content</h2>
 <br />
