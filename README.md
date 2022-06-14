@@ -29,6 +29,7 @@ When `nftOwner` is **NOT** `undefined` it means that the domain name has been to
    - [Find owner domain](#domain-find-for-owner)
    - [Favorite domain](#favorite-domain)
    - [Tokenization](#tokenization)
+   - [Registration](#registration)
 4. [Twitter](#twitter)
    - [TLD](#twitter-tld)
    - [Direct look up](#twitter-direct-lookup)
@@ -293,7 +294,7 @@ Users have the possibility to select a domain name as their favorite one. You ca
 
 ```js
 import { FavouriteDomain, NAME_OFFERS_ID } from "@bonfida/name-offers";
-import { performReverseLookup } from "@bonfida/name-auctioning";
+import { performReverseLookup } from "@bonfida/spl-name-service";
 import { PublicKey } from "@solana/web3.js";
 
 const findFavoriteDomainName = async (owner: PublicKey) => {
@@ -339,6 +340,28 @@ import { retrieveNftOwner } from "@bonfida/spl-name-service";
 
 const owner = await retrieveNftOwner(connection, nameKey);
 ```
+
+<a name="registration"></a>
+
+### Registration
+
+Unregistered domains can be registered using the following instructions:
+
+```js
+import { registerDomainName } from "@bonfida/spl-name-service";
+
+const name = "bonfida"; // We want to register bonfida.sol
+const space = 1 * 1_000; // We want a 1kB sized domain (max 10kB)
+
+const buyer = new PublicKey("..."); // Publickey of the buyer
+const buyerTokenAccount = new PublicKey("..."); // Publickey of the FIDA token account of the buyer
+
+const [, ix] = await registerDomainName(name, space, buyer, buyerTokenAccount);
+
+// sign and send the instruction
+```
+
+More details about direct registration can be found [here](https://docs.bonfida.org/collection/how-to-create-a-solana-domain-name/purchasing-a-domain-name/direct-registration)
 
 <br />
 <a name="twitter"></a>
