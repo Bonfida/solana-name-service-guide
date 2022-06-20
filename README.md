@@ -278,6 +278,12 @@ export async function findOwnedNameAccountsForUser(
         bytes: userAccount.toBase58(),
       },
     },
+    {
+      memcmp: {
+        offset: 0,
+        bytes: SOL_TLD_AUTHORITY.toBase58(),
+      },
+    },
   ];
   const accounts = await connection.getProgramAccounts(NAME_PROGRAM_ID, {
     filters,
