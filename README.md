@@ -351,7 +351,7 @@ const owner = await retrieveNftOwner(connection, nameKey);
 
 ### Registration
 
-Unregistered domains can be registered using the following instructions:
+Unregistered domains can be registered using the SDK `@bonfida/spl-name-service` with the following instructions:
 
 ```js
 import { registerDomainName } from "@bonfida/spl-name-service";
@@ -365,6 +365,52 @@ const buyerTokenAccount = new PublicKey("..."); // Publickey of the FIDA token a
 const [, ix] = await registerDomainName(name, space, buyer, buyerTokenAccount);
 
 // sign and send the instruction
+```
+
+Registration instructions can also be created via API (equivalent to using the SDK):
+
+```
+POST https://naming-api.bonfida.com/registrar/new-domain
+```
+
+With the following request body
+
+```json
+{
+  "domain": "domain_to_register",
+  "pubkey": "pubkey_of_the_user",
+  "space": "domain_space", // Between 1_000 and 10_000
+  "language": "0"
+}
+```
+
+Response:
+
+```json
+{
+  "success": true,
+  "data": {
+    "keys": [
+      {
+        "pubkey": "SysvarRent111111111111111111111111111111111",
+        "isSigner": false,
+        "isWritable": false
+      },
+      // ...
+      {
+        "pubkey": "62pexKUPWncYECF7DMtENjKbwZnrJoMpvDkrrtceC8Ee",
+        "isSigner": false,
+        "isWritable": false
+      }
+    ],
+    "programId": "jCebN34bUfdeUYJT13J1yG16XWQpt5PDx6Mse9GUqhR",
+    "data": [
+      9,
+      // ...
+      0
+    ]
+  }
+}
 ```
 
 More details about direct registration can be found [here](https://docs.bonfida.org/collection/how-to-create-a-solana-domain-name/purchasing-a-domain-name/direct-registration)
