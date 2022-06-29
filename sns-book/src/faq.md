@@ -4,7 +4,7 @@
 
 You can buy a domain on [Bonfida](https://naming.bonfida.com)
 
-## How do I find a domain if I only know it's public key?
+## How do I find a domain if I only know its public key?
 
 If you only know the public key of a domain you can do a reverse look up to find the associated domain. For example:
 
