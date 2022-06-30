@@ -1,32 +1,22 @@
 # Direct look up
 
+![direct-reverse](../assets/direct-reverse.png)
+
 In order to get the information of a domain name you need to:
 
-1. Hash the domain name
-2. Derive a PDA from the hash
-3. Retrieve the account info
+1. Get the domain name public key
+2. Retrieve the account info
 
 ```js
-import {
-  getHashedName,
-  getNameAccountKey,
-  NameRegistryState,
-} from "@bonfida/spl-name-service";
+import { getDomainKey, NameRegistryState } from "@bonfida/spl-name-service";
 
-const domainName = "bonfida"; // Without the .sol
+const domainName = "bonfida"; // With or without the .sol at the end
 
 // Step 1
-const hashedName = await getHashedName(domainName);
+const { pubkey } = await getDomainKey(domainName);
 
 // Step 2
-const domainKey = await getNameAccountKey(
-  hashedName,
-  undefined,
-  SOL_TLD_AUTHORITY
-);
-
-// Step 3
-// The registry object contains all the info about the domain name (cf struct above)
+// The registry object contains all the info about the domain name
 // The NFT owner is of type PublicKey | undefined
 const { registry, nftOwner } = await NameRegistryState.retrieve(
   connection,

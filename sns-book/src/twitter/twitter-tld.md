@@ -9,3 +9,5 @@ export const TWITTER_ROOT_PARENT_REGISTRY_KEY = new PublicKey(
 ```
 
 The `.twitter` TLD is owned by the `root` TLD and all twitter handles are subdomains of the `.twitter` TLD
+
+![twitter-tld](../assets/twitter-tld.png)

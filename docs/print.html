@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="changelog.html"><strong aria-hidden="true">3.</strong> Changelog</a></li><li class="chapter-item expanded "><a href="faq.html"><strong aria-hidden="true">4.</strong> FAQ</a></li><li class="chapter-item expanded "><a href="registry.html"><strong aria-hidden="true">5.</strong> Name Registry</a></li><li class="chapter-item expanded "><a href="domain-name/index.html"><strong aria-hidden="true">6.</strong> Domain Name</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="domain-name/domain-tld.html"><strong aria-hidden="true">6.1.</strong> TLD</a></li><li class="chapter-item expanded "><a href="domain-name/domain-direct-lookup.html"><strong aria-hidden="true">6.2.</strong> Direct look up</a></li><li class="chapter-item expanded "><a href="domain-name/domain-reverse-lookup.html"><strong aria-hidden="true">6.3.</strong> Reverse look up</a></li><li class="chapter-item expanded "><a href="domain-name/subdomain-lookup.html"><strong aria-hidden="true">6.4.</strong> Subdomain look up</a></li><li class="chapter-item expanded "><a href="domain-name/domain-find-for-owner.html"><strong aria-hidden="true">6.5.</strong> Get all domains of a user</a></li><li class="chapter-item expanded "><a href="domain-name/favorite-domain.html"><strong aria-hidden="true">6.6.</strong> Favorite domain</a></li><li class="chapter-item expanded "><a href="domain-name/tokenization.html"><strong aria-hidden="true">6.7.</strong> Tokenization</a></li><li class="chapter-item expanded "><a href="domain-name/registration.html"><strong aria-hidden="true">6.8.</strong> Registration</a></li></ol></li><li class="chapter-item expanded "><a href="twitter/index.html"><strong aria-hidden="true">7.</strong> Twitter</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="twitter/twitter-tld.html"><strong aria-hidden="true">7.1.</strong> TLD</a></li><li class="chapter-item expanded "><a href="twitter/register.html"><strong aria-hidden="true">7.2.</strong> Registration</a></li><li class="chapter-item expanded "><a href="twitter/twitter-direct-lookup.html"><strong aria-hidden="true">7.3.</strong> Direct look up</a></li><li class="chapter-item expanded "><a href="twitter/twitter-reverse-lookup.html"><strong aria-hidden="true">7.4.</strong> Reverse look up</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="deployment.html"><strong aria-hidden="true">2.</strong> Deployment</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">3.</strong> SNS Library</a></li><li class="chapter-item expanded "><a href="changelog.html"><strong aria-hidden="true">4.</strong> Changelog</a></li><li class="chapter-item expanded "><a href="faq.html"><strong aria-hidden="true">5.</strong> FAQ</a></li><li class="chapter-item expanded "><a href="registry.html"><strong aria-hidden="true">6.</strong> Name Registry</a></li><li class="chapter-item expanded "><a href="domain-name/index.html"><strong aria-hidden="true">7.</strong> Domain Name</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="domain-name/domain-tld.html"><strong aria-hidden="true">7.1.</strong> TLD</a></li><li class="chapter-item expanded "><a href="domain-name/domain-direct-lookup.html"><strong aria-hidden="true">7.2.</strong> Direct look up</a></li><li class="chapter-item expanded "><a href="domain-name/domain-reverse-lookup.html"><strong aria-hidden="true">7.3.</strong> Reverse look up</a></li><li class="chapter-item expanded "><a href="domain-name/subdomain-lookup.html"><strong aria-hidden="true">7.4.</strong> Subdomain look up</a></li><li class="chapter-item expanded "><a href="domain-name/domain-find-for-owner.html"><strong aria-hidden="true">7.5.</strong> Get all domains of a user</a></li><li class="chapter-item expanded "><a href="domain-name/records.html"><strong aria-hidden="true">7.6.</strong> Records</a></li><li class="chapter-item expanded "><a href="domain-name/edit-domain-content.html"><strong aria-hidden="true">7.7.</strong> Edit domain content</a></li><li class="chapter-item expanded "><a href="domain-name/favorite-domain.html"><strong aria-hidden="true">7.8.</strong> Favorite domain</a></li><li class="chapter-item expanded "><a href="domain-name/tokenization.html"><strong aria-hidden="true">7.9.</strong> Tokenization</a></li><li class="chapter-item expanded "><a href="domain-name/registration.html"><strong aria-hidden="true">7.10.</strong> Registration</a></li></ol></li><li class="chapter-item expanded "><a href="twitter/index.html"><strong aria-hidden="true">8.</strong> Twitter</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="twitter/twitter-tld.html"><strong aria-hidden="true">8.1.</strong> TLD</a></li><li class="chapter-item expanded "><a href="twitter/register.html"><strong aria-hidden="true">8.2.</strong> Registration</a></li><li class="chapter-item expanded "><a href="twitter/twitter-direct-lookup.html"><strong aria-hidden="true">8.3.</strong> Direct look up</a></li><li class="chapter-item expanded "><a href="twitter/twitter-reverse-lookup.html"><strong aria-hidden="true">8.4.</strong> Reverse look up</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -152,10 +152,11 @@ Nonetheless, Solana domain names can have much broader applications than just pa
 <h2 id="twitter-handles--sol-domain-names"><a class="header" href="#twitter-handles--sol-domain-names">Twitter handles &amp; .sol domain names</a></h2>
 <p>Both Twitter handles and .sol domain names are a part of SNS, yet are slightly different. A Twitter handle can only be claimed by the owner of the Twitter account. In order to guarantee this, the user needs to tweet the wallet address they want to associate with the account and then sign a transaction using the same wallet address. An oracle then verifies that the public key contained in the tweet matches with the signer. In practice, this means that Twitter names are already reserved. Twitter users just need to claim their public key by tweeting it.
 Still, this has privacy implications that require you to have an identifiable Twitter account. This is where .sol domain names are useful. The domain names serve the same purpose as Twitter handles except they do not require you to reveal any personal information or a Twitter account.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
-<p>The Solana Name Service program is deployed on Mainnet, Devnet and Testnet at the following address:</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="deployment"><a class="header" href="#deployment">Deployment</a></h1>
+<p>The Solana Name Service program is deployed on <a href="https://explorer.solana.com/address/namesLPneVptA9Z5rqUDD9tMTWEJwofgaYwp8cawRkX">Mainnet</a>, <a href="https://explorer.solana.com/address/namesLPneVptA9Z5rqUDD9tMTWEJwofgaYwp8cawRkX?cluster=devnet">Devnet</a> and <a href="https://explorer.solana.com/address/namesLPneVptA9Z5rqUDD9tMTWEJwofgaYwp8cawRkX?cluster=testnet">Testnet</a> at the following address:</p>
 <pre><code>namesLPneVptA9Z5rqUDD9tMTWEJwofgaYwp8cawRkX
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
 <p>To install the JS library</p>
 <pre><code class="language-js">npm i @bonfida/spl-name-service
 </code></pre>
@@ -164,6 +165,7 @@ Still, this has privacy implications that require you to have an identifiable Tw
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="changelog"><a class="header" href="#changelog">Changelog</a></h1>
 <ul>
+<li><code>0.1.38</code>: add <code>getFavoriteDomain</code>, <code>getDomainKey</code> and <code>getAllDomains</code></li>
 <li>In version <code>0.1.26</code> the signature of <code>NameRegistryState.retrieve</code> changed, it is now returning an object of type <code>{ registry: NameRegistryState, nftOwner: PublicKey | undefined }</code></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="faq"><a class="header" href="#faq">FAQ</a></h1>
@@ -248,7 +250,11 @@ const registry = await getTwitterRegistry(connection, handle);
 <li>The header</li>
 <li>The data</li>
 </ul>
-<p>The data for a domain name is always prefixed by the header, below is the structure of the header in both Rust and JS:</p>
+<p>The data for a domain name is always prefixed by the header.</p>
+<center>
+<img src="assets/name-registry.png" alt="name-registry" />
+</center>
+<p>Below is the structure of the header in both Rust and JS:</p>
 <pre><pre class="playground"><code class="language-rust">
 <span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
@@ -308,6 +314,8 @@ pub struct NameRecordHeader {
 <li><a href="domain-name/domain-reverse-lookup.html">Reverse look up</a></li>
 <li><a href="domain-name/subdomain-lookup.html">Subdomain look up</a></li>
 <li><a href="domain-name/domain-find-for-owner.html">Get all domains of a user</a></li>
+<li><a href="domain-name/records.html">Records</a></li>
+<li><a href="domain-name/edit-domain-content.html">Edit domain content</a></li>
 <li><a href="domain-name/favorite-domain.html">Favorite domain</a></li>
 <li><a href="domain-name/tokenization.html">Domain name tokenization</a></li>
 <li><a href="domain-name/registration.html">Domain registration</a></li>
@@ -327,32 +335,21 @@ pub struct NameRecordHeader {
 <p>All <code>.sol</code> domains are subdomains of the <code>.sol</code> TLD</p>
 <p><img src="domain-name/../assets/root-tld.png" alt="root-tld" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="direct-look-up"><a class="header" href="#direct-look-up">Direct look up</a></h1>
+<p><img src="domain-name/../assets/direct-reverse.png" alt="direct-reverse" /></p>
 <p>In order to get the information of a domain name you need to:</p>
 <ol>
-<li>Hash the domain name</li>
-<li>Derive a PDA from the hash</li>
+<li>Get the domain name public key</li>
 <li>Retrieve the account info</li>
 </ol>
-<pre><code class="language-js">import {
-  getHashedName,
-  getNameAccountKey,
-  NameRegistryState,
-} from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getDomainKey, NameRegistryState } from &quot;@bonfida/spl-name-service&quot;;
 
-const domainName = &quot;bonfida&quot;; // Without the .sol
+const domainName = &quot;bonfida&quot;; // With or without the .sol at the end
 
 // Step 1
-const hashedName = await getHashedName(domainName);
+const { pubkey } = await getDomainKey(domainName);
 
 // Step 2
-const domainKey = await getNameAccountKey(
-  hashedName,
-  undefined,
-  SOL_TLD_AUTHORITY
-);
-
-// Step 3
-// The registry object contains all the info about the domain name (cf struct above)
+// The registry object contains all the info about the domain name
 // The NFT owner is of type PublicKey | undefined
 const { registry, nftOwner } = await NameRegistryState.retrieve(
   connection,
@@ -370,7 +367,9 @@ const { registry, nftOwner } = await NameRegistryState.retrieve(
 </li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="reverse-look-up"><a class="header" href="#reverse-look-up">Reverse look up</a></h1>
-<p>This can be used to resolve the domain name from its public key</p>
+<p><img src="domain-name/../assets/direct-reverse.png" alt="direct-reverse" /></p>
+<p>If you know the public key of a domain name registry and want to get the human readable name, you need to perform a <strong>reverse lookup</strong>.</p>
+<p>The following code can be used to resolve the domain name from its public key:</p>
 <pre><code class="language-js">import { performReverseLookup } from &quot;@bonfida/spl-name-service&quot;;
 
 // Public key of bonfida.sol
@@ -392,59 +391,91 @@ const parentKey = new PublicKey(&quot;Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsi
 const subdomains: string[] = await findSubdomains(connection, parentKey); // [sub_1, sub_2]
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="get-all-domains-of-a-user"><a class="header" href="#get-all-domains-of-a-user">Get all domains of a user</a></h1>
-<p>You can retrieve all the domains owned by a public key using a <code>MemcmpFilter</code> filter</p>
-<pre><code class="language-js">export async function findOwnedNameAccountsForUser(
-  connection: Connection,
-  userAccount: PublicKey
-): Promise&lt;PublicKey[]&gt; {
-  const filters = [
-    {
-      memcmp: {
-        offset: 32,
-        bytes: userAccount.toBase58(),
-      },
+<p>You can retrieve all the domain names of a user with the following <code>MemcmpFilter</code></p>
+<pre><code class="language-js">const filters = [
+  {
+    memcmp: {
+      offset: 32,
+      bytes: user.toBase58(),
     },
-    {
-      memcmp: {
-        offset: 0,
-        bytes: SOL_TLD_AUTHORITY.toBase58(),
-      },
+  },
+  {
+    memcmp: {
+      offset: 0,
+      bytes: SOL_TLD_AUTHORITY.toBase58(),
     },
-  ];
-  const accounts = await connection.getProgramAccounts(NAME_PROGRAM_ID, {
-    filters,
-  });
-  return accounts.map((a) =&gt; a.pubkey);
-}
+  },
+];
 </code></pre>
+<p>If you are using <code>@bonfida/spl-name-service</code> you can use the following code:</p>
+<pre><code class="language-js">import { getAllDomains } from &quot;@bonfida/spl-name-service&quot;;
+
+// ...
+
+const domains = await getAllDomains(connection, user);
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="records"><a class="header" href="#records">Records</a></h1>
+<p>In addition to typical DNS records (A, AAAA, TXT, MX, etc.), the Solana Name Service introduces brand new web3-specific types. The following table will be updated as new protocols are integrated.</p>
+<table><thead><tr><th>Name</th><th>Value</th></tr></thead><tbody>
+<tr><td>IPFS</td><td>An IPFS CID</td></tr>
+<tr><td>ARWV</td><td>An Arweave address</td></tr>
+<tr><td>ETH</td><td>An ETH public key</td></tr>
+<tr><td>BTC</td><td>A BTC public key</td></tr>
+<tr><td>LTC</td><td>An LTC public key</td></tr>
+<tr><td>DOGE</td><td>A DOGE public key</td></tr>
+<tr><td>email</td><td>An email address</td></tr>
+<tr><td>url</td><td>A website URL</td></tr>
+<tr><td>discord</td><td>A discord username</td></tr>
+<tr><td>github</td><td>A github username</td></tr>
+<tr><td>reddit</td><td>A reddit username</td></tr>
+<tr><td>twitter</td><td>A twitter username</td></tr>
+<tr><td>telegram</td><td>A telegram username</td></tr>
+</tbody></table>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="edit-domain-content"><a class="header" href="#edit-domain-content">Edit domain content</a></h1>
+<p>To write data in a domain registry you can use the following code:</p>
+<pre><code class="language-js">import {
+  updateNameRegistryData,
+  ROOT_DOMAIN_ACCOUNT,
+} from &quot;@bonfida/spl-name-service&quot;;
+
+const data = Buffer.from(&quot;Hello, world!&quot;);
+
+// The offset to which the data should be written into the registry, usually 0
+const offset = 0;
+
+const ix = await updateNameRegistryData(
+  connection,
+  name,
+  offset,
+  data,
+  undefined,
+  ROOT_DOMAIN_ACCOUNT
+);
+
+// sign and send instruction
+</code></pre>
+<p>If the data is too large to fit in a single transaction, you will have to update the domain in several transaction by slicing the buffer and increasing the offset accordingly.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="favorite-domain"><a class="header" href="#favorite-domain">Favorite domain</a></h1>
-<p>Users have the possibility to select a domain name as their favorite one. You can retrieve it with the following</p>
-<pre><code class="language-js">import { FavouriteDomain, NAME_OFFERS_ID } from &quot;@bonfida/name-offers&quot;;
-import { performReverseLookup } from &quot;@bonfida/spl-name-service&quot;;
-import { PublicKey } from &quot;@solana/web3.js&quot;;
+<p>Users have the possibility to select a domain name as their favorite one. If you are a developper and want to integrate SNS to your DApp it's recommended to always use the favorite domain name to replace the user's public key.</p>
+<p>The favorite domain name can be retrieved with the following code</p>
+<pre><code class="language-js">import { getFavoriteDomain } from &quot;@bonfida/spl-name-service&quot;;
 
-const findFavoriteDomainName = async (owner: PublicKey) =&gt; {
-  try {
-    const [favKey] = await FavouriteDomain.getKey(
-      NAME_OFFERS_ID,
-      new PublicKey(owner)
-    );
+// ...
 
-    const favourite = await FavouriteDomain.retrieve(connection, favKey);
-
-    const reverse = await performReverseLookup(
-      connection,
-      favourite.nameAccount
-    );
-
-    return reverse;
-  } catch (err) {
-    console.log(err);
-  }
-};
+const { domain, reverse } = await getFavoriteDomain(connection, user);
 </code></pre>
+<p><code>getFavoriteDomain</code> returns the following:</p>
+<ul>
+<li><code>domain</code>: The public key of the domain name</li>
+<li><code>reverse</code>: The reverse look up of the account</li>
+</ul>
+<p>For instance for <a href="https://naming.bonfida.org/profile/FidaeBkZkvDqi1GXNEwB8uWmj9Ngx2HXSS5nyGRuVFcZ">FidaeBkZkvDqi1GXNEwB8uWmj9Ngx2HXSS5nyGRuVFcZ</a>:</p>
+<ul>
+<li><code>domain = Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb</code></li>
+<li><code>reverse = bonfida</code></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="tokenization"><a class="header" href="#tokenization">Tokenization</a></h1>
-<p>Domain names can be tokenized in NFTs that follow the metaplex standard.</p>
+<p>Domain names are <strong>not</strong> SPL tokens, however, they can be tokenized in NFTs that follow the Metaplex standard. It's only recommended to tokenize your domain if you want to resell your domain on an NFT market place like <a href="https://magiceden.io/marketplace/bonfida">Magic Eden</a></p>
 <p>To retrieve all the tokenized domain names</p>
 <pre><code class="language-js">import { retrieveNfts } from &quot;@bonfida/spl-name-service&quot;;
 
@@ -531,17 +562,20 @@ const [, ix] = await registerDomainName(name, space, buyer, buyerTokenAccount);
 );
 </code></pre>
 <p>The <code>.twitter</code> TLD is owned by the <code>root</code> TLD and all twitter handles are subdomains of the <code>.twitter</code> TLD</p>
+<p><img src="twitter/../assets/twitter-tld.png" alt="twitter-tld" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="twitter-handle-registration"><a class="header" href="#twitter-handle-registration">Twitter handle registration</a></h1>
 <p>Twitter handles can be registered <a href="https://naming.bonfida.org/twitter">here</a> and a detailed guide can be found <a href="https://docs.bonfida.org/collection/solana-name-service-twitter">on the Community Help Center</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="direct-look-up-1"><a class="header" href="#direct-look-up-1">Direct look up</a></h1>
+<p><img src="twitter/../assets/twitter-direct-reverse.png" alt="direct-reverse" /></p>
 <p>To find the Twitter handle associated to a public key</p>
 <pre><code class="language-js">import { getHandleAndRegistryKey } from &quot;@bonfida/spl-name-service&quot;;
 
 const pubkey = new PublicKey(&quot;FidaeBkZkvDqi1GXNEwB8uWmj9Ngx2HXSS5nyGRuVFcZ&quot;);
 
-const [handle, registryKey] = await getHandleAndRegistryKey(connection, pubkey);
+const [handle] = await getHandleAndRegistryKey(connection, pubkey);
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="reverse-look-up-1"><a class="header" href="#reverse-look-up-1">Reverse look up</a></h1>
+<p><img src="twitter/../assets/twitter-direct-reverse.png" alt="direct-reverse" /></p>
 <p>To find the public key associated to a Twitter handle</p>
 <pre><code class="language-js">import { getTwitterRegistry } from &quot;@bonfida/spl-name-service&quot;;
 

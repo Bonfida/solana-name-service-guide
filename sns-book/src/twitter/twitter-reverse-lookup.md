@@ -1,5 +1,7 @@
 # Reverse look up
 
+![direct-reverse](../assets/twitter-direct-reverse.png)
+
 To find the public key associated to a Twitter handle
 
 ```js

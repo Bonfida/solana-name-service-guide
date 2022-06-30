@@ -1,11 +1,5 @@
 # Installation
 
-The Solana Name Service program is deployed on Mainnet, Devnet and Testnet at the following address:
-
-```
-namesLPneVptA9Z5rqUDD9tMTWEJwofgaYwp8cawRkX
-```
-
 To install the JS library
 
 ```js

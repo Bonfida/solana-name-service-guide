@@ -1,6 +1,6 @@
 # Tokenization
 
-Domain names can be tokenized in NFTs that follow the metaplex standard.
+Domain names are **not** SPL tokens, however, they can be tokenized in NFTs that follow the Metaplex standard. It's only recommended to tokenize your domain if you want to resell your domain on an NFT market place like [Magic Eden](https://magiceden.io/marketplace/bonfida)
 
 To retrieve all the tokenized domain names
 

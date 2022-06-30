@@ -5,7 +5,13 @@ The registry stores information about the domain name. It is made of two things:
 - The header
 - The data
 
-The data for a domain name is always prefixed by the header, below is the structure of the header in both Rust and JS:
+The data for a domain name is always prefixed by the header.
+
+<center>
+<img src="assets/name-registry.png" alt="name-registry" />
+</center>
+
+Below is the structure of the header in both Rust and JS:
 
 ```rust
 /// The layout of the remaining bytes in the account data are determined by the record `class`

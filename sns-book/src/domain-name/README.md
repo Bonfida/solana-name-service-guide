@@ -7,6 +7,8 @@ This following sections provide information on the following:
 - [Reverse look up](domain-reverse-lookup.md)
 - [Subdomain look up](subdomain-lookup.md)
 - [Get all domains of a user](domain-find-for-owner.md)
+- [Records](records.md)
+- [Edit domain content](edit-domain-content.md)
 - [Favorite domain](favorite-domain.md)
 - [Domain name tokenization](tokenization.md)
 - [Domain registration](registration.md)
