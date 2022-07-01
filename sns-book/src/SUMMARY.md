@@ -13,7 +13,9 @@
   - [Get all domains of a user](domain-name/domain-find-for-owner.md)
   - [Records](domain-name/records.md)
   - [Edit domain content](domain-name/edit-domain-content.md)
+  - [Transfer domains](domain-name/transfer.md)
   - [Favorite domain](domain-name/favorite-domain.md)
+  - [React hooks](domain-name/react-hooks.md)
   - [Tokenization](domain-name/tokenization.md)
   - [Registration](domain-name/registration.md)
 
