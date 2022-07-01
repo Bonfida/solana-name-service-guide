@@ -189,7 +189,7 @@ export const useDomains = (domains: string[]) =&gt; {
 <pre><code class="language-ts">type Result = (string | undefined)[] | undefined;
 
 /**
- *
+ * This hook can be used to retrieve all the records of a domain
  * @param domains Domains to resolve records for e.g &quot;bonfida&quot;
  * @returns
  */
@@ -232,6 +232,53 @@ export const useRecords = (domain: string) =&gt; {
 
     fn().catch(console.error);
   }, [domain]);
+
+  return result;
+};
+</code></pre>
+<h2 id="usedomainsforuser"><a class="header" href="#usedomainsforuser">useDomainsForUser</a></h2>
+<pre><code class="language-ts">interface Result {
+  pubkey: PublicKey;
+  registry: NameRegistryState;
+  reverse: string;
+}
+
+/**
+ * This hook can be used to retrieve all the domains of a user
+ * @param user The user to search domains for
+ * @returns
+ */
+export const useDomainsForUser = (user: PublicKey) =&gt; {
+  const { connection } = useConnection();
+  const [result, setResult] = useState&lt;Result[] | undefined&gt;(undefined);
+  const mounted = useRef(true);
+
+  useEffect(() =&gt; {
+    const fn = async () =&gt; {
+      const domains = await getAllDomains(connection, user);
+      const registries = await NameRegistryState.retrieveBatch(connection, [
+        ...domains,
+      ]);
+      const reverses = await performReverseLookupBatch(connection, [
+        ...domains,
+      ]);
+      const _result: Result[] = [];
+      for (let i = 0; i &lt; domains.length; i++) {
+        _result.push({
+          pubkey: domains[i],
+          registry: registries[i]!,
+          reverse: reverses[i]!,
+        });
+      }
+      if (mounted.current) {
+        setResult(_result);
+      }
+
+      return () =&gt; (mounted.current = false);
+    };
+
+    fn().catch(console.error);
+  }, [user.toBase58()]);
 
   return result;
 };
