@@ -15,7 +15,12 @@
   - [Edit domain content](domain-name/edit-domain-content.md)
   - [Transfer domains](domain-name/transfer.md)
   - [Favorite domain](domain-name/favorite-domain.md)
-  - [React hooks](domain-name/react-hooks.md)
+  - [React hooks](domain-name/react-hooks/README.md)
+    - [useDomains](domain-name/react-hooks/use-domains.md)
+    - [useDomainRecords](domain-name/react-hooks/use-domain-records.md)
+    - [useDomainsForUser](domain-name/react-hooks/use-domains-for-user.md)
+    - [useFavoriteDomain](domain-name/react-hooks/use-favorite-domain.md)
+    - [useProfilePic](domain-name/react-hooks/use-profile-pic.md)
   - [Tokenization](domain-name/tokenization.md)
   - [Registration](domain-name/registration.md)
 
