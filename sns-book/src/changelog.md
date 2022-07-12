@@ -1,5 +1,6 @@
 # Changelog
 
+- `0.1.41`: add `getAllRegisteredDomains`
 - `0.1.40`: fix `performReverseLookupBatch`
 - `0.1.39`: add `Record` `enum` and records getter functions
 - `0.1.38`: add `getFavoriteDomain`, `getDomainKey` and `getAllDomains`

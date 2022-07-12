@@ -7,6 +7,7 @@ This following sections provide information on the following:
 - [Reverse look up](domain-reverse-lookup.md)
 - [Subdomain look up](subdomain-lookup.md)
 - [Get all domains of a user](domain-find-for-owner.md)
+- [Get all domains](all-domains.md)
 - [Records](records.md)
 - [Transfer domains](transfer.md)
 - [Edit domain content](edit-domain-content.md)

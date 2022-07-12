@@ -11,6 +11,7 @@
   - [Reverse look up](domain-name/domain-reverse-lookup.md)
   - [Subdomain look up](domain-name/subdomain-lookup.md)
   - [Get all domains of a user](domain-name/domain-find-for-owner.md)
+  - [Get all domains](domain-name/all-domains.md)
   - [Records](domain-name/records.md)
   - [Edit domain content](domain-name/edit-domain-content.md)
   - [Transfer domains](domain-name/transfer.md)
