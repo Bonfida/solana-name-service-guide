@@ -20,7 +20,7 @@ export const useRecords = (domain: string) => {
       const recordsKeys = Object.keys(Record).map((e) => Record[e]);
 
       const keys = await Promise.all(
-        recordsKeys.map((e) => getDomainKey(e + "." + domain))
+        recordsKeys.map((e) => getDomainKey(e + "." + domain, true))
       );
 
       const registries = await NameRegistryState.retrieveBatch(
