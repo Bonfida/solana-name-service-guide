@@ -17,6 +17,7 @@ In addition to typical DNS records (A, AAAA, TXT, MX, etc.), the Solana Name Ser
 | reddit   | A reddit username   |
 | twitter  | A twitter username  |
 | telegram | A telegram username |
+| pic      | A profile picture   |
 
 ## Record enum
 
@@ -37,6 +38,7 @@ export enum Record {
   Reddit = "reddit",
   Twitter = "twitter",
   Telegram = "telegram",
+  Pic = "pic"
 }
 ```
 
