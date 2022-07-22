@@ -202,6 +202,16 @@
 <p>A more generic resolving function <code>getRecord</code> is also exported with the following signature</p>
 <pre><code class="language-js">(connection: Connection, domain: string, record: Record) =&gt; Promise&lt;NameRegistryState&gt;
 </code></pre>
+<h2 id="difference-between-records-and-subdomains"><a class="header" href="#difference-between-records-and-subdomains">Difference between records and subdomains</a></h2>
+<p>In practice, let us consider the name <code>foo.sol</code> . If we want to find the domain's A record, containing an associated IPv4 address, then we can find it by querying <code>\1A.foo.sol</code>, with \1 the character of code value 1. The specification makes use of this prefix in order to differentiate between actual domains and records, which means that it is still possible to use the <code>A.foo.sol</code> subdomain with no collision.
+In addition to this, the special <code>\1.foo.sol</code> is reserved to hold the list of all currently initialized records for a given subdomain</p>
+<blockquote>
+<p><strong>Note:</strong> <code>\0</code> and <code>\1</code> are convenient notations for:</p>
+<ul>
+<li><code>\0 = \x00</code>.</li>
+<li><code>\1 = \x01</code>.</li>
+</ul>
+</blockquote>
 
                     </main>
 

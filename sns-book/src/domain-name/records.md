@@ -71,3 +71,13 @@ A more generic resolving function `getRecord` is also exported with the followin
 ```js
 (connection: Connection, domain: string, record: Record) => Promise<NameRegistryState>
 ```
+
+## Difference between records and subdomains
+
+In practice, let us consider the name `foo.sol` . If we want to find the domain's A record, containing an associated IPv4 address, then we can find it by querying `\1A.foo.sol`, with \1 the character of code value 1. The specification makes use of this prefix in order to differentiate between actual domains and records, which means that it is still possible to use the `A.foo.sol` subdomain with no collision.
+In addition to this, the special `\1.foo.sol` is reserved to hold the list of all currently initialized records for a given subdomain
+
+> **Note:** `\0` and `\1` are convenient notations for:
+>
+> - `\0 = \x00`.
+> - `\1 = \x01`.
