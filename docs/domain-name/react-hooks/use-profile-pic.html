@@ -161,8 +161,7 @@ export const useProfilePic = (user: PublicKey) =&gt; {
         return setResult(undefined);
       }
 
-      const { pubkey } = await getDomainKey(&quot;pic.&quot; + favorite);
-      const { registry } = await NameRegistryState.retrieve(connection, pubkey);
+      const registry = await getPicRecord(connection, favorite.toBase58());
 
       if (!registry.data) {
         return setResult(undefined);
