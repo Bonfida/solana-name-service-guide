@@ -523,6 +523,17 @@ export const getAllRegisteredDomains = async (connection: Connection) =&gt; {
 <p>A more generic resolving function <code>getRecord</code> is also exported with the following signature</p>
 <pre><code class="language-js">(connection: Connection, domain: string, record: Record) =&gt; Promise&lt;NameRegistryState&gt;
 </code></pre>
+<h2 id="gateway"><a class="header" href="#gateway">Gateway</a></h2>
+<p>The following records can be resolved in browser using <a href="https://sol-domain.org">https://sol-domain.org</a>:</p>
+<ul>
+<li><code>Url</code></li>
+<li><code>IPFS</code></li>
+<li><code>ARWV</code></li>
+</ul>
+<p>The implementation of this resolver can be found <a href="https://github.com/Bonfida/name-resolver">on Github</a></p>
+<blockquote>
+<p>For example <a href="https://bonfida.sol-domain.org">https://bonfida.sol-domain.org</a></p>
+</blockquote>
 <h2 id="difference-between-records-and-subdomains"><a class="header" href="#difference-between-records-and-subdomains">Difference between records and subdomains</a></h2>
 <p>In practice, let us consider the name <code>foo.sol</code> . If we want to find the domain's A record, containing an associated IPv4 address, then we can find it by querying <code>\1A.foo.sol</code>, with \1 the character of code value 1. The specification makes use of this prefix in order to differentiate between actual domains and records, which means that it is still possible to use the <code>A.foo.sol</code> subdomain with no collision.
 In addition to this, the special <code>\1.foo.sol</code> is reserved to hold the list of all currently initialized records for a given subdomain</p>

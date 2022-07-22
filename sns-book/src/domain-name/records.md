@@ -72,6 +72,18 @@ A more generic resolving function `getRecord` is also exported with the followin
 (connection: Connection, domain: string, record: Record) => Promise<NameRegistryState>
 ```
 
+## Gateway
+
+The following records can be resolved in browser using [https://sol-domain.org](https://sol-domain.org):
+
+- `Url`
+- `IPFS`
+- `ARWV`
+
+The implementation of this resolver can be found [on Github](https://github.com/Bonfida/name-resolver)
+
+> For example [https://bonfida.sol-domain.org](https://bonfida.sol-domain.org)
+
 ## Difference between records and subdomains
 
 In practice, let us consider the name `foo.sol` . If we want to find the domain's A record, containing an associated IPv4 address, then we can find it by querying `\1A.foo.sol`, with \1 the character of code value 1. The specification makes use of this prefix in order to differentiate between actual domains and records, which means that it is still possible to use the `A.foo.sol` subdomain with no collision.
