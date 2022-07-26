@@ -24,6 +24,7 @@
     - [useProfilePic](domain-name/react-hooks/use-profile-pic.md)
   - [Tokenization](domain-name/tokenization.md)
   - [Registration](domain-name/registration.md)
+  - [Media kit](domain-name/media-kit.md)
 
 - [Twitter](twitter/README.md)
   - [TLD](twitter/twitter-tld.md)
