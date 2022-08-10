@@ -2,22 +2,23 @@
 
 In addition to typical DNS records (A, AAAA, TXT, MX, etc.), the Solana Name Service introduces brand new web3-specific types. The following table will be updated as new protocols are integrated.
 
-| Name     | Value               |
-| -------- | ------------------- |
-| IPFS     | An IPFS CID         |
-| ARWV     | An Arweave address  |
-| ETH      | An ETH public key   |
-| BTC      | A BTC public key    |
-| LTC      | An LTC public key   |
-| DOGE     | A DOGE public key   |
-| email    | An email address    |
-| url      | A website URL       |
-| discord  | A discord username  |
-| github   | A github username   |
-| reddit   | A reddit username   |
-| twitter  | A twitter username  |
-| telegram | A telegram username |
-| pic      | A profile picture   |
+| Name     | Value                              |
+| -------- | ---------------------------------- |
+| IPFS     | An IPFS CID                        |
+| ARWV     | An Arweave address                 |
+| SOL      | A concatenation of two public keys |
+| ETH      | An ETH public key                  |
+| BTC      | A BTC public key                   |
+| LTC      | An LTC public key                  |
+| DOGE     | A DOGE public key                  |
+| email    | An email address                   |
+| url      | A website URL                      |
+| discord  | A discord username                 |
+| github   | A github username                  |
+| reddit   | A reddit username                  |
+| twitter  | A twitter username                 |
+| telegram | A telegram username                |
+| pic      | A profile picture                  |
 
 ## Record enum
 
@@ -27,6 +28,7 @@ The following `enum` is exported from `@bonfida/spl-name-service`
 export enum Record {
   IPFS = "IPFS",
   ARWV = "ARWV",
+  SOL = "SOL",
   ETH = "ETH",
   BTC = "BTC",
   LTC = "LTC",
@@ -48,6 +50,7 @@ The following resolving functions are exported:
 
 - `getIpfsRecord`: This function can be used to retrieve the IPFS record of a domain name
 - `getArweaveRecord`: This function can be used to retrieve the Arweave record of a domain name
+- `getSolRecord`: This function can be used to retrieve the SOL record of a domain name
 - `getEthRecord`: This function can be used to retrieve the ETH record of a domain name
 - `getBtcRecord`: This function can be used to retrieve the BTC record of a domain name
 - `getLtcRecord`: This function can be used to retrieve the LTC record of a domain name
@@ -59,6 +62,7 @@ The following resolving functions are exported:
 - `getRedditRecord`: This function can be used to retrieve the Reddit record of a domain name
 - `getTwitterRecord`: This function can be used to retrieve the Twitter record of a domain name
 - `getTelegramRecord`: This function can be used to retrieve the Telegram record of a domain name
+-
 
 All functions have the following signature
 
@@ -71,6 +75,14 @@ A more generic resolving function `getRecord` is also exported with the followin
 ```js
 (connection: Connection, domain: string, record: Record) => Promise<NameRegistryState>
 ```
+
+## The SOL record
+
+The SOL record can be used to receive funds to a different address than the one owning the domain. This allows people to hold the domain on a cold wallet while still being able to receive funds on a hot wallet.
+
+The SOL record data contains a 64-byte array that is the concatenation of two public keys. The first 32 bytes represent public key to which funds should be sent and the next 32 bytes are the public key of the _expected_ owner of the domain. If the expected domain does not match the actual owner of the domain funds **must not** be transfered.
+
+The expected owner is required to prevent funds being sent to a stale SOL record after a domain was transfered or sold to a new owner.
 
 ## Gateway
 
