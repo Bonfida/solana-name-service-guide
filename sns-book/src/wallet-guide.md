@@ -11,8 +11,8 @@ Below is the correct methodology to resolve `.sol` domain names. If you are a wa
 
 2. Check the SOL record
 
-   - If the SOL record is set and the signature is valid, the public key specified in the record is the correct destination.
-   - Else go to step 3
+   - **If** the SOL record is set and the signature is valid, the public key specified in the record is the correct destination.
+   - **Else** go to step 3
 
 3. The correct destination of funds is the domain owner
 
@@ -91,7 +91,7 @@ export const resolve = async (connection: Connection, domain: string) => {
 
 As long as the user owns the tokenized domains (i.e the NFT) they will be able to withdraw from the PDA escrow that received the funds. However, if for some reason the user does not own the NFT he won't be able to withdraw the funds.
 
-2. Why is there two public keys in the SOL record?
+2. Why is there a signature in the SOL record?
 
 The SOL record data contains a 96-byte array that is the concatenation of a public key (32 bytes) and signature (64 bytes). The first 32 bytes represent the public key (`pubkey`) to which funds should be sent and the next 64 bytes are the signature of `pubkey_as_bytes + record_key_as_bytes` signed by the owner of the domain. If the signature is invalid funds **must not** be transfered.
 

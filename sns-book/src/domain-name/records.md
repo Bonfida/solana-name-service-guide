@@ -2,23 +2,23 @@
 
 In addition to typical DNS records (A, AAAA, TXT, MX, etc.), the Solana Name Service introduces brand new web3-specific types. The following table will be updated as new protocols are integrated.
 
-| Name     | Value                              |
-| -------- | ---------------------------------- |
-| IPFS     | An IPFS CID                        |
-| ARWV     | An Arweave address                 |
-| SOL      | A concatenation of two public keys |
-| ETH      | An ETH public key                  |
-| BTC      | A BTC public key                   |
-| LTC      | An LTC public key                  |
-| DOGE     | A DOGE public key                  |
-| email    | An email address                   |
-| url      | A website URL                      |
-| discord  | A discord username                 |
-| github   | A github username                  |
-| reddit   | A reddit username                  |
-| twitter  | A twitter username                 |
-| telegram | A telegram username                |
-| pic      | A profile picture                  |
+| Name     | Value                                           |
+| -------- | ----------------------------------------------- |
+| IPFS     | An IPFS CID                                     |
+| ARWV     | An Arweave address                              |
+| SOL      | A concatenation of a public key and a signature |
+| ETH      | An ETH public key                               |
+| BTC      | A BTC public key                                |
+| LTC      | An LTC public key                               |
+| DOGE     | A DOGE public key                               |
+| email    | An email address                                |
+| url      | A website URL                                   |
+| discord  | A discord username                              |
+| github   | A github username                               |
+| reddit   | A reddit username                               |
+| twitter  | A twitter username                              |
+| telegram | A telegram username                             |
+| pic      | A profile picture                               |
 
 ## Record enum
 
@@ -78,7 +78,7 @@ A more generic resolving function `getRecord` is also exported with the followin
 
 ## The SOL record
 
-The SOL record can be used to receive funds to a different address than the one owning the domain. This allows people to hold the domain on a cold wallet while still being able to receive funds on a hot wallet.
+The SOL record can be used to receive funds to a different address than the one owning the domain. This allows people to hold the domain on a cold wallet while still being able to receive funds in a hot wallet.
 
 The SOL record data contains a 96-byte array that is the concatenation of a public key (32 bytes) and signature (64 bytes). The first 32 bytes represent the public key (`pubkey`) to which funds should be sent and the next 64 bytes are the signature of `pubkey_as_bytes + record_key_as_bytes` signed by the owner of the domain. If the signature is invalid funds **must not** be transfered.
 
