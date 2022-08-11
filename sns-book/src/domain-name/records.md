@@ -62,7 +62,7 @@ The following resolving functions are exported:
 - `getRedditRecord`: This function can be used to retrieve the Reddit record of a domain name
 - `getTwitterRecord`: This function can be used to retrieve the Twitter record of a domain name
 - `getTelegramRecord`: This function can be used to retrieve the Telegram record of a domain name
--
+- `getShdwRecord`: This function can be used to retrieve the SOL record of a domain name
 
 All functions have the following signature
 
@@ -91,6 +91,7 @@ The following records can be resolved in browser using [https://sol-domain.org](
 - `Url`
 - `IPFS`
 - `ARWV`
+- `SHDW`
 
 The implementation of this resolver can be found [on Github](https://github.com/Bonfida/name-resolver)
 
