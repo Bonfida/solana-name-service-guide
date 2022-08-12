@@ -11,7 +11,7 @@ Below is the correct methodology to resolve `.sol` domain names. If you are a wa
 
 2. Check the SOL record
 
-   - **If** the SOL record is set and the signature is valid, the public key specified in the record is the correct destination.
+   - **If** the SOL record is set and the signature is valid, the public key specified in the record is the correct destination. If the signature is invalid go to step 3
    - **Else** go to step 3
 
 3. The correct destination of funds is the domain owner
