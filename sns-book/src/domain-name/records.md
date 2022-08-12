@@ -62,7 +62,7 @@ The following resolving functions are exported:
 - `getRedditRecord`: This function can be used to retrieve the Reddit record of a domain name
 - `getTwitterRecord`: This function can be used to retrieve the Twitter record of a domain name
 - `getTelegramRecord`: This function can be used to retrieve the Telegram record of a domain name
-- `getShdwRecord`: This function can be used to retrieve the SOL record of a domain name
+- `getShdwRecord`: This function can be used to retrieve the SHDW record of a domain name
 
 All functions have the following signature
 
