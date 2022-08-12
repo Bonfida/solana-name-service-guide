@@ -80,7 +80,7 @@ A more generic resolving function `getRecord` is also exported with the followin
 
 The SOL record can be used to receive funds to a different address than the one owning the domain. This allows people to hold the domain on a cold wallet while being able to receive funds on a hot wallet.
 
-The SOL record data contains a 96-byte array that is the concatenation of a public key (32 bytes) and signature (64 bytes). The first 32 bytes represent the public key (`pubkey`) to which funds should be sent and the next 64 bytes are the signature of `pubkey_as_bytes + record_key_as_bytes` by the owner of the domain. If the signature is invalid funds **must not** be transfered.
+The SOL record data contains a 96-byte array that is the concatenation of a public key (32 bytes) and signature (64 bytes). The first 32 bytes represent the public key (`pubkey`) to which funds should be sent and the next 64 bytes are the signature of `pubkey_as_bytes + record_key_as_bytes` by the owner of the domain. If the signature is invalid funds **must not** be transferred.
 
 The signature is required to prevent funds being sent to a stale SOL record after a domain has been transferred or sold.
 

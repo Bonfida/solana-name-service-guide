@@ -1,6 +1,6 @@
 # Transfer domain
 
-Domain names can be transfered using the `transferNameOwnership` instruction:
+Domain names can be transferred using the `transferNameOwnership` instruction:
 
 ```js
 import {
