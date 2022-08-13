@@ -4,6 +4,7 @@
 - [Changelog](changelog.md)
 - [FAQ](faq.md)
 - [Name Registry](registry.md)
+- [Wallet Guide](wallet-guide.md)
 - [Domain Name](domain-name/README.md)
 
   - [TLD](domain-name/domain-tld.md)
