@@ -117,3 +117,80 @@ In addition to this, the special `\1.foo.sol` is reserved to hold the list of al
 >
 > - `\0 = \x00`.
 > - `\1 = \x01`.
+
+## Editing records
+
+Below is a NodeJS example of how to create and edit a record
+
+```js
+import {
+  Connection,
+  TransactionInstruction,
+  Keypair,
+  clusterApiUrl,
+} from "@solana/web3.js";
+import {
+  Record,
+  getDomainKey,
+  createNameRegistry,
+  NameRegistryState,
+  updateInstruction,
+  NAME_PROGRAM_ID,
+  Numberu32,
+} from "@bonfida/spl-name-service";
+import fs from "fs";
+import { signAndSendInstructions } from "@bonfida/utils";
+
+const connection = new Connection(clusterApiUrl("mainnet-beta"), "processed");
+const wallet = Keypair.fromSecretKey(
+  new Uint8Array(JSON.parse(fs.readFileSync("path_to_your_wallet").toString()))
+);
+
+// bonfida.sol
+const domain = "bonfida"; // With or without the .sol at the end
+
+// The IPFS record of bonfida.sol
+const record = Record.IPFS;
+
+const update = async () => {
+  const ixs: TransactionInstruction[] = [];
+  const { pubkey: domainKey } = await getDomainKey(domain);
+  const { pubkey: recordKey } = await getDomainKey(record + "." + domain, true);
+
+  const recordAccInfo = await connection.getAccountInfo(recordKey);
+
+  if (!recordAccInfo?.data) {
+    // The record does not exist so create it first
+    const space = 2_000;
+    const lamports = await connection.getMinimumBalanceForRentExemption(
+      space + NameRegistryState.HEADER_LEN
+    );
+    const ix = await createNameRegistry(
+      connection,
+      Buffer.from([1]).toString() + record,
+      space,
+      wallet.publicKey,
+      wallet.publicKey,
+      lamports,
+      undefined,
+      domainKey
+    );
+    ixs.push(ix);
+  }
+
+  const ix = updateInstruction(
+    NAME_PROGRAM_ID,
+    recordKey,
+    new Numberu32(0),
+    Buffer.from("Some IPFS CID"),
+    wallet.publicKey
+  );
+
+  ixs.push(ix);
+
+  const tx = await signAndSendInstructions(connection, [], wallet, ixs);
+  console.log(`Updated record ${tx}`);
+};
+
+update();
+```
