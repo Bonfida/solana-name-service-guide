@@ -161,8 +161,16 @@ const { pubkey } = await getDomainKey(domainName);
 // The NFT owner is of type PublicKey | undefined
 const { registry, nftOwner } = await NameRegistryState.retrieve(
   connection,
-  domainKey
+  pubkey
 );
+
+// Subdomain derivation
+const subDomain = &quot;dex.bonfida&quot;; // With or without the .sol at the end
+const { pubkey: subKey } = await getDomainKey(subDomain);
+
+// Record derivation (e.g IPFS record)
+const record = &quot;IPFS.bonfida&quot;; // With or without the .sol at the end
+const { pubkey: recordKey } = await getDomainKey(record, true);
 </code></pre>
 <p>The <code>retrieve</code> method returns an object made of two fields:</p>
 <ul>

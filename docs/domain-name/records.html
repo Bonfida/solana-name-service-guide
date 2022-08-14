@@ -181,6 +181,14 @@
   Pic = &quot;pic&quot;
 }
 </code></pre>
+<h2 id="record-derivation"><a class="header" href="#record-derivation">Record derivation</a></h2>
+<p>Record keys can be derived with the <code>getDomainKey</code> function and the <code>record</code> flag set to <code>true</code></p>
+<pre><code class="language-js">const record = Record.IPFS + &quot;.&quot; + &quot;bonfida&quot;; // With or without the .sol at the end
+const { pubkey: recordKey } = await getDomainKey(record, true);
+</code></pre>
+<blockquote>
+<p>If the <code>record</code> flag is set to <code>false</code>, the <code>getDomainKey</code> function will derive the key of the subdomain</p>
+</blockquote>
 <h2 id="resolving-records"><a class="header" href="#resolving-records">Resolving records</a></h2>
 <p>The following resolving functions are exported:</p>
 <ul>
@@ -232,6 +240,79 @@ In addition to this, the special <code>\1.foo.sol</code> is reserved to hold the
 <li><code>\1 = \x01</code>.</li>
 </ul>
 </blockquote>
+<h2 id="editing-records"><a class="header" href="#editing-records">Editing records</a></h2>
+<p>Below is a NodeJS example of how to create and edit a record</p>
+<pre><code class="language-js">import {
+  Connection,
+  TransactionInstruction,
+  Keypair,
+  clusterApiUrl,
+} from &quot;@solana/web3.js&quot;;
+import {
+  Record,
+  getDomainKey,
+  createNameRegistry,
+  NameRegistryState,
+  updateInstruction,
+  NAME_PROGRAM_ID,
+  Numberu32,
+} from &quot;@bonfida/spl-name-service&quot;;
+import fs from &quot;fs&quot;;
+import { signAndSendInstructions } from &quot;@bonfida/utils&quot;;
+
+const connection = new Connection(clusterApiUrl(&quot;mainnet-beta&quot;), &quot;processed&quot;);
+const wallet = Keypair.fromSecretKey(
+  new Uint8Array(JSON.parse(fs.readFileSync(&quot;path_to_your_wallet&quot;).toString()))
+);
+
+// bonfida.sol
+const domain = &quot;bonfida&quot;; // With or without the .sol at the end
+
+// The IPFS record of bonfida.sol
+const record = Record.IPFS;
+
+const update = async () =&gt; {
+  const ixs: TransactionInstruction[] = [];
+  const { pubkey: domainKey } = await getDomainKey(domain);
+  const { pubkey: recordKey } = await getDomainKey(record + &quot;.&quot; + domain, true);
+
+  const recordAccInfo = await connection.getAccountInfo(recordKey);
+
+  if (!recordAccInfo?.data) {
+    // The record does not exist so create it first
+    const space = 2_000;
+    const lamports = await connection.getMinimumBalanceForRentExemption(
+      space + NameRegistryState.HEADER_LEN
+    );
+    const ix = await createNameRegistry(
+      connection,
+      Buffer.from([1]).toString() + record,
+      space,
+      wallet.publicKey,
+      wallet.publicKey,
+      lamports,
+      undefined,
+      domainKey
+    );
+    ixs.push(ix);
+  }
+
+  const ix = updateInstruction(
+    NAME_PROGRAM_ID,
+    recordKey,
+    new Numberu32(0),
+    Buffer.from(&quot;Some IPFS CID&quot;),
+    wallet.publicKey
+  );
+
+  ixs.push(ix);
+
+  const tx = await signAndSendInstructions(connection, [], wallet, ixs);
+  console.log(`Updated record ${tx}`);
+};
+
+update();
+</code></pre>
 
                     </main>
 
