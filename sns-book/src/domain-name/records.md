@@ -44,6 +44,17 @@ export enum Record {
 }
 ```
 
+## Record derivation
+
+Record keys can be derived with the `getDomainKey` function and the `record` flag set to `true`
+
+```js
+const record = Record.IPFS + "." + "bonfida"; // With or without the .sol at the end
+const { pubkey: recordKey } = await getDomainKey(record, true);
+```
+
+> If the `record` flag is set to `false`, the `getDomainKey` function will derive the key of the subdomain
+
 ## Resolving records
 
 The following resolving functions are exported:
