@@ -138,13 +138,10 @@ import {
   NAME_PROGRAM_ID,
   Numberu32,
 } from "@bonfida/spl-name-service";
-import fs from "fs";
 import { signAndSendInstructions } from "@bonfida/utils";
 
 const connection = new Connection(clusterApiUrl("mainnet-beta"), "processed");
-const wallet = Keypair.fromSecretKey(
-  new Uint8Array(JSON.parse(fs.readFileSync("path_to_your_wallet").toString()))
-);
+const wallet = Keypair.fromSecretKey(...);
 
 // bonfida.sol
 const domain = "bonfida"; // With or without the .sol at the end
@@ -193,4 +190,44 @@ const update = async () => {
 };
 
 update();
+```
+
+## Deleting a record
+
+Records can be deleted using the `deleteInstruction` function, below is a NodeJS example
+
+```js
+import { Connection, Keypair, clusterApiUrl } from "@solana/web3.js";
+import {
+  Record,
+  getDomainKey,
+  NAME_PROGRAM_ID,
+  deleteInstruction,
+} from "@bonfida/spl-name-service";
+import { signAndSendInstructions } from "@bonfida/utils";
+
+const domain = "bonfida.sol"; // With or without .sol
+
+const record = Record.IPFS;
+
+const connection = new Connection(clusterApiUrl("mainnet-beta"), "processed");
+
+const wallet = Keypair.fromSecretKey(...) // Your wallet owning the domain
+
+const deleteRecord = async () => {
+  const { pubkey: recordKey } = await getDomainKey(record + "." + domain, true);
+
+  const ix = deleteInstruction(
+    NAME_PROGRAM_ID,
+    recordKey,
+    wallet.publicKey,
+    wallet.publicKey
+  );
+
+  const tx = await signAndSendInstructions(connection, [], wallet, [ix]);
+
+  console.log(`Deleted record ${tx}`);
+};
+
+deleteRecord();
 ```

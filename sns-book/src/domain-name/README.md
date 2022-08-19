@@ -16,3 +16,4 @@ This following sections provide information on the following:
 - [Domain name tokenization](tokenization.md)
 - [Domain registration](registration.md)
 - [Media kit](media-kit.md)
+- [Deleting domains](delete-domain.md)

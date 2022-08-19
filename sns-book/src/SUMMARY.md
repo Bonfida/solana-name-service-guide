@@ -26,6 +26,7 @@
   - [Tokenization](domain-name/tokenization.md)
   - [Registration](domain-name/registration.md)
   - [Media kit](domain-name/media-kit.md)
+  - [Delete domains](domain-name/delete-domain.md)
 
 - [Twitter](twitter/README.md)
   - [TLD](twitter/twitter-tld.md)
