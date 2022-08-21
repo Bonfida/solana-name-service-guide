@@ -19,6 +19,13 @@ Below is the correct methodology to resolve `.sol` domain names. If you are a wa
 A JS implementation would be as follow:
 
 ```js
+import { Connection, PublicKey } from "@solana/web3.js";
+import { getSolRecord } from "./record";
+import { getDomainKey } from "./utils";
+import { NameRegistryState } from "./state";
+import { sign } from "tweetnacl";
+import { Record } from "./types/record";
+
 /**
  * This function can be used to verify the validity of a SOL record
  * @param record The record data to verify
@@ -27,15 +34,11 @@ A JS implementation would be as follow:
  * @returns
  */
 export const checkSolRecord = (
-  record: Buffer,
-  signedRecord: Buffer,
+  record: Uint8Array,
+  signedRecord: Uint8Array,
   pubkey: PublicKey
 ) => {
-  return sign.detached.verify(
-    new Uint8Array(record),
-    new Uint8Array(signedRecord),
-    pubkey.toBytes()
-  );
+  return sign.detached.verify(record, signedRecord, pubkey.toBytes());
 };
 
 /**
@@ -64,8 +67,15 @@ export const resolve = async (connection: Connection, domain: string) => {
       throw new Error("Invalid SOL record data");
     }
 
+    const encoder = new TextEncoder();
+    const expectedBuffer = Buffer.concat([
+      solRecord.data.slice(0, 32),
+      recordKey.pubkey.toBuffer(),
+    ]);
+    const expected = encoder.encode(expectedBuffer.toString("hex"));
+
     const valid = checkSolRecord(
-      Buffer.concat([solRecord.data.slice(0, 32), recordKey.pubkey.toBuffer()]),
+      expected,
       solRecord.data.slice(32),
       registry.owner
     );
