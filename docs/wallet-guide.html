@@ -165,7 +165,14 @@
 </li>
 </ol>
 <p>A JS implementation would be as follow:</p>
-<pre><code class="language-js">/**
+<pre><code class="language-js">import { Connection, PublicKey } from &quot;@solana/web3.js&quot;;
+import { getSolRecord } from &quot;./record&quot;;
+import { getDomainKey } from &quot;./utils&quot;;
+import { NameRegistryState } from &quot;./state&quot;;
+import { sign } from &quot;tweetnacl&quot;;
+import { Record } from &quot;./types/record&quot;;
+
+/**
  * This function can be used to verify the validity of a SOL record
  * @param record The record data to verify
  * @param signedRecord The signed data
@@ -173,15 +180,11 @@
  * @returns
  */
 export const checkSolRecord = (
-  record: Buffer,
-  signedRecord: Buffer,
+  record: Uint8Array,
+  signedRecord: Uint8Array,
   pubkey: PublicKey
 ) =&gt; {
-  return sign.detached.verify(
-    new Uint8Array(record),
-    new Uint8Array(signedRecord),
-    pubkey.toBytes()
-  );
+  return sign.detached.verify(record, signedRecord, pubkey.toBytes());
 };
 
 /**
@@ -210,8 +213,15 @@ export const resolve = async (connection: Connection, domain: string) =&gt; {
       throw new Error(&quot;Invalid SOL record data&quot;);
     }
 
+    const encoder = new TextEncoder();
+    const expectedBuffer = Buffer.concat([
+      solRecord.data.slice(0, 32),
+      recordKey.pubkey.toBuffer(),
+    ]);
+    const expected = encoder.encode(expectedBuffer.toString(&quot;hex&quot;));
+
     const valid = checkSolRecord(
-      Buffer.concat([solRecord.data.slice(0, 32), recordKey.pubkey.toBuffer()]),
+      expected,
       solRecord.data.slice(32),
       registry.owner
     );
