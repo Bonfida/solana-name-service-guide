@@ -19,6 +19,8 @@ In addition to typical DNS records (A, AAAA, TXT, MX, etc.), the Solana Name Ser
 | twitter  | A twitter username                              |
 | telegram | A telegram username                             |
 | pic      | A profile picture                               |
+| SHDW     | A Shadow drive address                          |
+| POINT    | A Point network record                          |
 
 ## Record enum
 
@@ -40,7 +42,9 @@ export enum Record {
   Reddit = "reddit",
   Twitter = "twitter",
   Telegram = "telegram",
-  Pic = "pic"
+  Pic = "pic",
+  SHDW = "SHDW",
+  POINT = "POINT",
 }
 ```
 

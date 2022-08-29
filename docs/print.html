@@ -165,6 +165,7 @@ Still, this has privacy implications that require you to have an identifiable Tw
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="changelog"><a class="header" href="#changelog">Changelog</a></h1>
 <ul>
+<li><code>0.1.50</code>: add <code>POINT</code> record</li>
 <li><code>0.1.41</code>: add <code>getAllRegisteredDomains</code></li>
 <li><code>0.1.40</code>: fix <code>performReverseLookupBatch</code></li>
 <li><code>0.1.39</code>: add <code>Record</code> <code>enum</code> and records getter functions</li>
@@ -600,6 +601,8 @@ export const getAllRegisteredDomains = async (connection: Connection) =&gt; {
 <tr><td>twitter</td><td>A twitter username</td></tr>
 <tr><td>telegram</td><td>A telegram username</td></tr>
 <tr><td>pic</td><td>A profile picture</td></tr>
+<tr><td>SHDW</td><td>A Shadow drive address</td></tr>
+<tr><td>POINT</td><td>A Point network record</td></tr>
 </tbody></table>
 <h2 id="record-enum"><a class="header" href="#record-enum">Record enum</a></h2>
 <p>The following <code>enum</code> is exported from <code>@bonfida/spl-name-service</code></p>
@@ -618,7 +621,9 @@ export const getAllRegisteredDomains = async (connection: Connection) =&gt; {
   Reddit = &quot;reddit&quot;,
   Twitter = &quot;twitter&quot;,
   Telegram = &quot;telegram&quot;,
-  Pic = &quot;pic&quot;
+  Pic = &quot;pic&quot;,
+  SHDW = &quot;SHDW&quot;,
+  POINT = &quot;POINT&quot;,
 }
 </code></pre>
 <h2 id="record-derivation"><a class="header" href="#record-derivation">Record derivation</a></h2>
