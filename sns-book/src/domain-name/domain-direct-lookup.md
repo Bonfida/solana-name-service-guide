@@ -38,3 +38,5 @@ The `retrieve` method returns an object made of two fields:
 - `nftOwner` is of type `PublicKey | undefined`
   - When `nftOwner` is of type `PublicKey` it means that the domain is tokenized and the current NFT holder is `nftOwner`. When a domain is tokenized `registry.owner` is an escrow account that is program owner. Funds should be sent to `nftOwner`
   - When `nftOwner` is of type `undefined` it means that the domain is not tokenized and funds should be sent to `registry.owner`
+
+> **Note:** `NameRegistryState.retrieveBatch` can be used to retrieve multiple name registries at once.
