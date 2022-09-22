@@ -29,7 +29,12 @@
   - [Delete domains](domain-name/delete-domain.md)
 
 - [Twitter](twitter/README.md)
+
   - [TLD](twitter/twitter-tld.md)
   - [Registration](twitter/register.md)
   - [Direct look up](twitter/twitter-direct-lookup.md)
   - [Reverse look up](twitter/twitter-reverse-lookup.md)
+
+- [SNS API](sns-api/README.md)
+  - [Categories](sns-api/categories.md)
+  - [Sales](sns-api/sales.md)
