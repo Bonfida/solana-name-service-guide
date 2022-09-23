@@ -48,10 +48,12 @@ GET /categories/list/{category}
 
 ### Get categories statistics
 
+This endpoint returns stats for all the categories.
+
 > Request
 
 ```
-GET /categories/stats
+GET /categories/stats?start_time={start_time}&end_time={end_time}
 ```
 
 > Response
@@ -76,10 +78,12 @@ GET /categories/stats
 
 ### Get statistics for a category
 
+This endpoint returns stats for a given category.
+
 > Request
 
 ```
-GET /categories/stats/{category}
+GET /categories/stats/{category}?start_time={start_time}&end_time={end_time}
 ```
 
 > Response
@@ -102,6 +106,8 @@ GET /categories/stats/{category}
 
 ### Get floors
 
+This endpoint returns the current floors for all categories. Floor prices are given in USD value.
+
 > Request
 
 ```
@@ -121,9 +127,9 @@ GET /categories/floors
 }
 ```
 
-Floor prices are given in USD value.
-
 ### Get floor for a category
+
+This endpoint returns the current floor for a given category. Floor prices are given in USD value.
 
 > Request
 
@@ -140,9 +146,9 @@ GET /categories/floors/{category}
 }
 ```
 
-Floor prices are given in USD value.
-
 ### Get supply
+
+This endpoint can be used to retrieve the number of registered and unregistered domains of a category.
 
 > Request
 
@@ -193,6 +199,8 @@ GET /categories/top?start_time={start_time}&end_time={end_time}
 ## Get owners
 
 > Request
+
+This endpoint returns the public keys owning domains for a given category and the number of domains they own.
 
 ```
 GET /categories/owners/{category}
