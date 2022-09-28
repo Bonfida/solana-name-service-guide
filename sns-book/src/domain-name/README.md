@@ -17,3 +17,4 @@ This following sections provide information on the following:
 - [Domain registration](registration.md)
 - [Media kit](media-kit.md)
 - [Deleting domains](delete-domain.md)
+- [Creating subdomains](create-subdomain.md)

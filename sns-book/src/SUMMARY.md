@@ -27,6 +27,7 @@
   - [Registration](domain-name/registration.md)
   - [Media kit](domain-name/media-kit.md)
   - [Delete domains](domain-name/delete-domain.md)
+  - [Creating subdomains](domain-name/create-subdomain.md)
 
 - [Twitter](twitter/README.md)
   - [TLD](twitter/twitter-tld.md)
