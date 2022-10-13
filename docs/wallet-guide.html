@@ -249,7 +249,7 @@ export const resolve = async (connection: Connection, domain: string) =&gt; {
 <ol start="2">
 <li>Why is there a signature in the SOL record?</li>
 </ol>
-<p>The SOL record data contains a 96-byte array that is the concatenation of a public key (32 bytes) and signature (64 bytes). The first 32 bytes represent the public key (<code>pubkey</code>) to which funds should be sent and the next 64 bytes are the signature of <code>pubkey_as_bytes + record_key_as_bytes</code> signed by the owner of the domain. If the signature is invalid funds <strong>must not</strong> be transferred.</p>
+<p>The SOL record data contains a 96-byte array that is the concatenation of a public key (32 bytes) and signature (64 bytes). The first 32 bytes represent the public key (<code>pubkey</code>) to which funds should be sent and the next 64 bytes are the signature of <code>pubkey_as_bytes + record_key_as_bytes</code> signed by the owner of the domain. If the signature is invalid funds <strong>must not</strong> be transferred to the SOL record address.</p>
 <p>The signature is required to prevent funds being sent to a stale SOL record after a domain has been transferred or sold to a new owner.</p>
 
                     </main>
