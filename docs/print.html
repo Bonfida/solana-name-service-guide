@@ -1355,6 +1355,7 @@ const [handle] = await getHandleAndRegistryKey(connection, pubkey);
 const handle = &quot;bonfida&quot;;
 
 const registry = await getTwitterRegistry(connection, handle);
+const owner = registry.owner.toBase58();
 </code></pre>
 
                     </main>
