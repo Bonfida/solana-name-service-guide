@@ -149,7 +149,8 @@
 
 const handle = &quot;bonfida&quot;;
 
-const registry = await getTwitterRegistry(connection, handle);
+//Returns the public key, string, associated with handle
+const registry = await getTwitterRegistry(connection, handle).owner.toString();
 </code></pre>
 
                     </main>
