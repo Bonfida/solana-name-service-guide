@@ -10,4 +10,5 @@ import { getTwitterRegistry } from "@bonfida/spl-name-service";
 const handle = "bonfida";
 
 const registry = await getTwitterRegistry(connection, handle);
+const owner = registry.owner.toBase58();
 ```
