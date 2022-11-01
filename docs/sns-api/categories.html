@@ -1,0 +1,380 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Categories - Solana Name Service Guide</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../deployment.html"><strong aria-hidden="true">2.</strong> Deployment</a></li><li class="chapter-item expanded "><a href="../installation.html"><strong aria-hidden="true">3.</strong> SNS Library</a></li><li class="chapter-item expanded "><a href="../changelog.html"><strong aria-hidden="true">4.</strong> Changelog</a></li><li class="chapter-item expanded "><a href="../faq.html"><strong aria-hidden="true">5.</strong> FAQ</a></li><li class="chapter-item expanded "><a href="../registry.html"><strong aria-hidden="true">6.</strong> Name Registry</a></li><li class="chapter-item expanded "><a href="../wallet-guide.html"><strong aria-hidden="true">7.</strong> Wallet Guide</a></li><li class="chapter-item expanded "><a href="../domain-name/index.html"><strong aria-hidden="true">8.</strong> Domain Name</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../domain-name/domain-tld.html"><strong aria-hidden="true">8.1.</strong> TLD</a></li><li class="chapter-item expanded "><a href="../domain-name/domain-direct-lookup.html"><strong aria-hidden="true">8.2.</strong> Direct look up</a></li><li class="chapter-item expanded "><a href="../domain-name/domain-reverse-lookup.html"><strong aria-hidden="true">8.3.</strong> Reverse look up</a></li><li class="chapter-item expanded "><a href="../domain-name/subdomain-lookup.html"><strong aria-hidden="true">8.4.</strong> Subdomain look up</a></li><li class="chapter-item expanded "><a href="../domain-name/domain-find-for-owner.html"><strong aria-hidden="true">8.5.</strong> Get all domains of a user</a></li><li class="chapter-item expanded "><a href="../domain-name/all-domains.html"><strong aria-hidden="true">8.6.</strong> Get all domains</a></li><li class="chapter-item expanded "><a href="../domain-name/records.html"><strong aria-hidden="true">8.7.</strong> Records</a></li><li class="chapter-item expanded "><a href="../domain-name/edit-domain-content.html"><strong aria-hidden="true">8.8.</strong> Edit domain content</a></li><li class="chapter-item expanded "><a href="../domain-name/transfer.html"><strong aria-hidden="true">8.9.</strong> Transfer domains</a></li><li class="chapter-item expanded "><a href="../domain-name/favorite-domain.html"><strong aria-hidden="true">8.10.</strong> Favorite domain</a></li><li class="chapter-item expanded "><a href="../domain-name/react-hooks/index.html"><strong aria-hidden="true">8.11.</strong> React hooks</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../domain-name/react-hooks/use-domains.html"><strong aria-hidden="true">8.11.1.</strong> useDomains</a></li><li class="chapter-item expanded "><a href="../domain-name/react-hooks/use-domain-records.html"><strong aria-hidden="true">8.11.2.</strong> useDomainRecords</a></li><li class="chapter-item expanded "><a href="../domain-name/react-hooks/use-domains-for-user.html"><strong aria-hidden="true">8.11.3.</strong> useDomainsForUser</a></li><li class="chapter-item expanded "><a href="../domain-name/react-hooks/use-favorite-domain.html"><strong aria-hidden="true">8.11.4.</strong> useFavoriteDomain</a></li><li class="chapter-item expanded "><a href="../domain-name/react-hooks/use-profile-pic.html"><strong aria-hidden="true">8.11.5.</strong> useProfilePic</a></li></ol></li><li class="chapter-item expanded "><a href="../domain-name/tokenization.html"><strong aria-hidden="true">8.12.</strong> Tokenization</a></li><li class="chapter-item expanded "><a href="../domain-name/registration.html"><strong aria-hidden="true">8.13.</strong> Registration</a></li><li class="chapter-item expanded "><a href="../domain-name/media-kit.html"><strong aria-hidden="true">8.14.</strong> Media kit</a></li><li class="chapter-item expanded "><a href="../domain-name/delete-domain.html"><strong aria-hidden="true">8.15.</strong> Delete domains</a></li><li class="chapter-item expanded "><a href="../domain-name/create-subdomain.html"><strong aria-hidden="true">8.16.</strong> Creating subdomains</a></li></ol></li><li class="chapter-item expanded "><a href="../twitter/index.html"><strong aria-hidden="true">9.</strong> Twitter</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../twitter/twitter-tld.html"><strong aria-hidden="true">9.1.</strong> TLD</a></li><li class="chapter-item expanded "><a href="../twitter/register.html"><strong aria-hidden="true">9.2.</strong> Registration</a></li><li class="chapter-item expanded "><a href="../twitter/twitter-direct-lookup.html"><strong aria-hidden="true">9.3.</strong> Direct look up</a></li><li class="chapter-item expanded "><a href="../twitter/twitter-reverse-lookup.html"><strong aria-hidden="true">9.4.</strong> Reverse look up</a></li></ol></li><li class="chapter-item expanded "><a href="../sns-api/index.html"><strong aria-hidden="true">10.</strong> SNS API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../sns-api/categories.html" class="active"><strong aria-hidden="true">10.1.</strong> Categories</a></li><li class="chapter-item expanded "><a href="../sns-api/sales.html"><strong aria-hidden="true">10.2.</strong> Sales</a></li><li class="chapter-item expanded "><a href="../sns-api/volumes.html"><strong aria-hidden="true">10.3.</strong> Volumes</a></li><li class="chapter-item expanded "><a href="../sns-api/owners.html"><strong aria-hidden="true">10.4.</strong> Owners</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Solana Name Service Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="categories"><a class="header" href="#categories">Categories</a></h2>
+<h3 id="get-the-list-of-categories"><a class="header" href="#get-the-list-of-categories">Get the list of categories</a></h3>
+<p>This endpoint can be used to retrieve the list of all categories.</p>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre><code>GET /categories/list
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;result&quot;: [
+    &quot;english-adjectives&quot;,
+    &quot;double-emoji&quot;
+    // ...
+  ]
+}
+</code></pre>
+<h3 id="get-the-domains-of-a-category"><a class="header" href="#get-the-domains-of-a-category">Get the domains of a category</a></h3>
+<p>This endpoint can be used to retrieve the list of domains of a category.</p>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre><code>GET /categories/list/{category}
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;result&quot;: [
+    &quot;qatar&quot;,
+    &quot;uganda&quot;
+    // ...
+  ]
+}
+</code></pre>
+<h3 id="get-categories-statistics"><a class="header" href="#get-categories-statistics">Get categories statistics</a></h3>
+<p>This endpoint returns stats for all the categories.</p>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre><code>GET /categories/stats?start_time={start_time}&amp;end_time={end_time}
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;result&quot;: [
+    {
+      &quot;category_name&quot;: &quot;0x999-club&quot;,
+      &quot;min_sale&quot;: 7.8846874,
+      &quot;max_sale&quot;: 80.0,
+      &quot;avg_price&quot;: 43.94234371185303,
+      &quot;volume&quot;: 87.88469,
+      &quot;owners&quot;: 1,
+      &quot;supply&quot;: 2
+    }
+    // ...
+  ]
+}
+</code></pre>
+<h3 id="get-statistics-for-a-category"><a class="header" href="#get-statistics-for-a-category">Get statistics for a category</a></h3>
+<p>This endpoint returns stats for a given category.</p>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre><code>GET /categories/stats/{category}?start_time={start_time}&amp;end_time={end_time}
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;result&quot;: [
+    {
+      &quot;min_sale&quot;: 7.8846874,
+      &quot;max_sale&quot;: 80.0,
+      &quot;avg_price&quot;: 43.94234371185303,
+      &quot;volume&quot;: 87.88469,
+      &quot;owners&quot;: 1,
+      &quot;supply&quot;: 2
+    }
+  ]
+}
+</code></pre>
+<h3 id="get-floors"><a class="header" href="#get-floors">Get floors</a></h3>
+<p>This endpoint returns the current floors for all categories. Floor prices are given in USD value.</p>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre><code>GET /categories/floors
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;result&quot;: {
+    &quot;0x999-club&quot;: 21.839999628067016,
+    &quot;4-letter-dictionary&quot;: 101.39999999999999
+    // ...
+  }
+}
+</code></pre>
+<h3 id="get-floor-for-a-category"><a class="header" href="#get-floor-for-a-category">Get floor for a category</a></h3>
+<p>This endpoint returns the current floor for a given category. Floor prices are given in USD value.</p>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre><code>GET /categories/floors/{category}
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;result&quot;: 21.839999628067016
+}
+</code></pre>
+<h3 id="get-supply"><a class="header" href="#get-supply">Get supply</a></h3>
+<p>This endpoint can be used to retrieve the number of registered and unregistered domains of a category.</p>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre><code>GET /categories/supply
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;result&quot;: {
+    &quot;0x999-club&quot;: {
+      &quot;total&quot;: 1000,
+      &quot;registered&quot;: 38,
+      &quot;unregistered&quot;: 962
+    }
+    // ...
+  }
+}
+</code></pre>
+<h3 id="get-top-categories-by-volume"><a class="header" href="#get-top-categories-by-volume">Get top categories by volume</a></h3>
+<p>This endpoint returns the top 10 categories by volume between <code>start_time</code> and <code>end_time</code>.</p>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre><code>GET /categories/top?start_time={start_time}&amp;end_time={end_time}
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;result&quot;: [
+    {
+      &quot;category_name&quot;: &quot;10k-club&quot;,
+      &quot;volume&quot;: 177737.16
+    }
+  ]
+}
+</code></pre>
+<h2 id="get-owners"><a class="header" href="#get-owners">Get owners</a></h2>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<p>This endpoint returns the public keys owning domains for a given category and the number of domains they own.</p>
+<pre><code>GET /categories/owners/{category}
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;result&quot;: [
+    {
+      &quot;owner_key&quot;: &quot;1BWutmTvYPwDtmw9abTkS4Ssr8no61spGAvW1X6NDix&quot;,
+      &quot;nb_domains&quot;: 38
+    }
+  ]
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../sns-api/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../sns-api/sales.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../sns-api/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../sns-api/sales.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

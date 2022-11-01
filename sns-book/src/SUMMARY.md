@@ -30,7 +30,14 @@
   - [Creating subdomains](domain-name/create-subdomain.md)
 
 - [Twitter](twitter/README.md)
+
   - [TLD](twitter/twitter-tld.md)
   - [Registration](twitter/register.md)
   - [Direct look up](twitter/twitter-direct-lookup.md)
   - [Reverse look up](twitter/twitter-reverse-lookup.md)
+
+- [SNS API](sns-api/README.md)
+  - [Categories](sns-api/categories.md)
+  - [Sales](sns-api/sales.md)
+  - [Volumes](sns-api/volumes.md)
+  - [Owners](sns-api/owners.md)
