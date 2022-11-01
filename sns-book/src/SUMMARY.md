@@ -39,3 +39,5 @@
 - [SNS API](sns-api/README.md)
   - [Categories](sns-api/categories.md)
   - [Sales](sns-api/sales.md)
+  - [Volumes](sns-api/volumes.md)
+  - [Owners](sns-api/owners.md)
