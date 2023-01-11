@@ -29,6 +29,9 @@
   - [Delete domains](domain-name/delete-domain.md)
   - [Creating subdomains](domain-name/create-subdomain.md)
 
+  - [Examples](domain-name/sns-examples/README.md)
+    - [Key derivations](domain-name/sns-examples/derivations.md)
+
 - [Twitter](twitter/README.md)
 
   - [TLD](twitter/twitter-tld.md)
