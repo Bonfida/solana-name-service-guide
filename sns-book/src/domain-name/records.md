@@ -2,27 +2,27 @@
 
 In addition to typical DNS records (A, AAAA, TXT, MX, etc.), the Solana Name Service introduces brand new web3-specific types. The following table will be updated as new protocols are integrated.
 
-| Name      | Value                                           |
-| --------- | ----------------------------------------------- |
-| IPFS      | An IPFS CID                                     |
-| ARWV      | An Arweave address                              |
-| SOL       | A concatenation of a public key and a signature |
-| ETH       | An ETH public key                               |
-| BTC       | A BTC public key                                |
-| LTC       | An LTC public key                               |
-| DOGE      | A DOGE public key                               |
-| email     | An email address                                |
-| url       | A website URL                                   |
-| discord   | A discord username                              |
-| github    | A github username                               |
-| reddit    | A reddit username                               |
-| twitter   | A twitter username                              |
-| telegram  | A telegram username                             |
-| pic       | A profile picture                               |
-| SHDW      | A Shadow drive address                          |
-| POINT     | A Point network record                          |
-| BSC       | A BSC public key                                |
-| Injective | A Cosmos (Injective) public key                 |
+| Name     | Value                                           |
+| -------- | ----------------------------------------------- |
+| IPFS     | An IPFS CID                                     |
+| ARWV     | An Arweave address                              |
+| SOL      | A concatenation of a public key and a signature |
+| ETH      | An ETH public key                               |
+| BTC      | A BTC public key                                |
+| LTC      | An LTC public key                               |
+| DOGE     | A DOGE public key                               |
+| email    | An email address                                |
+| url      | A website URL                                   |
+| discord  | A discord username                              |
+| github   | A github username                               |
+| reddit   | A reddit username                               |
+| twitter  | A twitter username                              |
+| telegram | A telegram username                             |
+| pic      | A profile picture                               |
+| SHDW     | A Shadow drive address                          |
+| POINT    | A Point network record                          |
+| BSC      | A BSC public key                                |
+| INJECT   | A Cosmos (Injective) public key                 |
 
 ## Record enum
 
@@ -48,7 +48,7 @@ export enum Record {
   SHDW = "SHDW",
   POINT = "POINT",
   BSC = "BSC",
-  Injective = "Injective",
+  Injective = "INJECT",
 }
 ```
 
