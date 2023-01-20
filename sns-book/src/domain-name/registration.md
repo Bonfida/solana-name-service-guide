@@ -17,7 +17,7 @@ const name = "bonfida"; // We want to register bonfida.sol
 const space = 1 * 1_000; // We want a 1kB sized domain (max 10kB)
 
 const buyer = new PublicKey("..."); // Publickey of the buyer
-const buyerTokenAccount = new PublicKey("..."); // Publickey of the FIDA token account of the buyer
+const buyerTokenAccount = new PublicKey("..."); // Publickey of the token account of the buyer (USDC)
 
 const [, ix] = await registerDomainName(name, space, buyer, buyerTokenAccount);
 
