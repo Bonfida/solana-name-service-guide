@@ -40,7 +40,12 @@
   - [Reverse look up](twitter/twitter-reverse-lookup.md)
 
 - [SNS API](sns-api/README.md)
+
   - [Categories](sns-api/categories.md)
   - [Sales](sns-api/sales.md)
   - [Volumes](sns-api/volumes.md)
   - [Owners](sns-api/owners.md)
+
+- [SNS Suggest API - Alpha](sns-suggest/README.md)
+
+  - [Current Owner](sns-suggest/current-owner.md)
