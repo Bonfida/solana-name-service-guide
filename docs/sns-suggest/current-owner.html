@@ -157,9 +157,8 @@
 <h3 id="search"><a class="header" href="#search">Search</a></h3>
 <p>To search for domains that match a certain keywaord (e.g <code>00</code>):</p>
 <pre><code>curl \
-  -X POST 'https://sns-suggest.bonfida.com/indexes/current_owner/search' \
+  -X POST 'https://sns-suggest-proxy.bonfida.com' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer &lt;YOUR_API_KEY&gt;' \
   --data-binary '{
     &quot;q&quot;: &quot;00&quot; &lt;- You keywords
   }'
@@ -216,7 +215,7 @@ export interface Result {
   estimatedTotalHits: number;
 }
 
-const URL = &quot;https://sns-suggest.bonfida.com/indexes/current_owner/search&quot;;
+const URL = &quot;https://sns-suggest-proxy.bonfida.com&quot;;
 
 export const useDomainAutoSuggest = (domain: string) =&gt; {
   const [result, setResult] = useState&lt;Item[] | undefined&gt;(undefined);
@@ -229,7 +228,6 @@ export const useDomainAutoSuggest = (domain: string) =&gt; {
       const { data }: { data: Result } = await axios.post(URL, payload, {
         headers: {
           &quot;Content-type&quot;: &quot;application/json&quot;,
-          Authorization: &quot;Bearer &lt;YOUR_API_KEY&gt;&quot;,
         },
       });
 
