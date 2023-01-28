@@ -18,9 +18,8 @@ To search for domains that match a certain keywaord (e.g `00`):
 
 ```
 curl \
-  -X POST 'https://sns-suggest.bonfida.com/indexes/current_owner/search' \
+  -X POST 'https://sns-suggest-proxy.bonfida.com' \
   -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer <YOUR_API_KEY>' \
   --data-binary '{
     "q": "00" <- You keywords
   }'
@@ -84,7 +83,7 @@ export interface Result {
   estimatedTotalHits: number;
 }
 
-const URL = "https://sns-suggest.bonfida.com/indexes/current_owner/search";
+const URL = "https://sns-suggest-proxy.bonfida.com";
 
 export const useDomainAutoSuggest = (domain: string) => {
   const [result, setResult] = useState<Item[] | undefined>(undefined);
@@ -97,7 +96,6 @@ export const useDomainAutoSuggest = (domain: string) => {
       const { data }: { data: Result } = await axios.post(URL, payload, {
         headers: {
           "Content-type": "application/json",
-          Authorization: "Bearer <YOUR_API_KEY>",
         },
       });
 
