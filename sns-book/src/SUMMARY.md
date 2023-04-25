@@ -4,7 +4,10 @@
 - [Changelog](changelog.md)
 - [FAQ](faq.md)
 - [Name Registry](registry.md)
-- [Wallet Guide](wallet-guide.md)
+- [Wallet Guide](domain-name/wallet-guide/README.md)
+  - [Resolving Domains](domain-name/wallet-guide/resolving-domains.md)
+  - [Bridged Domains](domain-name/wallet-guide/bridged-domains.md)
+  - [Twitter handles](domain-name/wallet-guide/twitter-handles.md)
 - [Domain Name](domain-name/README.md)
 
   - [TLD](domain-name/domain-tld.md)
