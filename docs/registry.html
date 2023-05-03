@@ -148,11 +148,11 @@
 <img src="assets/registry.png" alt="name-registry" />
 </center>
 <h3 id="name-registry-header"><a class="header" href="#name-registry-header">Name Registry Header</a></h3>
-<p>he header contains three public keys that define the domain's properties:</p>
+<p>The header contains three public keys that define the domain's properties:</p>
 <ul>
-<li>Parent: Represents the parent domain in the hierarchy.</li>
-<li>Owner: Indicates the entity that has control over the domain.</li>
-<li>Class: A special key that enables advanced use-cases, such as third-party verification in a badge system.</li>
+<li><code>Parent</code>: Represents the parent domain in the hierarchy.</li>
+<li><code>Owner</code>: Indicates the entity that has control over the domain.</li>
+<li><code>Class</code>: A special key that enables advanced use-cases, such as third-party verification in a badge system.</li>
 </ul>
 <p>Below is the structure of the header in Rust:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
@@ -174,7 +174,7 @@ pub struct NameRecordHeader {
 }
 <span class="boring">}</span></code></pre></pre>
 <h3 id="data-flexible-data-storage"><a class="header" href="#data-flexible-data-storage">Data: Flexible Data Storage</a></h3>
-<p>he data section can hold arbitrary binary data. Its length is set during domain registration, and the domain owner can decide what to store in this part of the Name Registry.</p>
+<p>The data section can hold arbitrary binary data. Its length is set during domain registration, and the domain owner can decide what to store in this part of the Name Registry.</p>
 <p>In simple terms, the Name Registry data structure provides a way to organize and store information about a domain on Solana, including its relationships, ownership, and any additional data the owner wishes to include.</p>
 
                     </main>

@@ -4,3 +4,7 @@ language = "en"
 multilingual = false
 src = "src"
 title = "Solana Name Service Guide"
+
+
+[output.html]
+cname = "sns.guide"
