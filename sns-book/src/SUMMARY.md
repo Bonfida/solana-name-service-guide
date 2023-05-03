@@ -11,6 +11,7 @@
 - [Domain Name](domain-name/README.md)
 
   - [TLD](domain-name/domain-tld.md)
+  - [Web resolution](domain-name/web-resolution.md)
   - [Direct look up](domain-name/domain-direct-lookup.md)
   - [Reverse look up](domain-name/domain-reverse-lookup.md)
   - [Subdomain look up](domain-name/subdomain-lookup.md)

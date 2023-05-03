@@ -1,8 +1,6 @@
 # React hooks
 
-Below is a list of simple React hooks.
-
-**For production it's recommended to use [React Query](https://react-query.tanstack.com/) or [ahooks](https://ahooks.js.org/)**
+The list below show how to implement your own React hooks using vanilla React. It's recommended to use the [React hooks library](https://www.npmjs.com/package/@bonfida/sns-react).
 
 ## useDomains
 
