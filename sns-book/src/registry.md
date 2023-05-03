@@ -1,17 +1,22 @@
-# Name Registry
+# Name Registry: Understanding Domains on Solana
 
-The registry stores information about the domain name. It is made of two things:
+Solana can be viewed as a key-value database, where everything, including domains, is uniquely identifiable by a public key. The data inside a domain account contains an object called the Name Registry. The Name Registry is made of a header and payload.
 
-- The header
-- The data
-
-The data for a domain name is always prefixed by the header.
+## Name Registry Explained
 
 <center>
-<img src="assets/name-registry.png" alt="name-registry" />
+<img src="assets/registry.png" alt="name-registry" />
 </center>
 
-Below is the structure of the header in both Rust and JS:
+### Name Registry Header
+
+he header contains three public keys that define the domain's properties:
+
+- Parent: Represents the parent domain in the hierarchy.
+- Owner: Indicates the entity that has control over the domain.
+- Class: A special key that enables advanced use-cases, such as third-party verification in a badge system.
+
+Below is the structure of the header in Rust:
 
 ```rust
 /// The layout of the remaining bytes in the account data are determined by the record `class`
@@ -31,35 +36,8 @@ pub struct NameRecordHeader {
 }
 ```
 
-```js
-export class NameRegistryState {
-  parentName: PublicKey;
-  owner: PublicKey;
-  class: PublicKey;
-  data: Buffer | undefined;
+### Data: Flexible Data Storage
 
-  static HEADER_LEN = 96;
+he data section can hold arbitrary binary data. Its length is set during domain registration, and the domain owner can decide what to store in this part of the Name Registry.
 
-  static schema: Schema = new Map([
-    [
-      NameRegistryState,
-      {
-        kind: "struct",
-        fields: [
-          ["parentName", [32]],
-          ["owner", [32]],
-          ["class", [32]],
-        ],
-      },
-    ],
-  ]);
-  constructor(obj: {
-    parentName: Uint8Array;
-    owner: Uint8Array;
-    class: Uint8Array;
-  }) {
-    this.parentName = new PublicKey(obj.parentName);
-    this.owner = new PublicKey(obj.owner);
-    this.class = new PublicKey(obj.class);
-  }
-```
+In simple terms, the Name Registry data structure provides a way to organize and store information about a domain on Solana, including its relationships, ownership, and any additional data the owner wishes to include.

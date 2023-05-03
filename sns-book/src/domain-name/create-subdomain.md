@@ -1,5 +1,7 @@
 # Creating a subdomain
 
+This code snippet creates a subdomain and its reverse lookup account:
+
 ```js
 import {
   createNameRegistry,
@@ -44,3 +46,5 @@ ixs.push(...ix_reverse);
 
 // Sign an send the tx
 ```
+
+From `0.2.2` this logic is exported via the `createSubdomain` function

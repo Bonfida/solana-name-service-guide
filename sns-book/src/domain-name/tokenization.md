@@ -1,6 +1,10 @@
 # Tokenization
 
-Domain names are **not** SPL tokens, however, they can be tokenized in NFTs that follow the Metaplex standard. It's only recommended to tokenize your domain if you want to resell your domain on an NFT market place like [Magic Eden](https://magiceden.io/marketplace/bonfida)
+Domain names are **not** SPL tokens, however, they can be tokenized in NFTs that follow the Metaplex standard. It's only recommended to tokenize your domain if you want to resell your domain on an NFT market place like [Magic Eden](https://magiceden.io/marketplace/bonfida) or [Hyperspace](https://hyperspace.xyz/collection/solananameservice).
+
+The smart contract handling the tokenization of domain names can be found here: [Name tokenizer](https://github.com/Bonfida/name-tokenizer)
+
+## JS example
 
 To retrieve all the tokenized domain names
 

@@ -2,7 +2,7 @@
 
 ## Where can I buy a domain?
 
-You can buy a domain on [Bonfida](https://naming.bonfida.com)
+You can buy a domain on the [Solana Name Service website](https://sns.id)
 
 ## How do I find a domain if I only know its public key?
 
