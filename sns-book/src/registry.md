@@ -10,11 +10,11 @@ Solana can be viewed as a key-value database, where everything, including domain
 
 ### Name Registry Header
 
-he header contains three public keys that define the domain's properties:
+The header contains three public keys that define the domain's properties:
 
-- Parent: Represents the parent domain in the hierarchy.
-- Owner: Indicates the entity that has control over the domain.
-- Class: A special key that enables advanced use-cases, such as third-party verification in a badge system.
+- `Parent`: Represents the parent domain in the hierarchy.
+- `Owner`: Indicates the entity that has control over the domain.
+- `Class`: A special key that enables advanced use-cases, such as third-party verification in a badge system.
 
 Below is the structure of the header in Rust:
 
@@ -38,6 +38,6 @@ pub struct NameRecordHeader {
 
 ### Data: Flexible Data Storage
 
-he data section can hold arbitrary binary data. Its length is set during domain registration, and the domain owner can decide what to store in this part of the Name Registry.
+The data section can hold arbitrary binary data. Its length is set during domain registration, and the domain owner can decide what to store in this part of the Name Registry.
 
 In simple terms, the Name Registry data structure provides a way to organize and store information about a domain on Solana, including its relationships, ownership, and any additional data the owner wishes to include.
