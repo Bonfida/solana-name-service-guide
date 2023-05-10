@@ -9,6 +9,7 @@
 
         <!-- Custom HTML head -->
         
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -34,13 +35,13 @@
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script>
+        <script type="text/javascript">
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script>
+        <script type="text/javascript">
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -56,7 +57,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script>
+        <script type="text/javascript">
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -68,7 +69,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script>
+        <script type="text/javascript">
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -99,7 +100,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -132,7 +133,7 @@
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script>
+                <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -205,7 +206,8 @@ expect(owner.toBase58()).toBe(&quot;HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA
 </span>let client = RpcClient::new(std::env::var(&quot;RPC_URL&quot;).unwrap());
 let res = resolve_owner(&amp;client, &quot;bonfida&quot;).await.unwrap();
 assert_eq!(res, pubkey!(&quot;HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA&quot;));
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <ol start="3">
 <li>With the CLI</li>
 </ol>
@@ -346,7 +348,8 @@ pub struct NameRecordHeader {
     // If `Pubkey::default()` the data is unspecified.
     pub class: Pubkey,
 }
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}
+</span></code></pre></pre>
 <h3 id="data-flexible-data-storage"><a class="header" href="#data-flexible-data-storage">Data: Flexible Data Storage</a></h3>
 <p>The data section can hold arbitrary binary data. Its length is set during domain registration, and the domain owner can decide what to store in this part of the Name Registry.</p>
 <p>In simple terms, the Name Registry data structure provides a way to organize and store information about a domain on Solana, including its relationships, ownership, and any additional data the owner wishes to include.</p>
@@ -560,6 +563,7 @@ const owner = registry.owner.toBase58();
 <li>.sol TLD: <code>58PwtjSDuFHuUkYjH9BYnnQKHfwo9reZhC2zMJv9JPkx</code></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="web-resolution"><a class="header" href="#web-resolution">Web resolution</a></h1>
+<h2 id="web-resolvers"><a class="header" href="#web-resolvers">Web resolvers</a></h2>
 <p>While SNS offers numerous benefits, its separation from the traditional Domain Name System (DNS) can present challenges for adoption and accessibility. To address these challenges, we are building the necessary infrastructure to bridge the gap between SNS and DNS, making it easier for users to interact with SNS through familiar methods.</p>
 <p>Below are three such methods for resolving .sol domain names:</p>
 <ul>
@@ -569,7 +573,7 @@ const owner = registry.owner.toBase58();
 <ul>
 <li>Through a proxy service called <a href="https://github.com/Bonfida/name-resolver">sol-domain.org</a></li>
 </ul>
-<h2 id="brave-browser"><a class="header" href="#brave-browser">Brave browser</a></h2>
+<h3 id="brave-browser"><a class="header" href="#brave-browser">Brave browser</a></h3>
 <p>The <a href="https://brave.com">Brave browser</a> supports native resolution of .sol domain names, allowing users to access Solana Name Service domains directly from the URL bar. To resolve an SNS domain in the Brave browser, simply type the domain followed by <code>.sol</code> in the URL bar, and press Enter. For instance, to access the <a href="https://pyth.network/">Pyth network website</a>, you would enter <code>pyth.sol</code> in the URL bar.</p>
 <!-- ## Backpack
 
@@ -579,8 +583,22 @@ const owner = registry.owner.toBase58();
 - Enable `Solana` in the `Domain Website Resolver` settings
 - Enter the .sol domain you want to resolve directly in the browser's search bar (e.g., `pyth.sol`)
 - The Backpack extension will automatically detect the .sol domain and redirect you -->
-<h2 id="resolution-via-sol-domainorg-proxy-service"><a class="header" href="#resolution-via-sol-domainorg-proxy-service">Resolution via sol-domain.org Proxy Service</a></h2>
+<h3 id="resolution-via-sol-domainorg-proxy-service"><a class="header" href="#resolution-via-sol-domainorg-proxy-service">Resolution via sol-domain.org Proxy Service</a></h3>
 <p>The <a href="https://github.com/Bonfida/name-resolver">sol-domain.org</a> service is a proxy that enables users to access SNS domains via the traditional DNS system. To resolve a .sol domain using sol-domain.org, append the domain name to the beginning of the sol-domain.org URL. For example, to resolve the <code>pyth.sol</code> domain, you would enter <a href="https://pyth.sol-domain.org/">https://pyth.sol-domain.org</a> in the URL bar of your browser.</p>
+<h2 id="resolving-sol-domain-names-in-practice"><a class="header" href="#resolving-sol-domain-names-in-practice">Resolving .sol domain names in practice</a></h2>
+<p>The process for resolving <code>.sol</code> domain names follows a defined set of rules based on different types of records: URL, IPFS, Arweave, and Shadow Drive. The resolution process checks for these records in the specified order until it finds a valid record.</p>
+<h3 id="step-by-step-process"><a class="header" href="#step-by-step-process">Step-by-step process</a></h3>
+<h4 id="step-1-url-record"><a class="header" href="#step-1-url-record">Step 1: URL Record</a></h4>
+<p>First, check if the URL record exists and is valid. If so, this is the website to resolve to. The URL record typically contains the HTTP or HTTPS link to the website hosted on the domain.</p>
+<h4 id="step-2-ipfs-record"><a class="header" href="#step-2-ipfs-record">Step 2: IPFS Record</a></h4>
+<p>If there is no valid URL record, proceed to check for an IPFS record.</p>
+<p>If the IPFS record exists and is valid, the user should be redirected to the corresponding IPFS content via an IPFS gateway. An IPFS gateway acts as a bridge between the traditional web and the IPFS network, allowing browsers that don't natively support IPFS to access IPFS content.</p>
+<h4 id="step-3-arweave-record"><a class="header" href="#step-3-arweave-record">Step 3: Arweave Record</a></h4>
+<p>If neither a URL nor an IPFS record is found or valid, check for an Arweave record.</p>
+<p>If the Arweave record exists and is valid, the user should be redirected to the Arweave content via an Arweave gateway. Similar to the IPFS gateway, an Arweave gateway allows users to access Arweave-hosted content through traditional web browsers.</p>
+<h4 id="step-4-shadow-drive-record"><a class="header" href="#step-4-shadow-drive-record">Step 4: Shadow Drive Record</a></h4>
+<p>Lastly, if no URL, IPFS, or Arweave records are found or valid, check for a Shadow Drive record.</p>
+<p>If the Shadow Drive record exists and is valid, the user should be redirected to the content via a Shadow Drive gateway. Like IPFS and Arweave gateways, a Shadow Drive gateway provides access to Shadow Drive-hosted content for traditional web browsers.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="direct-look-up-1"><a class="header" href="#direct-look-up-1">Direct look up</a></h1>
 <p><img src="domain-name/../assets/direct-reverse.png" alt="direct-reverse" /></p>
 <p>In order to get the information of a domain name you need to:</p>
@@ -2113,22 +2131,22 @@ export const useDomainAutoSuggest = (domain: string) =&gt; {
 
 
 
-        <script>
+        <script type="text/javascript">
             window.playground_copyable = true;
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
 
-        <script>
+        <script type="text/javascript">
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
