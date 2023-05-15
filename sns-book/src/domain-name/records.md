@@ -22,7 +22,8 @@ In addition to typical DNS records (A, AAAA, TXT, MX, etc.), the Solana Name Ser
 | SHDW     | A Shadow drive address                          |
 | POINT    | A Point network record                          |
 | BSC      | A BSC public key                                |
-| INJECT   | A Cosmos (Injective) public key                 |
+| INJ      | A Cosmos (Injective) public key                 |
+| backpack | A Backpack username                             |
 
 ## Record enum
 
@@ -48,7 +49,8 @@ export enum Record {
   SHDW = "SHDW",
   POINT = "POINT",
   BSC = "BSC",
-  Injective = "INJECT",
+  Injective = "INJ",
+  Backpack = "backpack",
 }
 ```
 
@@ -84,6 +86,7 @@ The following resolving functions are exported:
 - `getShdwRecord`: This function can be used to retrieve the SHDW record of a domain name
 - `getBscRecord`: This function can be used to retrieve the BSC record of a domain name
 - `getInjectiveRecord`: This function can be used to retrieve the Cosmos Injective record of a domain name
+- `getBackpackRecord`: This function can be used to retrieve the Backpack record of a domain name
 
 All functions have the following signature
 
