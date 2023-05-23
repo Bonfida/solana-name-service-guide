@@ -46,7 +46,8 @@ console.log(resolved); // <- 0x1D719d2dB763f905b1924F46a5185e001Dd93786
 ### Reverse look up
 
 ```js
-import { SupportedChains, SNS, namehash } from "@bonfida/sns-warp-evm";
+import { SupportedChains, SNS } from "@bonfida/sns-warp-evm";
+import { namehash } from "@ethersproject/hash";
 
 // The chain on which to perform the reverse lookup
 const targetChain = SupportedChains.BNBMainnet;

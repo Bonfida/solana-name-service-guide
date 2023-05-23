@@ -172,7 +172,8 @@ const resolved = await sns.resolveName(domain);
 console.log(resolved); // &lt;- 0x1D719d2dB763f905b1924F46a5185e001Dd93786
 </code></pre>
 <h3 id="reverse-look-up"><a class="header" href="#reverse-look-up">Reverse look up</a></h3>
-<pre><code class="language-js">import { SupportedChains, SNS, namehash } from &quot;@bonfida/sns-warp-evm&quot;;
+<pre><code class="language-js">import { SupportedChains, SNS } from &quot;@bonfida/sns-warp-evm&quot;;
+import { namehash } from &quot;@ethersproject/hash&quot;;
 
 // The chain on which to perform the reverse lookup
 const targetChain = SupportedChains.BNBMainnet;
