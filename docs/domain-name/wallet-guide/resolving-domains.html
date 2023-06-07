@@ -250,7 +250,19 @@ export const resolve = async (connection: Connection, domain: string) =&gt; {
 </ol>
 <p>The SOL record data contains a 96-byte array that is the concatenation of a public key (32 bytes) and signature (64 bytes). The first 32 bytes represent the public key (<code>pubkey</code>) to which funds should be sent and the next 64 bytes are the signature of <code>pubkey_as_bytes + record_key_as_bytes</code> signed by the owner of the domain. If the signature is invalid funds <strong>must not</strong> be transferred to the SOL record address.</p>
 <p>The signature is required to prevent funds being sent to a stale SOL record after a domain has been transferred or sold to a new owner.</p>
-
+<h2 id="examples"><a class="header" href="#examples">Examples</a></h2>
+<p>This section provides examples to assist you in testing your implementation. However, they are not exhaustive, therefore, ensure to carry out comprehensive tests beyond these examples. Use them as guidelines and adapt them to suit your specific needs.</p>
+<div class="table-wrapper"><table><thead><tr><th>domain</th><th>owner</th></tr></thead><tbody>
+<tr><td>wallet-guide-5.sol</td><td>Fxuoy3gFjfJALhwkRcuKjRdechcgffUApeYAfMWck6w8</td></tr>
+<tr><td>wallet-guide-4.sol</td><td>Hf4daCT4tC2Vy9RCe9q8avT68yAsNJ1dQe6xiQqyGuqZ</td></tr>
+<tr><td>wallet-guide-3.sol</td><td>Fxuoy3gFjfJALhwkRcuKjRdechcgffUApeYAfMWck6w8</td></tr>
+<tr><td>wallet-guide-2.sol</td><td>36Dn3RWhB8x4c83W6ebQ2C2eH9sh5bQX2nMdkP2cWaA4</td></tr>
+<tr><td>wallet-guide-1.sol</td><td>36Dn3RWhB8x4c83W6ebQ2C2eH9sh5bQX2nMdkP2cWaA4</td></tr>
+<tr><td>wallet-guide-0.sol</td><td>Fxuoy3gFjfJALhwkRcuKjRdechcgffUApeYAfMWck6w8</td></tr>
+<tr><td>sub-0.wallet-guide-3.sol</td><td>Fxuoy3gFjfJALhwkRcuKjRdechcgffUApeYAfMWck6w8</td></tr>
+<tr><td>sub-1.wallet-guide-3.sol</td><td>Hf4daCT4tC2Vy9RCe9q8avT68yAsNJ1dQe6xiQqyGuqZ</td></tr>
+</tbody></table>
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

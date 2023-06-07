@@ -106,3 +106,18 @@ As long as the user owns the tokenized domains (i.e the NFT) they will be able t
 The SOL record data contains a 96-byte array that is the concatenation of a public key (32 bytes) and signature (64 bytes). The first 32 bytes represent the public key (`pubkey`) to which funds should be sent and the next 64 bytes are the signature of `pubkey_as_bytes + record_key_as_bytes` signed by the owner of the domain. If the signature is invalid funds **must not** be transferred to the SOL record address.
 
 The signature is required to prevent funds being sent to a stale SOL record after a domain has been transferred or sold to a new owner.
+
+## Examples
+
+This section provides examples to assist you in testing your implementation. However, they are not exhaustive, therefore, ensure to carry out comprehensive tests beyond these examples. Use them as guidelines and adapt them to suit your specific needs.
+
+| domain                   | owner                                        |
+| ------------------------ | -------------------------------------------- |
+| wallet-guide-5.sol       | Fxuoy3gFjfJALhwkRcuKjRdechcgffUApeYAfMWck6w8 |
+| wallet-guide-4.sol       | Hf4daCT4tC2Vy9RCe9q8avT68yAsNJ1dQe6xiQqyGuqZ |
+| wallet-guide-3.sol       | Fxuoy3gFjfJALhwkRcuKjRdechcgffUApeYAfMWck6w8 |
+| wallet-guide-2.sol       | 36Dn3RWhB8x4c83W6ebQ2C2eH9sh5bQX2nMdkP2cWaA4 |
+| wallet-guide-1.sol       | 36Dn3RWhB8x4c83W6ebQ2C2eH9sh5bQX2nMdkP2cWaA4 |
+| wallet-guide-0.sol       | Fxuoy3gFjfJALhwkRcuKjRdechcgffUApeYAfMWck6w8 |
+| sub-0.wallet-guide-3.sol | Fxuoy3gFjfJALhwkRcuKjRdechcgffUApeYAfMWck6w8 |
+| sub-1.wallet-guide-3.sol | Hf4daCT4tC2Vy9RCe9q8avT68yAsNJ1dQe6xiQqyGuqZ |

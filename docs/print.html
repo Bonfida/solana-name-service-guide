@@ -466,7 +466,19 @@ export const resolve = async (connection: Connection, domain: string) =&gt; {
 </ol>
 <p>The SOL record data contains a 96-byte array that is the concatenation of a public key (32 bytes) and signature (64 bytes). The first 32 bytes represent the public key (<code>pubkey</code>) to which funds should be sent and the next 64 bytes are the signature of <code>pubkey_as_bytes + record_key_as_bytes</code> signed by the owner of the domain. If the signature is invalid funds <strong>must not</strong> be transferred to the SOL record address.</p>
 <p>The signature is required to prevent funds being sent to a stale SOL record after a domain has been transferred or sold to a new owner.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="resolving-bridged-domains"><a class="header" href="#resolving-bridged-domains">Resolving bridged domains</a></h1>
+<h2 id="examples"><a class="header" href="#examples">Examples</a></h2>
+<p>This section provides examples to assist you in testing your implementation. However, they are not exhaustive, therefore, ensure to carry out comprehensive tests beyond these examples. Use them as guidelines and adapt them to suit your specific needs.</p>
+<div class="table-wrapper"><table><thead><tr><th>domain</th><th>owner</th></tr></thead><tbody>
+<tr><td>wallet-guide-5.sol</td><td>Fxuoy3gFjfJALhwkRcuKjRdechcgffUApeYAfMWck6w8</td></tr>
+<tr><td>wallet-guide-4.sol</td><td>Hf4daCT4tC2Vy9RCe9q8avT68yAsNJ1dQe6xiQqyGuqZ</td></tr>
+<tr><td>wallet-guide-3.sol</td><td>Fxuoy3gFjfJALhwkRcuKjRdechcgffUApeYAfMWck6w8</td></tr>
+<tr><td>wallet-guide-2.sol</td><td>36Dn3RWhB8x4c83W6ebQ2C2eH9sh5bQX2nMdkP2cWaA4</td></tr>
+<tr><td>wallet-guide-1.sol</td><td>36Dn3RWhB8x4c83W6ebQ2C2eH9sh5bQX2nMdkP2cWaA4</td></tr>
+<tr><td>wallet-guide-0.sol</td><td>Fxuoy3gFjfJALhwkRcuKjRdechcgffUApeYAfMWck6w8</td></tr>
+<tr><td>sub-0.wallet-guide-3.sol</td><td>Fxuoy3gFjfJALhwkRcuKjRdechcgffUApeYAfMWck6w8</td></tr>
+<tr><td>sub-1.wallet-guide-3.sol</td><td>Hf4daCT4tC2Vy9RCe9q8avT68yAsNJ1dQe6xiQqyGuqZ</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="resolving-bridged-domains"><a class="header" href="#resolving-bridged-domains">Resolving bridged domains</a></h1>
 <p>The Solana Name Service (SNS) going cross-chain means that it is expanding its functionality beyond the Solana ecosystem, enabling users to export their domain names to alternative blockchains using the <a href="https://wormhole.com/">Wormhole bridge</a>. This move aims to increase the utility and adoption of SNS, while also fostering collaboration and interoperability between different blockchain networks. By allowing SNS domains to be resolved on supported chains like EVM-based chains, SNS becomes more accessible to a wider range of developers and users, promoting the growth of the Solana ecosystem and showcasing its capabilities beyond its native environment.</p>
 <h2 id="evm-chains"><a class="header" href="#evm-chains">EVM Chains</a></h2>
 <p>The Solana Name Service has been bridged to the following EVM chains:</p>
@@ -1477,7 +1489,7 @@ ixs.push(...ix_reverse);
 // Sign an send the tx
 </code></pre>
 <p>From <code>0.2.2</code> this logic is exported via the <code>createSubdomain</code> function</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="examples"><a class="header" href="#examples">Examples</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="examples-1"><a class="header" href="#examples-1">Examples</a></h1>
 <p>Below is a list of examples that can be used to test your code:</p>
 <ol>
 <li><a href="domain-name/sns-examples//domain-name/sns-examples/derivations.html">Key derivations</a></li>
