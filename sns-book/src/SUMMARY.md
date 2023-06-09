@@ -53,3 +53,5 @@
 - [SNS Suggest API - Alpha](sns-suggest/README.md)
 
   - [Current Owner](sns-suggest/current-owner.md)
+
+- [SNS IP](sns-ip/README.md)
