@@ -10,4 +10,4 @@ Returns a user wallet's favourite (i.e. primary) domain.
 
 The result will be an RPCResponse JSON object with field:
 
-- **result** `string`: The domain name.
+- **result** `string`: The base58-encoded domain name account key.

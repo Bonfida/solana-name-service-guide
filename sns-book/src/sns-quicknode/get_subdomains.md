@@ -10,4 +10,4 @@ Returns a list of currently registered subdomains for a given domain.
 
 The result will be an RPCResponse JSON object with field:
 
-- **result** `string[]`: The list of currently registered subdomain names.
+- **result** `string[]`: The list of currently registered subdomain name account keys, encoded as base58.
