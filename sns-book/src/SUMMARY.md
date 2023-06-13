@@ -67,3 +67,4 @@
   - [get_supported_records](sns-quicknode/get_supported_records.md)
   - [resolve_domain](sns-quicknode/resolve_domain.md)
   - [reverse_lookup](sns-quicknode/reverse_lookup.md)
+  - [get_domain_reverse_key](sns-quicknode/get_domain_reverse_key.md)
