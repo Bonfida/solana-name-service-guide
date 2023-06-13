@@ -9,7 +9,6 @@
 
         <!-- Custom HTML head -->
         
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -35,13 +34,13 @@
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -57,7 +56,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -69,7 +68,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -82,7 +81,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="deployment.html"><strong aria-hidden="true">2.</strong> Deployment</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">3.</strong> SNS Library</a></li><li class="chapter-item expanded "><a href="changelog.html"><strong aria-hidden="true">4.</strong> Changelog</a></li><li class="chapter-item expanded "><a href="faq.html"><strong aria-hidden="true">5.</strong> FAQ</a></li><li class="chapter-item expanded "><a href="registry.html"><strong aria-hidden="true">6.</strong> Name Registry</a></li><li class="chapter-item expanded "><a href="domain-name/wallet-guide/index.html"><strong aria-hidden="true">7.</strong> Wallet Guide</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="domain-name/wallet-guide/resolving-domains.html"><strong aria-hidden="true">7.1.</strong> Resolving Domains</a></li><li class="chapter-item expanded "><a href="domain-name/wallet-guide/bridged-domains.html"><strong aria-hidden="true">7.2.</strong> Bridged Domains</a></li><li class="chapter-item expanded "><a href="domain-name/wallet-guide/twitter-handles.html"><strong aria-hidden="true">7.3.</strong> Twitter handles</a></li></ol></li><li class="chapter-item expanded "><a href="domain-name/index.html"><strong aria-hidden="true">8.</strong> Domain Name</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="domain-name/domain-tld.html"><strong aria-hidden="true">8.1.</strong> TLD</a></li><li class="chapter-item expanded "><a href="domain-name/web-resolution.html"><strong aria-hidden="true">8.2.</strong> Web resolution</a></li><li class="chapter-item expanded "><a href="domain-name/domain-direct-lookup.html"><strong aria-hidden="true">8.3.</strong> Direct look up</a></li><li class="chapter-item expanded "><a href="domain-name/domain-reverse-lookup.html"><strong aria-hidden="true">8.4.</strong> Reverse look up</a></li><li class="chapter-item expanded "><a href="domain-name/subdomain-lookup.html"><strong aria-hidden="true">8.5.</strong> Subdomain look up</a></li><li class="chapter-item expanded "><a href="domain-name/domain-find-for-owner.html"><strong aria-hidden="true">8.6.</strong> Get all domains of a user</a></li><li class="chapter-item expanded "><a href="domain-name/all-domains.html"><strong aria-hidden="true">8.7.</strong> Get all domains</a></li><li class="chapter-item expanded "><a href="domain-name/records.html"><strong aria-hidden="true">8.8.</strong> Records</a></li><li class="chapter-item expanded "><a href="domain-name/edit-domain-content.html"><strong aria-hidden="true">8.9.</strong> Edit domain content</a></li><li class="chapter-item expanded "><a href="domain-name/transfer.html"><strong aria-hidden="true">8.10.</strong> Transfer domains</a></li><li class="chapter-item expanded "><a href="domain-name/favorite-domain.html"><strong aria-hidden="true">8.11.</strong> Favorite domain</a></li><li class="chapter-item expanded "><a href="domain-name/react-hooks/index.html"><strong aria-hidden="true">8.12.</strong> React hooks</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="domain-name/react-hooks/use-domains.html"><strong aria-hidden="true">8.12.1.</strong> useDomains</a></li><li class="chapter-item expanded "><a href="domain-name/react-hooks/use-domain-records.html"><strong aria-hidden="true">8.12.2.</strong> useDomainRecords</a></li><li class="chapter-item expanded "><a href="domain-name/react-hooks/use-domains-for-user.html"><strong aria-hidden="true">8.12.3.</strong> useDomainsForUser</a></li><li class="chapter-item expanded "><a href="domain-name/react-hooks/use-favorite-domain.html"><strong aria-hidden="true">8.12.4.</strong> useFavoriteDomain</a></li><li class="chapter-item expanded "><a href="domain-name/react-hooks/use-profile-pic.html"><strong aria-hidden="true">8.12.5.</strong> useProfilePic</a></li></ol></li><li class="chapter-item expanded "><a href="domain-name/tokenization.html"><strong aria-hidden="true">8.13.</strong> Tokenization</a></li><li class="chapter-item expanded "><a href="domain-name/registration.html"><strong aria-hidden="true">8.14.</strong> Registration</a></li><li class="chapter-item expanded "><a href="domain-name/media-kit.html"><strong aria-hidden="true">8.15.</strong> Media kit</a></li><li class="chapter-item expanded "><a href="domain-name/delete-domain.html"><strong aria-hidden="true">8.16.</strong> Delete domains</a></li><li class="chapter-item expanded "><a href="domain-name/create-subdomain.html"><strong aria-hidden="true">8.17.</strong> Creating subdomains</a></li><li class="chapter-item expanded "><a href="domain-name/sns-examples/index.html"><strong aria-hidden="true">8.18.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="domain-name/sns-examples/derivations.html"><strong aria-hidden="true">8.18.1.</strong> Key derivations</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="twitter/index.html"><strong aria-hidden="true">9.</strong> Twitter</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="twitter/twitter-tld.html"><strong aria-hidden="true">9.1.</strong> TLD</a></li><li class="chapter-item expanded "><a href="twitter/register.html"><strong aria-hidden="true">9.2.</strong> Registration</a></li><li class="chapter-item expanded "><a href="twitter/twitter-direct-lookup.html"><strong aria-hidden="true">9.3.</strong> Direct look up</a></li><li class="chapter-item expanded "><a href="twitter/twitter-reverse-lookup.html"><strong aria-hidden="true">9.4.</strong> Reverse look up</a></li></ol></li><li class="chapter-item expanded "><a href="sns-api/index.html"><strong aria-hidden="true">10.</strong> SNS API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sns-api/categories.html"><strong aria-hidden="true">10.1.</strong> Categories</a></li><li class="chapter-item expanded "><a href="sns-api/sales.html"><strong aria-hidden="true">10.2.</strong> Sales</a></li><li class="chapter-item expanded "><a href="sns-api/volumes.html"><strong aria-hidden="true">10.3.</strong> Volumes</a></li><li class="chapter-item expanded "><a href="sns-api/owners.html"><strong aria-hidden="true">10.4.</strong> Owners</a></li></ol></li><li class="chapter-item expanded "><a href="sns-suggest/index.html"><strong aria-hidden="true">11.</strong> SNS Suggest API - Alpha</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sns-suggest/current-owner.html"><strong aria-hidden="true">11.1.</strong> Current Owner</a></li></ol></li><li class="chapter-item expanded "><a href="sns-quicknode/index.html"><strong aria-hidden="true">12.</strong> SNS Quicknode API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sns-quicknode/get_all_domains_for_owner.html"><strong aria-hidden="true">12.1.</strong> get_all_domains_for_owner</a></li><li class="chapter-item expanded "><a href="sns-quicknode/get_domain_data.html"><strong aria-hidden="true">12.2.</strong> get_domain_data</a></li><li class="chapter-item expanded "><a href="sns-quicknode/get_domain_key.html"><strong aria-hidden="true">12.3.</strong> get_domain_key</a></li><li class="chapter-item expanded "><a href="sns-quicknode/get_domain_record_key.html"><strong aria-hidden="true">12.4.</strong> get_domain_record_key</a></li><li class="chapter-item expanded "><a href="sns-quicknode/get_favourite_domain.html"><strong aria-hidden="true">12.5.</strong> get_favourite_domain</a></li><li class="chapter-item expanded "><a href="sns-quicknode/get_registration_transaction.html"><strong aria-hidden="true">12.6.</strong> get_registration_transaction</a></li><li class="chapter-item expanded "><a href="sns-quicknode/get_subdomains.html"><strong aria-hidden="true">12.7.</strong> get_subdomains</a></li><li class="chapter-item expanded "><a href="sns-quicknode/get_supported_records.html"><strong aria-hidden="true">12.8.</strong> get_supported_records</a></li><li class="chapter-item expanded "><a href="sns-quicknode/resolve_domain.html"><strong aria-hidden="true">12.9.</strong> resolve_domain</a></li><li class="chapter-item expanded "><a href="sns-quicknode/reverse_lookup.html"><strong aria-hidden="true">12.10.</strong> reverse_lookup</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="deployment.html"><strong aria-hidden="true">2.</strong> Deployment</a></li><li class="chapter-item expanded "><a href="sns-ip/index.html"><strong aria-hidden="true">3.</strong> SNS IP</a></li><li class="chapter-item expanded "><a href="installation.html"><strong aria-hidden="true">4.</strong> SNS Library</a></li><li class="chapter-item expanded "><a href="changelog.html"><strong aria-hidden="true">5.</strong> Changelog</a></li><li class="chapter-item expanded "><a href="faq.html"><strong aria-hidden="true">6.</strong> FAQ</a></li><li class="chapter-item expanded "><a href="registry.html"><strong aria-hidden="true">7.</strong> Name Registry</a></li><li class="chapter-item expanded "><a href="domain-name/wallet-guide/index.html"><strong aria-hidden="true">8.</strong> Wallet Guide</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="domain-name/wallet-guide/resolving-domains.html"><strong aria-hidden="true">8.1.</strong> Resolving Domains</a></li><li class="chapter-item expanded "><a href="domain-name/wallet-guide/bridged-domains.html"><strong aria-hidden="true">8.2.</strong> Bridged Domains</a></li><li class="chapter-item expanded "><a href="domain-name/wallet-guide/twitter-handles.html"><strong aria-hidden="true">8.3.</strong> Twitter handles</a></li></ol></li><li class="chapter-item expanded "><a href="domain-name/index.html"><strong aria-hidden="true">9.</strong> Domain Name</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="domain-name/domain-tld.html"><strong aria-hidden="true">9.1.</strong> TLD</a></li><li class="chapter-item expanded "><a href="domain-name/web-resolution.html"><strong aria-hidden="true">9.2.</strong> Web resolution</a></li><li class="chapter-item expanded "><a href="domain-name/domain-direct-lookup.html"><strong aria-hidden="true">9.3.</strong> Direct look up</a></li><li class="chapter-item expanded "><a href="domain-name/domain-reverse-lookup.html"><strong aria-hidden="true">9.4.</strong> Reverse look up</a></li><li class="chapter-item expanded "><a href="domain-name/subdomain-lookup.html"><strong aria-hidden="true">9.5.</strong> Subdomain look up</a></li><li class="chapter-item expanded "><a href="domain-name/domain-find-for-owner.html"><strong aria-hidden="true">9.6.</strong> Get all domains of a user</a></li><li class="chapter-item expanded "><a href="domain-name/all-domains.html"><strong aria-hidden="true">9.7.</strong> Get all domains</a></li><li class="chapter-item expanded "><a href="domain-name/records.html"><strong aria-hidden="true">9.8.</strong> Records</a></li><li class="chapter-item expanded "><a href="domain-name/edit-domain-content.html"><strong aria-hidden="true">9.9.</strong> Edit domain content</a></li><li class="chapter-item expanded "><a href="domain-name/transfer.html"><strong aria-hidden="true">9.10.</strong> Transfer domains</a></li><li class="chapter-item expanded "><a href="domain-name/favorite-domain.html"><strong aria-hidden="true">9.11.</strong> Favorite domain</a></li><li class="chapter-item expanded "><a href="domain-name/react-hooks/index.html"><strong aria-hidden="true">9.12.</strong> React hooks</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="domain-name/react-hooks/use-domains.html"><strong aria-hidden="true">9.12.1.</strong> useDomains</a></li><li class="chapter-item expanded "><a href="domain-name/react-hooks/use-domain-records.html"><strong aria-hidden="true">9.12.2.</strong> useDomainRecords</a></li><li class="chapter-item expanded "><a href="domain-name/react-hooks/use-domains-for-user.html"><strong aria-hidden="true">9.12.3.</strong> useDomainsForUser</a></li><li class="chapter-item expanded "><a href="domain-name/react-hooks/use-favorite-domain.html"><strong aria-hidden="true">9.12.4.</strong> useFavoriteDomain</a></li><li class="chapter-item expanded "><a href="domain-name/react-hooks/use-profile-pic.html"><strong aria-hidden="true">9.12.5.</strong> useProfilePic</a></li></ol></li><li class="chapter-item expanded "><a href="domain-name/tokenization.html"><strong aria-hidden="true">9.13.</strong> Tokenization</a></li><li class="chapter-item expanded "><a href="domain-name/registration.html"><strong aria-hidden="true">9.14.</strong> Registration</a></li><li class="chapter-item expanded "><a href="domain-name/media-kit.html"><strong aria-hidden="true">9.15.</strong> Media kit</a></li><li class="chapter-item expanded "><a href="domain-name/delete-domain.html"><strong aria-hidden="true">9.16.</strong> Delete domains</a></li><li class="chapter-item expanded "><a href="domain-name/create-subdomain.html"><strong aria-hidden="true">9.17.</strong> Creating subdomains</a></li><li class="chapter-item expanded "><a href="domain-name/sns-examples/index.html"><strong aria-hidden="true">9.18.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="domain-name/sns-examples/derivations.html"><strong aria-hidden="true">9.18.1.</strong> Key derivations</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="twitter/index.html"><strong aria-hidden="true">10.</strong> Twitter</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="twitter/twitter-tld.html"><strong aria-hidden="true">10.1.</strong> TLD</a></li><li class="chapter-item expanded "><a href="twitter/register.html"><strong aria-hidden="true">10.2.</strong> Registration</a></li><li class="chapter-item expanded "><a href="twitter/twitter-direct-lookup.html"><strong aria-hidden="true">10.3.</strong> Direct look up</a></li><li class="chapter-item expanded "><a href="twitter/twitter-reverse-lookup.html"><strong aria-hidden="true">10.4.</strong> Reverse look up</a></li></ol></li><li class="chapter-item expanded "><a href="sns-api/index.html"><strong aria-hidden="true">11.</strong> SNS API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sns-api/categories.html"><strong aria-hidden="true">11.1.</strong> Categories</a></li><li class="chapter-item expanded "><a href="sns-api/sales.html"><strong aria-hidden="true">11.2.</strong> Sales</a></li><li class="chapter-item expanded "><a href="sns-api/volumes.html"><strong aria-hidden="true">11.3.</strong> Volumes</a></li><li class="chapter-item expanded "><a href="sns-api/owners.html"><strong aria-hidden="true">11.4.</strong> Owners</a></li></ol></li><li class="chapter-item expanded "><a href="sns-suggest/index.html"><strong aria-hidden="true">12.</strong> SNS Suggest API - Alpha</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sns-suggest/current-owner.html"><strong aria-hidden="true">12.1.</strong> Current Owner</a></li></ol></li><li class="chapter-item expanded "><a href="sns-quicknode/index.html"><strong aria-hidden="true">13.</strong> SNS Quicknode API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sns-quicknode/get_all_domains_for_owner.html"><strong aria-hidden="true">13.1.</strong> get_all_domains_for_owner</a></li><li class="chapter-item expanded "><a href="sns-quicknode/get_domain_data.html"><strong aria-hidden="true">13.2.</strong> get_domain_data</a></li><li class="chapter-item expanded "><a href="sns-quicknode/get_domain_key.html"><strong aria-hidden="true">13.3.</strong> get_domain_key</a></li><li class="chapter-item expanded "><a href="sns-quicknode/get_domain_record_key.html"><strong aria-hidden="true">13.4.</strong> get_domain_record_key</a></li><li class="chapter-item expanded "><a href="sns-quicknode/get_favourite_domain.html"><strong aria-hidden="true">13.5.</strong> get_favourite_domain</a></li><li class="chapter-item expanded "><a href="sns-quicknode/get_registration_transaction.html"><strong aria-hidden="true">13.6.</strong> get_registration_transaction</a></li><li class="chapter-item expanded "><a href="sns-quicknode/get_subdomains.html"><strong aria-hidden="true">13.7.</strong> get_subdomains</a></li><li class="chapter-item expanded "><a href="sns-quicknode/get_supported_records.html"><strong aria-hidden="true">13.8.</strong> get_supported_records</a></li><li class="chapter-item expanded "><a href="sns-quicknode/resolve_domain.html"><strong aria-hidden="true">13.9.</strong> resolve_domain</a></li><li class="chapter-item expanded "><a href="sns-quicknode/reverse_lookup.html"><strong aria-hidden="true">13.10.</strong> reverse_lookup</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -100,7 +99,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -133,7 +132,7 @@
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -156,6 +155,13 @@ Still, this has privacy implications that require you to have an identifiable Tw
 <p>The Solana Name Service program is deployed on <a href="https://explorer.solana.com/address/namesLPneVptA9Z5rqUDD9tMTWEJwofgaYwp8cawRkX">Mainnet</a>, <a href="https://explorer.solana.com/address/namesLPneVptA9Z5rqUDD9tMTWEJwofgaYwp8cawRkX?cluster=devnet">Devnet</a> and <a href="https://explorer.solana.com/address/namesLPneVptA9Z5rqUDD9tMTWEJwofgaYwp8cawRkX?cluster=testnet">Testnet</a> at the following address:</p>
 <pre><code>namesLPneVptA9Z5rqUDD9tMTWEJwofgaYwp8cawRkX
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sns-improvement-proposal-sns-ip"><a class="header" href="#sns-improvement-proposal-sns-ip">SNS Improvement Proposal (SNS-IP)</a></h1>
+<p>The Solana Name Service Improvement Protocol (SNS-IP) allows all community members to participate in the building process of SNS &amp; makes it much more transparent.</p>
+<p>SNS-IPs can be found on Github: <a href="https://github.com/Bonfida/sns-ip">https://github.com/Bonfida/sns-ip</a></p>
+<h2 id="drafts"><a class="header" href="#drafts">Drafts</a></h2>
+<ul>
+<li><a href="https://github.com/Bonfida/sns-ip/issues/3">SNS-IP-1</a>: Proposal to standardize data encoding in SNS records</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sns-sdk"><a class="header" href="#sns-sdk">SNS SDK</a></h1>
 <p>The SNS SDK monorepo can be found <a href="https://github.com/Bonfida/sns-sdk">here</a>. It contains SDK for:</p>
 <ul>
@@ -206,8 +212,7 @@ expect(owner.toBase58()).toBe(&quot;HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA
 </span>let client = RpcClient::new(std::env::var(&quot;RPC_URL&quot;).unwrap());
 let res = resolve_owner(&amp;client, &quot;bonfida&quot;).await.unwrap();
 assert_eq!(res, pubkey!(&quot;HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA&quot;));
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <ol start="3">
 <li>With the CLI</li>
 </ol>
@@ -348,8 +353,7 @@ pub struct NameRecordHeader {
     // If `Pubkey::default()` the data is unspecified.
     pub class: Pubkey,
 }
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <h3 id="data-flexible-data-storage"><a class="header" href="#data-flexible-data-storage">Data: Flexible Data Storage</a></h3>
 <p>The data section can hold arbitrary binary data. Its length is set during domain registration, and the domain owner can decide what to store in this part of the Name Registry.</p>
 <p>In simple terms, the Name Registry data structure provides a way to organize and store information about a domain on Solana, including its relationships, ownership, and any additional data the owner wishes to include.</p>
@@ -469,7 +473,19 @@ export const resolve = async (connection: Connection, domain: string) =&gt; {
 </ol>
 <p>The SOL record data contains a 96-byte array that is the concatenation of a public key (32 bytes) and signature (64 bytes). The first 32 bytes represent the public key (<code>pubkey</code>) to which funds should be sent and the next 64 bytes are the signature of <code>pubkey_as_bytes + record_key_as_bytes</code> signed by the owner of the domain. If the signature is invalid funds <strong>must not</strong> be transferred to the SOL record address.</p>
 <p>The signature is required to prevent funds being sent to a stale SOL record after a domain has been transferred or sold to a new owner.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="resolving-bridged-domains"><a class="header" href="#resolving-bridged-domains">Resolving bridged domains</a></h1>
+<h2 id="examples"><a class="header" href="#examples">Examples</a></h2>
+<p>This section provides examples to assist you in testing your implementation. However, they are not exhaustive, therefore, ensure to carry out comprehensive tests beyond these examples. Use them as guidelines and adapt them to suit your specific needs.</p>
+<div class="table-wrapper"><table><thead><tr><th>domain</th><th>owner</th></tr></thead><tbody>
+<tr><td>wallet-guide-5.sol</td><td>Fxuoy3gFjfJALhwkRcuKjRdechcgffUApeYAfMWck6w8</td></tr>
+<tr><td>wallet-guide-4.sol</td><td>Hf4daCT4tC2Vy9RCe9q8avT68yAsNJ1dQe6xiQqyGuqZ</td></tr>
+<tr><td>wallet-guide-3.sol</td><td>Fxuoy3gFjfJALhwkRcuKjRdechcgffUApeYAfMWck6w8</td></tr>
+<tr><td>wallet-guide-2.sol</td><td>36Dn3RWhB8x4c83W6ebQ2C2eH9sh5bQX2nMdkP2cWaA4</td></tr>
+<tr><td>wallet-guide-1.sol</td><td>36Dn3RWhB8x4c83W6ebQ2C2eH9sh5bQX2nMdkP2cWaA4</td></tr>
+<tr><td>wallet-guide-0.sol</td><td>Fxuoy3gFjfJALhwkRcuKjRdechcgffUApeYAfMWck6w8</td></tr>
+<tr><td>sub-0.wallet-guide-3.sol</td><td>Fxuoy3gFjfJALhwkRcuKjRdechcgffUApeYAfMWck6w8</td></tr>
+<tr><td>sub-1.wallet-guide-3.sol</td><td>Hf4daCT4tC2Vy9RCe9q8avT68yAsNJ1dQe6xiQqyGuqZ</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="resolving-bridged-domains"><a class="header" href="#resolving-bridged-domains">Resolving bridged domains</a></h1>
 <p>The Solana Name Service (SNS) going cross-chain means that it is expanding its functionality beyond the Solana ecosystem, enabling users to export their domain names to alternative blockchains using the <a href="https://wormhole.com/">Wormhole bridge</a>. This move aims to increase the utility and adoption of SNS, while also fostering collaboration and interoperability between different blockchain networks. By allowing SNS domains to be resolved on supported chains like EVM-based chains, SNS becomes more accessible to a wider range of developers and users, promoting the growth of the Solana ecosystem and showcasing its capabilities beyond its native environment.</p>
 <h2 id="evm-chains"><a class="header" href="#evm-chains">EVM Chains</a></h2>
 <p>The Solana Name Service has been bridged to the following EVM chains:</p>
@@ -1480,7 +1496,7 @@ ixs.push(...ix_reverse);
 // Sign an send the tx
 </code></pre>
 <p>From <code>0.2.2</code> this logic is exported via the <code>createSubdomain</code> function</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="examples"><a class="header" href="#examples">Examples</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="examples-1"><a class="header" href="#examples-1">Examples</a></h1>
 <p>Below is a list of examples that can be used to test your code:</p>
 <ol>
 <li><a href="domain-name/sns-examples//domain-name/sns-examples/derivations.html">Key derivations</a></li>
@@ -2126,7 +2142,7 @@ export const useDomainAutoSuggest = (domain: string) =&gt; {
     &quot;id&quot;: 5678
 }
 </code></pre>
-<p>The response is a JSON object. For example :</p>
+<p>The response is a JSON object. For example:</p>
 <pre><code class="language-json">{
     &quot;jsonrpc&quot;: &quot;2.0&quot;,
     &quot;result&quot;: &quot;HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA&quot;,
@@ -2140,7 +2156,7 @@ Returns the list of SNS domains currently owned by a given account.
 
 ### Parameters
 
-- **owner** `string` *required* : A base58-encoded Solana Pubkey.
+- **owner** `string` *required*: A base58-encoded Solana Pubkey.
 
 ### Result
 
@@ -2154,8 +2170,8 @@ Returns base64 encoded contents of the domain's data payload, or those of an ass
 
 ### Parameters
 
-- **domain** `string` *required* : The domain name to query.
-- **record** `string` *optional* : The associated record to get the data from instead.
+- **domain** `string` *required*: The domain name to query.
+- **record** `string` *optional*: The associated record to get the data from instead.
 
 ### Result
 
@@ -2169,7 +2185,7 @@ Returns a domain's Solana account public key.
 
 ### Parameters
 
-- **domain** `string` *required* : The domain name to query for.
+- **domain** `string` *required*: The domain name to query for.
 
 ### Result
 
@@ -2183,8 +2199,8 @@ Returns a domain's Solana account public key.
 
 ### Parameters
 
-- **domain** `string` *required* : The domain name to query for.
-- **record** `string` *required* : The record identifier to query for.
+- **domain** `string` *required*: The domain name to query for.
+- **record** `string` *required*: The record identifier to query for.
 
 ### Result
 
@@ -2198,7 +2214,7 @@ Returns a domain's reverse registry Solana account public key.
 
 ### Parameters
 
-- **domain** `string` *required* : The domain name to query for.
+- **domain** `string` *required*: The domain name to query for.
 
 ### Result
 
@@ -2212,7 +2228,7 @@ Returns a user wallet's favourite (i.e. primary) domain.
 
 ### Parameters
 
-- **owner** `string` *required* : The base58-encoded Solana public key of the wallet to query for.
+- **owner** `string` *required*: The base58-encoded Solana public key of the wallet to query for.
 
 ### Result
 
@@ -2226,12 +2242,12 @@ Returns a ready-to-sign, base64-encoded transaction object to register a new SNS
 
 ### Parameters
 
-- **domain** `string` *required* : The domain name.
-- **buyer** `string` *required* : The base58-encoded Solana public key of the buyer's paying wallet.
-- **buyer_token_account** `string` *required* : The base58-encoded Solana public key of the buyer's paying token account.
-- **space** `integer` *required* : The number of bytes to allocate in the new registered domain.
-- **mint** `string` *optional* : The Solana public key of the Token mint used for payment, defaults to `EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v` (USDC).
-- **referrer_key** `string` *optional* : The base58-encoded Solana public key of the registration referrer.
+- **domain** `string` *required*: The domain name.
+- **buyer** `string` *required*: The base58-encoded Solana public key of the buyer's paying wallet.
+- **buyer_token_account** `string` *required*: The base58-encoded Solana public key of the buyer's paying token account.
+- **space** `integer` *required*: The number of bytes to allocate in the new registered domain.
+- **mint** `string` *optional*: The Solana public key of the Token mint used for payment, defaults to `EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v` (USDC).
+- **referrer_key** `string` *optional*: The base58-encoded Solana public key of the registration referrer.
 
 ### Result
 
@@ -2245,7 +2261,7 @@ Returns a list of currently registered subdomains for a given domain.
 
 ### Parameters
 
-- **domain** `string` *required* : The domain name.
+- **domain** `string` *required*: The domain name.
 
 ### Result
 
@@ -2273,7 +2289,7 @@ Returns the resolved Solana Public key associated to a domain.
 
 ### Parameters
 
-- **domain** `string` *required* : The domain name to resolve.
+- **domain** `string` *required*: The domain name to resolve.
 
 ### Result
 
@@ -2287,7 +2303,7 @@ Returns the domain name associated with a raw SNS account.
 
 ### Parameters
 
-- **domain_key** `string` *required* : The base58-encoded public key of the Solana account to reverse lookup.
+- **domain_key** `string` *required*: The base58-encoded public key of the Solana account to reverse lookup.
 
 ### Result
 
@@ -2298,19 +2314,19 @@ The result will be an RPCResponse JSON object with field:
 <p>Returns the list of SNS domains currently owned by a given account.</p>
 <h2 id="parameters"><a class="header" href="#parameters">Parameters</a></h2>
 <ul>
-<li><strong>owner</strong> <code>string</code> <em>required</em> : A base58-encoded Solana Pubkey.</li>
+<li><strong>owner</strong> <code>string</code> <em>required</em>: A base58-encoded Solana Pubkey.</li>
 </ul>
 <h2 id="result"><a class="header" href="#result">Result</a></h2>
 <p>The result will be an RPCResponse JSON object with field:</p>
 <ul>
-<li><strong>result</strong> <code>string[]</code>: A list of owned domain names</li>
+<li><strong>result</strong> <code>string[]</code>: A list of base58-encoded keys for all owned domain names</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="get_domain_data"><a class="header" href="#get_domain_data"><code>get_domain_data</code></a></h1>
 <p>Returns base64 encoded contents of the domain's data payload, or those of an associated record.</p>
 <h2 id="parameters-1"><a class="header" href="#parameters-1">Parameters</a></h2>
 <ul>
-<li><strong>domain</strong> <code>string</code> <em>required</em> : The domain name to query.</li>
-<li><strong>record</strong> <code>string</code> <em>optional</em> : The associated record to get the data from instead.</li>
+<li><strong>domain</strong> <code>string</code> <em>required</em>: The domain name to query.</li>
+<li><strong>record</strong> <code>string</code> <em>optional</em>: The associated record to get the data from instead.</li>
 </ul>
 <h2 id="result-1"><a class="header" href="#result-1">Result</a></h2>
 <p>The result will be an RPCResponse JSON object with field:</p>
@@ -2321,7 +2337,7 @@ The result will be an RPCResponse JSON object with field:
 <p>Returns a domain's Solana account public key.</p>
 <h2 id="parameters-2"><a class="header" href="#parameters-2">Parameters</a></h2>
 <ul>
-<li><strong>domain</strong> <code>string</code> <em>required</em> : The domain name to query for.</li>
+<li><strong>domain</strong> <code>string</code> <em>required</em>: The domain name to query for.</li>
 </ul>
 <h2 id="result-2"><a class="header" href="#result-2">Result</a></h2>
 <p>The result will be an RPCResponse JSON object with field:</p>
@@ -2332,8 +2348,8 @@ The result will be an RPCResponse JSON object with field:
 <p>Returns a domain's Solana account public key.</p>
 <h2 id="parameters-3"><a class="header" href="#parameters-3">Parameters</a></h2>
 <ul>
-<li><strong>domain</strong> <code>string</code> <em>required</em> : The domain name to query for.</li>
-<li><strong>record</strong> <code>string</code> <em>required</em> : The record identifier to query for.</li>
+<li><strong>domain</strong> <code>string</code> <em>required</em>: The domain name to query for.</li>
+<li><strong>record</strong> <code>string</code> <em>required</em>: The record identifier to query for.</li>
 </ul>
 <h2 id="result-3"><a class="header" href="#result-3">Result</a></h2>
 <p>The result will be an RPCResponse JSON object with field:</p>
@@ -2344,23 +2360,23 @@ The result will be an RPCResponse JSON object with field:
 <p>Returns a user wallet's favourite (i.e. primary) domain.</p>
 <h2 id="parameters-4"><a class="header" href="#parameters-4">Parameters</a></h2>
 <ul>
-<li><strong>owner</strong> <code>string</code> <em>required</em> : The base58-encoded Solana public key of the wallet to query for.</li>
+<li><strong>owner</strong> <code>string</code> <em>required</em>: The base58-encoded Solana public key of the wallet to query for.</li>
 </ul>
 <h2 id="result-4"><a class="header" href="#result-4">Result</a></h2>
 <p>The result will be an RPCResponse JSON object with field:</p>
 <ul>
-<li><strong>result</strong> <code>string</code>: The domain name.</li>
+<li><strong>result</strong> <code>string</code>: The base58-encoded domain name account key.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="get_registration_transaction"><a class="header" href="#get_registration_transaction"><code>get_registration_transaction</code></a></h1>
 <p>Returns a ready-to-sign, base64-encoded transaction object to register a new SNS domain.</p>
 <h2 id="parameters-5"><a class="header" href="#parameters-5">Parameters</a></h2>
 <ul>
-<li><strong>domain</strong> <code>string</code> <em>required</em> : The domain name.</li>
-<li><strong>buyer</strong> <code>string</code> <em>required</em> : The base58-encoded Solana public key of the buyer's paying wallet.</li>
-<li><strong>buyer_token_account</strong> <code>string</code> <em>required</em> : The base58-encoded Solana public key of the buyer's paying token account.</li>
-<li><strong>space</strong> <code>integer</code> <em>required</em> : The number of bytes to allocate in the new registered domain.</li>
-<li><strong>mint</strong> <code>string</code> <em>optional</em> : The Solana public key of the Token mint used for payment, defaults to <code>EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v</code> (USDC).</li>
-<li><strong>referrer_key</strong> <code>string</code> <em>optional</em> : The base58-encoded Solana public key of the registration referrer.</li>
+<li><strong>domain</strong> <code>string</code> <em>required</em>: The domain name.</li>
+<li><strong>buyer</strong> <code>string</code> <em>required</em>: The base58-encoded Solana public key of the buyer's paying wallet.</li>
+<li><strong>buyer_token_account</strong> <code>string</code> <em>required</em>: The base58-encoded Solana public key of the buyer's paying token account.</li>
+<li><strong>space</strong> <code>integer</code> <em>required</em>: The number of bytes to allocate in the new registered domain.</li>
+<li><strong>mint</strong> <code>string</code> <em>optional</em>: The Solana public key of the Token mint used for payment, defaults to <code>EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v</code> (USDC).</li>
+<li><strong>referrer_key</strong> <code>string</code> <em>optional</em>: The base58-encoded Solana public key of the registration referrer.</li>
 </ul>
 <h2 id="result-5"><a class="header" href="#result-5">Result</a></h2>
 <p>The result will be an RPCResponse JSON object with field:</p>
@@ -2371,12 +2387,12 @@ The result will be an RPCResponse JSON object with field:
 <p>Returns a list of currently registered subdomains for a given domain.</p>
 <h2 id="parameters-6"><a class="header" href="#parameters-6">Parameters</a></h2>
 <ul>
-<li><strong>domain</strong> <code>string</code> <em>required</em> : The domain name.</li>
+<li><strong>domain</strong> <code>string</code> <em>required</em>: The domain name.</li>
 </ul>
 <h2 id="result-6"><a class="header" href="#result-6">Result</a></h2>
 <p>The result will be an RPCResponse JSON object with field:</p>
 <ul>
-<li><strong>result</strong> <code>string[]</code>: The list of currently registered subdomain names.</li>
+<li><strong>result</strong> <code>string[]</code>: The list of currently registered subdomain name account keys, encoded as base58.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="get_supported_records"><a class="header" href="#get_supported_records"><code>get_supported_records</code></a></h1>
 <p>Returns a list of all the currently supported record types.</p>
@@ -2391,7 +2407,7 @@ The result will be an RPCResponse JSON object with field:
 <p>Returns the resolved Solana Public key associated to a domain.</p>
 <h2 id="parameters-8"><a class="header" href="#parameters-8">Parameters</a></h2>
 <ul>
-<li><strong>domain</strong> <code>string</code> <em>required</em> : The domain name to resolve.</li>
+<li><strong>domain</strong> <code>string</code> <em>required</em>: The domain name to resolve.</li>
 </ul>
 <h2 id="result-8"><a class="header" href="#result-8">Result</a></h2>
 <p>The result will be an RPCResponse JSON object with field:</p>
@@ -2402,7 +2418,7 @@ The result will be an RPCResponse JSON object with field:
 <p>Returns the domain name associated with a raw SNS account.</p>
 <h2 id="parameters-9"><a class="header" href="#parameters-9">Parameters</a></h2>
 <ul>
-<li><strong>domain_key</strong> <code>string</code> <em>required</em> : The base58-encoded public key of the Solana account to reverse lookup.</li>
+<li><strong>domain_key</strong> <code>string</code> <em>required</em>: The base58-encoded public key of the Solana account to reverse lookup.</li>
 </ul>
 <h2 id="result-9"><a class="header" href="#result-9">Result</a></h2>
 <p>The result will be an RPCResponse JSON object with field:</p>
@@ -2427,41 +2443,25 @@ The result will be an RPCResponse JSON object with field:
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
 
 
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
 
-        <script type="text/javascript">
+        <script>
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });

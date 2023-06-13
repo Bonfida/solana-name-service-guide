@@ -1,5 +1,6 @@
 - [Introduction](introduction.md)
 - [Deployment](deployment.md)
+- [SNS IP](sns-ip/README.md)
 - [SNS Library](installation.md)
 - [Changelog](changelog.md)
 - [FAQ](faq.md)
@@ -53,6 +54,7 @@
 - [SNS Suggest API - Alpha](sns-suggest/README.md)
 
   - [Current Owner](sns-suggest/current-owner.md)
+
 - [SNS Quicknode API](sns-quicknode/README.md)
 
   - [get_all_domains_for_owner](sns-quicknode/get_all_domains_for_owner.md)
