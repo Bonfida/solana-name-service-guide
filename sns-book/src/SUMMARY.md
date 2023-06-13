@@ -1,5 +1,6 @@
 - [Introduction](introduction.md)
 - [Deployment](deployment.md)
+- [SNS IP](sns-ip/README.md)
 - [SNS Library](installation.md)
 - [Changelog](changelog.md)
 - [FAQ](faq.md)
@@ -54,4 +55,15 @@
 
   - [Current Owner](sns-suggest/current-owner.md)
 
-- [SNS IP](sns-ip/README.md)
+- [SNS Quicknode API](sns-quicknode/README.md)
+
+  - [get_all_domains_for_owner](sns-quicknode/get_all_domains_for_owner.md)
+  - [get_domain_data](sns-quicknode/get_domain_data.md)
+  - [get_domain_key](sns-quicknode/get_domain_key.md)
+  - [get_domain_record_key](sns-quicknode/get_domain_record_key.md)
+  - [get_favourite_domain](sns-quicknode/get_favourite_domain.md)
+  - [get_registration_transaction](sns-quicknode/get_registration_transaction.md)
+  - [get_subdomains](sns-quicknode/get_subdomains.md)
+  - [get_supported_records](sns-quicknode/get_supported_records.md)
+  - [resolve_domain](sns-quicknode/resolve_domain.md)
+  - [reverse_lookup](sns-quicknode/reverse_lookup.md)
