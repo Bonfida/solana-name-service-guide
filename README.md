@@ -9,4 +9,4 @@
 </p>
 <br />
 
-User guide can be found [here](https://bonfida.github.io/solana-name-service-guide)
+User guide can be found at [sns.guide](https://sns.guide)
