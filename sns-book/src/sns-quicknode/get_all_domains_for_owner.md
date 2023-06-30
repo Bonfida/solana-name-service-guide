@@ -10,4 +10,9 @@ Returns the list of SNS domains currently owned by a given account.
 
 The result will be an RPCResponse JSON object with field:
 
-- **result** `string[]`: A list of base58-encoded keys for all owned domain names
+- **result** `Domain[]`: A list of `Domain` objects
+
+The `Domain` Object contains two fields :
+
+- **name** `string`: The domain name
+- **key** `string`: The domain's base-58 encoded public key
