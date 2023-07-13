@@ -24,11 +24,13 @@ The result will be an RPCResponse JSON object with field:
     "github"
   ],
   "id": 42
-}```
+}
+```
 
 ```json
 {
   "jsonrpc": "2.0",
   "result": "4sQDE98ZzQ23Rygb7tx1HhXQiuxswKhSBvECCREW35Ei",
   "id": 42
-}```
+}
+```

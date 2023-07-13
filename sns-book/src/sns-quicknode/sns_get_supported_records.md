@@ -20,7 +20,8 @@ The result will be an RPCResponse JSON object with field:
   "method": "sns_getSupportedRecords",
   "params": [],
   "id": 42
-}```
+}
+```
 
 ```json
 {
@@ -48,4 +49,5 @@ The result will be an RPCResponse JSON object with field:
     "backpack"
   ],
   "id": 42
-}```
+}
+```

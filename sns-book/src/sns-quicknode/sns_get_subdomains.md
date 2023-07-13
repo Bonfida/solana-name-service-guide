@@ -22,7 +22,8 @@ The result will be an RPCResponse JSON object with field:
     "bonfida.sol"
   ],
   "id": 42
-}```
+}
+```
 
 ```json
 {
@@ -33,44 +34,5 @@ The result will be an RPCResponse JSON object with field:
     "test"
   ],
   "id": 42
-}```
-
-## Example
-
-```json
-{
-  "jsonrpc": "2.0",
-  "method": "sns_getSupportedRecords",
-  "params": [
-    "bonfida.sol"
-  ],
-  "id": 42
-}```
-
-```json
-{
-  "jsonrpc": "2.0",
-  "result": [
-    "IPFS",
-    "ARWV",
-    "SOL",
-    "ETH",
-    "BTC",
-    "LTC",
-    "DOGE",
-    "email",
-    "url",
-    "discord",
-    "github",
-    "reddit",
-    "twitter",
-    "telegram",
-    "pic",
-    "SHDW",
-    "POINT",
-    "BSC",
-    "INJ",
-    "backpack"
-  ],
-  "id": 42
-}```
+}
+```

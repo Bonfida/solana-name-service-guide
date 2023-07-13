@@ -27,7 +27,8 @@ The `Domain` Object contains two fields :
     "HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA"
   ],
   "id": 42
-}```
+}
+```
 
 ```json
 {
@@ -37,4 +38,5 @@ The `Domain` Object contains two fields :
     "name": "bonfida"
   },
   "id": 42
-}```
+}
+```

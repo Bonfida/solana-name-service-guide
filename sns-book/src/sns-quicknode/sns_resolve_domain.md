@@ -22,11 +22,13 @@ The result will be an RPCResponse JSON object with field:
     "bonfida.sol"
   ],
   "id": 42
-}```
+}
+```
 
 ```json
 {
   "jsonrpc": "2.0",
   "result": "HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA",
   "id": 42
-}```
+}
+```
