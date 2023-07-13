@@ -1,4 +1,4 @@
-# `sns_resolve_domain`
+# `sns_resolveDomain`
 
 Returns the resolved Solana Public key associated to a domain.
 

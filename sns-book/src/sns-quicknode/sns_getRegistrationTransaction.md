@@ -1,4 +1,4 @@
-# `sns_get_registration_transaction`
+# `sns_getRegistrationTransaction`
 
 Returns a ready-to-sign, base64-encoded transaction object to register a new SNS domain.
 

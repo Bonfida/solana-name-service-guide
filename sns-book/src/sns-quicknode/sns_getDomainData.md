@@ -1,4 +1,4 @@
-# `sns_get_domain_data`
+# `sns_getDomainData`
 
 Returns base64 encoded contents of the domain's data payload, or those of an associated record.
 

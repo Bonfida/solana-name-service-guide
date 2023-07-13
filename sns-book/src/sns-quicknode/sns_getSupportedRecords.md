@@ -1,4 +1,4 @@
-# `sns_get_supported_records`
+# `sns_getSupportedRecords`
 
 Returns a list of all the currently supported record types.
 

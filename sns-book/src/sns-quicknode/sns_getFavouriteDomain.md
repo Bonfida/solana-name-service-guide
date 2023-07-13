@@ -1,4 +1,4 @@
-# `sns_get_favourite_domain`
+# `sns_getFavouriteDomain`
 
 Returns a user wallet's favourite (i.e. primary) domain.
 

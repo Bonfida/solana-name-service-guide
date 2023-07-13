@@ -1,4 +1,4 @@
-# `sns_get_domain_record_key`
+# `sns_getDomainRecordKey`
 
 Returns a domain record's Solana account public key. Supported record identifier include `SOL`, `ETH` and `IPFS`. The `get_supported_records` method returns a list of all supported records.
 

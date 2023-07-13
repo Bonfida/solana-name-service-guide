@@ -1,6 +1,6 @@
-# `sns_get_domain_key`
+# `sns_getDomainReverseKey`
 
-Returns a domain's Solana account public key.
+Returns a domain's reverse registry Solana account public key.
 
 ## Parameters
 
@@ -17,7 +17,7 @@ The result will be an RPCResponse JSON object with field:
 ```json
 {
   "jsonrpc": "2.0",
-  "method": "sns_getDomainKey",
+  "method": "sns_getDomainReverseKey",
   "params": [
     "bonfida.sol"
   ],
@@ -28,7 +28,7 @@ The result will be an RPCResponse JSON object with field:
 ```json
 {
   "jsonrpc": "2.0",
-  "result": "Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb",
+  "result": "DqgmWxe2PPrfy45Ja3UPyFGwcbRzkRuwXt3NyxjX8krg",
   "id": 42
 }
 ```

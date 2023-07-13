@@ -1,4 +1,4 @@
-# `sns_get_subdomains`
+# `sns_getSubdomains`
 
 Returns a list of currently registered subdomains for a given domain.
 

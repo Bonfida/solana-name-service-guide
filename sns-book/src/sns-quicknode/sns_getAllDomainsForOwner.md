@@ -1,4 +1,4 @@
-# `sns_get_all_domains_for_owner`
+# `sns_getAllDomainsForOwner`
 
 Returns the list of SNS domains currently owned by a given account.
 
