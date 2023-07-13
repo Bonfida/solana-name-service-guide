@@ -1,4 +1,4 @@
-# `reverse_lookup`
+# `sns_reverse_lookup`
 
 Returns the domain name associated with a raw SNS account.
 
@@ -11,3 +11,22 @@ Returns the domain name associated with a raw SNS account.
 The result will be an RPCResponse JSON object with field:
 
 - **value** `string`: The domain name.
+
+## Example
+
+```json
+{
+  "jsonrpc": "2.0",
+  "method": "sns_reverseLookup",
+  "params": [
+    "Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb"
+  ],
+  "id": 42
+}```
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": "bonfida",
+  "id": 42
+}```
