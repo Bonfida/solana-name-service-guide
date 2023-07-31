@@ -6,6 +6,10 @@ Registration instructions can be created either via SDK or API, both methods are
 - Space (between 1kb and 10kb)
 - The public key of the buyer
 
+Domain names can be registered with the following tokens: USDC, USDT, wSOL, FIDA, mSOL, BONK and BAT.
+
+> **Note:** The registration instruction does not support native SOL but wrapped SOL
+
 ## SDK
 
 Unregistered domains can be registered using the SDK `@bonfida/spl-name-service` with the following instructions:
