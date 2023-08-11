@@ -19,6 +19,8 @@
   - [Get all domains of a user](domain-name/domain-find-for-owner.md)
   - [Get all domains](domain-name/all-domains.md)
   - [Records](domain-name/records.md)
+    - [Records V1](domain-name/records/records.md)
+    - [Records V2](domain-name/records/records-v2.md)
   - [Edit domain content](domain-name/edit-domain-content.md)
   - [Transfer domains](domain-name/transfer.md)
   - [Favorite domain](domain-name/favorite-domain.md)
