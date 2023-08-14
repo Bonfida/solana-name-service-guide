@@ -1,6 +1,7 @@
 # Records V2
 
-- Related SNS-IP: [SNS-IP 2](TODO)
+- Records V2 are currently in beta
+- Related SNS-IP: [SNS-IP 2](https://github.com/Bonfida/sns-ip/blob/master/proposals/sns-ip-2.md)
 
 ## Data structure
 

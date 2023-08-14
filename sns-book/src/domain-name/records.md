@@ -54,14 +54,6 @@ export enum Record {
 }
 ```
 
-## The SOL record
-
-The SOL record can be used to receive funds to a different address than the one owning the domain. This allows people to hold the domain on a cold wallet while being able to receive funds on a hot wallet.
-
-The SOL record data contains a 96-byte array that is the concatenation of a public key (32 bytes) and signature (64 bytes). The first 32 bytes represent the public key (`pubkey`) to which funds should be sent and the next 64 bytes are the signature of `pubkey_as_bytes + record_key_as_bytes` by the owner of the domain. If the signature is invalid funds **must not** be transferred.
-
-The signature is required to prevent funds being sent to a stale SOL record after a domain has been transferred or sold.
-
 ## Gateway
 
 The following records can be resolved in browser using [https://sol-domain.org](https://sol-domain.org):
@@ -74,6 +66,10 @@ The following records can be resolved in browser using [https://sol-domain.org](
 The implementation of this resolver can be found [on Github](https://github.com/Bonfida/name-resolver)
 
 > For example [https://bonfida.sol-domain.org](https://bonfida.sol-domain.org)
+
+## Records V1 & V2
+
+There are notable differences between Records V1 and V2. Records V1 use a derivation prefix of `x01` and encode their content based on the [SNS-IP-1 guidelines](https://github.com/Bonfida/sns-ip/blob/master/proposals/sns-ip-1.md). In response to challenges related to data authenticity and staleness issues prevalent in V1, Records V2 was introduced. V2 employs the `x02` derivation prefix and a distinct encoding schema detailed in [SNS-IP-2](https://github.com/Bonfida/sns-ip/blob/master/proposals/sns-ip-2.md). Records V2 incorporates a signature system to ensure data integrity and freshness. Importantly, due to the distinct derivation prefixes, Records V1 and V2 can co-exist without collisions. However, the goal of the ecosystem is a complete migration to Records V2.
 
 ## Difference between records and subdomains
 
