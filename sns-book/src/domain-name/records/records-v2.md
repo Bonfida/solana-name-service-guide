@@ -1,6 +1,6 @@
 # Records V2
 
-- Records V2 are currently in beta
+- Records V2 are currently in beta and susceptible to have breaking changes ⚠️
 - Related SNS-IP: [SNS-IP 2](https://github.com/Bonfida/sns-ip/blob/master/proposals/sns-ip-2.md)
 
 ## Data structure

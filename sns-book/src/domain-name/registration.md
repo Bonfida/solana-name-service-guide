@@ -33,47 +33,9 @@ const [, ix] = await registerDomainName(name, space, buyer, buyerTokenAccount);
 Registration instructions can also be created via API (equivalent to using the SDK):
 
 ```
-POST https://naming-api.bonfida.com/registrar/new-domain
+GET https://sns-sdk-proxy.bonfida.workers.dev/register?buyer={buyer}&domain={domain}&space={space}&serialize={serialize}
 ```
 
-With the following request body
+This endpoint can be used to register domain for buyer. Additionaly, the buyer dans specify the space it wants to allocate for the domain account. In the case where serialize is true the endpoint will return the transaction serialized in the wire format base64 encoded. Otherwise it will return the instruction in the following format: `{ programId: string, keys: {isWritable: boolean, isSigner: boolean, pubkey: string}[], data: string }` where `data` is base64 encoded.
 
-```json
-{
-  "domain": "domain_to_register",
-  "pubkey": "pubkey_of_the_user",
-  "space": "domain_space", // Between 1_000 and 10_000
-  "language": "0"
-}
-```
-
-Response:
-
-```json
-{
-  "success": true,
-  "data": {
-    "keys": [
-      {
-        "pubkey": "SysvarRent111111111111111111111111111111111",
-        "isSigner": false,
-        "isWritable": false
-      },
-      // ...
-      {
-        "pubkey": "62pexKUPWncYECF7DMtENjKbwZnrJoMpvDkrrtceC8Ee",
-        "isSigner": false,
-        "isWritable": false
-      }
-    ],
-    "programId": "jCebN34bUfdeUYJT13J1yG16XWQpt5PDx6Mse9GUqhR",
-    "data": [
-      9,
-      // ...
-      0
-    ]
-  }
-}
-```
-
-More details about direct registration can be found [here](https://docs.bonfida.org/collection/how-to-create-a-solana-domain-name/purchasing-a-domain-name/direct-registration)
+This endpoint also supports the optional mint parameter to change the mint of the token used for registration (currently supports USDC, USDT, FIDA and wSOL), if mint is omitted it defaults to USDC.
