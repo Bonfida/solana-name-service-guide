@@ -275,32 +275,21 @@ export const Example = () =&gt; {
 <p>You can buy a domain on the <a href="https://sns.id">Solana Name Service website</a></p>
 <h2 id="how-do-i-find-a-domain-if-i-only-know-its-public-key"><a class="header" href="#how-do-i-find-a-domain-if-i-only-know-its-public-key">How do I find a domain if I only know its public key?</a></h2>
 <p>If you only know the public key of a domain you can do a reverse look up to find the associated domain. For example:</p>
-<pre><code class="language-js">import { performReverseLookup } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { reverseLookup } from &quot;@bonfida/spl-name-service&quot;;
 
 // Public key of bonfida.sol
 const domainKey = new PublicKey(&quot;Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb&quot;);
 
-const domainName = await performReverseLookup(connection, domainKey); // bonfida
+const domainName = await reverseLookup(connection, domainKey); // bonfida
 </code></pre>
 <h2 id="how-do-i-find-the-public-key-of-a-domain"><a class="header" href="#how-do-i-find-the-public-key-of-a-domain">How do I find the public key of a domain?</a></h2>
 <p>If you want to find the public key of a domain you need to derive it:</p>
-<pre><code class="language-js">import {
-  getHashedName,
-  getNameAccountKey,
-  NameRegistryState,
-} from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getDomainKeySync } from &quot;@bonfida/spl-name-service&quot;;
 
-const domainName = &quot;bonfida&quot;; // Without the .sol
-
-// Step 1
-const hashedName = await getHashedName(domainName);
+const domain = &quot;bonfida&quot;; // With or without the .sol
 
 // Step 2
-const domainKey = await getNameAccountKey(
-  hashedName,
-  undefined,
-  SOL_TLD_AUTHORITY
-);
+const { pubkey } = getDomainKeySync(domain);
 </code></pre>
 <h2 id="how-can-i-find-the-content-of-a-domain"><a class="header" href="#how-can-i-find-the-content-of-a-domain">How can I find the content of a domain?</a></h2>
 <p>You can access the content of a domain by retrieving its registry:</p>
@@ -687,12 +676,12 @@ const { pubkey: recordKey } = await getDomainKey(record, true);
 <p><img src="domain-name/../assets/direct-reverse.png" alt="direct-reverse" /></p>
 <p>If you know the public key of a domain name registry and want to get the human readable name, you need to perform a <strong>reverse lookup</strong>.</p>
 <p>The following code can be used to resolve the domain name from its public key:</p>
-<pre><code class="language-js">import { performReverseLookup } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { reverseLookup } from &quot;@bonfida/spl-name-service&quot;;
 
 // Public key of bonfida.sol
 const domainKey = new PublicKey(&quot;Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb&quot;);
 
-const domainName = await performReverseLookup(connection, domainKey); // bonfida
+const domainName = await reverseLookup(connection, domainKey); // bonfida
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="subdomain-look-up"><a class="header" href="#subdomain-look-up">Subdomain look up</a></h1>
 <p>In order to resolve all subdomains of a parent domain:</p>
@@ -1395,9 +1384,7 @@ export const useDomainsForUser = (user: PublicKey) =&gt; {
       const registries = await NameRegistryState.retrieveBatch(connection, [
         ...domains,
       ]);
-      const reverses = await performReverseLookupBatch(connection, [
-        ...domains,
-      ]);
+      const reverses = await reverseLookupBatch(connection, [...domains]);
       const _result: Result[] = [];
       for (let i = 0; i &lt; domains.length; i++) {
         _result.push({
@@ -1425,7 +1412,7 @@ export const useDomainsForUser = (user: PublicKey) =&gt; {
 <pre><code class="language-ts">import { useEffect, useRef, useState } from &quot;react&quot;;
 import { useConnection } from &quot;@solana/wallet-adapter-react&quot;;
 import { PublicKey } from &quot;@solana/web3.js&quot;;
-import { performReverseLookup } from &quot;@bonfida/spl-name-service&quot;;
+import { reverseLookup } from &quot;@bonfida/spl-name-service&quot;;
 import { FavouriteDomain, NAME_OFFERS_ID } from &quot;@bonfida/name-offers&quot;;
 
 type Result = string | undefined;
@@ -1440,10 +1427,7 @@ export const useFavoriteDomain = (user: PublicKey) =&gt; {
       const [favKey] = await FavouriteDomain.getKey(NAME_OFFERS_ID, user);
       const favourite = await FavouriteDomain.retrieve(connection, favKey);
 
-      const reverse = await performReverseLookup(
-        connection,
-        favourite.nameAccount
-      );
+      const reverse = await reverseLookup(connection, favourite.nameAccount);
 
       if (mounted.current) {
         setResult(reverse);

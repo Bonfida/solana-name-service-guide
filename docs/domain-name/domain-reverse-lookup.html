@@ -145,12 +145,12 @@
 <p><img src="../assets/direct-reverse.png" alt="direct-reverse" /></p>
 <p>If you know the public key of a domain name registry and want to get the human readable name, you need to perform a <strong>reverse lookup</strong>.</p>
 <p>The following code can be used to resolve the domain name from its public key:</p>
-<pre><code class="language-js">import { performReverseLookup } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { reverseLookup } from &quot;@bonfida/spl-name-service&quot;;
 
 // Public key of bonfida.sol
 const domainKey = new PublicKey(&quot;Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb&quot;);
 
-const domainName = await performReverseLookup(connection, domainKey); // bonfida
+const domainName = await reverseLookup(connection, domainKey); // bonfida
 </code></pre>
 
                     </main>

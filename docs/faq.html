@@ -146,32 +146,21 @@
 <p>You can buy a domain on the <a href="https://sns.id">Solana Name Service website</a></p>
 <h2 id="how-do-i-find-a-domain-if-i-only-know-its-public-key"><a class="header" href="#how-do-i-find-a-domain-if-i-only-know-its-public-key">How do I find a domain if I only know its public key?</a></h2>
 <p>If you only know the public key of a domain you can do a reverse look up to find the associated domain. For example:</p>
-<pre><code class="language-js">import { performReverseLookup } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { reverseLookup } from &quot;@bonfida/spl-name-service&quot;;
 
 // Public key of bonfida.sol
 const domainKey = new PublicKey(&quot;Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb&quot;);
 
-const domainName = await performReverseLookup(connection, domainKey); // bonfida
+const domainName = await reverseLookup(connection, domainKey); // bonfida
 </code></pre>
 <h2 id="how-do-i-find-the-public-key-of-a-domain"><a class="header" href="#how-do-i-find-the-public-key-of-a-domain">How do I find the public key of a domain?</a></h2>
 <p>If you want to find the public key of a domain you need to derive it:</p>
-<pre><code class="language-js">import {
-  getHashedName,
-  getNameAccountKey,
-  NameRegistryState,
-} from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getDomainKeySync } from &quot;@bonfida/spl-name-service&quot;;
 
-const domainName = &quot;bonfida&quot;; // Without the .sol
-
-// Step 1
-const hashedName = await getHashedName(domainName);
+const domain = &quot;bonfida&quot;; // With or without the .sol
 
 // Step 2
-const domainKey = await getNameAccountKey(
-  hashedName,
-  undefined,
-  SOL_TLD_AUTHORITY
-);
+const { pubkey } = getDomainKeySync(domain);
 </code></pre>
 <h2 id="how-can-i-find-the-content-of-a-domain"><a class="header" href="#how-can-i-find-the-content-of-a-domain">How can I find the content of a domain?</a></h2>
 <p>You can access the content of a domain by retrieving its registry:</p>

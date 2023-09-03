@@ -147,7 +147,7 @@
 <pre><code class="language-ts">import { useEffect, useRef, useState } from &quot;react&quot;;
 import { useConnection } from &quot;@solana/wallet-adapter-react&quot;;
 import { PublicKey } from &quot;@solana/web3.js&quot;;
-import { performReverseLookup } from &quot;@bonfida/spl-name-service&quot;;
+import { reverseLookup } from &quot;@bonfida/spl-name-service&quot;;
 import { FavouriteDomain, NAME_OFFERS_ID } from &quot;@bonfida/name-offers&quot;;
 
 type Result = string | undefined;
@@ -162,10 +162,7 @@ export const useFavoriteDomain = (user: PublicKey) =&gt; {
       const [favKey] = await FavouriteDomain.getKey(NAME_OFFERS_ID, user);
       const favourite = await FavouriteDomain.retrieve(connection, favKey);
 
-      const reverse = await performReverseLookup(
-        connection,
-        favourite.nameAccount
-      );
+      const reverse = await reverseLookup(connection, favourite.nameAccount);
 
       if (mounted.current) {
         setResult(reverse);
