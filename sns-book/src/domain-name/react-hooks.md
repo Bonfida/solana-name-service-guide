@@ -126,9 +126,7 @@ export const useDomainsForUser = (user: PublicKey) => {
       const registries = await NameRegistryState.retrieveBatch(connection, [
         ...domains,
       ]);
-      const reverses = await performReverseLookupBatch(connection, [
-        ...domains,
-      ]);
+      const reverses = await reverseLookupBatch(connection, [...domains]);
       const _result: Result[] = [];
       for (let i = 0; i < domains.length; i++) {
         _result.push({

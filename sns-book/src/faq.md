@@ -9,12 +9,12 @@ You can buy a domain on the [Solana Name Service website](https://sns.id)
 If you only know the public key of a domain you can do a reverse look up to find the associated domain. For example:
 
 ```js
-import { performReverseLookup } from "@bonfida/spl-name-service";
+import { reverseLookup } from "@bonfida/spl-name-service";
 
 // Public key of bonfida.sol
 const domainKey = new PublicKey("Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb");
 
-const domainName = await performReverseLookup(connection, domainKey); // bonfida
+const domainName = await reverseLookup(connection, domainKey); // bonfida
 ```
 
 ## How do I find the public key of a domain?
@@ -22,23 +22,12 @@ const domainName = await performReverseLookup(connection, domainKey); // bonfida
 If you want to find the public key of a domain you need to derive it:
 
 ```js
-import {
-  getHashedName,
-  getNameAccountKey,
-  NameRegistryState,
-} from "@bonfida/spl-name-service";
+import { getDomainKeySync } from "@bonfida/spl-name-service";
 
-const domainName = "bonfida"; // Without the .sol
-
-// Step 1
-const hashedName = await getHashedName(domainName);
+const domain = "bonfida"; // With or without the .sol
 
 // Step 2
-const domainKey = await getNameAccountKey(
-  hashedName,
-  undefined,
-  SOL_TLD_AUTHORITY
-);
+const { pubkey } = getDomainKeySync(domain);
 ```
 
 ## How can I find the content of a domain?
