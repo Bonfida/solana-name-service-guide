@@ -4,6 +4,14 @@ The Solana Name Service Improvement Protocol (SNS-IP) allows all community membe
 
 SNS-IPs can be found on Github: [https://github.com/Bonfida/sns-ip](https://github.com/Bonfida/sns-ip)
 
-## Drafts
+## Accepted
 
-- [SNS-IP-1](https://github.com/Bonfida/sns-ip/issues/3): Proposal to standardize data encoding in SNS records
+- [SNS-IP-1](https://github.com/Bonfida/sns-ip/blob/master/proposals/sns-ip-1.md): Proposal to standardize data encoding in SNS records
+
+## Draft
+
+- [SNS-IP-3](https://github.com/Bonfida/sns-ip/blob/master/proposals/sns-ip-3.md): Amends SNS-IP-2, proposes a new specification for on-chain records which can address concerns related to the staleness of records, as well as right of association to the linked ressource when relevant
+
+## Rejected
+
+- [SNS-IP-2](https://github.com/Bonfida/sns-ip/blob/master/proposals/sns-ip-2.md): Proposal to improve the handling of staleness and authenticy of records

@@ -69,7 +69,7 @@ The implementation of this resolver can be found [on Github](https://github.com/
 
 ## Records V1 & V2
 
-There are notable differences between Records V1 and V2. Records V1 use a derivation prefix of `0x01` and encode their content based on the [SNS-IP-1 guidelines](https://github.com/Bonfida/sns-ip/blob/master/proposals/sns-ip-1.md). In response to challenges related to data authenticity and staleness issues prevalent in V1, Records V2 was introduced. V2 employs the `0x02` derivation prefix and a distinct encoding schema detailed in [SNS-IP-2](https://github.com/Bonfida/sns-ip/blob/master/proposals/sns-ip-2.md). Records V2 incorporates a signature system to ensure data integrity and freshness. Importantly, due to the distinct derivation prefixes, Records V1 and V2 can co-exist without collisions. However, the goal of the ecosystem is a complete migration to Records V2.
+There are notable differences between Records V1 and V2. Records V1 use a derivation prefix of `0x01` and encode their content based on the [SNS-IP-1 guidelines](https://github.com/Bonfida/sns-ip/blob/master/proposals/sns-ip-1.md). In response to challenges related to data authenticity and staleness issues prevalent in V1, Records V2 was introduced. V2 employs a class in the derivation and a distinct encoding schema detailed in [SNS-IP-3](https://github.com/Bonfida/sns-ip/blob/master/proposals/sns-ip-3.md). Records V2 incorporates a validation ID system to ensure data integrity and freshness. Importantly, due to the distinct derivation, Records V1 and V2 can co-exist without collisions. However, the goal of the ecosystem is a complete migration to Records V2.
 
 ## Difference between records and subdomains
 
@@ -79,4 +79,3 @@ In practice, let us consider the name `foo.sol` . If we want to find the domain'
 >
 > - `\0 = \x00`.
 > - `\1 = \x01`.
-> - `\2 = \x02`.

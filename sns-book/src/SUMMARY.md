@@ -1,6 +1,7 @@
 - [Introduction](introduction.md)
 - [Deployment](deployment.md)
 - [SNS IP](sns-ip/README.md)
+- [Videos](videos.md)
 - [SNS Library](installation.md)
 - [SIWSNS](siwsns/README.md)
 - [FAQ](faq.md)
