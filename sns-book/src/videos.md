@@ -5,3 +5,4 @@ The following is a curated list of video tutorials that provide comprehensive gu
 - **Frontend Development (React):**
   - **Domain Resolution:** Learn how to resolve domains with this tutorial [Watch Video](https://www.youtube.com/watch?v=1URvs0Pdcb4)
   - **Reverse Lookup:** Understand the process of reverse lookup [Watch Video](https://www.youtube.com/watch?v=MWz-Vt1SoFE)
+  - **Picture Record**: Learn how to use the profile record of SNS users [Watch Video](https://youtu.be/Gj1eLIY3uRk)
