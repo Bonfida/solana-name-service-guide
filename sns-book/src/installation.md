@@ -5,6 +5,7 @@ The SNS SDK monorepo can be found [here](https://github.com/Bonfida/sns-sdk). It
 - [A Rust SDK](https://crates.io/crates/sns-sdk)
 - [A Javascript SDK](https://github.com/Bonfida/sns-sdk#javascript)
 - [A React hooks library](https://github.com/Bonfida/sns-sdk#react)
+- [A Vue SDK](https://github.com/Bonfida/sns-sdk/tree/main#vue)
 - [A CLI](https://github.com/Bonfida/sns-sdk#cli)
 
 ## Installation
@@ -49,6 +50,20 @@ or
 
 ```
 yarn add @bonfida/sns-react
+```
+
+### Vue SDK
+
+To install the [Vue SDK](https://www.npmjs.com/package/@bonfida/sns-vue)
+
+```
+npm i @bonfida/sns-vue
+```
+
+or
+
+```
+yarn add @bonfida/sns-vue
 ```
 
 ### CLI

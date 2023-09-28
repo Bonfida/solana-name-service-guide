@@ -31,6 +31,7 @@
     - [useDomainsForUser](domain-name/react-hooks/use-domains-for-user.md)
     - [useFavoriteDomain](domain-name/react-hooks/use-favorite-domain.md)
     - [useProfilePic](domain-name/react-hooks/use-profile-pic.md)
+  - [Vue SDK](domain-name/vue.md)
   - [Tokenization](domain-name/tokenization.md)
   - [Registration](domain-name/registration.md)
   - [Media kit](domain-name/media-kit.md)

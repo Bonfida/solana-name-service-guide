@@ -1,6 +1,8 @@
 # Resolving domains
 
-Below is the correct methodology to resolve `.sol` domain names. If you are a wallet or a service provider using SNS to send funds please make sure to follow these guidelines to avoid loss of funds.
+> 💡 To resolve a domain name you can use the `resolve` function from the SNS SDK
+
+Below is the correct methodology to resolve `.sol` domain names. It's **strongly recommended** to use the `resolve` function from the SNS SDK. If you wish to reimplement the resolution logic on your end please make sure to follow these guidelines to avoid loss of funds.
 
 ![wallet-guide](../../assets/wallet-guide.png)
 
