@@ -1,4 +1,4 @@
-# Resolving domains
+# How to resolve a .sol domain name?
 
 > 💡 To resolve a domain name you can use the `resolve` function from the SNS SDK
 
