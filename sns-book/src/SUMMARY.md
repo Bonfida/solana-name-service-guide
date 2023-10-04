@@ -16,7 +16,6 @@
   - [Web resolution](domain-name/web-resolution.md)
   - [Direct look up](domain-name/domain-direct-lookup.md)
   - [Reverse look up](domain-name/domain-reverse-lookup.md)
-  - [Subdomain look up](domain-name/subdomain-lookup.md)
   - [Get all domains of a user](domain-name/domain-find-for-owner.md)
   - [Get all domains](domain-name/all-domains.md)
   - [Records](domain-name/records.md)
@@ -36,7 +35,7 @@
   - [Registration](domain-name/registration.md)
   - [Media kit](domain-name/media-kit.md)
   - [Delete domains](domain-name/delete-domain.md)
-  - [Creating subdomains](domain-name/create-subdomain.md)
+  - [Subdomains](domain-name/subdomains/README.md)
 
   - [Examples](domain-name/sns-examples/README.md)
     - [Key derivations](domain-name/sns-examples/derivations.md)
