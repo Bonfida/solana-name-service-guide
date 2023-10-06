@@ -1,6 +1,6 @@
 # Favorite domain
 
-Users have the possibility to select a domain name as their favorite one. If you are a developper and want to integrate SNS to your DApp it's recommended to always use the favorite domain name to replace the user's public key.
+Users have the possibility to select a domain name as their favorite one. If you are a developer and want to integrate SNS to your DApp it's recommended to always use the favorite domain name to replace the user's public key.
 
 The favorite domain name can be retrieved with the following code
 
