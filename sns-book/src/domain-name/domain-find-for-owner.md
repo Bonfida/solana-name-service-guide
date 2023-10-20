@@ -10,7 +10,7 @@ import { getAllDomains } from "@bonfida/spl-name-service";
 const domains = await getAllDomains(connection, user);
 ```
 
-The response for the function above will return an array of 2 Public Keys. Use the toBase58() method to convert the keys into a human readable format.
+The function above will return an array of 2 Public Keys. Use the toBase58() method to convert the keys into a human readable format.
 
 ```js
 domains.map((domain) => domain.toBase58());
