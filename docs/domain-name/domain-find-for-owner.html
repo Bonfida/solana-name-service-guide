@@ -142,7 +142,20 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="get-all-domains-of-a-user"><a class="header" href="#get-all-domains-of-a-user">Get all domains of a user</a></h1>
-<p>You can retrieve all the domain names of a user with the following <code>MemcmpFilter</code></p>
+<p>If you are using <code>@bonfida/spl-name-service</code> you can use the following code:</p>
+<pre><code class="language-js">import { getAllDomains } from &quot;@bonfida/spl-name-service&quot;;
+
+// ...
+
+const domains = await getAllDomains(connection, user);
+</code></pre>
+<p>The function above will return an array of public keys. Use the toBase58() method to convert the public keys into base 58 encoded strings.</p>
+<pre><code class="language-js">domains.map((domain) =&gt; domain.toBase58());
+</code></pre>
+<p>Another option to retrieve public keys, as well as their corresponding domain names in a string format is to use the function below from the spl-name-service library. The function will return an array of objects including public keys, and their corresponding strings.</p>
+<pre><code class="language-js">const domainsWithReverses = await getDomainKeysWithReverses(connection, user);
+</code></pre>
+<p>If you opt not to use the spl-name-service library, you can manually retrieve all the domain names of a user with the following <code>MemcmpFilter</code> while querying the Solana blockchain.</p>
 <pre><code class="language-js">const filters = [
   {
     memcmp: {
@@ -157,13 +170,6 @@
     },
   },
 ];
-</code></pre>
-<p>If you are using <code>@bonfida/spl-name-service</code> you can use the following code:</p>
-<pre><code class="language-js">import { getAllDomains } from &quot;@bonfida/spl-name-service&quot;;
-
-// ...
-
-const domains = await getAllDomains(connection, user);
 </code></pre>
 
                     </main>
