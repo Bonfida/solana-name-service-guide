@@ -13,7 +13,7 @@ import { getDomainKeySync, NameRegistryState } from "@bonfida/spl-name-service";
 const domainName = "bonfida"; // With or without the .sol at the end
 
 // Step 1
-const { pubkey } = await getDomainKeySync(domainName);
+const { pubkey } = getDomainKeySync(domainName);
 
 // Step 2
 // The registry object contains all the info about the domain name
@@ -25,11 +25,11 @@ const { registry, nftOwner } = await NameRegistryState.retrieve(
 
 // Subdomain derivation
 const subDomain = "dex.bonfida"; // With or without the .sol at the end
-const { pubkey: subKey } = await getDomainKeySync(subDomain);
+const { pubkey: subKey } = getDomainKeySync(subDomain);
 
 // Record derivation (e.g IPFS record)
 const record = "IPFS.bonfida"; // With or without the .sol at the end
-const { pubkey: recordKey } = await getDomainKeySync(record, true);
+const { pubkey: recordKey } = getDomainKeySync(record, true);
 ```
 
 The `retrieve` method returns an object made of two fields:
