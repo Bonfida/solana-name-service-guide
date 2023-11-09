@@ -666,12 +666,12 @@ const owner = registry.owner.toBase58();
 <li>Get the domain name public key</li>
 <li>Retrieve the account info</li>
 </ol>
-<pre><code class="language-js">import { getDomainKey, NameRegistryState } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getDomainKeySync, NameRegistryState } from &quot;@bonfida/spl-name-service&quot;;
 
 const domainName = &quot;bonfida&quot;; // With or without the .sol at the end
 
 // Step 1
-const { pubkey } = await getDomainKey(domainName);
+const { pubkey } = getDomainKeySync(domainName);
 
 // Step 2
 // The registry object contains all the info about the domain name
@@ -683,11 +683,11 @@ const { registry, nftOwner } = await NameRegistryState.retrieve(
 
 // Subdomain derivation
 const subDomain = &quot;dex.bonfida&quot;; // With or without the .sol at the end
-const { pubkey: subKey } = await getDomainKey(subDomain);
+const { pubkey: subKey } = getDomainKeySync(subDomain);
 
 // Record derivation (e.g IPFS record)
 const record = &quot;IPFS.bonfida&quot;; // With or without the .sol at the end
-const { pubkey: recordKey } = await getDomainKey(record, true);
+const { pubkey: recordKey } = getDomainKeySync(record, true);
 </code></pre>
 <p>The <code>retrieve</code> method returns an object made of two fields:</p>
 <ul>
@@ -700,7 +700,7 @@ const { pubkey: recordKey } = await getDomainKey(record, true);
 </li>
 </ul>
 <blockquote>
-<p><strong>Note:</strong> <code>NameRegistryState.retrieveBatch</code> can be used to retrieve multiple name registries at once.</p>
+<p><strong>Note:</strong> <code>NameRegistryState.retrieveBatch</code> can be used to retrieve multiple name registries at once. Pass the connection, and an array of domain name public keys as arguments to the function.</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="reverse-look-up-2"><a class="header" href="#reverse-look-up-2">Reverse look up</a></h1>
 <p><img src="domain-name/../assets/direct-reverse.png" alt="direct-reverse" /></p>
