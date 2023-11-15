@@ -1,6 +1,22 @@
 # Registration
 
-Registration instructions can be created either via SDK or API, both methods are equivalent. To register a domain you will have to specify the following:
+Easily integrate SNS domain registrations into your applications using our SNS Widget React Component. See a default usage example below. You can also customize the widget to fit your unique needs. More information is available here: https://github.com/Bonfida/sns-widget/blob/main/README.md
+
+```js
+import Widget from "@bonfida/sns-widget";
+// Apart from the component itself, you also need to import styles separately
+import "@bonfida/sns-widget/style.css";
+
+// Link to public RPC for Solana connection. Solana provides free public RPCs
+// with rate limiters, so you might want to use your own RPC Node provider
+const PUBLIC_RPC = "https://api.mainnet-beta.solana.com";
+
+export const Component = () => {
+  return <Widget endpoint={PUBLIC_RPC} />;
+};
+```
+
+You can also opt to create registration instructions via our SDK or API, both methods are equivalent. To register a domain you will have to specify the following:
 
 - Domain names
 - Space (between 1kb and 10kb)
