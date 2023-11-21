@@ -1335,16 +1335,20 @@ export const useProfilePic = (user: PublicKey) =&gt; {
 <li><a href="https://github.com/Bonfida/sns-sdk/blob/main/examples/vue-app/src/components/examples/useSubdomains.vue">useSubdomains</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="tokenization"><a class="header" href="#tokenization">Tokenization</a></h1>
-<p>Domain names are <strong>not</strong> SPL tokens, however, they can be tokenized in NFTs that follow the Metaplex standard. It's only recommended to tokenize your domain if you want to resell your domain on an NFT market place like <a href="https://magiceden.io/marketplace/bonfida">Magic Eden</a> or <a href="https://hyperspace.xyz/collection/solananameservice">Hyperspace</a>.</p>
+<p>Domain names are <strong>not</strong> SPL tokens, however, they can be tokenized in NFTs that follow the Metaplex standard. It's only recommended to tokenize your domain if you want to resell your domain on an NFT market place like <a href="https://magiceden.io/marketplace/bonfida">Magic Eden</a>, <a href="https://hyperspace.xyz/collection/solananameservice">Hyperspace</a>, <a href="https://www.tensor.trade/trade/sol_domain_names">Tensor</a>, or <a href="https://www.sniper.xyz/collection/bonfida">SolSniper</a>.</p>
 <p>The smart contract handling the tokenization of domain names can be found here: <a href="https://github.com/Bonfida/name-tokenizer">Name tokenizer</a></p>
 <h2 id="js-example"><a class="header" href="#js-example">JS example</a></h2>
-<p>To retrieve all the tokenized domain names</p>
+<p>To retrieve all currently tokenized domain names use the <code>retrieveNfts</code> function. This function returns an array of currently tokenized domains as public keys, and contains all the mints of the tokenized domain name.</p>
 <pre><code class="language-js">import { retrieveNfts } from &quot;@bonfida/spl-name-service&quot;;
 
-// nfts is of type PublicKey[] and contains all the mints of the tokenized domain names
 const nfts = await retrieveNfts(connection);
 </code></pre>
-<p>To retrieve the owner of the NFT that represent a tokenized domain name</p>
+<p>To retrieve all of the tokenized domain names of a specific owner use <code>getTokenizedDomains</code>. Function returns an array of public keys, their reverses, and mints.</p>
+<pre><code class="language-js">import { getTokenizedDomains } from &quot;@bonfida/spl-name-service&quot;;
+
+const tokenizedDomains = await getTokenizedDomains(connection, owner);
+</code></pre>
+<p>To retrieve the public key of the owner of a specific NFT that represents a tokenized domain name, use the retrieveNftOwner function.</p>
 <pre><code class="language-js">import { retrieveNftOwner } from &quot;@bonfida/spl-name-service&quot;;
 
 const owner = await retrieveNftOwner(connection, nameKey);
