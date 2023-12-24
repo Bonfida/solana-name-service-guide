@@ -24,7 +24,7 @@ const freshRecord = await verifyStaleness(connection, record, domain);
 
 ## Verify Right of Association
 
-You're also able to verify the authenticity of a record with Records V2 using the verifyRightOfAssociation function. The function returns a boolean indicating if the record is authentic or not. Unique to this function is the verifier parameter, which is the known public key of the on-chain/off-chain oracle used to verify authenticity of a record. This is currently supported for SOL, ETH, URL and Backpack records with support for further records on the way.
+You're also able to verify the authenticity of a record with Records V2 using the `verifyRightOfAssociation` function. The function returns a boolean indicating if the record is authentic or not. Unique to this function is the verifier parameter, which is the known public key of the on-chain/off-chain oracle used to verify authenticity of a record. This is currently supported for SOL, ETH, URL and Backpack records with support for further records on the way.
 
 ```js
 const verifier = GUARDIANS.get(Record.Backpack); // Import GUARDIANS from the spl-name-service library
@@ -34,5 +34,18 @@ const ROA = await verifyRightOfAssociation(
   record,
   domain,
   verifier.toBuffer()
+);
+```
+
+Ethereum and Solana records are unique because they are self signing. To verify the authenticity of these records, we must pass the content of the record itself as the verifier agrument to the `verifyRightOfAssociation` function.
+
+```js
+const { retrievedRecord } = await getRecordV2(connection, domain, record); // Import getRecordV2 from the spl-name-service library
+
+const ROA = await verifyRightOfAssociation(
+  connection,
+  record,
+  domain,
+  retrievedRecord.getContent()
 );
 ```
