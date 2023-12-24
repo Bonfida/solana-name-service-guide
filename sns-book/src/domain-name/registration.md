@@ -26,6 +26,16 @@ Domain names can be registered with the following tokens: USDC, USDT, wSOL, FIDA
 
 > **Note:** The registration instruction does not support native SOL but wrapped SOL
 
+## Asset pricing
+
+<p align="center">
+<a href="https://pyth.network/" target="_blank">
+<img src="../assets/partner-logos/pyth-logo.svg" alt="Pyth Network" width="200" height="auto"/>
+</a>
+</p>
+
+Token pricing data during domain registration is provided to us by our friends at Pyth Network. Learn more about their Blockchain Oracle at [Pyth Network](https://pyth.network/).
+
 ## SDK
 
 Unregistered domains can be registered using the SDK `@bonfida/spl-name-service` with the following instructions:
