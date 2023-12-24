@@ -158,7 +158,7 @@ const recordV2Key = getRecordV2Key(domain, record);
 <pre><code class="language-js">const freshRecord = await verifyStaleness(connection, record, domain);
 </code></pre>
 <h2 id="verify-right-of-association"><a class="header" href="#verify-right-of-association">Verify Right of Association</a></h2>
-<p>You're also able to verify the authenticity of a record with Records V2 using the verifyRightOfAssociation function. The function returns a boolean indicating if the record is authentic or not. Unique to this function is the verifier parameter, which is the known public key of the on-chain/off-chain oracle used to verify authenticity of a record. This is currently supported for SOL, ETH, URL and Backpack records with support for further records on the way.</p>
+<p>You're also able to verify the authenticity of a record with Records V2 using the <code>verifyRightOfAssociation</code> function. The function returns a boolean indicating if the record is authentic or not. Unique to this function is the verifier parameter, which is the known public key of the on-chain/off-chain oracle used to verify authenticity of a record. This is currently supported for SOL, ETH, URL and Backpack records with support for further records on the way.</p>
 <pre><code class="language-js">const verifier = GUARDIANS.get(Record.Backpack); // Import GUARDIANS from the spl-name-service library
 
 const ROA = await verifyRightOfAssociation(
@@ -166,6 +166,16 @@ const ROA = await verifyRightOfAssociation(
   record,
   domain,
   verifier.toBuffer()
+);
+</code></pre>
+<p>Ethereum and Solana records are unique because they are self signing. To verify the authenticity of these records, we must pass the content of the record itself as the verifier agrument to the <code>verifyRightOfAssociation</code> function.</p>
+<pre><code class="language-js">const { retrievedRecord } = await getRecordV2(connection, domain, record); // Import getRecordV2 from the spl-name-service library
+
+const ROA = await verifyRightOfAssociation(
+  connection,
+  record,
+  domain,
+  retrievedRecord.getContent()
 );
 </code></pre>
 
