@@ -36,8 +36,9 @@
   - [Media kit](domain-name/media-kit.md)
   - [Delete domains](domain-name/delete-domain.md)
   - [Subdomains](domain-name/subdomains/README.md)
-
+  - [Devnet](domain-name/devnet.md)
   - [Examples](domain-name/sns-examples/README.md)
+
     - [Key derivations](domain-name/sns-examples/derivations.md)
 
 - [Twitter](twitter/README.md)
