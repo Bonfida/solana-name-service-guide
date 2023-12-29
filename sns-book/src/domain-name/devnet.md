@@ -9,6 +9,23 @@ import { devnet } from "@bonfida/spl-name-service";
 const connection = new Connection("https://api.devnet.solana.com");
 ```
 
+## Register Devnet Domains
+
+Many of the utility and binding functions in the devnet module will require existing devnet domain names. Use the `registerDomainName` binding to register domains on devnet to be used in testing.
+
+```js
+const [, ix] = await devnet.bindings.registerDomainName(
+  connection,
+  "devnet-test-5", // The name of the domain you want to register
+  1_000,
+  publicKey, // PublicKey of fee payer
+  getAssociatedTokenAddressSync(NATIVE_MINT, publicKey, true), // import from @solana/spl-token
+  NATIVE_MINT
+);
+
+// Sign and send instruction
+```
+
 ## Utils
 
 The devnet module contains utility functions for lookup and derivation tasks for usage with devnet out of the box. An example of the `reverseLookup` function which looks up a human readable domain from the public key of a domain name registry, is below.
@@ -34,7 +51,7 @@ For more in depth domain name interactions like creating, updating, deleting, or
 
 ```js
 // Domain name to transfer
-const domain = "bonfida";
+const domain = "devnet-test-5";
 
 // New owner of the domain
 const newOwner = new PublicKey("...");
