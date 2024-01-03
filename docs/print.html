@@ -1114,6 +1114,30 @@ const { domain, reverse } = await getFavoriteDomain(connection, user);
 <li><code>domain = Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb</code></li>
 <li><code>reverse = bonfida</code></li>
 </ul>
+<h2 id="getting-all-favorite-domains"><a class="header" href="#getting-all-favorite-domains">Getting all favorite domains</a></h2>
+<pre><code>GET /v2/domains/all-favorites
+</code></pre>
+<p>This endpoint returns all favorite domains that have been registered.</p>
+<h3 id="request"><a class="header" href="#request">Request</a></h3>
+<p>No parameters are required for this request.</p>
+<h3 id="response"><a class="header" href="#response">Response</a></h3>
+<p>The response is a JSON object where each key is a wallet public key and the value is an object containing the following properties:</p>
+<ul>
+<li>domain: The favorite domain name associated with the public key.</li>
+<li>owner: The public key of the owner of the domain.</li>
+<li>domain_key: The key associated with the domain.</li>
+</ul>
+<p>Example response:</p>
+<pre><code>{
+  &quot;5J9BeWAZGekH71Huiro2qW6AJXSeBj7zPsHniKkmjToY&quot;: {
+    &quot;domain&quot;: &quot;hansolana&quot;,
+    &quot;owner&quot;: &quot;5J9BeWAZGekH71Huiro2qW6AJXSeBj7zPsHniKkmjToY&quot;,
+    &quot;domain_key&quot;: &quot;7mNYJ8UL8YV7dpPjCREXgUaoyyULmmZxxo1raT4w9kKS&quot;
+  }
+}
+</code></pre>
+<h3 id="caching"><a class="header" href="#caching">Caching</a></h3>
+<p>This endpoint is cached and may lag behind the blockchain by a few minutes. For mission-critical resolution, it is recommended not to use this endpoint and instead use the blockchain directly. However, for simple UI applications, this endpoint is perfectly suitable.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="react-hooks-1"><a class="header" href="#react-hooks-1">React hooks</a></h1>
 <p>The list below show how to implement your own React hooks using vanilla React. For production, it's recommended to use the <a href="https://www.npmjs.com/package/@bonfida/sns-react">React hooks library</a>.</p>
 <ol>
