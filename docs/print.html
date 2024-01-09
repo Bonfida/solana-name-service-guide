@@ -1025,8 +1025,8 @@ const recordV2Key = getRecordV2Key(domain, record);
 <pre><code class="language-js">const freshRecord = await verifyStaleness(connection, record, domain);
 </code></pre>
 <h2 id="verify-right-of-association"><a class="header" href="#verify-right-of-association">Verify Right of Association</a></h2>
-<p>You're also able to verify the authenticity of a record with Records V2 using the <code>verifyRightOfAssociation</code> function. The function returns a boolean indicating if the record is authentic or not. Unique to this function is the verifier parameter, which is the known public key of the on-chain/off-chain oracle used to verify authenticity of a record. This is currently supported for SOL, ETH, URL and Backpack records with support for further records on the way.</p>
-<pre><code class="language-js">const verifier = GUARDIANS.get(Record.Backpack); // Import GUARDIANS from the spl-name-service library
+<p>You're also able to verify the authenticity of a record with Records V2 using the <code>verifyRightOfAssociation</code> function. The function returns a boolean indicating if the record is authentic or not. Unique to this function is the verifier parameter, which is the known public key of the on-chain/off-chain oracle used to verify authenticity of a record. This is currently supported for SOL, ETH, and URL records with support for further records on the way.</p>
+<pre><code class="language-js">const verifier = GUARDIANS.get(Record.URL); // Import GUARDIANS from the spl-name-service library
 
 const ROA = await verifyRightOfAssociation(
   connection,
@@ -1097,7 +1097,20 @@ const ix = await transferNameOwnership(
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="favorite-domain"><a class="header" href="#favorite-domain">Favorite domain</a></h1>
 <p>Users have the possibility to select a domain name as their favorite one. If you are a developer and want to integrate SNS to your DApp it's recommended to always use the favorite domain name to replace the user's public key.</p>
-<p>The favorite domain name can be retrieved with the following code</p>
+<h2 id="get-multiple-favorites"><a class="header" href="#get-multiple-favorites">Get Multiple Favorites</a></h2>
+<p>To retrieve favorite domains for a group of up to 100 users, we've created the <code>getMultipleFavoriteDomains</code> function in our JavaScript SDK. This function is optimized for network efficiency, making only four RPC calls, three of which are executed in parallel. The function returns a promise that resolves to an array of strings or undefined representing the favorite domain, or lack thereof for each wallet passed to the function.</p>
+<pre><code class="language-js">import { getMultipleFavoriteDomains } from &quot;@bonfida/spl-name-service&quot;;
+
+const wallets = [
+  new PublicKey(&quot;3ogYncmMM5CmytsGCqKHydmXmKUZ6sGWvizkzqwT7zb1&quot;),
+  new PublicKey(&quot;FMmaHPDL47V1gXsfh9WjgAT7Er3dfDvarQubTU1Jxc1r&quot;),
+  // Public Keys of all the wallet addresses you're looking up a favorite domain for (up to 100)
+];
+
+const favoriteDomains = await getMultipleFavoriteDomains(connection, wallets);
+</code></pre>
+<h2 id="get-single-favorite"><a class="header" href="#get-single-favorite">Get Single Favorite</a></h2>
+<p>The favorite domain name of a single user can be retrieved with the code below.</p>
 <pre><code class="language-js">import { getFavoriteDomain } from &quot;@bonfida/spl-name-service&quot;;
 
 // ...
@@ -1106,7 +1119,7 @@ const { domain, reverse } = await getFavoriteDomain(connection, user);
 </code></pre>
 <p><code>getFavoriteDomain</code> returns the following:</p>
 <ul>
-<li><code>domain</code>: The public key of the domain name</li>
+<li><code>domain</code>: The public key of the favorite domain name</li>
 <li><code>reverse</code>: The reverse look up of the account</li>
 </ul>
 <p>For instance for <a href="https://sns.id/profile/FidaeBkZkvDqi1GXNEwB8uWmj9Ngx2HXSS5nyGRuVFcZ">FidaeBkZkvDqi1GXNEwB8uWmj9Ngx2HXSS5nyGRuVFcZ</a>:</p>
@@ -1114,7 +1127,8 @@ const { domain, reverse } = await getFavoriteDomain(connection, user);
 <li><code>domain = Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb</code></li>
 <li><code>reverse = bonfida</code></li>
 </ul>
-<h2 id="getting-all-favorite-domains"><a class="header" href="#getting-all-favorite-domains">Getting all favorite domains</a></h2>
+<h2 id="get-all-favorites"><a class="header" href="#get-all-favorites">Get All Favorites</a></h2>
+<p>To get all favorite domains currently existence, you can use the SNS API endpoint below.</p>
 <pre><code>GET /v2/domains/all-favorites
 </code></pre>
 <p>This endpoint returns all favorite domains that have been registered.</p>
