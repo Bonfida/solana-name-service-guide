@@ -47,6 +47,13 @@ enum PlatformEnum {
     Tensor = 32,
     GoatSwap = 33,
     Hadeswap = 34,
+    AuctionHouse = 35,
+    CategoryOffer = 36,
+    NightMarket = 37,
+    Cardinal = 38,
+    MECCSwap = 39,
+    SniperMarket = 40,
+    Okx = 41,
 }
 ```
 
