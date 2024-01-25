@@ -4,25 +4,6 @@
 
 This endpoint can be used to retrieve the listing details of a specific domain. The response is a JSON object with the below structure if the domain is listed, or null if the domain is not.
 
-<<<<<<< HEAD
-| Key | Type    | Description                                     |
-| --- | ------- | ----------------------------------------------- |
-| d   | String  | The domain name                                 |
-| p   | Float   | The price of the domain                         |
-| q   | String  | The currency of the listing                     |
-| a   | Integer | The availability ID                             |
-| l   | Byte    | Language code                                   |
-| up  | Float   | The price in USD                                |
-| e   | Boolean | Indicates if the domain has an emoji            |
-| r   | Boolean | Indicates if the domain is rare                 |
-| do  | Boolean | Indicates if the domain contains digits only    |
-| lo  | Boolean | Indicates if the domain contains letters only   |
-| le  | Byte    | The length of the domain name                   |
-| fp  | Boolean | Indicates if the price is fixed                 |
-| me  | Boolean | Indicates if the domain is listed on Magic Eden |
-| pa  | Boolean | Indicates if the domain is a palindrome         |
-| ca  | Array   | A list of categories the domain belongs to      |
-=======
 | Key | Type                  | Description                                         |
 | --- | --------------------- | --------------------------------------------------- |
 | d   | String                | The domain name                                     |
@@ -40,7 +21,6 @@ This endpoint can be used to retrieve the listing details of a specific domain. 
 | me  | Boolean               | Indicates if the domain is listed on Magic Eden     |
 | pa  | Boolean               | Indicates if the domain is a palindrome             |
 | ca  | Array (`Vec<String>`) | A list of categories the domain belongs to          |
->>>>>>> master
 
 > Request
 
@@ -69,8 +49,6 @@ GET /v2/listings/listing/{domain}
   "ca": []
 }
 ```
-<<<<<<< HEAD
-=======
 
 ```rust
 pub enum Language {
@@ -84,4 +62,3 @@ pub enum Language {
     Arabic = 7,
 }
 ```
->>>>>>> master

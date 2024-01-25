@@ -21,7 +21,7 @@ GET /v2/user/domains/{pubkeys}
 
 ### User Listings
 
-This endpoint can be used to retrieve the domains of a user and their listing details.
+This endpoint can be used to retrieve the domains of a user and their listing details. Please see the`PlatformEnum` definiton for details on `availability id`.
 
 > Request
 
@@ -59,5 +59,24 @@ GET /v2/user/listings/{pubkey}
       "usd_price": 19.401249
     }
   }
+]
+```
+
+### Domains and Categories
+
+This endpoint can be used to retrieve the list of domains owned by a user, as well as their corresponding categories.
+
+> Request
+
+```
+GET /v2/user/category-domains/{pubkey}
+```
+
+> Response
+
+```json
+[
+  { "domain_name": "00378", "category_name": "100k-club" },
+  { "domain_name": "3231", "category_name": "10k-club" }
 ]
 ```
