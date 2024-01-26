@@ -51,6 +51,7 @@
 - [SNS API](sns-api/README.md)
 
   - [Categories](sns-api/categories.md)
+  - [Users](sns-api/users.md)
   - [Listings](sns-api/listings.md)
   - [Sales](sns-api/sales.md)
   - [Volumes](sns-api/volumes.md)
