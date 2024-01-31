@@ -19,6 +19,25 @@ GET /v2/user/domains/{pubkeys}
 }
 ```
 
+### Favorite domains
+
+This endpoint can be used to retrieve the favorite domains of a list of user public keys. You may include up to 20 public keys in a comma separated list. Results are cached, and refreshed every 5 minutes. If you're integrating SNS into your dApp, we strongly recommend using favorite domains since users have selected these domains specifically to represent their identities apart from other domains they may own.
+
+> Request
+
+```
+GET /v2/user/fav-domains/{pubkeys}
+```
+
+> Response
+
+```json
+{
+  "FMmaHPDL47V1gXsfh9WjgAT7Er3dfDvarQubTU1Jxc1r": "best-intern",
+  "3f9fRjLaDSDVxd26xMEm4WuSXv62cGt5qVfEVGwMfTz6": "11441"
+}
+```
+
 ### User Listings
 
 This endpoint can be used to retrieve the domains of a user and their listing details. Please see the`PlatformEnum` definiton for details on `availability id`.
