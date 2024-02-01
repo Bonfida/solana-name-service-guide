@@ -2120,6 +2120,21 @@ const owner = registry.owner.toBase58();
   &quot;3f9fRjLaDSDVxd26xMEm4WuSXv62cGt5qVfEVGwMfTz6&quot;: [&quot;00378&quot;, &quot;02112&quot;, &quot;11441&quot;]
 }
 </code></pre>
+<h3 id="favorite-domains"><a class="header" href="#favorite-domains">Favorite domains</a></h3>
+<p>This endpoint can be used to retrieve the favorite domains of a list of user public keys. You may include up to 20 public keys in a comma separated list. Results are cached, and refreshed every 5 minutes. If you're integrating SNS into your dApp, we strongly recommend using favorite domains since users have selected these domains specifically to represent their identities apart from other domains they may own.</p>
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre><code>GET /v2/user/fav-domains/{pubkeys}
+</code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre><code class="language-json">{
+  &quot;FMmaHPDL47V1gXsfh9WjgAT7Er3dfDvarQubTU1Jxc1r&quot;: &quot;best-intern&quot;,
+  &quot;3f9fRjLaDSDVxd26xMEm4WuSXv62cGt5qVfEVGwMfTz6&quot;: &quot;11441&quot;
+}
+</code></pre>
 <h3 id="user-listings"><a class="header" href="#user-listings">User Listings</a></h3>
 <p>This endpoint can be used to retrieve the domains of a user and their listing details. Please see the<code>PlatformEnum</code> definiton for details on <code>availability id</code>.</p>
 <blockquote>
