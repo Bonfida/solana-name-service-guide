@@ -1,6 +1,6 @@
-# useDomainRecords
+# useRecords
 
-This hook can be used to retrieve all the records of a domain:
+This hook can be used to retrieve all the V1 records of a domain. **Please note, V1 records are deprecated. For current V2 records check out [useRecordsV2](./use-records-V2.md).**
 
 ```ts
 type Result = (string | undefined)[] | undefined;

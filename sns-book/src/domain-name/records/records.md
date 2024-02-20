@@ -1,5 +1,7 @@
 # Records V1
 
+**V1 records are deprecated. For current V2 records please see [Records V2](./records-v2.md).**
+
 ## Record V1 derivation
 
 Record keys can be derived with the `getDomainKey` function and the `record` flag set to `true`
