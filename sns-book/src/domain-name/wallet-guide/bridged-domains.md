@@ -68,6 +68,8 @@ The Solana Name Service has also been bridged to Injective.
 
 Solana domain names bridged to Injective can be resolved using the NPM package [@bonfida/sns-warp-injective](https://www.npmjs.com/package/@bonfida/sns-warp-injective).
 
+SNS is also supported by the [Leap Wallet Name Match package](https://github.com/leapwallet/name-matcha).
+
 ### Installation
 
 With Yarn:
