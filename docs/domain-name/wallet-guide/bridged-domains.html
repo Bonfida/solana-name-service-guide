@@ -174,7 +174,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="how-to-resolve-a-sol-domain-cross-chain"><a class="header" href="#how-to-resolve-a-sol-domain-cross-chain">How to resolve a .sol domain cross-chain?</a></h1>
-<p>The Solana Name Service (SNS) going cross-chain means that it is expanding its functionality beyond the Solana ecosystem, enabling users to export their domain names to alternative blockchains using the <a href="https://wormhole.com/">Wormhole bridge</a>. This move aims to increase the utility and adoption of SNS, while also fostering collaboration and interoperability between different blockchain networks. By allowing SNS domains to be resolved on supported chains like EVM-based chains, SNS becomes more accessible to a wider range of developers and users, promoting the growth of the Solana ecosystem and showcasing its capabilities beyond its native environment.</p>
+<p>The Solana Name Service (SNS) going cross-chain means that it is expanding its functionality beyond the Solana ecosystem, enabling users to export their domain names to alternative blockchains using the <a href="https://wormhole.com/">Wormhole bridge</a>. This move aims to increase the utility and adoption of SNS, while also fostering collaboration and interoperability between different blockchain networks. By allowing SNS domains to be resolved on supported chains like EVM-based chains and Injective, SNS becomes more accessible to a wider range of developers and users, promoting the growth of the Solana ecosystem and showcasing its capabilities beyond its native environment.</p>
 <h2 id="evm-chains"><a class="header" href="#evm-chains">EVM Chains</a></h2>
 <p>The Solana Name Service has been bridged to the following EVM chains:</p>
 <ul>
@@ -190,7 +190,7 @@
 <pre><code>npm i @bonfida/sns-warp-evm
 </code></pre>
 <h3 id="resolving-a-sol-domain"><a class="header" href="#resolving-a-sol-domain">Resolving a .sol domain</a></h3>
-<p>The following code can be used to resolve .sol domains</p>
+<p>The following code can be used to resolve .sol domains on EVM chains</p>
 <pre><code class="language-js">import { SupportedChains, SNS } from &quot;@bonfida/sns-warp-evm&quot;;
 
 // The domain name to resolve
@@ -215,6 +215,35 @@ const nameHash = namehash(&quot;mock3.sol&quot;);
 
 const resolved = await sns.resolveReverse(nameHash);
 console.log(resolved); // &lt;- mock3
+</code></pre>
+<h2 id="injective"><a class="header" href="#injective">Injective</a></h2>
+<p>The Solana Name Service has also been bridged to Injective.</p>
+<ul>
+<li>Injective Testnet (deployed at <code>inj1q79ujqyh72p43mhr2ldaly3x6d50rzp3354at3</code>)</li>
+<li>Injective Mainnet (deployed at <code>inj1v7chmgm7vmuwldjt80utmw9c95jkrch979ps8z</code>)</li>
+</ul>
+<p>Solana domain names bridged to Injective can be resolved using the NPM package <a href="https://www.npmjs.com/package/@bonfida/sns-warp-injective">@bonfida/sns-warp-injective</a>.</p>
+<p>SNS is also supported by the <a href="https://github.com/leapwallet/name-matcha">Leap Wallet Name Match package</a>.</p>
+<h3 id="installation-1"><a class="header" href="#installation-1">Installation</a></h3>
+<p>With Yarn:</p>
+<pre><code>yarn add @bonfida/sns-warp-injective
+</code></pre>
+<p>With NPM</p>
+<pre><code>npm i @bonfida/sns-warp-injective
+</code></pre>
+<h3 id="resolving-a-sol-domain-1"><a class="header" href="#resolving-a-sol-domain-1">Resolving a .sol domain</a></h3>
+<p>The following code can be used to resolve .sol domains on Injective</p>
+<pre><code class="language-js">import { resolveName } from &quot;@bonfida/sns-warp-injective&quot;;
+import { Network } from &quot;@injectivelabs/networks&quot;;
+
+// The domain name to resolve
+const domain = &quot;bonfida.sol&quot;;
+// The network on which to resolve the domain
+const network = Network.Mainnet;
+
+const resolved = await resolveName(domain, network);
+
+console.log(resolved); // &lt;- inj1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqe2hm49
 </code></pre>
 
                     </main>
