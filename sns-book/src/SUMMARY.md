@@ -58,6 +58,8 @@
   - [Volumes](sns-api/volumes.md)
   - [Owners](sns-api/owners.md)
 
+- [Marketplace](marketplace.md)
+
 - [SNS Suggest API - Alpha](sns-suggest/README.md)
 
   - [Current Owner](sns-suggest/current-owner.md)
