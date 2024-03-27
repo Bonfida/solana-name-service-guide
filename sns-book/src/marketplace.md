@@ -2,6 +2,8 @@
 
 ## SNS Marketplace
 
+The SNS Marketplace program makes it possible to integrate the purchase and sale of SNS domains directly into your own applications. Interact with the SNS Marketplace smart contract using our JS SDK linked below.
+
 ### Deployment:
 
 - Program ID: `85iDfUvr3HJyLM2zcq5BXSiDvUWfw6cSE1FfNBo8Ap29`
@@ -15,6 +17,8 @@ This smart contract supports different types of sales:
 - Unsolicited
 - Category
 - P2P
+
+The functions from our SDK detailed below will return instructions that you can use to build transactions.
 
 Fixed price and unsolicited offers support the following tokens as quote currency: SOL, FIDA, USDC, USDT, mSOL, BONK, BAT, PYTH and bSOL.
 
@@ -50,15 +54,15 @@ const connection = new Connection("...");
 const seller = new PublicKey("..."); // Public key of the seller i.e domain owner
 const mint = new PublicKey("EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"); // USDC mint
 const amount = 1 * 1e6; // Amount with decimals, here 1 USDC
-const { pubkey } = getDomainKeySync("something.sol"); // Domain public key
+const { pubkey: domainKey } = getDomainKeySync("something.sol"); // Domain public key
 
 const ix = await makeFixedPriceOffer(
   connection,
   amount,
   mint,
   seller,
-  pubkey,
-  NAME_OFFERS_ID
+  domainKey,
+  NAME_OFFERS_ID // The program ID that can be imported directly from our SDK
 );
 ```
 
@@ -66,9 +70,18 @@ Buying a fixed price offer is facilitated through the `buyFixedPrice` function, 
 
 ```ts
 const connection = new Connection("...");
-const fixedPriceKey = new PublicKey("..."); // Public key of the fixed price offer account
 const buyer = new PublicKey("..."); // Public key of the offer buyer
-const source = new PublicKey("..."); // Source of the funds used to purchase the offer. In case of SOL it's the same as `buyer`, in the token case it's the ATA of the buyer for the given mint
+const source = new PublicKey("..."); // Source of the funds used to purchase the offer. In case of SOL it's the same as `buyer`. If another token is used, it's the ATA of the buyer for the given mint.
+const { pubkey: domainKey } = getDomainKeySync("something.sol"); // Domain public key
+
+// Use a util function from our SDK to get fixed price offers by name, by owner, or all fixed price offers.
+const fixedPriceOffers = await getFixedPriceOffersForName(
+  connection,
+  domainKey
+);
+
+// This example arbitrarily selects the first fixed price offer in the list. Filter offers based on the your needs.
+const fixedPriceKey = fixedPriceOffers[0].pubkey;
 
 const ix = await buyFixedPrice(
   connection,
@@ -109,13 +122,13 @@ Placing an unsolicited offers is handled by the `makeOffer` function
 ```ts
 const mint = new PublicKey("EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"); // USDC mint
 const amount = 1 * 1e6; // Amount with decimals, here 1 USDC
-const { pubkey } = getDomainKeySync("something.sol"); // Domain public key
+const { pubkey: domainKey } = getDomainKeySync("something.sol"); // Domain public key
 const owner = new PublicKey("..."); // Owner of the unsolicited offer
-const tokenSource = new PublicKey("..."); // Token source used to place the offer
+const tokenSource = new PublicKey("..."); // Token source used to place the offer. In case of SOL it's the same as `owner`. If another token is used, it's the ATA of the owner for the given mint.
 
 const ix = await makeOffer(
   amount,
-  pubkey,
+  domainKey,
   owner,
   mint,
   tokenSource,
@@ -127,20 +140,25 @@ An unsolicited offer can be accepted by the domain owner using the `acceptOffer`
 
 ```ts
 const connection = new Connection("...");
-const offerKey = new PublicKey("..."); // Token source used to place the offer
-const offerOwner = new PublicKey("..."); // Token source used to place the offer
-const domainOwner = new PublicKey("..."); // Token source used to place the offer
-const { pubkey } = getDomainKeySync("something.sol"); // Domain public key
+const domainOwner = new PublicKey("..."); // Current domain owner
+const { pubkey: domainKey } = getDomainKeySync("something.sol"); // Domain public key
 const offerEscrow = new PublicKey("..."); // PDA used to store the funds of the offer, the address is written in the state
 const destination = new PublicKey("..."); // The token account used to receive the funds from the escrow
+
+// Use a util function from the SDK to get offers by domain name, by domain owner, etc.
+const offers = await getOffersForName(connection, "something.sol");
+
+// This example arbitrarily selects the first offer in the list. Filter offers based on your needs.
+const offerKey = offers[0].pubkey;
+const offerOwner = offers[0].owner;
 
 const ix = await acceptOffer(
   connection,
   NAME_OFFERS_ID,
-  key,
+  offerKey,
   offerOwner,
   publicKey,
-  pubkey,
+  domainKey,
   offerEscrow,
   destination
 );
@@ -174,10 +192,16 @@ Category Offers allow buyers to bid on an entire domain category. Sellers can ac
 The creation of a category offer is managed by the `makeCategoryOffer` function, which specifies the number of domains, the SOL price per domain, and the category:
 
 ```ts
+import { CATEGORIES } from "@bonfida/sns-categories"; // Map of current categories
+
 const amount = 10 * LAMPORTS_PER_SOL; // Amount of the offer in lamports here 10 SOL
 const nbDomains = 10; // Number of domains the buyer wants to buy
-const categoryKey = new PublicKey("..."); // Public key of the category
 const buyer = new PublicKey("...");
+
+// Filter CATEGORIES to find the categoryKey which is the Public key of the category.
+const categoryKey = [...CATEGORIES].find(
+  ([, value]) => value === "999-club"
+)?.[0];
 
 const ix = await makeCategoryOffer(
   amount,
@@ -192,16 +216,20 @@ Taking a category offer is facilitated through the `takeCategoryOffer` function,
 
 ```ts
 const connection = new Connection("...");
-const categoryOfferKey = new PublicKey("..."); // Public key of the category offer
-const { pubkey } = getDomainKeySync("999.sol"); // Domain public key
+const { pubkey: domainKey } = getDomainKeySync("999.sol"); // Domain public key
 const memberKey = CategoryMember.findKey("999", categoryKey); // Membership of the domain to the category
 const seller = new PublicKey("..."); // Seller of the domain here 999.sol
+
+// Use a util function from the SDK to get category offers by category, category offers for a specific owner, etc.
+const categoryOffers = await getCategoryOffer(connection, categoryKey);
+// This example arbitrarily selects the first category offer in the list. Filter offers based on your needs.
+const categoryOfferKey = categoryOffers[0].pubkey;
 
 const ix = await takeCategoryOffer(
   connection,
   NAME_OFFERS_ID,
   categoryOfferKey,
-  pubkey,
+  domainKey,
   memberKey,
   seller
 );
