@@ -24,6 +24,8 @@ Fixed price and unsolicited offers support the following tokens as quote currenc
 
 All these listings can be accessed on [sns.id](https://www.sns.id/)
 
+The SNS Marketplace also supports a referral system, allowing users to share **15%** of the transaction fees. This feature enables participants to earn rewards by referring new users to the marketplace. In order to earn the portion of the fees, users must pass their wallet address in `buyFixedPrice`, `acceptOffer` and `takeCategoryOffer`
+
 ### Fixed Price Offers
 
 ```rust
@@ -73,6 +75,7 @@ const connection = new Connection("...");
 const buyer = new PublicKey("..."); // Public key of the offer buyer
 const source = new PublicKey("..."); // Source of the funds used to purchase the offer. In case of SOL it's the same as `buyer`. If another token is used, it's the ATA of the buyer for the given mint.
 const { pubkey: domainKey } = getDomainKeySync("something.sol"); // Domain public key
+const referrer: PublicKey | undefined = undefined; // Optional referrer
 
 // Use a util function from our SDK to get fixed price offers by name, by owner, or all fixed price offers.
 const fixedPriceOffers = await getFixedPriceOffersForName(
@@ -88,7 +91,8 @@ const ix = await buyFixedPrice(
   fixedPriceKey,
   buyer,
   source,
-  NAME_OFFERS_ID
+  NAME_OFFERS_ID,
+  referrer
 );
 ```
 
@@ -144,6 +148,7 @@ const domainOwner = new PublicKey("..."); // Current domain owner
 const { pubkey: domainKey } = getDomainKeySync("something.sol"); // Domain public key
 const offerEscrow = new PublicKey("..."); // PDA used to store the funds of the offer, the address is written in the state
 const destination = new PublicKey("..."); // The token account used to receive the funds from the escrow
+const referrer: PublicKey | undefined = undefined; // Optional referrer
 
 // Use a util function from the SDK to get offers by domain name, by domain owner, etc.
 const offers = await getOffersForName(connection, "something.sol");
@@ -160,7 +165,8 @@ const ix = await acceptOffer(
   publicKey,
   domainKey,
   offerEscrow,
-  destination
+  destination,
+  referrer
 );
 ```
 
@@ -219,6 +225,7 @@ const connection = new Connection("...");
 const { pubkey: domainKey } = getDomainKeySync("999.sol"); // Domain public key
 const memberKey = CategoryMember.findKey("999", categoryKey); // Membership of the domain to the category
 const seller = new PublicKey("..."); // Seller of the domain here 999.sol
+const referrer: PublicKey | undefined = undefined; // Optional referrer
 
 // Use a util function from the SDK to get category offers by category, category offers for a specific owner, etc.
 const categoryOffers = await getCategoryOffer(connection, categoryKey);
@@ -231,7 +238,8 @@ const ix = await takeCategoryOffer(
   categoryOfferKey,
   domainKey,
   memberKey,
-  seller
+  seller,
+  referrer
 );
 ```
 
