@@ -2,7 +2,7 @@
 
 > 🚨 **Deleting a domain is irreversible**
 
-> 🚨 **Deleting a domain will make you loose ownership of the subdomains and records related to the domain**
+> 🚨 **Deleting a domain will make you lose ownership of the subdomains and records related to the domain**
 
 > 🚨 **Deleting domain names is not recommended**
 
