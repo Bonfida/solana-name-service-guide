@@ -178,7 +178,7 @@
 <pre><code class="language-js">import {
   transferNameOwnership,
   NameRegistryState,
-  SOL_TLD_AUTHORITY,
+  ROOT_DOMAIN_ACCOUNT,
 } from &quot;@bonfida/spl-name-service&quot;;
 
 // ..
@@ -194,7 +194,7 @@ const ix = await transferNameOwnership(
   domain,
   newOwner,
   undefined,
-  SOL_TLD_AUTHORITY
+  ROOT_DOMAIN_ACCOUNT
 );
 
 // sign and send instruction

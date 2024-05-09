@@ -808,7 +808,7 @@ const domains = await getAllDomains(connection, user);
   {
     memcmp: {
       offset: 0,
-      bytes: SOL_TLD_AUTHORITY.toBase58(),
+      bytes: ROOT_DOMAIN_ACCOUNT.toBase58(),
     },
   },
 ];
@@ -819,7 +819,7 @@ const domains = await getAllDomains(connection, user);
   {
     memcmp: {
       offset: 0,
-      bytes: SOL_TLD_AUTHORITY.toBase58(),
+      bytes: ROOT_DOMAIN_ACCOUNT.toBase58(),
     },
   },
 ];
@@ -1143,7 +1143,7 @@ const ix = await updateNameRegistryData(
 <pre><code class="language-js">import {
   transferNameOwnership,
   NameRegistryState,
-  SOL_TLD_AUTHORITY,
+  ROOT_DOMAIN_ACCOUNT,
 } from &quot;@bonfida/spl-name-service&quot;;
 
 // ..
@@ -1159,7 +1159,7 @@ const ix = await transferNameOwnership(
   domain,
   newOwner,
   undefined,
-  SOL_TLD_AUTHORITY
+  ROOT_DOMAIN_ACCOUNT
 );
 
 // sign and send instruction
