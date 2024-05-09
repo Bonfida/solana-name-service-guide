@@ -7,7 +7,7 @@ const filters = [
   {
     memcmp: {
       offset: 0,
-      bytes: SOL_TLD_AUTHORITY.toBase58(),
+      bytes: ROOT_DOMAIN_ACCOUNT.toBase58(),
     },
   },
 ];

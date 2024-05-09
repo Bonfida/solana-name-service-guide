@@ -6,7 +6,7 @@ Domain names can be transferred using the `transferNameOwnership` instruction:
 import {
   transferNameOwnership,
   NameRegistryState,
-  SOL_TLD_AUTHORITY,
+  ROOT_DOMAIN_ACCOUNT,
 } from "@bonfida/spl-name-service";
 
 // ..
@@ -22,7 +22,7 @@ const ix = await transferNameOwnership(
   domain,
   newOwner,
   undefined,
-  SOL_TLD_AUTHORITY
+  ROOT_DOMAIN_ACCOUNT
 );
 
 // sign and send instruction
