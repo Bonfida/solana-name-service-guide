@@ -15,15 +15,14 @@ Many of the utility and binding functions in the devnet module will require exis
 
 ### Notes: 
 
-- The Signer must have a wSOL ATA (AssociatedTokenAccount) initialized and funded for the transaction to succeed. 
-- window.solana.publicKey is refering to a connected Phantom wallet in the browser. You may also use a hardcoded or loaded from file KeyPair (Pub+Priv) to sign in DEVMODE
-- To get wSol, first airdrop SOL to the account, then using the solana CLI use the spl-token wrap cmd, the ammount must be < your .sol balance.
-- If you are registering the domain in behalf of a 2nd party, the receiver account/wallet must also have a wSol ATA. ( you would pay the minrentExcempt to initialize it ) 
-- Your wSol balance must be enough to cover the domain price. Which you will find in the transaction response. 0.8 wSol should be more than enough.
-- Try to test with long-cheap subdomains. Short-names will be more expensive and you may need to airdrop more Sol etc.
-- If you get an error when aidropping, try reducing the amount. e.g. from 1 to 0.7 etc until it succeds.
-- For convenience, you may use a Free Helius RPC endpoint. Thos have more capacity for airdrops. 
- 
+- The signer must have a WSOL ATA (Associated Token Account) initialized and funded for the transaction to succeed.
+- `window.solana.publicKey` refers to a connected Phantom wallet in the browser. Alternatively, you may use a hardcoded or loaded-from-file KeyPair (Public + Private) to sign in DEVMODE.
+- To obtain WSOL, first airdrop SOL to the account, then use the Solana CLI with the `spl-token wrap` command. The amount must be less than your SOL balance.
+- If you are registering the domain on behalf of a second party, the receiver account/wallet must also have a WSOL ATA (you would pay the minRentExempt to initialize it).
+- Your WSOL balance must be sufficient to cover the domain price, which you will find in the transaction response. Typically, 0.8 WSOL should be more than enough.
+- Try to test with long-cheap subdomains. Short names will be more expensive, and you may need to airdrop more SOL, etc.
+- If you encounter an error when airdropping, try reducing the amount, for example, from 1 to 0.7, until it succeeds.
+- For convenience, you may use a free Helius RPC endpoint. These have more capacity for airdrops.
 ```bash
 > spl-token wrap <AMMOUNT> 
 ```
