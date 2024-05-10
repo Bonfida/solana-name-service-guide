@@ -128,7 +128,7 @@ const mint = new PublicKey("EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"); // U
 const amount = 1 * 1e6; // Amount with decimals, here 1 USDC
 const { pubkey: domainKey } = getDomainKeySync("something.sol"); // Domain public key
 const owner = new PublicKey("..."); // Owner of the unsolicited offer
-const tokenSource = new PublicKey("..."); // Token source used to place the offer. In case of SOL it's the same as `owner`. If another token is used, it's the ATA of the owner for the given mint.
+const tokenSource = new PublicKey("..."); // Token source used to place the offer.
 
 const ix = await makeOffer(
   amount,
