@@ -1,5 +1,7 @@
 # Registration
 
+> **Deprecated:** The `registerDomainName` function is being deprecated as it relies on the older Pyth smart contract on Solana, which is scheduled to be sunsetted at the end of May 2024. Please transition to using `registerDomainNameV2` for future domain registrations.
+
 Easily integrate SNS domain registrations into your applications using our SNS Widget React Component. See a default usage example below. You can also customize the widget to fit your unique needs. More information is available here: https://github.com/Bonfida/sns-widget/blob/main/README.md
 
 ```js
@@ -41,7 +43,7 @@ Token pricing data during domain registration is provided to us by our friends a
 Unregistered domains can be registered using the SDK `@bonfida/spl-name-service` with the following instructions:
 
 ```js
-import { registerDomainName } from "@bonfida/spl-name-service";
+import { registerDomainNameV2 } from "@bonfida/spl-name-service";
 
 const name = "bonfida"; // We want to register bonfida.sol
 const space = 1 * 1_000; // We want a 1kB sized domain (max 10kB)
@@ -49,7 +51,7 @@ const space = 1 * 1_000; // We want a 1kB sized domain (max 10kB)
 const buyer = new PublicKey("..."); // Publickey of the buyer
 const buyerTokenAccount = new PublicKey("..."); // Publickey of the token account of the buyer (USDC)
 
-const [, ix] = await registerDomainName(name, space, buyer, buyerTokenAccount);
+const ix = await registerDomainNameV2(name, space, buyer, buyerTokenAccount);
 
 // sign and send the instruction
 ```

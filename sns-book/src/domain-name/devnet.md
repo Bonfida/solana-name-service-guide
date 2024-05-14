@@ -11,10 +11,10 @@ const connection = new Connection("https://api.devnet.solana.com");
 
 ## Register Devnet Domains
 
-Many of the utility and binding functions in the devnet module will require existing devnet domain names. Use the `registerDomainName` binding to register domains on devnet to be used in testing.
+Many of the utility and binding functions in the devnet module will require existing devnet domain names. Use the `registerDomainNameV2` binding to register domains on devnet to be used in testing.
 
 ```js
-const [, ix] = await devnet.bindings.registerDomainName(
+const ix = await devnet.bindings.registerDomainNameV2(
   connection,
   "devnet-test-5", // The name of the domain you want to register
   1_000,
