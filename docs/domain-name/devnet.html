@@ -181,8 +181,8 @@
 const connection = new Connection(&quot;https://api.devnet.solana.com&quot;);
 </code></pre>
 <h2 id="register-devnet-domains"><a class="header" href="#register-devnet-domains">Register Devnet Domains</a></h2>
-<p>Many of the utility and binding functions in the devnet module will require existing devnet domain names. Use the <code>registerDomainName</code> binding to register domains on devnet to be used in testing.</p>
-<pre><code class="language-js">const [, ix] = await devnet.bindings.registerDomainName(
+<p>Many of the utility and binding functions in the devnet module will require existing devnet domain names. Use the <code>registerDomainNameV2</code> binding to register domains on devnet to be used in testing.</p>
+<pre><code class="language-js">const ix = await devnet.bindings.registerDomainNameV2(
   connection,
   &quot;devnet-test-5&quot;, // The name of the domain you want to register
   1_000,

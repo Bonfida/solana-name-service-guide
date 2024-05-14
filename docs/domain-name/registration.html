@@ -174,6 +174,9 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="registration"><a class="header" href="#registration">Registration</a></h1>
+<blockquote>
+<p><strong>Deprecated:</strong> The <code>registerDomainName</code> function is being deprecated as it relies on the older Pyth smart contract on Solana, which is scheduled to be sunsetted at the end of May 2024. Please transition to using <code>registerDomainNameV2</code> for future domain registrations.</p>
+</blockquote>
 <p>Easily integrate SNS domain registrations into your applications using our SNS Widget React Component. See a default usage example below. You can also customize the widget to fit your unique needs. More information is available here: https://github.com/Bonfida/sns-widget/blob/main/README.md</p>
 <pre><code class="language-js">import Widget from &quot;@bonfida/sns-widget&quot;;
 // Apart from the component itself, you also need to import styles separately
@@ -206,7 +209,7 @@ export const Component = () =&gt; {
 <p>Token pricing data during domain registration is provided to us by our friends at Pyth Network. Learn more about their Blockchain Oracle at <a href="https://pyth.network/">Pyth Network</a>.</p>
 <h2 id="sdk"><a class="header" href="#sdk">SDK</a></h2>
 <p>Unregistered domains can be registered using the SDK <code>@bonfida/spl-name-service</code> with the following instructions:</p>
-<pre><code class="language-js">import { registerDomainName } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { registerDomainNameV2 } from &quot;@bonfida/spl-name-service&quot;;
 
 const name = &quot;bonfida&quot;; // We want to register bonfida.sol
 const space = 1 * 1_000; // We want a 1kB sized domain (max 10kB)
@@ -214,7 +217,7 @@ const space = 1 * 1_000; // We want a 1kB sized domain (max 10kB)
 const buyer = new PublicKey(&quot;...&quot;); // Publickey of the buyer
 const buyerTokenAccount = new PublicKey(&quot;...&quot;); // Publickey of the token account of the buyer (USDC)
 
-const [, ix] = await registerDomainName(name, space, buyer, buyerTokenAccount);
+const ix = await registerDomainNameV2(name, space, buyer, buyerTokenAccount);
 
 // sign and send the instruction
 </code></pre>
