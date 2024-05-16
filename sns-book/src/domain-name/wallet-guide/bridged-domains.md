@@ -9,6 +9,9 @@ The Solana Name Service has been bridged to the following EVM chains:
 - BNB Testnet (deployed at `0x4d50e149bb3d8c889f4ccdfffba0ef8016168d92`)
 - BNB Mainnet (deployed at `0xd1Ae42Ce34E6b7ab5B41dcc851424F3cF410BF16`)
 
+- BASESepolia (deployed at `0xc0B286f45d2D5D825aD42DcF49CB9eA39899E2c3`)
+- BASE (deployed at `0x63E2FADb57BEd8A4c9c3C5a4937e7611ec88421F`)
+
 Solana domain names bridged on EVM chains can be resolved using the NPM package [@bonfida/sns-warp-evm](https://www.npmjs.com/package/@bonfida/sns-warp-evm).
 
 ### Installation
@@ -32,6 +35,12 @@ The following code can be used to resolve .sol domains on EVM chains
 ```js
 import { SupportedChains, SNS } from "@bonfida/sns-warp-evm";
 
+/**
+ *
+ * BNB Example
+ *
+ **/
+
 // The domain name to resolve
 const domain = "mock3.sol";
 // The chain on which to resolve the domain
@@ -41,6 +50,17 @@ const sns = new SNS(SupportedChains.BNBMainnet);
 const resolved = await sns.resolveName(domain);
 
 console.log(resolved); // <- 0x1D719d2dB763f905b1924F46a5185e001Dd93786
+
+/**
+ *
+ * BASE Example
+ *
+ **/
+
+const sns = new SNS(SupportedChains.BASESepolia);
+const resolved = await sns.resolveName("12c8566b3e8ab8b9edac2ceab89be3bd.sol");
+
+console.log(resolved); // <- 0x5f8901Aa3a42BCB53792CfCeDa66a7cf735Af6Db
 ```
 
 ### Reverse look up
