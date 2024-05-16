@@ -178,8 +178,18 @@
 <h2 id="evm-chains"><a class="header" href="#evm-chains">EVM Chains</a></h2>
 <p>The Solana Name Service has been bridged to the following EVM chains:</p>
 <ul>
-<li>BNB Testnet (deployed at <code>0x4d50e149bb3d8c889f4ccdfffba0ef8016168d92</code>)</li>
-<li>BNB Mainnet (deployed at <code>0xd1Ae42Ce34E6b7ab5B41dcc851424F3cF410BF16</code>)</li>
+<li>
+<p>BNB Testnet (deployed at <code>0x4d50e149bb3d8c889f4ccdfffba0ef8016168d92</code>)</p>
+</li>
+<li>
+<p>BNB Mainnet (deployed at <code>0xd1Ae42Ce34E6b7ab5B41dcc851424F3cF410BF16</code>)</p>
+</li>
+<li>
+<p>BASESepolia (deployed at <code>0xc0B286f45d2D5D825aD42DcF49CB9eA39899E2c3</code>)</p>
+</li>
+<li>
+<p>BASE (deployed at <code>0x63E2FADb57BEd8A4c9c3C5a4937e7611ec88421F</code>)</p>
+</li>
 </ul>
 <p>Solana domain names bridged on EVM chains can be resolved using the NPM package <a href="https://www.npmjs.com/package/@bonfida/sns-warp-evm">@bonfida/sns-warp-evm</a>.</p>
 <h3 id="installation"><a class="header" href="#installation">Installation</a></h3>
@@ -193,6 +203,12 @@
 <p>The following code can be used to resolve .sol domains on EVM chains</p>
 <pre><code class="language-js">import { SupportedChains, SNS } from &quot;@bonfida/sns-warp-evm&quot;;
 
+/**
+ *
+ * BNB Example
+ *
+ **/
+
 // The domain name to resolve
 const domain = &quot;mock3.sol&quot;;
 // The chain on which to resolve the domain
@@ -202,6 +218,17 @@ const sns = new SNS(SupportedChains.BNBMainnet);
 const resolved = await sns.resolveName(domain);
 
 console.log(resolved); // &lt;- 0x1D719d2dB763f905b1924F46a5185e001Dd93786
+
+/**
+ *
+ * BASE Example
+ *
+ **/
+
+const sns = new SNS(SupportedChains.BASESepolia);
+const resolved = await sns.resolveName(&quot;12c8566b3e8ab8b9edac2ceab89be3bd.sol&quot;);
+
+console.log(resolved); // &lt;- 0x5f8901Aa3a42BCB53792CfCeDa66a7cf735Af6Db
 </code></pre>
 <h3 id="reverse-look-up"><a class="header" href="#reverse-look-up">Reverse look up</a></h3>
 <pre><code class="language-js">import { SupportedChains, SNS } from &quot;@bonfida/sns-warp-evm&quot;;
