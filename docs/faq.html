@@ -178,18 +178,18 @@
 <p>You can buy a domain on the <a href="https://sns.id">Solana Name Service website</a></p>
 <h2 id="how-do-i-find-a-domain-if-i-only-know-its-public-key"><a class="header" href="#how-do-i-find-a-domain-if-i-only-know-its-public-key">How do I find a domain if I only know its public key?</a></h2>
 <p>If you only know the public key of a domain you can do a reverse look up to find the associated domain. For example:</p>
-<pre><code class="language-js">import { reverseLookup } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { reverseLookup } from "@bonfida/spl-name-service";
 
 // Public key of bonfida.sol
-const domainKey = new PublicKey(&quot;Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb&quot;);
+const domainKey = new PublicKey("Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb");
 
 const domainName = await reverseLookup(connection, domainKey); // bonfida
 </code></pre>
 <h2 id="how-do-i-find-the-public-key-of-a-domain"><a class="header" href="#how-do-i-find-the-public-key-of-a-domain">How do I find the public key of a domain?</a></h2>
 <p>If you want to find the public key of a domain you need to derive it:</p>
-<pre><code class="language-js">import { getDomainKeySync } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getDomainKeySync } from "@bonfida/spl-name-service";
 
-const domain = &quot;bonfida&quot;; // With or without the .sol
+const domain = "bonfida"; // With or without the .sol
 
 // Step 2
 const { pubkey } = getDomainKeySync(domain);
@@ -201,17 +201,17 @@ const { parentName, owner, class, data } = registry;
 </code></pre>
 <h2 id="how-do-i-find-the-twitter-handle-of-a-public-key"><a class="header" href="#how-do-i-find-the-twitter-handle-of-a-public-key">How do I find the twitter handle of a public key?</a></h2>
 <p>To find the twitter handle of a public key</p>
-<pre><code class="language-js">import { getHandleAndRegistryKey } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getHandleAndRegistryKey } from "@bonfida/spl-name-service";
 
-const pubkey = new PublicKey(&quot;FidaeBkZkvDqi1GXNEwB8uWmj9Ngx2HXSS5nyGRuVFcZ&quot;);
+const pubkey = new PublicKey("FidaeBkZkvDqi1GXNEwB8uWmj9Ngx2HXSS5nyGRuVFcZ");
 
 const [handle] = await getHandleAndRegistryKey(connection, pubkey);
 </code></pre>
 <h2 id="how-do-i-find-the-public-key-of-a-twitter-handle"><a class="header" href="#how-do-i-find-the-public-key-of-a-twitter-handle">How do I find the public key of a twitter handle?</a></h2>
 <p>To find the public key of a twitter handle</p>
-<pre><code class="language-js">import { getTwitterRegistry } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getTwitterRegistry } from "@bonfida/spl-name-service";
 
-const handle = &quot;bonfida&quot;;
+const handle = "bonfida";
 
 const registry = await getTwitterRegistry(connection, handle);
 </code></pre>

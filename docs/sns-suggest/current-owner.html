@@ -192,38 +192,38 @@
   -X POST 'https://sns-suggest-proxy.bonfida.com' \
   -H 'Content-Type: application/json' \
   --data-binary '{
-    &quot;q&quot;: &quot;00&quot; &lt;- You keywords
+    "q": "00" &lt;- You keywords
   }'
 
 </code></pre>
 <pre><code class="language-json">{
-  &quot;hits&quot;: [
+  "hits": [
     {
-      &quot;domain_name&quot;: &quot;00&quot;,
-      &quot;id&quot;: &quot;00&quot;,
-      &quot;domain_key&quot;: &quot;4oZe4sxw1cSbm4KoiukMs6FSG6zW8rzKgkLDPQd5Gk6Q&quot;,
-      &quot;domain_token_mint&quot;: &quot;HWDX6pDdb3mp2223PzLccezouex1m4LLEw9GTjV85Rkx&quot;,
-      &quot;domain_auction_key&quot;: &quot;ctPQ35SSXvti38NmNYmwy9Lk4EtyxHMZViVNSZNTPUo&quot;,
-      &quot;owner_key&quot;: &quot;5Aw5mkykrqMj8tbqzKVrgBW79w26ha1ELe3zj6ZKYz4b&quot;,
-      &quot;availability_id&quot;: null,
-      &quot;price&quot;: null,
-      &quot;quote_mint&quot;: null,
-      &quot;fixed_price_offer_account&quot;: null
+      "domain_name": "00",
+      "id": "00",
+      "domain_key": "4oZe4sxw1cSbm4KoiukMs6FSG6zW8rzKgkLDPQd5Gk6Q",
+      "domain_token_mint": "HWDX6pDdb3mp2223PzLccezouex1m4LLEw9GTjV85Rkx",
+      "domain_auction_key": "ctPQ35SSXvti38NmNYmwy9Lk4EtyxHMZViVNSZNTPUo",
+      "owner_key": "5Aw5mkykrqMj8tbqzKVrgBW79w26ha1ELe3zj6ZKYz4b",
+      "availability_id": null,
+      "price": null,
+      "quote_mint": null,
+      "fixed_price_offer_account": null
     }
     //...
   ],
-  &quot;query&quot;: &quot;&quot;,
-  &quot;processingTimeMs&quot;: 0,
-  &quot;limit&quot;: 20,
-  &quot;offset&quot;: 0,
-  &quot;estimatedTotalHits&quot;: 1000
+  "query": "",
+  "processingTimeMs": 0,
+  "limit": 20,
+  "offset": 0,
+  "estimatedTotalHits": 1000
 }
 </code></pre>
 <p>The search feature is <strong>typo tolerent</strong></p>
 <h3 id="simple-ui-integration"><a class="header" href="#simple-ui-integration">Simple UI integration</a></h3>
 <p>Below is a simple React hook example</p>
-<pre><code class="language-ts">import axios from &quot;axios&quot;;
-import { useState, useEffect, useRef } from &quot;react&quot;;
+<pre><code class="language-ts">import axios from "axios";
+import { useState, useEffect, useRef } from "react";
 
 export interface Item {
   domain_name: string;
@@ -247,7 +247,7 @@ export interface Result {
   estimatedTotalHits: number;
 }
 
-const URL = &quot;https://sns-suggest-proxy.bonfida.com&quot;;
+const URL = "https://sns-suggest-proxy.bonfida.com";
 
 export const useDomainAutoSuggest = (domain: string) =&gt; {
   const [result, setResult] = useState&lt;Item[] | undefined&gt;(undefined);
@@ -259,7 +259,7 @@ export const useDomainAutoSuggest = (domain: string) =&gt; {
 
       const { data }: { data: Result } = await axios.post(URL, payload, {
         headers: {
-          &quot;Content-type&quot;: &quot;application/json&quot;,
+          "Content-type": "application/json",
         },
       });
 

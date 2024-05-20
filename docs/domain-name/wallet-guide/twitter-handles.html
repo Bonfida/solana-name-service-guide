@@ -177,17 +177,17 @@
 <p>The Solana name service supports the registration of Twitter handles, allowing users to connect their Twitter profile to their wallet.</p>
 <h2 id="direct-look-up"><a class="header" href="#direct-look-up">Direct look up</a></h2>
 <p>To find the Twitter handle associated to a public key</p>
-<pre><code class="language-js">import { getHandleAndRegistryKey } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getHandleAndRegistryKey } from "@bonfida/spl-name-service";
 
-const pubkey = new PublicKey(&quot;FidaeBkZkvDqi1GXNEwB8uWmj9Ngx2HXSS5nyGRuVFcZ&quot;);
+const pubkey = new PublicKey("FidaeBkZkvDqi1GXNEwB8uWmj9Ngx2HXSS5nyGRuVFcZ");
 
 const [handle] = await getHandleAndRegistryKey(connection, pubkey);
 </code></pre>
 <h2 id="reverse-look-up"><a class="header" href="#reverse-look-up">Reverse look up</a></h2>
 <p>To find the public key associated to a Twitter handle</p>
-<pre><code class="language-js">import { getTwitterRegistry } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getTwitterRegistry } from "@bonfida/spl-name-service";
 
-const handle = &quot;bonfida&quot;;
+const handle = "bonfida";
 
 const registry = await getTwitterRegistry(connection, handle);
 const owner = registry.owner.toBase58();

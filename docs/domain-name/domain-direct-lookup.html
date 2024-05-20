@@ -180,9 +180,9 @@
 <li>Get the domain name public key</li>
 <li>Retrieve the account info</li>
 </ol>
-<pre><code class="language-js">import { getDomainKeySync, NameRegistryState } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getDomainKeySync, NameRegistryState } from "@bonfida/spl-name-service";
 
-const domainName = &quot;bonfida&quot;; // With or without the .sol at the end
+const domainName = "bonfida"; // With or without the .sol at the end
 
 // Step 1
 const { pubkey } = getDomainKeySync(domainName);
@@ -196,11 +196,11 @@ const { registry, nftOwner } = await NameRegistryState.retrieve(
 );
 
 // Subdomain derivation
-const subDomain = &quot;dex.bonfida&quot;; // With or without the .sol at the end
+const subDomain = "dex.bonfida"; // With or without the .sol at the end
 const { pubkey: subKey } = getDomainKeySync(subDomain);
 
 // Record derivation (e.g IPFS record)
-const record = &quot;IPFS.bonfida&quot;; // With or without the .sol at the end
+const record = "IPFS.bonfida"; // With or without the .sol at the end
 const { pubkey: recordKey } = getDomainKeySync(record, true);
 </code></pre>
 <p>The <code>retrieve</code> method returns an object made of two fields:</p>

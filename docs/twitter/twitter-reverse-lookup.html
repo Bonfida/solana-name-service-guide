@@ -176,9 +176,9 @@
                         <h1 id="reverse-look-up"><a class="header" href="#reverse-look-up">Reverse look up</a></h1>
 <p><img src="../assets/twitter-direct-reverse.png" alt="direct-reverse" /></p>
 <p>To find the public key associated to a Twitter handle</p>
-<pre><code class="language-js">import { getTwitterRegistry } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getTwitterRegistry } from "@bonfida/spl-name-service";
 
-const handle = &quot;bonfida&quot;;
+const handle = "bonfida";
 
 const registry = await getTwitterRegistry(connection, handle);
 const owner = registry.owner.toBase58();

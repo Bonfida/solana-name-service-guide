@@ -177,7 +177,7 @@
 <p><strong>V1 records are deprecated. For current V2 records please see <a href="./records-v2.html">Records V2</a>.</strong></p>
 <h2 id="record-v1-derivation"><a class="header" href="#record-v1-derivation">Record V1 derivation</a></h2>
 <p>Record keys can be derived with the <code>getDomainKey</code> function and the <code>record</code> flag set to <code>true</code></p>
-<pre><code class="language-js">const record = Record.IPFS + &quot;.&quot; + &quot;bonfida&quot;; // With or without the .sol at the end
+<pre><code class="language-js">const record = Record.IPFS + "." + "bonfida"; // With or without the .sol at the end
 const { pubkey: recordKey } = await getDomainKey(record, true);
 </code></pre>
 <blockquote>
@@ -218,7 +218,7 @@ const { pubkey: recordKey } = await getDomainKey(record, true);
   TransactionInstruction,
   Keypair,
   clusterApiUrl,
-} from &quot;@solana/web3.js&quot;;
+} from "@solana/web3.js";
 import {
   Record,
   getDomainKey,
@@ -227,14 +227,14 @@ import {
   updateInstruction,
   NAME_PROGRAM_ID,
   Numberu32,
-} from &quot;@bonfida/spl-name-service&quot;;
-import { signAndSendInstructions } from &quot;@bonfida/utils&quot;;
+} from "@bonfida/spl-name-service";
+import { signAndSendInstructions } from "@bonfida/utils";
 
-const connection = new Connection(clusterApiUrl(&quot;mainnet-beta&quot;), &quot;processed&quot;);
+const connection = new Connection(clusterApiUrl("mainnet-beta"), "processed");
 const wallet = Keypair.fromSecretKey(...);
 
 // bonfida.sol
-const domain = &quot;bonfida&quot;; // With or without the .sol at the end
+const domain = "bonfida"; // With or without the .sol at the end
 
 // The IPFS record of bonfida.sol
 const record = Record.IPFS;
@@ -242,7 +242,7 @@ const record = Record.IPFS;
 const update = async () =&gt; {
   const ixs: TransactionInstruction[] = [];
   const { pubkey: domainKey } = await getDomainKey(domain);
-  const { pubkey: recordKey } = await getDomainKey(record + &quot;.&quot; + domain, true);
+  const { pubkey: recordKey } = await getDomainKey(record + "." + domain, true);
 
   const recordAccInfo = await connection.getAccountInfo(recordKey);
 
@@ -269,7 +269,7 @@ const update = async () =&gt; {
     NAME_PROGRAM_ID,
     recordKey,
     new Numberu32(0),
-    Buffer.from(&quot;Some IPFS CID&quot;),
+    Buffer.from("Some IPFS CID"),
     wallet.publicKey
   );
 
@@ -283,25 +283,25 @@ update();
 </code></pre>
 <h2 id="deleting-a-record-v1"><a class="header" href="#deleting-a-record-v1">Deleting a record V1</a></h2>
 <p>Records can be deleted using the <code>deleteInstruction</code> function, below is a NodeJS example</p>
-<pre><code class="language-js">import { Connection, Keypair, clusterApiUrl } from &quot;@solana/web3.js&quot;;
+<pre><code class="language-js">import { Connection, Keypair, clusterApiUrl } from "@solana/web3.js";
 import {
   Record,
   getDomainKey,
   NAME_PROGRAM_ID,
   deleteInstruction,
-} from &quot;@bonfida/spl-name-service&quot;;
-import { signAndSendInstructions } from &quot;@bonfida/utils&quot;;
+} from "@bonfida/spl-name-service";
+import { signAndSendInstructions } from "@bonfida/utils";
 
-const domain = &quot;bonfida.sol&quot;; // With or without .sol
+const domain = "bonfida.sol"; // With or without .sol
 
 const record = Record.IPFS;
 
-const connection = new Connection(clusterApiUrl(&quot;mainnet-beta&quot;), &quot;processed&quot;);
+const connection = new Connection(clusterApiUrl("mainnet-beta"), "processed");
 
 const wallet = Keypair.fromSecretKey(...) // Your wallet owning the domain
 
 const deleteRecord = async () =&gt; {
-  const { pubkey: recordKey } = await getDomainKey(record + &quot;.&quot; + domain, true);
+  const { pubkey: recordKey } = await getDomainKey(record + "." + domain, true);
 
   const ix = deleteInstruction(
     NAME_PROGRAM_ID,

@@ -201,7 +201,7 @@
 </code></pre>
 <h3 id="resolving-a-sol-domain"><a class="header" href="#resolving-a-sol-domain">Resolving a .sol domain</a></h3>
 <p>The following code can be used to resolve .sol domains on EVM chains</p>
-<pre><code class="language-js">import { SupportedChains, SNS } from &quot;@bonfida/sns-warp-evm&quot;;
+<pre><code class="language-js">import { SupportedChains, SNS } from "@bonfida/sns-warp-evm";
 
 /**
  *
@@ -210,7 +210,7 @@
  **/
 
 // The domain name to resolve
-const domain = &quot;mock3.sol&quot;;
+const domain = "mock3.sol";
 // The chain on which to resolve the domain
 const targetChain = SupportedChains.BNBMainnet;
 
@@ -226,19 +226,19 @@ console.log(resolved); // &lt;- 0x1D719d2dB763f905b1924F46a5185e001Dd93786
  **/
 
 const sns = new SNS(SupportedChains.BASESepolia);
-const resolved = await sns.resolveName(&quot;12c8566b3e8ab8b9edac2ceab89be3bd.sol&quot;);
+const resolved = await sns.resolveName("12c8566b3e8ab8b9edac2ceab89be3bd.sol");
 
 console.log(resolved); // &lt;- 0x5f8901Aa3a42BCB53792CfCeDa66a7cf735Af6Db
 </code></pre>
 <h3 id="reverse-look-up"><a class="header" href="#reverse-look-up">Reverse look up</a></h3>
-<pre><code class="language-js">import { SupportedChains, SNS } from &quot;@bonfida/sns-warp-evm&quot;;
-import { namehash } from &quot;@ethersproject/hash&quot;;
+<pre><code class="language-js">import { SupportedChains, SNS } from "@bonfida/sns-warp-evm";
+import { namehash } from "@ethersproject/hash";
 
 // The chain on which to perform the reverse lookup
 const targetChain = SupportedChains.BNBMainnet;
 
 const sns = new SNS(targetChain);
-const nameHash = namehash(&quot;mock3.sol&quot;);
+const nameHash = namehash("mock3.sol");
 
 const resolved = await sns.resolveReverse(nameHash);
 console.log(resolved); // &lt;- mock3
@@ -260,11 +260,11 @@ console.log(resolved); // &lt;- mock3
 </code></pre>
 <h3 id="resolving-a-sol-domain-1"><a class="header" href="#resolving-a-sol-domain-1">Resolving a .sol domain</a></h3>
 <p>The following code can be used to resolve .sol domains on Injective</p>
-<pre><code class="language-js">import { resolveName } from &quot;@bonfida/sns-warp-injective&quot;;
-import { Network } from &quot;@injectivelabs/networks&quot;;
+<pre><code class="language-js">import { resolveName } from "@bonfida/sns-warp-injective";
+import { Network } from "@injectivelabs/networks";
 
 // The domain name to resolve
-const domain = &quot;bonfida.sol&quot;;
+const domain = "bonfida.sol";
 // The network on which to resolve the domain
 const network = Network.Mainnet;
 

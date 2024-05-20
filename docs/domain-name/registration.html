@@ -178,13 +178,13 @@
 <p><strong>Deprecated:</strong> The <code>registerDomainName</code> function is being deprecated as it relies on the older Pyth smart contract on Solana, which is scheduled to be sunsetted at the end of May 2024. Please transition to using <code>registerDomainNameV2</code> for future domain registrations.</p>
 </blockquote>
 <p>Easily integrate SNS domain registrations into your applications using our SNS Widget React Component. See a default usage example below. You can also customize the widget to fit your unique needs. More information is available here: https://github.com/Bonfida/sns-widget/blob/main/README.md</p>
-<pre><code class="language-js">import Widget from &quot;@bonfida/sns-widget&quot;;
+<pre><code class="language-js">import Widget from "@bonfida/sns-widget";
 // Apart from the component itself, you also need to import styles separately
-import &quot;@bonfida/sns-widget/style.css&quot;;
+import "@bonfida/sns-widget/style.css";
 
 // Link to public RPC for Solana connection. Solana provides free public RPCs
 // with rate limiters, so you might want to use your own RPC Node provider
-const PUBLIC_RPC = &quot;https://api.mainnet-beta.solana.com&quot;;
+const PUBLIC_RPC = "https://api.mainnet-beta.solana.com";
 
 export const Component = () =&gt; {
   return &lt;Widget endpoint={PUBLIC_RPC} /&gt;;
@@ -209,13 +209,13 @@ export const Component = () =&gt; {
 <p>Token pricing data during domain registration is provided to us by our friends at Pyth Network. Learn more about their Blockchain Oracle at <a href="https://pyth.network/">Pyth Network</a>.</p>
 <h2 id="sdk"><a class="header" href="#sdk">SDK</a></h2>
 <p>Unregistered domains can be registered using the SDK <code>@bonfida/spl-name-service</code> with the following instructions:</p>
-<pre><code class="language-js">import { registerDomainNameV2 } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { registerDomainNameV2 } from "@bonfida/spl-name-service";
 
-const name = &quot;bonfida&quot;; // We want to register bonfida.sol
+const name = "bonfida"; // We want to register bonfida.sol
 const space = 1 * 1_000; // We want a 1kB sized domain (max 10kB)
 
-const buyer = new PublicKey(&quot;...&quot;); // Publickey of the buyer
-const buyerTokenAccount = new PublicKey(&quot;...&quot;); // Publickey of the token account of the buyer (USDC)
+const buyer = new PublicKey("..."); // Publickey of the buyer
+const buyerTokenAccount = new PublicKey("..."); // Publickey of the token account of the buyer (USDC)
 
 const ix = await registerDomainNameV2(name, space, buyer, buyerTokenAccount);
 

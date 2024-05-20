@@ -187,7 +187,7 @@
 <pre><code>cargo add sns-sdk
 </code></pre>
 <p>or</p>
-<pre><code>sns-sdk = &quot;0.1.0&quot;
+<pre><code>sns-sdk = "0.1.0"
 </code></pre>
 <h3 id="js-library"><a class="header" href="#js-library">JS Library</a></h3>
 <p>To install the <a href="https://www.npmjs.com/package/@bonfida/spl-name-service">JS library</a></p>
@@ -219,18 +219,18 @@
 <ol>
 <li>With the JS SDK</li>
 </ol>
-<pre><code class="language-js">const connection = new Connection(clusterApiUrl(&quot;mainnet-beta&quot;));
-const owner = await resolve(connection, &quot;bonfida&quot;);
-expect(owner.toBase58()).toBe(&quot;HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA&quot;);
+<pre><code class="language-js">const connection = new Connection(clusterApiUrl("mainnet-beta"));
+const owner = await resolve(connection, "bonfida");
+expect(owner.toBase58()).toBe("HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA");
 </code></pre>
 <ol start="2">
 <li>With the Rust SDK</li>
 </ol>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>let client = RpcClient::new(std::env::var(&quot;RPC_URL&quot;).unwrap());
-let res = resolve_owner(&amp;client, &quot;bonfida&quot;).await.unwrap();
-assert_eq!(res, pubkey!(&quot;HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA&quot;));
+</span>let client = RpcClient::new(std::env::var("RPC_URL").unwrap());
+let res = resolve_owner(&amp;client, "bonfida").await.unwrap();
+assert_eq!(res, pubkey!("HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA"));
 <span class="boring">}</span></code></pre></pre>
 <ol start="3">
 <li>With the CLI</li>
@@ -246,13 +246,13 @@ assert_eq!(res, pubkey!(&quot;HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA&quot;
 <ol start="5">
 <li>With the React SDK</li>
 </ol>
-<pre><code class="language-ts">import { useConnection, useWallet } from &quot;@solana/wallet-adapter-react&quot;;
-import { useDomainOwner, useDomainsForOwner } from &quot;@bonfida/sns-react&quot;;
+<pre><code class="language-ts">import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import { useDomainOwner, useDomainsForOwner } from "@bonfida/sns-react";
 
 export const Example = () =&gt; {
   const { connection } = useConnection();
   const { publicKey, connected } = useWallet();
-  const { result } = useDomainOwner(connection, &quot;bonfida&quot;);
+  const { result } = useDomainOwner(connection, "bonfida");
   // ...
 };
 </code></pre>

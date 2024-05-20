@@ -190,7 +190,8 @@
 <li>
 <p>Check the SOL record</p>
 <ul>
-<li><strong>If</strong> the SOL record is set and the signature is valid, the public key specified in the record is the correct destination. If the signature is invalid go to step 3</li>
+<li><strong>If</strong> The SOL record V2 is set and the staleness &amp; RoA ID are verified, the public key specified in the record is the correct destination</li>
+<li><strong>Else if</strong> the SOL record V1 is set and the signature is valid, the public key specified in the record is the correct destination. If the signature is invalid go to step 3</li>
 <li><strong>Else</strong> go to step 3</li>
 </ul>
 </li>
@@ -198,80 +199,7 @@
 <p>The correct destination of funds is the domain owner</p>
 </li>
 </ol>
-<p>A JS implementation would be as follow:</p>
-<pre><code class="language-js">import { Connection, PublicKey } from &quot;@solana/web3.js&quot;;
-import { getSolRecord } from &quot;./record&quot;;
-import { getDomainKey } from &quot;./utils&quot;;
-import { NameRegistryState } from &quot;./state&quot;;
-import { sign } from &quot;tweetnacl&quot;;
-import { Record } from &quot;./types/record&quot;;
-
-/**
- * This function can be used to verify the validity of a SOL record
- * @param record The record data to verify
- * @param signedRecord The signed data
- * @param pubkey The public key of the signer
- * @returns
- */
-export const checkSolRecord = (
-  record: Uint8Array,
-  signedRecord: Uint8Array,
-  pubkey: PublicKey
-) =&gt; {
-  return sign.detached.verify(record, signedRecord, pubkey.toBytes());
-};
-
-/**
- * This function can be used to resolve a domain name to transfer funds
- * @param connection The Solana RPC connection object
- * @param domain The domain to resolve
- * @returns
- */
-export const resolve = async (connection: Connection, domain: string) =&gt; {
-  const { pubkey } = await getDomainKey(domain);
-
-  const { registry, nftOwner } = await NameRegistryState.retrieve(
-    connection,
-    pubkey
-  );
-
-  if (nftOwner) {
-    return nftOwner;
-  }
-
-  try {
-    const recordKey = await getDomainKey(Record.SOL + &quot;.&quot; + domain, true);
-    const solRecord = await getSolRecord(connection, domain);
-
-    if (solRecord.data?.length !== 96) {
-      throw new Error(&quot;Invalid SOL record data&quot;);
-    }
-
-    const encoder = new TextEncoder();
-    const expectedBuffer = Buffer.concat([
-      solRecord.data.slice(0, 32),
-      recordKey.pubkey.toBuffer(),
-    ]);
-    const expected = encoder.encode(expectedBuffer.toString(&quot;hex&quot;));
-
-    const valid = checkSolRecord(
-      expected,
-      solRecord.data.slice(32),
-      registry.owner
-    );
-
-    if (!valid) {
-      throw new Error(&quot;Signature invalid&quot;);
-    }
-
-    return new PublicKey(solRecord.data.slice(0, 32));
-  } catch (err) {
-    console.log(err);
-  }
-
-  return registry.owner;
-};
-</code></pre>
+<p>A JS implementation can be found on the <a href="https://github.com/Bonfida/sns-sdk/blob/3098c811e77e3aae1ad390b5f6bea57b1cfc78c0/js/src/resolve.ts">SDK repository</a></p>
 <blockquote>
 <p>Not resolving domains properly might lead to loss of funds ⚠️</p>
 </blockquote>
@@ -281,9 +209,9 @@ export const resolve = async (connection: Connection, domain: string) =&gt; {
 </ol>
 <p>As long as the user owns the tokenized domains (i.e the NFT) they will be able to withdraw from the PDA escrow that received the funds. However, if for some reason the user does not own the NFT they won't be able to withdraw the funds.</p>
 <ol start="2">
-<li>Why is there a signature in the SOL record?</li>
+<li>Why is there a signature in the SOL record V1?</li>
 </ol>
-<p>The SOL record data contains a 96-byte array that is the concatenation of a public key (32 bytes) and signature (64 bytes). The first 32 bytes represent the public key (<code>pubkey</code>) to which funds should be sent and the next 64 bytes are the signature of <code>pubkey_as_bytes + record_key_as_bytes</code> signed by the owner of the domain. If the signature is invalid funds <strong>must not</strong> be transferred to the SOL record address.</p>
+<p>The SOL record V1 data contains a 96-byte array that is the concatenation of a public key (32 bytes) and signature (64 bytes). The first 32 bytes represent the public key (<code>pubkey</code>) to which funds should be sent and the next 64 bytes are the signature of <code>pubkey_as_bytes + record_key_as_bytes</code> signed by the owner of the domain. If the signature is invalid funds <strong>must not</strong> be transferred to the SOL record address.</p>
 <p>The signature is required to prevent funds being sent to a stale SOL record after a domain has been transferred or sold to a new owner.</p>
 <h2 id="examples"><a class="header" href="#examples">Examples</a></h2>
 <p>This section provides examples to assist you in testing your implementation. However, they are not exhaustive, therefore, ensure to carry out comprehensive tests beyond these examples. Use them as guidelines and adapt them to suit your specific needs.</p>

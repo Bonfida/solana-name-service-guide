@@ -189,13 +189,13 @@
 </ul>
 <h2 id="creating-a-subdomain"><a class="header" href="#creating-a-subdomain">Creating a subdomain</a></h2>
 <p>This code snippet creates a subdomain and its reverse lookup account:</p>
-<pre><code class="language-js">import { createSubdomain } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { createSubdomain } from "@bonfida/spl-name-service";
 
 // The subdomain to create with or without .sol e.g something.bonfida.sol or something.bonfida
-const subdomain = &quot;something.bonfida.sol&quot;;
+const subdomain = "something.bonfida.sol";
 
 // The owner of the parent domain
-const owner = new PublicKey(&quot;...&quot;);
+const owner = new PublicKey("...");
 
 const ix = createSubdomain(connection, subdomain, owner);
 
@@ -204,15 +204,15 @@ const ix = createSubdomain(connection, subdomain, owner);
 <p>The created subdomains will initially be owned by the parent owner. A subdomain can be created and transfered inside the same transaction.</p>
 <h2 id="transferring-a-subdomain"><a class="header" href="#transferring-a-subdomain">Transferring a Subdomain</a></h2>
 <p>Subdomains can be transferred using the <code>transferSubdomain</code> instruction. Here is an example of how the subdomain owner can transfer a subdomain:</p>
-<pre><code class="language-js">import { transferSubdomain } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { transferSubdomain } from "@bonfida/spl-name-service";
 
 // ..
 
 // Subdomains to transfer
-const subdomain = &quot;something.bonfida.sol&quot;;
+const subdomain = "something.bonfida.sol";
 
 // New owner of the domain
-const newOwner = new PublicKey(&quot;...&quot;);
+const newOwner = new PublicKey("...");
 
 // Whether the parent name owner is signing the transfer
 const isParentSigner = false;
@@ -229,10 +229,10 @@ const ix = await transferSubdomain(
 <p>The parent name owner can trigger a transfer by setting the <code>isParentSigner</code> flag to <code>true</code> and signing the transaction.</p>
 <h2 id="resolving-subdomains"><a class="header" href="#resolving-subdomains">Resolving Subdomains</a></h2>
 <p>Subdomains of a <code>.sol</code> domain can be resolved using the <code>findSubdomains</code> function. Here is an example of how to resolve subdomains:</p>
-<pre><code class="language-js">import { findSubdomains } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { findSubdomains } from "@bonfida/spl-name-service";
 
 // Public key of bonfida.sol
-const parentKey = new PublicKey(&quot;Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb&quot;);
+const parentKey = new PublicKey("Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb");
 
 // Assuming that bonfida.sol has the following subdomains
 // - sub_1.bonfida.sol
@@ -242,16 +242,16 @@ const subdomains: string[] = await findSubdomains(connection, parentKey); // [su
 </code></pre>
 <h2 id="deleting-a-subdomain"><a class="header" href="#deleting-a-subdomain">Deleting a Subdomain</a></h2>
 <p>Subdomains can be deleted using the <code>deleteInstruction</code> function. Here is an example of how to delete a subdomain:</p>
-<pre><code class="language-js">import { Keypair, clusterApiUrl } from &quot;@solana/web3.js&quot;;
+<pre><code class="language-js">import { Keypair, clusterApiUrl } from "@solana/web3.js";
 import {
   getDomainKey,
   NAME_PROGRAM_ID,
   deleteInstruction,
-} from &quot;@bonfida/spl-name-service&quot;;
-import { signAndSendInstructions } from &quot;@bonfida/utils&quot;;
+} from "@bonfida/spl-name-service";
+import { signAndSendInstructions } from "@bonfida/utils";
 
 // dex.bonfida.sol
-const domain = &quot;dex.bonfida.sol&quot;; // With or without .sol
+const domain = "dex.bonfida.sol"; // With or without .sol
 
 const wallet = Keypair.fromSecretKey(...);
 

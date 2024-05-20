@@ -175,10 +175,10 @@
                     <main>
                         <h1 id="useprofilepic"><a class="header" href="#useprofilepic">useProfilePic</a></h1>
 <p>Users can set a profile picture using the <code>pic</code> record of their favorite domain name. This record holds the URI to their profile picture.</p>
-<pre><code class="language-ts">import { useEffect, useRef, useState } from &quot;react&quot;;
-import { useConnection } from &quot;@solana/wallet-adapter-react&quot;;
-import { PublicKey } from &quot;@solana/web3.js&quot;;
-import { getDomainKey, NameRegistryState } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-ts">import { useEffect, useRef, useState } from "react";
+import { useConnection } from "@solana/wallet-adapter-react";
+import { PublicKey } from "@solana/web3.js";
+import { getDomainKey, NameRegistryState } from "@bonfida/spl-name-service";
 
 export const useProfilePic = (user: PublicKey) =&gt; {
   const { connection } = useConnection();
@@ -199,7 +199,7 @@ export const useProfilePic = (user: PublicKey) =&gt; {
       }
 
       if (mounted.current) {
-        setResult(registry.data.toString(&quot;utf-8&quot;));
+        setResult(registry.data.toString("utf-8"));
       }
 
       return () =&gt; (mounted.current = false);

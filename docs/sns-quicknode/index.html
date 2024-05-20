@@ -177,19 +177,19 @@
 <p>The Solana Name Service Quicknode marketplace plugin accepts requests using the <a href="https://www.jsonrpc.org/specification">JSON-RPC-2.0</a> specification over <code>HTTP POST</code>.</p>
 <p>This means that it accepts <code>HTTP POST</code> requests with the <code>Content-Type</code> header set to <code>application/json</code>, containing a json payload. For example:</p>
 <pre><code class="language-json">{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;method&quot;: &quot;get_domain_key&quot;,
-    &quot;params&quot;: {
-        &quot;domain&quot;: &quot;bonfida.sol&quot;
+    "jsonrpc": "2.0",
+    "method": "get_domain_key",
+    "params": {
+        "domain": "bonfida.sol"
     },
-    &quot;id&quot;: 5678
+    "id": 5678
 }
 </code></pre>
 <p>The response is a JSON object. For example:</p>
 <pre><code class="language-json">{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;result&quot;: &quot;HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA&quot;,
-    &quot;id&quot;: 5678
+    "jsonrpc": "2.0",
+    "result": "HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA",
+    "id": 5678
 }
 </code></pre>
 <p>The API supports a variety of methods which are detailed in this chapter.</p>

@@ -176,9 +176,9 @@
                         <h1 id="direct-look-up"><a class="header" href="#direct-look-up">Direct look up</a></h1>
 <p><img src="../assets/twitter-direct-reverse.png" alt="direct-reverse" /></p>
 <p>To find the Twitter handle associated to a public key</p>
-<pre><code class="language-js">import { getHandleAndRegistryKey } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getHandleAndRegistryKey } from "@bonfida/spl-name-service";
 
-const pubkey = new PublicKey(&quot;FidaeBkZkvDqi1GXNEwB8uWmj9Ngx2HXSS5nyGRuVFcZ&quot;);
+const pubkey = new PublicKey("FidaeBkZkvDqi1GXNEwB8uWmj9Ngx2HXSS5nyGRuVFcZ");
 
 const [handle] = await getHandleAndRegistryKey(connection, pubkey);
 </code></pre>

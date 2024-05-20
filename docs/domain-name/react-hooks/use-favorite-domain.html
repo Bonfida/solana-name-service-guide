@@ -176,11 +176,11 @@
                         <h1 id="usefavoritedomain"><a class="header" href="#usefavoritedomain">useFavoriteDomain</a></h1>
 <p>Favorite domains allow users who own several domains to select one of them as their default identity.</p>
 <p><strong>This favorite domain should be used by default by dApps.</strong></p>
-<pre><code class="language-ts">import { useEffect, useRef, useState } from &quot;react&quot;;
-import { useConnection } from &quot;@solana/wallet-adapter-react&quot;;
-import { PublicKey } from &quot;@solana/web3.js&quot;;
-import { reverseLookup } from &quot;@bonfida/spl-name-service&quot;;
-import { FavouriteDomain, NAME_OFFERS_ID } from &quot;@bonfida/name-offers&quot;;
+<pre><code class="language-ts">import { useEffect, useRef, useState } from "react";
+import { useConnection } from "@solana/wallet-adapter-react";
+import { PublicKey } from "@solana/web3.js";
+import { reverseLookup } from "@bonfida/spl-name-service";
+import { FavouriteDomain, NAME_OFFERS_ID } from "@bonfida/name-offers";
 
 type Result = string | undefined;
 

@@ -179,7 +179,7 @@
 
 /**
  * This hook can be used to retrieve all the records of a domain
- * @param domains Domains to resolve records for e.g &quot;bonfida&quot;
+ * @param domains Domains to resolve records for e.g "bonfida"
  * @returns
  */
 export const useRecords = (domain: string) =&gt; {
@@ -192,7 +192,7 @@ export const useRecords = (domain: string) =&gt; {
       const recordsKeys = Object.keys(Record).map((e) =&gt; Record[e]);
 
       const keys = await Promise.all(
-        recordsKeys.map((e) =&gt; getDomainKey(e + &quot;.&quot; + domain, true))
+        recordsKeys.map((e) =&gt; getDomainKey(e + "." + domain, true))
       );
 
       const registries = await NameRegistryState.retrieveBatch(

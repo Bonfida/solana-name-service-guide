@@ -179,15 +179,15 @@
   transferNameOwnership,
   NameRegistryState,
   ROOT_DOMAIN_ACCOUNT,
-} from &quot;@bonfida/spl-name-service&quot;;
+} from "@bonfida/spl-name-service";
 
 // ..
 
 // Domain name to transfer
-const domain = &quot;bonfida&quot;;
+const domain = "bonfida";
 
 // New owner of the domain
-const newOwner = new PublicKey(&quot;...&quot;);
+const newOwner = new PublicKey("...");
 
 const ix = await transferNameOwnership(
   connection,

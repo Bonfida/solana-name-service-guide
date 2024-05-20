@@ -175,14 +175,14 @@
                     <main>
                         <h1 id="usedomains"><a class="header" href="#usedomains">useDomains</a></h1>
 <p>This hook can be used to resolve several domain names:</p>
-<pre><code class="language-ts">import { getDomainKey, NameRegistryState } from &quot;@bonfida/spl-name-service&quot;;
-import { useEffect, useState, useRef } from &quot;react&quot;;
+<pre><code class="language-ts">import { getDomainKey, NameRegistryState } from "@bonfida/spl-name-service";
+import { useEffect, useState, useRef } from "react";
 
 type Result = (NameRegistryState | undefined)[] | undefined;
 
 /**
  * This hook can be used to resolve several domain names
- * @param domains List of domains to resolve e.g [&quot;bonfida&quot;, &quot;serum&quot;]
+ * @param domains List of domains to resolve e.g ["bonfida", "serum"]
  * @returns
  */
 export const useDomains = (domains: string[]) =&gt; {

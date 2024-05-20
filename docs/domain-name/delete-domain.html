@@ -184,18 +184,18 @@
 <p>🚨 <strong>Deleting domain names is not recommended</strong></p>
 </blockquote>
 <p>Domain names can be deleted using the <code>deleteInstruction</code>, below is a NodeJS example:</p>
-<pre><code class="language-js">import { Connection, Keypair, clusterApiUrl } from &quot;@solana/web3.js&quot;;
+<pre><code class="language-js">import { Connection, Keypair, clusterApiUrl } from "@solana/web3.js";
 import {
   getDomainKey,
   NAME_PROGRAM_ID,
   deleteInstruction,
-} from &quot;@bonfida/spl-name-service&quot;;
-import { signAndSendInstructions } from &quot;@bonfida/utils&quot;;
+} from "@bonfida/spl-name-service";
+import { signAndSendInstructions } from "@bonfida/utils";
 
 // bonfida.sol
-const domain = &quot;bonfida.sol&quot;; // With or without .sol
+const domain = "bonfida.sol"; // With or without .sol
 
-const connection = new Connection(clusterApiUrl(&quot;mainnet-beta&quot;), &quot;processed&quot;);
+const connection = new Connection(clusterApiUrl("mainnet-beta"), "processed");
 
 const wallet = Keypair.fromSecretKey(...);
 
@@ -218,18 +218,18 @@ deleteDomain();
 </code></pre>
 <h2 id="deleting-subdomains"><a class="header" href="#deleting-subdomains">Deleting subdomains</a></h2>
 <p>Subdomains can be deleted using the <code>deleteInstruction</code>, below is a NodeJS example:</p>
-<pre><code class="language-js">import { Connection, Keypair, clusterApiUrl } from &quot;@solana/web3.js&quot;;
+<pre><code class="language-js">import { Connection, Keypair, clusterApiUrl } from "@solana/web3.js";
 import {
   getDomainKey,
   NAME_PROGRAM_ID,
   deleteInstruction,
-} from &quot;@bonfida/spl-name-service&quot;;
-import { signAndSendInstructions } from &quot;@bonfida/utils&quot;;
+} from "@bonfida/spl-name-service";
+import { signAndSendInstructions } from "@bonfida/utils";
 
 // dex.bonfida.sol
-const domain = &quot;dex.bonfida.sol&quot;; // With or without .sol
+const domain = "dex.bonfida.sol"; // With or without .sol
 
-const connection = new Connection(clusterApiUrl(&quot;mainnet-beta&quot;), &quot;processed&quot;);
+const connection = new Connection(clusterApiUrl("mainnet-beta"), "processed");
 
 const wallet = Keypair.fromSecretKey(...);
 

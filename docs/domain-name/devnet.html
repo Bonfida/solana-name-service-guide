@@ -175,16 +175,16 @@
                     <main>
                         <h1 id="devnet"><a class="header" href="#devnet">Devnet</a></h1>
 <p>Testing can be done on devnet with many of the same functions and methods previously described in this chapter, using the devnet module of the JavaScript SDK. A connection object created from a devnet RPC URL will need to be passed to these functions.</p>
-<pre><code class="language-js">import { devnet } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { devnet } from "@bonfida/spl-name-service";
 
 // Use Solana devnet RPC URL or a custom RPC URL
-const connection = new Connection(&quot;https://api.devnet.solana.com&quot;);
+const connection = new Connection("https://api.devnet.solana.com");
 </code></pre>
 <h2 id="register-devnet-domains"><a class="header" href="#register-devnet-domains">Register Devnet Domains</a></h2>
 <p>Many of the utility and binding functions in the devnet module will require existing devnet domain names. Use the <code>registerDomainNameV2</code> binding to register domains on devnet to be used in testing.</p>
 <pre><code class="language-js">const ix = await devnet.bindings.registerDomainNameV2(
   connection,
-  &quot;devnet-test-5&quot;, // The name of the domain you want to register
+  "devnet-test-5", // The name of the domain you want to register
   1_000,
   publicKey, // PublicKey of fee payer
   getAssociatedTokenAddressSync(NATIVE_MINT, publicKey, true), // import from @solana/spl-token
@@ -196,7 +196,7 @@ const connection = new Connection(&quot;https://api.devnet.solana.com&quot;);
 <h2 id="utils"><a class="header" href="#utils">Utils</a></h2>
 <p>The devnet module contains utility functions for lookup and derivation tasks for usage with devnet out of the box. An example of the <code>reverseLookup</code> function which looks up a human readable domain from the public key of a domain name registry, is below.</p>
 <pre><code class="language-js">// Public key of bonfida.sol
-const domainKey = new PublicKey(&quot;Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb&quot;);
+const domainKey = new PublicKey("Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb");
 
 const domainName = await devnet.utils.reverseLookup(connection, domainKey); // bonfida
 </code></pre>
@@ -207,10 +207,10 @@ const domainName = await devnet.utils.reverseLookup(connection, domainKey); // b
 <h2 id="bindings"><a class="header" href="#bindings">Bindings</a></h2>
 <p>For more in depth domain name interactions like creating, updating, deleting, or transfering domains and records, bindings from the devnet module can be used. An example using the <code>createNameRegistry</code> function is below.</p>
 <pre><code class="language-js">// Domain name to transfer
-const domain = &quot;devnet-test-5&quot;;
+const domain = "devnet-test-5";
 
 // New owner of the domain
-const newOwner = new PublicKey(&quot;...&quot;);
+const newOwner = new PublicKey("...");
 
 // The .sol TLD
 const nameParent = dev.constants.ROOT_DOMAIN_ACCOUNT;

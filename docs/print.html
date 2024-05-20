@@ -236,7 +236,7 @@ Still, this has privacy implications that require you to have an identifiable Tw
 <pre><code>cargo add sns-sdk
 </code></pre>
 <p>or</p>
-<pre><code>sns-sdk = &quot;0.1.0&quot;
+<pre><code>sns-sdk = "0.1.0"
 </code></pre>
 <h3 id="js-library"><a class="header" href="#js-library">JS Library</a></h3>
 <p>To install the <a href="https://www.npmjs.com/package/@bonfida/spl-name-service">JS library</a></p>
@@ -268,18 +268,18 @@ Still, this has privacy implications that require you to have an identifiable Tw
 <ol>
 <li>With the JS SDK</li>
 </ol>
-<pre><code class="language-js">const connection = new Connection(clusterApiUrl(&quot;mainnet-beta&quot;));
-const owner = await resolve(connection, &quot;bonfida&quot;);
-expect(owner.toBase58()).toBe(&quot;HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA&quot;);
+<pre><code class="language-js">const connection = new Connection(clusterApiUrl("mainnet-beta"));
+const owner = await resolve(connection, "bonfida");
+expect(owner.toBase58()).toBe("HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA");
 </code></pre>
 <ol start="2">
 <li>With the Rust SDK</li>
 </ol>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>let client = RpcClient::new(std::env::var(&quot;RPC_URL&quot;).unwrap());
-let res = resolve_owner(&amp;client, &quot;bonfida&quot;).await.unwrap();
-assert_eq!(res, pubkey!(&quot;HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA&quot;));
+</span>let client = RpcClient::new(std::env::var("RPC_URL").unwrap());
+let res = resolve_owner(&amp;client, "bonfida").await.unwrap();
+assert_eq!(res, pubkey!("HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA"));
 <span class="boring">}</span></code></pre></pre>
 <ol start="3">
 <li>With the CLI</li>
@@ -295,13 +295,13 @@ assert_eq!(res, pubkey!(&quot;HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA&quot;
 <ol start="5">
 <li>With the React SDK</li>
 </ol>
-<pre><code class="language-ts">import { useConnection, useWallet } from &quot;@solana/wallet-adapter-react&quot;;
-import { useDomainOwner, useDomainsForOwner } from &quot;@bonfida/sns-react&quot;;
+<pre><code class="language-ts">import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import { useDomainOwner, useDomainsForOwner } from "@bonfida/sns-react";
 
 export const Example = () =&gt; {
   const { connection } = useConnection();
   const { publicKey, connected } = useWallet();
-  const { result } = useDomainOwner(connection, &quot;bonfida&quot;);
+  const { result } = useDomainOwner(connection, "bonfida");
   // ...
 };
 </code></pre>
@@ -314,7 +314,7 @@ export const Example = () =&gt; {
 </ol>
 <h2 id="set-up-siwsns"><a class="header" href="#set-up-siwsns">Set up SIWSNS</a></h2>
 <p>To set up SIWSNS you need to obtain a Client ID and secret, this can be done with a simple cURL command:</p>
-<pre><code>curl -X POST https://siwsns.bonfida.com/register -d '{&quot;redirectUris&quot;:[&quot;https://YOUR_AUTH0_DOMAIN/login/callback&quot;]}'
+<pre><code>curl -X POST https://siwsns.bonfida.com/register -d '{"redirectUris":["https://YOUR_AUTH0_DOMAIN/login/callback"]}'
 </code></pre>
 <h2 id="add-the-connection"><a class="header" href="#add-the-connection">Add the Connection</a></h2>
 <ol>
@@ -343,18 +343,18 @@ export const Example = () =&gt; {
 <p>You can buy a domain on the <a href="https://sns.id">Solana Name Service website</a></p>
 <h2 id="how-do-i-find-a-domain-if-i-only-know-its-public-key"><a class="header" href="#how-do-i-find-a-domain-if-i-only-know-its-public-key">How do I find a domain if I only know its public key?</a></h2>
 <p>If you only know the public key of a domain you can do a reverse look up to find the associated domain. For example:</p>
-<pre><code class="language-js">import { reverseLookup } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { reverseLookup } from "@bonfida/spl-name-service";
 
 // Public key of bonfida.sol
-const domainKey = new PublicKey(&quot;Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb&quot;);
+const domainKey = new PublicKey("Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb");
 
 const domainName = await reverseLookup(connection, domainKey); // bonfida
 </code></pre>
 <h2 id="how-do-i-find-the-public-key-of-a-domain"><a class="header" href="#how-do-i-find-the-public-key-of-a-domain">How do I find the public key of a domain?</a></h2>
 <p>If you want to find the public key of a domain you need to derive it:</p>
-<pre><code class="language-js">import { getDomainKeySync } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getDomainKeySync } from "@bonfida/spl-name-service";
 
-const domain = &quot;bonfida&quot;; // With or without the .sol
+const domain = "bonfida"; // With or without the .sol
 
 // Step 2
 const { pubkey } = getDomainKeySync(domain);
@@ -366,17 +366,17 @@ const { parentName, owner, class, data } = registry;
 </code></pre>
 <h2 id="how-do-i-find-the-twitter-handle-of-a-public-key"><a class="header" href="#how-do-i-find-the-twitter-handle-of-a-public-key">How do I find the twitter handle of a public key?</a></h2>
 <p>To find the twitter handle of a public key</p>
-<pre><code class="language-js">import { getHandleAndRegistryKey } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getHandleAndRegistryKey } from "@bonfida/spl-name-service";
 
-const pubkey = new PublicKey(&quot;FidaeBkZkvDqi1GXNEwB8uWmj9Ngx2HXSS5nyGRuVFcZ&quot;);
+const pubkey = new PublicKey("FidaeBkZkvDqi1GXNEwB8uWmj9Ngx2HXSS5nyGRuVFcZ");
 
 const [handle] = await getHandleAndRegistryKey(connection, pubkey);
 </code></pre>
 <h2 id="how-do-i-find-the-public-key-of-a-twitter-handle"><a class="header" href="#how-do-i-find-the-public-key-of-a-twitter-handle">How do I find the public key of a twitter handle?</a></h2>
 <p>To find the public key of a twitter handle</p>
-<pre><code class="language-js">import { getTwitterRegistry } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getTwitterRegistry } from "@bonfida/spl-name-service";
 
-const handle = &quot;bonfida&quot;;
+const handle = "bonfida";
 
 const registry = await getTwitterRegistry(connection, handle);
 </code></pre>
@@ -462,7 +462,8 @@ pub struct NameRecordHeader {
 <li>
 <p>Check the SOL record</p>
 <ul>
-<li><strong>If</strong> the SOL record is set and the signature is valid, the public key specified in the record is the correct destination. If the signature is invalid go to step 3</li>
+<li><strong>If</strong> The SOL record V2 is set and the staleness &amp; RoA ID are verified, the public key specified in the record is the correct destination</li>
+<li><strong>Else if</strong> the SOL record V1 is set and the signature is valid, the public key specified in the record is the correct destination. If the signature is invalid go to step 3</li>
 <li><strong>Else</strong> go to step 3</li>
 </ul>
 </li>
@@ -470,80 +471,7 @@ pub struct NameRecordHeader {
 <p>The correct destination of funds is the domain owner</p>
 </li>
 </ol>
-<p>A JS implementation would be as follow:</p>
-<pre><code class="language-js">import { Connection, PublicKey } from &quot;@solana/web3.js&quot;;
-import { getSolRecord } from &quot;./record&quot;;
-import { getDomainKey } from &quot;./utils&quot;;
-import { NameRegistryState } from &quot;./state&quot;;
-import { sign } from &quot;tweetnacl&quot;;
-import { Record } from &quot;./types/record&quot;;
-
-/**
- * This function can be used to verify the validity of a SOL record
- * @param record The record data to verify
- * @param signedRecord The signed data
- * @param pubkey The public key of the signer
- * @returns
- */
-export const checkSolRecord = (
-  record: Uint8Array,
-  signedRecord: Uint8Array,
-  pubkey: PublicKey
-) =&gt; {
-  return sign.detached.verify(record, signedRecord, pubkey.toBytes());
-};
-
-/**
- * This function can be used to resolve a domain name to transfer funds
- * @param connection The Solana RPC connection object
- * @param domain The domain to resolve
- * @returns
- */
-export const resolve = async (connection: Connection, domain: string) =&gt; {
-  const { pubkey } = await getDomainKey(domain);
-
-  const { registry, nftOwner } = await NameRegistryState.retrieve(
-    connection,
-    pubkey
-  );
-
-  if (nftOwner) {
-    return nftOwner;
-  }
-
-  try {
-    const recordKey = await getDomainKey(Record.SOL + &quot;.&quot; + domain, true);
-    const solRecord = await getSolRecord(connection, domain);
-
-    if (solRecord.data?.length !== 96) {
-      throw new Error(&quot;Invalid SOL record data&quot;);
-    }
-
-    const encoder = new TextEncoder();
-    const expectedBuffer = Buffer.concat([
-      solRecord.data.slice(0, 32),
-      recordKey.pubkey.toBuffer(),
-    ]);
-    const expected = encoder.encode(expectedBuffer.toString(&quot;hex&quot;));
-
-    const valid = checkSolRecord(
-      expected,
-      solRecord.data.slice(32),
-      registry.owner
-    );
-
-    if (!valid) {
-      throw new Error(&quot;Signature invalid&quot;);
-    }
-
-    return new PublicKey(solRecord.data.slice(0, 32));
-  } catch (err) {
-    console.log(err);
-  }
-
-  return registry.owner;
-};
-</code></pre>
+<p>A JS implementation can be found on the <a href="https://github.com/Bonfida/sns-sdk/blob/3098c811e77e3aae1ad390b5f6bea57b1cfc78c0/js/src/resolve.ts">SDK repository</a></p>
 <blockquote>
 <p>Not resolving domains properly might lead to loss of funds ⚠️</p>
 </blockquote>
@@ -553,9 +481,9 @@ export const resolve = async (connection: Connection, domain: string) =&gt; {
 </ol>
 <p>As long as the user owns the tokenized domains (i.e the NFT) they will be able to withdraw from the PDA escrow that received the funds. However, if for some reason the user does not own the NFT they won't be able to withdraw the funds.</p>
 <ol start="2">
-<li>Why is there a signature in the SOL record?</li>
+<li>Why is there a signature in the SOL record V1?</li>
 </ol>
-<p>The SOL record data contains a 96-byte array that is the concatenation of a public key (32 bytes) and signature (64 bytes). The first 32 bytes represent the public key (<code>pubkey</code>) to which funds should be sent and the next 64 bytes are the signature of <code>pubkey_as_bytes + record_key_as_bytes</code> signed by the owner of the domain. If the signature is invalid funds <strong>must not</strong> be transferred to the SOL record address.</p>
+<p>The SOL record V1 data contains a 96-byte array that is the concatenation of a public key (32 bytes) and signature (64 bytes). The first 32 bytes represent the public key (<code>pubkey</code>) to which funds should be sent and the next 64 bytes are the signature of <code>pubkey_as_bytes + record_key_as_bytes</code> signed by the owner of the domain. If the signature is invalid funds <strong>must not</strong> be transferred to the SOL record address.</p>
 <p>The signature is required to prevent funds being sent to a stale SOL record after a domain has been transferred or sold to a new owner.</p>
 <h2 id="examples-1"><a class="header" href="#examples-1">Examples</a></h2>
 <p>This section provides examples to assist you in testing your implementation. However, they are not exhaustive, therefore, ensure to carry out comprehensive tests beyond these examples. Use them as guidelines and adapt them to suit your specific needs.</p>
@@ -597,7 +525,7 @@ export const resolve = async (connection: Connection, domain: string) =&gt; {
 </code></pre>
 <h3 id="resolving-a-sol-domain"><a class="header" href="#resolving-a-sol-domain">Resolving a .sol domain</a></h3>
 <p>The following code can be used to resolve .sol domains on EVM chains</p>
-<pre><code class="language-js">import { SupportedChains, SNS } from &quot;@bonfida/sns-warp-evm&quot;;
+<pre><code class="language-js">import { SupportedChains, SNS } from "@bonfida/sns-warp-evm";
 
 /**
  *
@@ -606,7 +534,7 @@ export const resolve = async (connection: Connection, domain: string) =&gt; {
  **/
 
 // The domain name to resolve
-const domain = &quot;mock3.sol&quot;;
+const domain = "mock3.sol";
 // The chain on which to resolve the domain
 const targetChain = SupportedChains.BNBMainnet;
 
@@ -622,19 +550,19 @@ console.log(resolved); // &lt;- 0x1D719d2dB763f905b1924F46a5185e001Dd93786
  **/
 
 const sns = new SNS(SupportedChains.BASESepolia);
-const resolved = await sns.resolveName(&quot;12c8566b3e8ab8b9edac2ceab89be3bd.sol&quot;);
+const resolved = await sns.resolveName("12c8566b3e8ab8b9edac2ceab89be3bd.sol");
 
 console.log(resolved); // &lt;- 0x5f8901Aa3a42BCB53792CfCeDa66a7cf735Af6Db
 </code></pre>
 <h3 id="reverse-look-up"><a class="header" href="#reverse-look-up">Reverse look up</a></h3>
-<pre><code class="language-js">import { SupportedChains, SNS } from &quot;@bonfida/sns-warp-evm&quot;;
-import { namehash } from &quot;@ethersproject/hash&quot;;
+<pre><code class="language-js">import { SupportedChains, SNS } from "@bonfida/sns-warp-evm";
+import { namehash } from "@ethersproject/hash";
 
 // The chain on which to perform the reverse lookup
 const targetChain = SupportedChains.BNBMainnet;
 
 const sns = new SNS(targetChain);
-const nameHash = namehash(&quot;mock3.sol&quot;);
+const nameHash = namehash("mock3.sol");
 
 const resolved = await sns.resolveReverse(nameHash);
 console.log(resolved); // &lt;- mock3
@@ -656,11 +584,11 @@ console.log(resolved); // &lt;- mock3
 </code></pre>
 <h3 id="resolving-a-sol-domain-1"><a class="header" href="#resolving-a-sol-domain-1">Resolving a .sol domain</a></h3>
 <p>The following code can be used to resolve .sol domains on Injective</p>
-<pre><code class="language-js">import { resolveName } from &quot;@bonfida/sns-warp-injective&quot;;
-import { Network } from &quot;@injectivelabs/networks&quot;;
+<pre><code class="language-js">import { resolveName } from "@bonfida/sns-warp-injective";
+import { Network } from "@injectivelabs/networks";
 
 // The domain name to resolve
-const domain = &quot;bonfida.sol&quot;;
+const domain = "bonfida.sol";
 // The network on which to resolve the domain
 const network = Network.Mainnet;
 
@@ -672,17 +600,17 @@ console.log(resolved); // &lt;- inj1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqe2hm49
 <p>The Solana name service supports the registration of Twitter handles, allowing users to connect their Twitter profile to their wallet.</p>
 <h2 id="direct-look-up"><a class="header" href="#direct-look-up">Direct look up</a></h2>
 <p>To find the Twitter handle associated to a public key</p>
-<pre><code class="language-js">import { getHandleAndRegistryKey } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getHandleAndRegistryKey } from "@bonfida/spl-name-service";
 
-const pubkey = new PublicKey(&quot;FidaeBkZkvDqi1GXNEwB8uWmj9Ngx2HXSS5nyGRuVFcZ&quot;);
+const pubkey = new PublicKey("FidaeBkZkvDqi1GXNEwB8uWmj9Ngx2HXSS5nyGRuVFcZ");
 
 const [handle] = await getHandleAndRegistryKey(connection, pubkey);
 </code></pre>
 <h2 id="reverse-look-up-1"><a class="header" href="#reverse-look-up-1">Reverse look up</a></h2>
 <p>To find the public key associated to a Twitter handle</p>
-<pre><code class="language-js">import { getTwitterRegistry } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getTwitterRegistry } from "@bonfida/spl-name-service";
 
-const handle = &quot;bonfida&quot;;
+const handle = "bonfida";
 
 const registry = await getTwitterRegistry(connection, handle);
 const owner = registry.owner.toBase58();
@@ -763,9 +691,9 @@ const owner = registry.owner.toBase58();
 <li>Get the domain name public key</li>
 <li>Retrieve the account info</li>
 </ol>
-<pre><code class="language-js">import { getDomainKeySync, NameRegistryState } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getDomainKeySync, NameRegistryState } from "@bonfida/spl-name-service";
 
-const domainName = &quot;bonfida&quot;; // With or without the .sol at the end
+const domainName = "bonfida"; // With or without the .sol at the end
 
 // Step 1
 const { pubkey } = getDomainKeySync(domainName);
@@ -779,11 +707,11 @@ const { registry, nftOwner } = await NameRegistryState.retrieve(
 );
 
 // Subdomain derivation
-const subDomain = &quot;dex.bonfida&quot;; // With or without the .sol at the end
+const subDomain = "dex.bonfida"; // With or without the .sol at the end
 const { pubkey: subKey } = getDomainKeySync(subDomain);
 
 // Record derivation (e.g IPFS record)
-const record = &quot;IPFS.bonfida&quot;; // With or without the .sol at the end
+const record = "IPFS.bonfida"; // With or without the .sol at the end
 const { pubkey: recordKey } = getDomainKeySync(record, true);
 </code></pre>
 <p>The <code>retrieve</code> method returns an object made of two fields:</p>
@@ -803,16 +731,16 @@ const { pubkey: recordKey } = getDomainKeySync(record, true);
 <p><img src="domain-name/../assets/direct-reverse.png" alt="direct-reverse" /></p>
 <p>If you know the public key of a domain name registry and want to get the human readable name, you need to perform a <strong>reverse lookup</strong>.</p>
 <p>The following code can be used to resolve the domain name from its public key:</p>
-<pre><code class="language-js">import { reverseLookup } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { reverseLookup } from "@bonfida/spl-name-service";
 
 // Public key of bonfida.sol
-const domainKey = new PublicKey(&quot;Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb&quot;);
+const domainKey = new PublicKey("Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb");
 
 const domainName = await reverseLookup(connection, domainKey); // bonfida
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="get-all-domains-of-a-user"><a class="header" href="#get-all-domains-of-a-user">Get all domains of a user</a></h1>
 <p>If you are using <code>@bonfida/spl-name-service</code> you can use the following code:</p>
-<pre><code class="language-js">import { getAllDomains } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getAllDomains } from "@bonfida/spl-name-service";
 
 // ...
 
@@ -852,7 +780,7 @@ const domains = await getAllDomains(connection, user);
 ];
 </code></pre>
 <p>If you are using <code>@bonfida/spl-name-service</code> you can use the following code:</p>
-<pre><code class="language-js">import { getAllRegisteredDomains } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getAllRegisteredDomains } from "@bonfida/spl-name-service";
 
 // ...
 
@@ -911,26 +839,26 @@ export const getAllRegisteredDomains = async (connection: Connection) =&gt; {
 <h2 id="record-enum"><a class="header" href="#record-enum">Record enum</a></h2>
 <p>The following <code>enum</code> is exported from <code>@bonfida/spl-name-service</code></p>
 <pre><code class="language-js">export enum Record {
-  IPFS = &quot;IPFS&quot;,
-  ARWV = &quot;ARWV&quot;,
-  SOL = &quot;SOL&quot;,
-  ETH = &quot;ETH&quot;,
-  BTC = &quot;BTC&quot;,
-  LTC = &quot;LTC&quot;,
-  DOGE = &quot;DOGE&quot;,
-  Email = &quot;email&quot;,
-  Url = &quot;url&quot;,
-  Discord = &quot;discord&quot;,
-  Github = &quot;github&quot;,
-  Reddit = &quot;reddit&quot;,
-  Twitter = &quot;twitter&quot;,
-  Telegram = &quot;telegram&quot;,
-  Pic = &quot;pic&quot;,
-  SHDW = &quot;SHDW&quot;,
-  POINT = &quot;POINT&quot;,
-  BSC = &quot;BSC&quot;,
-  Injective = &quot;INJ&quot;,
-  Backpack = &quot;backpack&quot;,
+  IPFS = "IPFS",
+  ARWV = "ARWV",
+  SOL = "SOL",
+  ETH = "ETH",
+  BTC = "BTC",
+  LTC = "LTC",
+  DOGE = "DOGE",
+  Email = "email",
+  Url = "url",
+  Discord = "discord",
+  Github = "github",
+  Reddit = "reddit",
+  Twitter = "twitter",
+  Telegram = "telegram",
+  Pic = "pic",
+  SHDW = "SHDW",
+  POINT = "POINT",
+  BSC = "BSC",
+  Injective = "INJ",
+  Backpack = "backpack",
 }
 </code></pre>
 <h2 id="gateway"><a class="header" href="#gateway">Gateway</a></h2>
@@ -960,7 +888,7 @@ export const getAllRegisteredDomains = async (connection: Connection) =&gt; {
 <p><strong>V1 records are deprecated. For current V2 records please see <a href="domain-name/records/./records-v2.html">Records V2</a>.</strong></p>
 <h2 id="record-v1-derivation"><a class="header" href="#record-v1-derivation">Record V1 derivation</a></h2>
 <p>Record keys can be derived with the <code>getDomainKey</code> function and the <code>record</code> flag set to <code>true</code></p>
-<pre><code class="language-js">const record = Record.IPFS + &quot;.&quot; + &quot;bonfida&quot;; // With or without the .sol at the end
+<pre><code class="language-js">const record = Record.IPFS + "." + "bonfida"; // With or without the .sol at the end
 const { pubkey: recordKey } = await getDomainKey(record, true);
 </code></pre>
 <blockquote>
@@ -1001,7 +929,7 @@ const { pubkey: recordKey } = await getDomainKey(record, true);
   TransactionInstruction,
   Keypair,
   clusterApiUrl,
-} from &quot;@solana/web3.js&quot;;
+} from "@solana/web3.js";
 import {
   Record,
   getDomainKey,
@@ -1010,14 +938,14 @@ import {
   updateInstruction,
   NAME_PROGRAM_ID,
   Numberu32,
-} from &quot;@bonfida/spl-name-service&quot;;
-import { signAndSendInstructions } from &quot;@bonfida/utils&quot;;
+} from "@bonfida/spl-name-service";
+import { signAndSendInstructions } from "@bonfida/utils";
 
-const connection = new Connection(clusterApiUrl(&quot;mainnet-beta&quot;), &quot;processed&quot;);
+const connection = new Connection(clusterApiUrl("mainnet-beta"), "processed");
 const wallet = Keypair.fromSecretKey(...);
 
 // bonfida.sol
-const domain = &quot;bonfida&quot;; // With or without the .sol at the end
+const domain = "bonfida"; // With or without the .sol at the end
 
 // The IPFS record of bonfida.sol
 const record = Record.IPFS;
@@ -1025,7 +953,7 @@ const record = Record.IPFS;
 const update = async () =&gt; {
   const ixs: TransactionInstruction[] = [];
   const { pubkey: domainKey } = await getDomainKey(domain);
-  const { pubkey: recordKey } = await getDomainKey(record + &quot;.&quot; + domain, true);
+  const { pubkey: recordKey } = await getDomainKey(record + "." + domain, true);
 
   const recordAccInfo = await connection.getAccountInfo(recordKey);
 
@@ -1052,7 +980,7 @@ const update = async () =&gt; {
     NAME_PROGRAM_ID,
     recordKey,
     new Numberu32(0),
-    Buffer.from(&quot;Some IPFS CID&quot;),
+    Buffer.from("Some IPFS CID"),
     wallet.publicKey
   );
 
@@ -1066,25 +994,25 @@ update();
 </code></pre>
 <h2 id="deleting-a-record-v1"><a class="header" href="#deleting-a-record-v1">Deleting a record V1</a></h2>
 <p>Records can be deleted using the <code>deleteInstruction</code> function, below is a NodeJS example</p>
-<pre><code class="language-js">import { Connection, Keypair, clusterApiUrl } from &quot;@solana/web3.js&quot;;
+<pre><code class="language-js">import { Connection, Keypair, clusterApiUrl } from "@solana/web3.js";
 import {
   Record,
   getDomainKey,
   NAME_PROGRAM_ID,
   deleteInstruction,
-} from &quot;@bonfida/spl-name-service&quot;;
-import { signAndSendInstructions } from &quot;@bonfida/utils&quot;;
+} from "@bonfida/spl-name-service";
+import { signAndSendInstructions } from "@bonfida/utils";
 
-const domain = &quot;bonfida.sol&quot;; // With or without .sol
+const domain = "bonfida.sol"; // With or without .sol
 
 const record = Record.IPFS;
 
-const connection = new Connection(clusterApiUrl(&quot;mainnet-beta&quot;), &quot;processed&quot;);
+const connection = new Connection(clusterApiUrl("mainnet-beta"), "processed");
 
 const wallet = Keypair.fromSecretKey(...) // Your wallet owning the domain
 
 const deleteRecord = async () =&gt; {
-  const { pubkey: recordKey } = await getDomainKey(record + &quot;.&quot; + domain, true);
+  const { pubkey: recordKey } = await getDomainKey(record + "." + domain, true);
 
   const ix = deleteInstruction(
     NAME_PROGRAM_ID,
@@ -1111,7 +1039,7 @@ deleteRecord();
 </ul>
 <h2 id="record-v2-derivation"><a class="header" href="#record-v2-derivation">Record V2 derivation</a></h2>
 <p>V2 Record keys can be derived with the <code>getRecordV2Key</code> function.</p>
-<pre><code class="language-js">const domain = &quot;bonfida&quot;; // With or without the .sol at the end
+<pre><code class="language-js">const domain = "bonfida"; // With or without the .sol at the end
 const record = Record.IPFS; // Import the Record enum from the spl-name-service library
 
 const recordV2Key = getRecordV2Key(domain, record);
@@ -1146,9 +1074,9 @@ const ROA = await verifyRightOfAssociation(
 <pre><code class="language-js">import {
   updateNameRegistryData,
   ROOT_DOMAIN_ACCOUNT,
-} from &quot;@bonfida/spl-name-service&quot;;
+} from "@bonfida/spl-name-service";
 
-const data = Buffer.from(&quot;Hello, world!&quot;);
+const data = Buffer.from("Hello, world!");
 
 // The offset to which the data should be written into the registry, usually 0
 const offset = 0;
@@ -1171,15 +1099,15 @@ const ix = await updateNameRegistryData(
   transferNameOwnership,
   NameRegistryState,
   ROOT_DOMAIN_ACCOUNT,
-} from &quot;@bonfida/spl-name-service&quot;;
+} from "@bonfida/spl-name-service";
 
 // ..
 
 // Domain name to transfer
-const domain = &quot;bonfida&quot;;
+const domain = "bonfida";
 
 // New owner of the domain
-const newOwner = new PublicKey(&quot;...&quot;);
+const newOwner = new PublicKey("...");
 
 const ix = await transferNameOwnership(
   connection,
@@ -1195,11 +1123,11 @@ const ix = await transferNameOwnership(
 <p>Users have the possibility to select a domain name as their favorite one. If you are a developer and want to integrate SNS to your DApp it's recommended to always use the favorite domain name to replace the user's public key.</p>
 <h2 id="get-multiple-favorites"><a class="header" href="#get-multiple-favorites">Get Multiple Favorites</a></h2>
 <p>To retrieve favorite domains for a group of up to 100 users, we've created the <code>getMultipleFavoriteDomains</code> function in our JavaScript SDK. This function is optimized for network efficiency, making only four RPC calls, three of which are executed in parallel. The function returns a promise that resolves to an array of strings or undefined representing the favorite domain, or lack thereof for each wallet passed to the function.</p>
-<pre><code class="language-js">import { getMultipleFavoriteDomains } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getMultipleFavoriteDomains } from "@bonfida/spl-name-service";
 
 const wallets = [
-  new PublicKey(&quot;3ogYncmMM5CmytsGCqKHydmXmKUZ6sGWvizkzqwT7zb1&quot;),
-  new PublicKey(&quot;FMmaHPDL47V1gXsfh9WjgAT7Er3dfDvarQubTU1Jxc1r&quot;),
+  new PublicKey("3ogYncmMM5CmytsGCqKHydmXmKUZ6sGWvizkzqwT7zb1"),
+  new PublicKey("FMmaHPDL47V1gXsfh9WjgAT7Er3dfDvarQubTU1Jxc1r"),
   // Public Keys of all the wallet addresses you're looking up a favorite domain for (up to 100)
 ];
 
@@ -1207,7 +1135,7 @@ const favoriteDomains = await getMultipleFavoriteDomains(connection, wallets);
 </code></pre>
 <h2 id="get-single-favorite"><a class="header" href="#get-single-favorite">Get Single Favorite</a></h2>
 <p>The favorite domain name of a single user can be retrieved with the code below.</p>
-<pre><code class="language-js">import { getFavoriteDomain } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getFavoriteDomain } from "@bonfida/spl-name-service";
 
 // ...
 
@@ -1239,10 +1167,10 @@ const { domain, reverse } = await getFavoriteDomain(connection, user);
 </ul>
 <p>Example response:</p>
 <pre><code>{
-  &quot;5J9BeWAZGekH71Huiro2qW6AJXSeBj7zPsHniKkmjToY&quot;: {
-    &quot;domain&quot;: &quot;hansolana&quot;,
-    &quot;owner&quot;: &quot;5J9BeWAZGekH71Huiro2qW6AJXSeBj7zPsHniKkmjToY&quot;,
-    &quot;domain_key&quot;: &quot;7mNYJ8UL8YV7dpPjCREXgUaoyyULmmZxxo1raT4w9kKS&quot;
+  "5J9BeWAZGekH71Huiro2qW6AJXSeBj7zPsHniKkmjToY": {
+    "domain": "hansolana",
+    "owner": "5J9BeWAZGekH71Huiro2qW6AJXSeBj7zPsHniKkmjToY",
+    "domain_key": "7mNYJ8UL8YV7dpPjCREXgUaoyyULmmZxxo1raT4w9kKS"
   }
 }
 </code></pre>
@@ -1259,14 +1187,14 @@ const { domain, reverse } = await getFavoriteDomain(connection, user);
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="usedomains"><a class="header" href="#usedomains">useDomains</a></h1>
 <p>This hook can be used to resolve several domain names:</p>
-<pre><code class="language-ts">import { getDomainKey, NameRegistryState } from &quot;@bonfida/spl-name-service&quot;;
-import { useEffect, useState, useRef } from &quot;react&quot;;
+<pre><code class="language-ts">import { getDomainKey, NameRegistryState } from "@bonfida/spl-name-service";
+import { useEffect, useState, useRef } from "react";
 
 type Result = (NameRegistryState | undefined)[] | undefined;
 
 /**
  * This hook can be used to resolve several domain names
- * @param domains List of domains to resolve e.g [&quot;bonfida&quot;, &quot;serum&quot;]
+ * @param domains List of domains to resolve e.g ["bonfida", "serum"]
  * @returns
  */
 export const useDomains = (domains: string[]) =&gt; {
@@ -1302,7 +1230,7 @@ export const useDomains = (domains: string[]) =&gt; {
 
 /**
  * This hook can be used to retrieve all the records of a domain
- * @param domains Domains to resolve records for e.g &quot;bonfida&quot;
+ * @param domains Domains to resolve records for e.g "bonfida"
  * @returns
  */
 export const useRecords = (domain: string) =&gt; {
@@ -1315,7 +1243,7 @@ export const useRecords = (domain: string) =&gt; {
       const recordsKeys = Object.keys(Record).map((e) =&gt; Record[e]);
 
       const keys = await Promise.all(
-        recordsKeys.map((e) =&gt; getDomainKey(e + &quot;.&quot; + domain, true))
+        recordsKeys.map((e) =&gt; getDomainKey(e + "." + domain, true))
       );
 
       const registries = await NameRegistryState.retrieveBatch(
@@ -1425,11 +1353,11 @@ export const useDomainsForUser = (user: PublicKey) =&gt; {
 <div style="break-before: page; page-break-before: always;"></div><h1 id="usefavoritedomain"><a class="header" href="#usefavoritedomain">useFavoriteDomain</a></h1>
 <p>Favorite domains allow users who own several domains to select one of them as their default identity.</p>
 <p><strong>This favorite domain should be used by default by dApps.</strong></p>
-<pre><code class="language-ts">import { useEffect, useRef, useState } from &quot;react&quot;;
-import { useConnection } from &quot;@solana/wallet-adapter-react&quot;;
-import { PublicKey } from &quot;@solana/web3.js&quot;;
-import { reverseLookup } from &quot;@bonfida/spl-name-service&quot;;
-import { FavouriteDomain, NAME_OFFERS_ID } from &quot;@bonfida/name-offers&quot;;
+<pre><code class="language-ts">import { useEffect, useRef, useState } from "react";
+import { useConnection } from "@solana/wallet-adapter-react";
+import { PublicKey } from "@solana/web3.js";
+import { reverseLookup } from "@bonfida/spl-name-service";
+import { FavouriteDomain, NAME_OFFERS_ID } from "@bonfida/name-offers";
 
 type Result = string | undefined;
 
@@ -1460,10 +1388,10 @@ export const useFavoriteDomain = (user: PublicKey) =&gt; {
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="useprofilepic"><a class="header" href="#useprofilepic">useProfilePic</a></h1>
 <p>Users can set a profile picture using the <code>pic</code> record of their favorite domain name. This record holds the URI to their profile picture.</p>
-<pre><code class="language-ts">import { useEffect, useRef, useState } from &quot;react&quot;;
-import { useConnection } from &quot;@solana/wallet-adapter-react&quot;;
-import { PublicKey } from &quot;@solana/web3.js&quot;;
-import { getDomainKey, NameRegistryState } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-ts">import { useEffect, useRef, useState } from "react";
+import { useConnection } from "@solana/wallet-adapter-react";
+import { PublicKey } from "@solana/web3.js";
+import { getDomainKey, NameRegistryState } from "@bonfida/spl-name-service";
 
 export const useProfilePic = (user: PublicKey) =&gt; {
   const { connection } = useConnection();
@@ -1484,7 +1412,7 @@ export const useProfilePic = (user: PublicKey) =&gt; {
       }
 
       if (mounted.current) {
-        setResult(registry.data.toString(&quot;utf-8&quot;));
+        setResult(registry.data.toString("utf-8"));
       }
 
       return () =&gt; (mounted.current = false);
@@ -1513,17 +1441,17 @@ export const useProfilePic = (user: PublicKey) =&gt; {
 <p>The smart contract handling the tokenization of domain names can be found here: <a href="https://github.com/Bonfida/name-tokenizer">Name tokenizer</a></p>
 <h2 id="js-example"><a class="header" href="#js-example">JS example</a></h2>
 <p>To retrieve all currently tokenized domain names use the <code>retrieveNfts</code> function. This function returns an array of currently tokenized domains as public keys, and contains all the mints of the tokenized domain name.</p>
-<pre><code class="language-js">import { retrieveNfts } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { retrieveNfts } from "@bonfida/spl-name-service";
 
 const nfts = await retrieveNfts(connection);
 </code></pre>
 <p>To retrieve all of the tokenized domain names of a specific owner use <code>getTokenizedDomains</code>. Function returns an array of public keys, their reverses, and mints.</p>
-<pre><code class="language-js">import { getTokenizedDomains } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getTokenizedDomains } from "@bonfida/spl-name-service";
 
 const tokenizedDomains = await getTokenizedDomains(connection, owner);
 </code></pre>
 <p>To retrieve the public key of the owner of a specific NFT that represents a tokenized domain name, use the retrieveNftOwner function.</p>
-<pre><code class="language-js">import { retrieveNftOwner } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { retrieveNftOwner } from "@bonfida/spl-name-service";
 
 const owner = await retrieveNftOwner(connection, nameKey);
 </code></pre>
@@ -1532,13 +1460,13 @@ const owner = await retrieveNftOwner(connection, nameKey);
 <p><strong>Deprecated:</strong> The <code>registerDomainName</code> function is being deprecated as it relies on the older Pyth smart contract on Solana, which is scheduled to be sunsetted at the end of May 2024. Please transition to using <code>registerDomainNameV2</code> for future domain registrations.</p>
 </blockquote>
 <p>Easily integrate SNS domain registrations into your applications using our SNS Widget React Component. See a default usage example below. You can also customize the widget to fit your unique needs. More information is available here: https://github.com/Bonfida/sns-widget/blob/main/README.md</p>
-<pre><code class="language-js">import Widget from &quot;@bonfida/sns-widget&quot;;
+<pre><code class="language-js">import Widget from "@bonfida/sns-widget";
 // Apart from the component itself, you also need to import styles separately
-import &quot;@bonfida/sns-widget/style.css&quot;;
+import "@bonfida/sns-widget/style.css";
 
 // Link to public RPC for Solana connection. Solana provides free public RPCs
 // with rate limiters, so you might want to use your own RPC Node provider
-const PUBLIC_RPC = &quot;https://api.mainnet-beta.solana.com&quot;;
+const PUBLIC_RPC = "https://api.mainnet-beta.solana.com";
 
 export const Component = () =&gt; {
   return &lt;Widget endpoint={PUBLIC_RPC} /&gt;;
@@ -1563,13 +1491,13 @@ export const Component = () =&gt; {
 <p>Token pricing data during domain registration is provided to us by our friends at Pyth Network. Learn more about their Blockchain Oracle at <a href="https://pyth.network/">Pyth Network</a>.</p>
 <h2 id="sdk"><a class="header" href="#sdk">SDK</a></h2>
 <p>Unregistered domains can be registered using the SDK <code>@bonfida/spl-name-service</code> with the following instructions:</p>
-<pre><code class="language-js">import { registerDomainNameV2 } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { registerDomainNameV2 } from "@bonfida/spl-name-service";
 
-const name = &quot;bonfida&quot;; // We want to register bonfida.sol
+const name = "bonfida"; // We want to register bonfida.sol
 const space = 1 * 1_000; // We want a 1kB sized domain (max 10kB)
 
-const buyer = new PublicKey(&quot;...&quot;); // Publickey of the buyer
-const buyerTokenAccount = new PublicKey(&quot;...&quot;); // Publickey of the token account of the buyer (USDC)
+const buyer = new PublicKey("..."); // Publickey of the buyer
+const buyerTokenAccount = new PublicKey("..."); // Publickey of the token account of the buyer (USDC)
 
 const ix = await registerDomainNameV2(name, space, buyer, buyerTokenAccount);
 
@@ -1628,18 +1556,18 @@ const ix = await registerDomainNameV2(name, space, buyer, buyerTokenAccount);
 <p>🚨 <strong>Deleting domain names is not recommended</strong></p>
 </blockquote>
 <p>Domain names can be deleted using the <code>deleteInstruction</code>, below is a NodeJS example:</p>
-<pre><code class="language-js">import { Connection, Keypair, clusterApiUrl } from &quot;@solana/web3.js&quot;;
+<pre><code class="language-js">import { Connection, Keypair, clusterApiUrl } from "@solana/web3.js";
 import {
   getDomainKey,
   NAME_PROGRAM_ID,
   deleteInstruction,
-} from &quot;@bonfida/spl-name-service&quot;;
-import { signAndSendInstructions } from &quot;@bonfida/utils&quot;;
+} from "@bonfida/spl-name-service";
+import { signAndSendInstructions } from "@bonfida/utils";
 
 // bonfida.sol
-const domain = &quot;bonfida.sol&quot;; // With or without .sol
+const domain = "bonfida.sol"; // With or without .sol
 
-const connection = new Connection(clusterApiUrl(&quot;mainnet-beta&quot;), &quot;processed&quot;);
+const connection = new Connection(clusterApiUrl("mainnet-beta"), "processed");
 
 const wallet = Keypair.fromSecretKey(...);
 
@@ -1662,18 +1590,18 @@ deleteDomain();
 </code></pre>
 <h2 id="deleting-subdomains"><a class="header" href="#deleting-subdomains">Deleting subdomains</a></h2>
 <p>Subdomains can be deleted using the <code>deleteInstruction</code>, below is a NodeJS example:</p>
-<pre><code class="language-js">import { Connection, Keypair, clusterApiUrl } from &quot;@solana/web3.js&quot;;
+<pre><code class="language-js">import { Connection, Keypair, clusterApiUrl } from "@solana/web3.js";
 import {
   getDomainKey,
   NAME_PROGRAM_ID,
   deleteInstruction,
-} from &quot;@bonfida/spl-name-service&quot;;
-import { signAndSendInstructions } from &quot;@bonfida/utils&quot;;
+} from "@bonfida/spl-name-service";
+import { signAndSendInstructions } from "@bonfida/utils";
 
 // dex.bonfida.sol
-const domain = &quot;dex.bonfida.sol&quot;; // With or without .sol
+const domain = "dex.bonfida.sol"; // With or without .sol
 
-const connection = new Connection(clusterApiUrl(&quot;mainnet-beta&quot;), &quot;processed&quot;);
+const connection = new Connection(clusterApiUrl("mainnet-beta"), "processed");
 
 const wallet = Keypair.fromSecretKey(...);
 
@@ -1710,13 +1638,13 @@ deleteSubDomain();
 </ul>
 <h2 id="creating-a-subdomain"><a class="header" href="#creating-a-subdomain">Creating a subdomain</a></h2>
 <p>This code snippet creates a subdomain and its reverse lookup account:</p>
-<pre><code class="language-js">import { createSubdomain } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { createSubdomain } from "@bonfida/spl-name-service";
 
 // The subdomain to create with or without .sol e.g something.bonfida.sol or something.bonfida
-const subdomain = &quot;something.bonfida.sol&quot;;
+const subdomain = "something.bonfida.sol";
 
 // The owner of the parent domain
-const owner = new PublicKey(&quot;...&quot;);
+const owner = new PublicKey("...");
 
 const ix = createSubdomain(connection, subdomain, owner);
 
@@ -1725,15 +1653,15 @@ const ix = createSubdomain(connection, subdomain, owner);
 <p>The created subdomains will initially be owned by the parent owner. A subdomain can be created and transfered inside the same transaction.</p>
 <h2 id="transferring-a-subdomain"><a class="header" href="#transferring-a-subdomain">Transferring a Subdomain</a></h2>
 <p>Subdomains can be transferred using the <code>transferSubdomain</code> instruction. Here is an example of how the subdomain owner can transfer a subdomain:</p>
-<pre><code class="language-js">import { transferSubdomain } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { transferSubdomain } from "@bonfida/spl-name-service";
 
 // ..
 
 // Subdomains to transfer
-const subdomain = &quot;something.bonfida.sol&quot;;
+const subdomain = "something.bonfida.sol";
 
 // New owner of the domain
-const newOwner = new PublicKey(&quot;...&quot;);
+const newOwner = new PublicKey("...");
 
 // Whether the parent name owner is signing the transfer
 const isParentSigner = false;
@@ -1750,10 +1678,10 @@ const ix = await transferSubdomain(
 <p>The parent name owner can trigger a transfer by setting the <code>isParentSigner</code> flag to <code>true</code> and signing the transaction.</p>
 <h2 id="resolving-subdomains"><a class="header" href="#resolving-subdomains">Resolving Subdomains</a></h2>
 <p>Subdomains of a <code>.sol</code> domain can be resolved using the <code>findSubdomains</code> function. Here is an example of how to resolve subdomains:</p>
-<pre><code class="language-js">import { findSubdomains } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { findSubdomains } from "@bonfida/spl-name-service";
 
 // Public key of bonfida.sol
-const parentKey = new PublicKey(&quot;Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb&quot;);
+const parentKey = new PublicKey("Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb");
 
 // Assuming that bonfida.sol has the following subdomains
 // - sub_1.bonfida.sol
@@ -1763,16 +1691,16 @@ const subdomains: string[] = await findSubdomains(connection, parentKey); // [su
 </code></pre>
 <h2 id="deleting-a-subdomain"><a class="header" href="#deleting-a-subdomain">Deleting a Subdomain</a></h2>
 <p>Subdomains can be deleted using the <code>deleteInstruction</code> function. Here is an example of how to delete a subdomain:</p>
-<pre><code class="language-js">import { Keypair, clusterApiUrl } from &quot;@solana/web3.js&quot;;
+<pre><code class="language-js">import { Keypair, clusterApiUrl } from "@solana/web3.js";
 import {
   getDomainKey,
   NAME_PROGRAM_ID,
   deleteInstruction,
-} from &quot;@bonfida/spl-name-service&quot;;
-import { signAndSendInstructions } from &quot;@bonfida/utils&quot;;
+} from "@bonfida/spl-name-service";
+import { signAndSendInstructions } from "@bonfida/utils";
 
 // dex.bonfida.sol
-const domain = &quot;dex.bonfida.sol&quot;; // With or without .sol
+const domain = "dex.bonfida.sol"; // With or without .sol
 
 const wallet = Keypair.fromSecretKey(...);
 
@@ -1799,16 +1727,16 @@ deleteSubDomain();
 <p>In conclusion, subdomains in SNS are a powerful feature that allows for more granular control and organization of domain names. However, they come with their own set of considerations such as limited wallet support and different ownership rules.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="devnet"><a class="header" href="#devnet">Devnet</a></h1>
 <p>Testing can be done on devnet with many of the same functions and methods previously described in this chapter, using the devnet module of the JavaScript SDK. A connection object created from a devnet RPC URL will need to be passed to these functions.</p>
-<pre><code class="language-js">import { devnet } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { devnet } from "@bonfida/spl-name-service";
 
 // Use Solana devnet RPC URL or a custom RPC URL
-const connection = new Connection(&quot;https://api.devnet.solana.com&quot;);
+const connection = new Connection("https://api.devnet.solana.com");
 </code></pre>
 <h2 id="register-devnet-domains"><a class="header" href="#register-devnet-domains">Register Devnet Domains</a></h2>
 <p>Many of the utility and binding functions in the devnet module will require existing devnet domain names. Use the <code>registerDomainNameV2</code> binding to register domains on devnet to be used in testing.</p>
 <pre><code class="language-js">const ix = await devnet.bindings.registerDomainNameV2(
   connection,
-  &quot;devnet-test-5&quot;, // The name of the domain you want to register
+  "devnet-test-5", // The name of the domain you want to register
   1_000,
   publicKey, // PublicKey of fee payer
   getAssociatedTokenAddressSync(NATIVE_MINT, publicKey, true), // import from @solana/spl-token
@@ -1820,7 +1748,7 @@ const connection = new Connection(&quot;https://api.devnet.solana.com&quot;);
 <h2 id="utils"><a class="header" href="#utils">Utils</a></h2>
 <p>The devnet module contains utility functions for lookup and derivation tasks for usage with devnet out of the box. An example of the <code>reverseLookup</code> function which looks up a human readable domain from the public key of a domain name registry, is below.</p>
 <pre><code class="language-js">// Public key of bonfida.sol
-const domainKey = new PublicKey(&quot;Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb&quot;);
+const domainKey = new PublicKey("Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb");
 
 const domainName = await devnet.utils.reverseLookup(connection, domainKey); // bonfida
 </code></pre>
@@ -1831,10 +1759,10 @@ const domainName = await devnet.utils.reverseLookup(connection, domainKey); // b
 <h2 id="bindings"><a class="header" href="#bindings">Bindings</a></h2>
 <p>For more in depth domain name interactions like creating, updating, deleting, or transfering domains and records, bindings from the devnet module can be used. An example using the <code>createNameRegistry</code> function is below.</p>
 <pre><code class="language-js">// Domain name to transfer
-const domain = &quot;devnet-test-5&quot;;
+const domain = "devnet-test-5";
 
 // New owner of the domain
-const newOwner = new PublicKey(&quot;...&quot;);
+const newOwner = new PublicKey("...");
 
 // The .sol TLD
 const nameParent = dev.constants.ROOT_DOMAIN_ACCOUNT;
@@ -1930,7 +1858,7 @@ In addition to this, the special <code>\1.foo.sol</code> is reserved to hold the
 <div style="break-before: page; page-break-before: always;"></div><h1 id="tld-1"><a class="header" href="#tld-1">TLD</a></h1>
 <p>The Twitter handle TLD is</p>
 <pre><code class="language-js">export const TWITTER_ROOT_PARENT_REGISTRY_KEY = new PublicKey(
-  &quot;4YcexoW3r78zz16J2aqmukBLRwGq6rAvWzJpkYAXqebv&quot;
+  "4YcexoW3r78zz16J2aqmukBLRwGq6rAvWzJpkYAXqebv"
 );
 </code></pre>
 <p>The <code>.twitter</code> TLD is owned by the <code>root</code> TLD and all twitter handles are subdomains of the <code>.twitter</code> TLD</p>
@@ -1940,18 +1868,18 @@ In addition to this, the special <code>\1.foo.sol</code> is reserved to hold the
 <div style="break-before: page; page-break-before: always;"></div><h1 id="direct-look-up-2"><a class="header" href="#direct-look-up-2">Direct look up</a></h1>
 <p><img src="twitter/../assets/twitter-direct-reverse.png" alt="direct-reverse" /></p>
 <p>To find the Twitter handle associated to a public key</p>
-<pre><code class="language-js">import { getHandleAndRegistryKey } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getHandleAndRegistryKey } from "@bonfida/spl-name-service";
 
-const pubkey = new PublicKey(&quot;FidaeBkZkvDqi1GXNEwB8uWmj9Ngx2HXSS5nyGRuVFcZ&quot;);
+const pubkey = new PublicKey("FidaeBkZkvDqi1GXNEwB8uWmj9Ngx2HXSS5nyGRuVFcZ");
 
 const [handle] = await getHandleAndRegistryKey(connection, pubkey);
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="reverse-look-up-3"><a class="header" href="#reverse-look-up-3">Reverse look up</a></h1>
 <p><img src="twitter/../assets/twitter-direct-reverse.png" alt="direct-reverse" /></p>
 <p>To find the public key associated to a Twitter handle</p>
-<pre><code class="language-js">import { getTwitterRegistry } from &quot;@bonfida/spl-name-service&quot;;
+<pre><code class="language-js">import { getTwitterRegistry } from "@bonfida/spl-name-service";
 
-const handle = &quot;bonfida&quot;;
+const handle = "bonfida";
 
 const registry = await getTwitterRegistry(connection, handle);
 const owner = registry.owner.toBase58();
@@ -2026,10 +1954,10 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;success&quot;: true,
-  &quot;result&quot;: [
-    &quot;english-adjectives&quot;,
-    &quot;double-emoji&quot;
+  "success": true,
+  "result": [
+    "english-adjectives",
+    "double-emoji"
     // ...
   ]
 }
@@ -2045,10 +1973,10 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;success&quot;: true,
-  &quot;result&quot;: [
-    &quot;qatar&quot;,
-    &quot;uganda&quot;
+  "success": true,
+  "result": [
+    "qatar",
+    "uganda"
     // ...
   ]
 }
@@ -2064,16 +1992,16 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;success&quot;: true,
-  &quot;result&quot;: [
+  "success": true,
+  "result": [
     {
-      &quot;category_name&quot;: &quot;0x999-club&quot;,
-      &quot;min_sale&quot;: 7.8846874,
-      &quot;max_sale&quot;: 80.0,
-      &quot;avg_price&quot;: 43.94234371185303,
-      &quot;volume&quot;: 87.88469,
-      &quot;owners&quot;: 1,
-      &quot;supply&quot;: 2
+      "category_name": "0x999-club",
+      "min_sale": 7.8846874,
+      "max_sale": 80.0,
+      "avg_price": 43.94234371185303,
+      "volume": 87.88469,
+      "owners": 1,
+      "supply": 2
     }
     // ...
   ]
@@ -2090,15 +2018,15 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;success&quot;: true,
-  &quot;result&quot;: [
+  "success": true,
+  "result": [
     {
-      &quot;min_sale&quot;: 7.8846874,
-      &quot;max_sale&quot;: 80.0,
-      &quot;avg_price&quot;: 43.94234371185303,
-      &quot;volume&quot;: 87.88469,
-      &quot;owners&quot;: 1,
-      &quot;supply&quot;: 2
+      "min_sale": 7.8846874,
+      "max_sale": 80.0,
+      "avg_price": 43.94234371185303,
+      "volume": 87.88469,
+      "owners": 1,
+      "supply": 2
     }
   ]
 }
@@ -2114,10 +2042,10 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;success&quot;: true,
-  &quot;result&quot;: {
-    &quot;0x999-club&quot;: 21.839999628067016,
-    &quot;4-letter-dictionary&quot;: 101.39999999999999
+  "success": true,
+  "result": {
+    "0x999-club": 21.839999628067016,
+    "4-letter-dictionary": 101.39999999999999
     // ...
   }
 }
@@ -2133,8 +2061,8 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;success&quot;: true,
-  &quot;result&quot;: 21.839999628067016
+  "success": true,
+  "result": 21.839999628067016
 }
 </code></pre>
 <h3 id="get-supply"><a class="header" href="#get-supply">Get supply</a></h3>
@@ -2148,12 +2076,12 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;success&quot;: true,
-  &quot;result&quot;: {
-    &quot;0x999-club&quot;: {
-      &quot;total&quot;: 1000,
-      &quot;registered&quot;: 38,
-      &quot;unregistered&quot;: 962
+  "success": true,
+  "result": {
+    "0x999-club": {
+      "total": 1000,
+      "registered": 38,
+      "unregistered": 962
     }
     // ...
   }
@@ -2170,11 +2098,11 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;success&quot;: true,
-  &quot;result&quot;: [
+  "success": true,
+  "result": [
     {
-      &quot;category_name&quot;: &quot;10k-club&quot;,
-      &quot;volume&quot;: 177737.16
+      "category_name": "10k-club",
+      "volume": 177737.16
     }
   ]
 }
@@ -2190,11 +2118,11 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;success&quot;: true,
-  &quot;result&quot;: [
+  "success": true,
+  "result": [
     {
-      &quot;owner_key&quot;: &quot;1BWutmTvYPwDtmw9abTkS4Ssr8no61spGAvW1X6NDix&quot;,
-      &quot;nb_domains&quot;: 38
+      "owner_key": "1BWutmTvYPwDtmw9abTkS4Ssr8no61spGAvW1X6NDix",
+      "nb_domains": 38
     }
   ]
 }
@@ -2211,8 +2139,8 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;FMmaHPDL47V1gXsfh9WjgAT7Er3dfDvarQubTU1Jxc1r&quot;: [&quot;03800&quot;, &quot;best-intern&quot;],
-  &quot;3f9fRjLaDSDVxd26xMEm4WuSXv62cGt5qVfEVGwMfTz6&quot;: [&quot;00378&quot;, &quot;02112&quot;, &quot;11441&quot;]
+  "FMmaHPDL47V1gXsfh9WjgAT7Er3dfDvarQubTU1Jxc1r": ["03800", "best-intern"],
+  "3f9fRjLaDSDVxd26xMEm4WuSXv62cGt5qVfEVGwMfTz6": ["00378", "02112", "11441"]
 }
 </code></pre>
 <h3 id="favorite-domains"><a class="header" href="#favorite-domains">Favorite domains</a></h3>
@@ -2226,8 +2154,8 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;FMmaHPDL47V1gXsfh9WjgAT7Er3dfDvarQubTU1Jxc1r&quot;: &quot;best-intern&quot;,
-  &quot;3f9fRjLaDSDVxd26xMEm4WuSXv62cGt5qVfEVGwMfTz6&quot;: &quot;11441&quot;
+  "FMmaHPDL47V1gXsfh9WjgAT7Er3dfDvarQubTU1Jxc1r": "best-intern",
+  "3f9fRjLaDSDVxd26xMEm4WuSXv62cGt5qVfEVGwMfTz6": "11441"
 }
 </code></pre>
 <h3 id="user-listings"><a class="header" href="#user-listings">User Listings</a></h3>
@@ -2242,29 +2170,29 @@ const owner = registry.owner.toBase58();
 </blockquote>
 <pre><code class="language-json">[
   {
-    &quot;domain&quot;: &quot;00378&quot;,
-    &quot;availability_id&quot;: 0,
-    &quot;price&quot;: null,
-    &quot;quote_mint&quot;: &quot;So11111111111111111111111111111111111111112&quot;,
-    &quot;usd_price&quot;: null,
-    &quot;categories&quot;: [&quot;100k-club&quot;],
-    &quot;last_activity&quot;: {
-      &quot;price&quot;: 0.18,
-      &quot;quote_mint&quot;: &quot;So11111111111111111111111111111111111111112&quot;,
-      &quot;usd_price&quot;: 18.4365
+    "domain": "00378",
+    "availability_id": 0,
+    "price": null,
+    "quote_mint": "So11111111111111111111111111111111111111112",
+    "usd_price": null,
+    "categories": ["100k-club"],
+    "last_activity": {
+      "price": 0.18,
+      "quote_mint": "So11111111111111111111111111111111111111112",
+      "usd_price": 18.4365
     }
   },
   {
-    &quot;domain&quot;: &quot;02112&quot;,
-    &quot;availability_id&quot;: 2,
-    &quot;price&quot;: 10.0,
-    &quot;quote_mint&quot;: &quot;So11111111111111111111111111111111111111112&quot;,
-    &quot;usd_price&quot;: 810.5181,
-    &quot;categories&quot;: [&quot;100k-club&quot;],
-    &quot;last_activity&quot;: {
-      &quot;price&quot;: 0.25,
-      &quot;quote_mint&quot;: &quot;So11111111111111111111111111111111111111112&quot;,
-      &quot;usd_price&quot;: 19.401249
+    "domain": "02112",
+    "availability_id": 2,
+    "price": 10.0,
+    "quote_mint": "So11111111111111111111111111111111111111112",
+    "usd_price": 810.5181,
+    "categories": ["100k-club"],
+    "last_activity": {
+      "price": 0.25,
+      "quote_mint": "So11111111111111111111111111111111111111112",
+      "usd_price": 19.401249
     }
   }
 ]
@@ -2280,8 +2208,8 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">[
-  { &quot;domain_name&quot;: &quot;00378&quot;, &quot;category_name&quot;: &quot;100k-club&quot; },
-  { &quot;domain_name&quot;: &quot;3231&quot;, &quot;category_name&quot;: &quot;10k-club&quot; }
+  { "domain_name": "00378", "category_name": "100k-club" },
+  { "domain_name": "3231", "category_name": "10k-club" }
 ]
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="listings"><a class="header" href="#listings">Listings</a></h2>
@@ -2314,21 +2242,21 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;d&quot;: &quot;bonfida.sol&quot;,
-  &quot;p&quot;: 100.0,
-  &quot;q&quot;: &quot;USDC&quot;,
-  &quot;a&quot;: 2,
-  &quot;l&quot;: 0,
-  &quot;up&quot;: 100.0,
-  &quot;e&quot;: false,
-  &quot;r&quot;: true,
-  &quot;do&quot;: false,
-  &quot;lo&quot;: true,
-  &quot;le&quot;: 7,
-  &quot;fp&quot;: true,
-  &quot;me&quot;: false,
-  &quot;pa&quot;: false,
-  &quot;ca&quot;: []
+  "d": "bonfida.sol",
+  "p": 100.0,
+  "q": "USDC",
+  "a": 2,
+  "l": 0,
+  "up": 100.0,
+  "e": false,
+  "r": true,
+  "do": false,
+  "lo": true,
+  "le": 7,
+  "fp": true,
+  "me": false,
+  "pa": false,
+  "ca": []
 }
 </code></pre>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
@@ -2356,22 +2284,22 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;success&quot;: true,
-  &quot;result&quot;: [
+  "success": true,
+  "result": [
     {
-      &quot;unix_timestamp&quot;: 1663824910,
-      &quot;slot&quot;: 151782075,
-      &quot;domain_name&quot;: &quot;wagb👌&quot;,
-      &quot;domain_key&quot;: &quot;FqRocnogXTAwTnhYxRc4BA3uFkAChsDefed6nVWeD1Xe&quot;,
-      &quot;domain_auction_key&quot;: &quot;GQJyiqBXq2HWnFXUWcp3pDmBYZEw3CjiYbkUJoZC6qT2&quot;,
-      &quot;domain_token_mint&quot;: &quot;ESPZfWYWQZ3fJaxq7GjzkCzXKJPRMfnKc1dhkVQBZyt2&quot;,
-      &quot;bidder_key&quot;: &quot;TG41WLDXx4ofZ52up4pEKQcDj1zQ4oX9LUop5qnUwQr&quot;,
-      &quot;price&quot;: 1.55,
-      &quot;quote_mint&quot;: &quot;So11111111111111111111111111111111111111112&quot;,
-      &quot;usd_price&quot;: 47.999626,
-      &quot;tx_signature&quot;: &quot;2WcrNobBtLrarFNrakkMad2eyVzfBTzCnHo2cJYgWdoUHmH9eMqZe9SzJr53m1A4BqPzmXL5WcExc4t4r5DmMTC3&quot;,
-      &quot;platform_id&quot;: 1,
-      &quot;successful&quot;: true
+      "unix_timestamp": 1663824910,
+      "slot": 151782075,
+      "domain_name": "wagb👌",
+      "domain_key": "FqRocnogXTAwTnhYxRc4BA3uFkAChsDefed6nVWeD1Xe",
+      "domain_auction_key": "GQJyiqBXq2HWnFXUWcp3pDmBYZEw3CjiYbkUJoZC6qT2",
+      "domain_token_mint": "ESPZfWYWQZ3fJaxq7GjzkCzXKJPRMfnKc1dhkVQBZyt2",
+      "bidder_key": "TG41WLDXx4ofZ52up4pEKQcDj1zQ4oX9LUop5qnUwQr",
+      "price": 1.55,
+      "quote_mint": "So11111111111111111111111111111111111111112",
+      "usd_price": 47.999626,
+      "tx_signature": "2WcrNobBtLrarFNrakkMad2eyVzfBTzCnHo2cJYgWdoUHmH9eMqZe9SzJr53m1A4BqPzmXL5WcExc4t4r5DmMTC3",
+      "platform_id": 1,
+      "successful": true
     }
     // ...
   ]
@@ -2388,19 +2316,19 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;success&quot;: true,
-  &quot;result&quot;: [
+  "success": true,
+  "result": [
     {
-      &quot;unix_timestamp&quot;: 1663789595,
-      &quot;slot&quot;: 151721528,
-      &quot;tx_signature&quot;: &quot;2D9VPjN93j7YTx13oHN9sL2RDHbytLMfNmxTCBc8a57faomn4e2iF2QyUU1DLfdA9FYEJq1SzXmaC8p9FntLckUL&quot;,
-      &quot;domain_name&quot;: &quot;meggadao&quot;,
-      &quot;domain_key&quot;: &quot;FoidaZVWPYNCgRkthdJqnSQ82x7SLkSpBAypR7RVtFNU&quot;,
-      &quot;domain_auction_key&quot;: &quot;HmGENkrhkA7ekmj9kKni4CJLJyifjzohPAV1wWTWuQFX&quot;,
-      &quot;domain_token_mint&quot;: &quot;ExankJNcWwJoS4ZYe5Xuw8r7ioqAcg5XkbzWT6NJhsiA&quot;,
-      &quot;price&quot;: 48.769577,
-      &quot;quote_mint&quot;: &quot;EchesyfXePKdLtoiZSL8pBe8Myagyy8ZRqsACNCFGnvp&quot;,
-      &quot;usd_price&quot;: 20.184021
+      "unix_timestamp": 1663789595,
+      "slot": 151721528,
+      "tx_signature": "2D9VPjN93j7YTx13oHN9sL2RDHbytLMfNmxTCBc8a57faomn4e2iF2QyUU1DLfdA9FYEJq1SzXmaC8p9FntLckUL",
+      "domain_name": "meggadao",
+      "domain_key": "FoidaZVWPYNCgRkthdJqnSQ82x7SLkSpBAypR7RVtFNU",
+      "domain_auction_key": "HmGENkrhkA7ekmj9kKni4CJLJyifjzohPAV1wWTWuQFX",
+      "domain_token_mint": "ExankJNcWwJoS4ZYe5Xuw8r7ioqAcg5XkbzWT6NJhsiA",
+      "price": 48.769577,
+      "quote_mint": "EchesyfXePKdLtoiZSL8pBe8Myagyy8ZRqsACNCFGnvp",
+      "usd_price": 20.184021
     }
   ]
 }
@@ -2416,11 +2344,11 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;success&quot;: true,
-  &quot;result&quot;: [
+  "success": true,
+  "result": [
     {
-      &quot;domain_name&quot;: &quot;53&quot;,
-      &quot;usd_price&quot;: 15999.0
+      "domain_name": "53",
+      "usd_price": 15999.0
     }
     // ...
   ]
@@ -2438,10 +2366,10 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;success&quot;: true,
-  &quot;result&quot;: [
-    { &quot;day&quot;: 1667174400, &quot;volume&quot;: 115.98516 },
-    { &quot;day&quot;: 1667088000, &quot;volume&quot;: 658.9297 }
+  "success": true,
+  "result": [
+    { "day": 1667174400, "volume": 115.98516 },
+    { "day": 1667088000, "volume": 658.9297 }
   ]
 }
 </code></pre>
@@ -2456,10 +2384,10 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;success&quot;: true,
-  &quot;result&quot;: [
-    { &quot;day&quot;: 1667174400, &quot;volume&quot;: 115.98516 },
-    { &quot;day&quot;: 1667088000, &quot;volume&quot;: 658.9297 }
+  "success": true,
+  "result": [
+    { "day": 1667174400, "volume": 115.98516 },
+    { "day": 1667088000, "volume": 658.9297 }
   ]
 }
 </code></pre>
@@ -2474,10 +2402,10 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;success&quot;: true,
-  &quot;result&quot;: [
-    { &quot;day&quot;: 1667174400, &quot;volume&quot;: 115.98516 },
-    { &quot;day&quot;: 1667088000, &quot;volume&quot;: 658.9297 }
+  "success": true,
+  "result": [
+    { "day": 1667174400, "volume": 115.98516 },
+    { "day": 1667088000, "volume": 658.9297 }
   ]
 }
 </code></pre>
@@ -2490,9 +2418,9 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;success&quot;: true,
-  &quot;result&quot;: [
-    { &quot;nb_owners&quot;: 1, &quot;nb_domains&quot;: 41896 }
+  "success": true,
+  "result": [
+    { "nb_owners": 1, "nb_domains": 41896 }
     // ...
   ]
 }
@@ -2504,9 +2432,9 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;success&quot;: true,
-  &quot;result&quot;: [
-    { &quot;nb_owners&quot;: 1, &quot;nb_domains&quot;: 41896 }
+  "success": true,
+  "result": [
+    { "nb_owners": 1, "nb_domains": 41896 }
     // ...
   ]
 }
@@ -2519,11 +2447,11 @@ const owner = registry.owner.toBase58();
 <p>Response</p>
 </blockquote>
 <pre><code class="language-json">{
-  &quot;success&quot;: true,
-  &quot;result&quot;: [
-    &quot;pharmacy&quot;,
-    &quot;softball&quot;,
-    &quot;travelagent&quot;
+  "success": true,
+  "result": [
+    "pharmacy",
+    "softball",
+    "travelagent"
     // ...
   ]
 }
@@ -2571,11 +2499,11 @@ const owner = registry.owner.toBase58();
 <span class="boring">}</span></code></pre></pre>
 <p>Fixed Price Offers allow sellers to list domain names for sale at a predetermined price. Buyers can purchase these domain names by paying the specified amount.</p>
 <p>Creating a fixed price offer is handled by the <code>makeFixedPriceOffer</code> function, as shown in the code snippet below:</p>
-<pre><code class="language-ts">const connection = new Connection(&quot;...&quot;);
-const seller = new PublicKey(&quot;...&quot;); // Public key of the seller i.e domain owner
-const mint = new PublicKey(&quot;EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&quot;); // USDC mint
+<pre><code class="language-ts">const connection = new Connection("...");
+const seller = new PublicKey("..."); // Public key of the seller i.e domain owner
+const mint = new PublicKey("EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"); // USDC mint
 const amount = 1 * 1e6; // Amount with decimals, here 1 USDC
-const { pubkey: domainKey } = getDomainKeySync(&quot;something.sol&quot;); // Domain public key
+const { pubkey: domainKey } = getDomainKeySync("something.sol"); // Domain public key
 
 const ix = await makeFixedPriceOffer(
   connection,
@@ -2587,10 +2515,10 @@ const ix = await makeFixedPriceOffer(
 );
 </code></pre>
 <p>Buying a fixed price offer is facilitated through the <code>buyFixedPrice</code> function, which ensures the transfer of the domain to the buyer and the payment to the seller:</p>
-<pre><code class="language-ts">const connection = new Connection(&quot;...&quot;);
-const buyer = new PublicKey(&quot;...&quot;); // Public key of the offer buyer
-const source = new PublicKey(&quot;...&quot;); // Source of the funds used to purchase the offer. In case of SOL it's the same as `buyer`. If another token is used, it's the ATA of the buyer for the given mint.
-const { pubkey: domainKey } = getDomainKeySync(&quot;something.sol&quot;); // Domain public key
+<pre><code class="language-ts">const connection = new Connection("...");
+const buyer = new PublicKey("..."); // Public key of the offer buyer
+const source = new PublicKey("..."); // Source of the funds used to purchase the offer. In case of SOL it's the same as `buyer`. If another token is used, it's the ATA of the buyer for the given mint.
+const { pubkey: domainKey } = getDomainKeySync("something.sol"); // Domain public key
 const referrer: PublicKey | undefined = undefined; // Optional referrer
 
 // Use a util function from our SDK to get fixed price offers by name, by owner, or all fixed price offers.
@@ -2634,11 +2562,11 @@ const ix = await buyFixedPrice(
 <span class="boring">}</span></code></pre></pre>
 <p>Unsolicited offers allow buyers to propose a purchase price for a domain not listed for sale. The domain owner can then accept or ignore the offer.</p>
 <p>Placing an unsolicited offers is handled by the <code>makeOffer</code> function</p>
-<pre><code class="language-ts">const mint = new PublicKey(&quot;EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&quot;); // USDC mint
+<pre><code class="language-ts">const mint = new PublicKey("EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"); // USDC mint
 const amount = 1 * 1e6; // Amount with decimals, here 1 USDC
-const { pubkey: domainKey } = getDomainKeySync(&quot;something.sol&quot;); // Domain public key
-const owner = new PublicKey(&quot;...&quot;); // Owner of the unsolicited offer
-const tokenSource = new PublicKey(&quot;...&quot;); // Token source used to place the offer.
+const { pubkey: domainKey } = getDomainKeySync("something.sol"); // Domain public key
+const owner = new PublicKey("..."); // Owner of the unsolicited offer
+const tokenSource = new PublicKey("..."); // Token source used to place the offer.
 
 const ix = await makeOffer(
   amount,
@@ -2650,15 +2578,15 @@ const ix = await makeOffer(
 );
 </code></pre>
 <p>An unsolicited offer can be accepted by the domain owner using the <code>acceptOffer</code> function:</p>
-<pre><code class="language-ts">const connection = new Connection(&quot;...&quot;);
-const domainOwner = new PublicKey(&quot;...&quot;); // Current domain owner
-const { pubkey: domainKey } = getDomainKeySync(&quot;something.sol&quot;); // Domain public key
-const offerEscrow = new PublicKey(&quot;...&quot;); // PDA used to store the funds of the offer, the address is written in the state
-const destination = new PublicKey(&quot;...&quot;); // The token account used to receive the funds from the escrow
+<pre><code class="language-ts">const connection = new Connection("...");
+const domainOwner = new PublicKey("..."); // Current domain owner
+const { pubkey: domainKey } = getDomainKeySync("something.sol"); // Domain public key
+const offerEscrow = new PublicKey("..."); // PDA used to store the funds of the offer, the address is written in the state
+const destination = new PublicKey("..."); // The token account used to receive the funds from the escrow
 const referrer: PublicKey | undefined = undefined; // Optional referrer
 
 // Use a util function from the SDK to get offers by domain name, by domain owner, etc.
-const offers = await getOffersForName(connection, &quot;something.sol&quot;);
+const offers = await getOffersForName(connection, "something.sol");
 
 // This example arbitrarily selects the first offer in the list. Filter offers based on your needs.
 const offerKey = offers[0].pubkey;
@@ -2699,15 +2627,15 @@ const ix = await acceptOffer(
 <span class="boring">}</span></code></pre></pre>
 <p>Category Offers allow buyers to bid on an entire domain category. Sellers can accept these offers, selling domains within the specified category.</p>
 <p>The creation of a category offer is managed by the <code>makeCategoryOffer</code> function, which specifies the number of domains, the SOL price per domain, and the category:</p>
-<pre><code class="language-ts">import { CATEGORIES } from &quot;@bonfida/sns-categories&quot;; // Map of current categories
+<pre><code class="language-ts">import { CATEGORIES } from "@bonfida/sns-categories"; // Map of current categories
 
 const amount = 10 * LAMPORTS_PER_SOL; // Amount of the offer in lamports here 10 SOL
 const nbDomains = 10; // Number of domains the buyer wants to buy
-const buyer = new PublicKey(&quot;...&quot;);
+const buyer = new PublicKey("...");
 
 // Filter CATEGORIES to find the categoryKey which is the Public key of the category.
 const categoryKey = [...CATEGORIES].find(
-  ([, value]) =&gt; value === &quot;999-club&quot;
+  ([, value]) =&gt; value === "999-club"
 )?.[0];
 
 const ix = await makeCategoryOffer(
@@ -2719,10 +2647,10 @@ const ix = await makeCategoryOffer(
 );
 </code></pre>
 <p>Taking a category offer is facilitated through the <code>takeCategoryOffer</code> function, allowing sellers to sell domains within the category at the specified price.</p>
-<pre><code class="language-ts">const connection = new Connection(&quot;...&quot;);
-const { pubkey: domainKey } = getDomainKeySync(&quot;999.sol&quot;); // Domain public key
-const memberKey = CategoryMember.findKey(&quot;999&quot;, categoryKey); // Membership of the domain to the category
-const seller = new PublicKey(&quot;...&quot;); // Seller of the domain here 999.sol
+<pre><code class="language-ts">const connection = new Connection("...");
+const { pubkey: domainKey } = getDomainKeySync("999.sol"); // Domain public key
+const memberKey = CategoryMember.findKey("999", categoryKey); // Membership of the domain to the category
+const seller = new PublicKey("..."); // Seller of the domain here 999.sol
 const referrer: PublicKey | undefined = undefined; // Optional referrer
 
 // Use a util function from the SDK to get category offers by category, category offers for a specific owner, etc.
@@ -2766,11 +2694,11 @@ const ix = await takeCategoryOffer(
 <p>P2P (Peer-to-Peer) Offers enable direct transactions between a buyer and a seller without listing the domain publicly. Sellers can create a P2P offer specifying the buyer's address, the SOL amount, the domain names involved and optionally set an expiration date to the offer.</p>
 <p>P2P offers can be created using the <code>makeP2p</code> function</p>
 <pre><code class="language-ts">const amount = 10 * LAMPORTS_PER_SOL; // The SOL amount (in lamports) of the P2P offer (can be 0)
-const owner = new PublicKey(&quot;...&quot;); // The owner of the P2P offer (i.e creator)
+const owner = new PublicKey("..."); // The owner of the P2P offer (i.e creator)
 const baseDomains: PublicKey[] = []; // The domains the owner wants to sell
 const quoteDomains: PublicKey[] = []; // The domains the owner wants to buy (i.e the domains of the counter party)
 const endDate: number | undefined = undefined; // The unix timestamp (in seconds) at which the P2P offer expires (optional)
-const counterParty = new PublicKey(&quot;...&quot;); // The counter party of the P2P offer
+const counterParty = new PublicKey("..."); // The counter party of the P2P offer
 
 const ix = await makeP2p(
   amount,
@@ -2783,7 +2711,7 @@ const ix = await makeP2p(
 );
 </code></pre>
 <p>P2P offers can be accepted using the <code>acceptP2p</code> function</p>
-<pre><code class="language-ts">const p2pOfferKey = new PublicKey(&quot;...&quot;); // The P2P offer key
+<pre><code class="language-ts">const p2pOfferKey = new PublicKey("..."); // The P2P offer key
 
 const ix = await acceptP2p(connection, NAME_OFFERS_ID, p2pOfferKey);
 </code></pre>
@@ -2814,38 +2742,38 @@ const ix = await acceptP2p(connection, NAME_OFFERS_ID, p2pOfferKey);
   -X POST 'https://sns-suggest-proxy.bonfida.com' \
   -H 'Content-Type: application/json' \
   --data-binary '{
-    &quot;q&quot;: &quot;00&quot; &lt;- You keywords
+    "q": "00" &lt;- You keywords
   }'
 
 </code></pre>
 <pre><code class="language-json">{
-  &quot;hits&quot;: [
+  "hits": [
     {
-      &quot;domain_name&quot;: &quot;00&quot;,
-      &quot;id&quot;: &quot;00&quot;,
-      &quot;domain_key&quot;: &quot;4oZe4sxw1cSbm4KoiukMs6FSG6zW8rzKgkLDPQd5Gk6Q&quot;,
-      &quot;domain_token_mint&quot;: &quot;HWDX6pDdb3mp2223PzLccezouex1m4LLEw9GTjV85Rkx&quot;,
-      &quot;domain_auction_key&quot;: &quot;ctPQ35SSXvti38NmNYmwy9Lk4EtyxHMZViVNSZNTPUo&quot;,
-      &quot;owner_key&quot;: &quot;5Aw5mkykrqMj8tbqzKVrgBW79w26ha1ELe3zj6ZKYz4b&quot;,
-      &quot;availability_id&quot;: null,
-      &quot;price&quot;: null,
-      &quot;quote_mint&quot;: null,
-      &quot;fixed_price_offer_account&quot;: null
+      "domain_name": "00",
+      "id": "00",
+      "domain_key": "4oZe4sxw1cSbm4KoiukMs6FSG6zW8rzKgkLDPQd5Gk6Q",
+      "domain_token_mint": "HWDX6pDdb3mp2223PzLccezouex1m4LLEw9GTjV85Rkx",
+      "domain_auction_key": "ctPQ35SSXvti38NmNYmwy9Lk4EtyxHMZViVNSZNTPUo",
+      "owner_key": "5Aw5mkykrqMj8tbqzKVrgBW79w26ha1ELe3zj6ZKYz4b",
+      "availability_id": null,
+      "price": null,
+      "quote_mint": null,
+      "fixed_price_offer_account": null
     }
     //...
   ],
-  &quot;query&quot;: &quot;&quot;,
-  &quot;processingTimeMs&quot;: 0,
-  &quot;limit&quot;: 20,
-  &quot;offset&quot;: 0,
-  &quot;estimatedTotalHits&quot;: 1000
+  "query": "",
+  "processingTimeMs": 0,
+  "limit": 20,
+  "offset": 0,
+  "estimatedTotalHits": 1000
 }
 </code></pre>
 <p>The search feature is <strong>typo tolerent</strong></p>
 <h3 id="simple-ui-integration"><a class="header" href="#simple-ui-integration">Simple UI integration</a></h3>
 <p>Below is a simple React hook example</p>
-<pre><code class="language-ts">import axios from &quot;axios&quot;;
-import { useState, useEffect, useRef } from &quot;react&quot;;
+<pre><code class="language-ts">import axios from "axios";
+import { useState, useEffect, useRef } from "react";
 
 export interface Item {
   domain_name: string;
@@ -2869,7 +2797,7 @@ export interface Result {
   estimatedTotalHits: number;
 }
 
-const URL = &quot;https://sns-suggest-proxy.bonfida.com&quot;;
+const URL = "https://sns-suggest-proxy.bonfida.com";
 
 export const useDomainAutoSuggest = (domain: string) =&gt; {
   const [result, setResult] = useState&lt;Item[] | undefined&gt;(undefined);
@@ -2881,7 +2809,7 @@ export const useDomainAutoSuggest = (domain: string) =&gt; {
 
       const { data }: { data: Result } = await axios.post(URL, payload, {
         headers: {
-          &quot;Content-type&quot;: &quot;application/json&quot;,
+          "Content-type": "application/json",
         },
       });
 
@@ -2901,19 +2829,19 @@ export const useDomainAutoSuggest = (domain: string) =&gt; {
 <p>The Solana Name Service Quicknode marketplace plugin accepts requests using the <a href="https://www.jsonrpc.org/specification">JSON-RPC-2.0</a> specification over <code>HTTP POST</code>.</p>
 <p>This means that it accepts <code>HTTP POST</code> requests with the <code>Content-Type</code> header set to <code>application/json</code>, containing a json payload. For example:</p>
 <pre><code class="language-json">{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;method&quot;: &quot;get_domain_key&quot;,
-    &quot;params&quot;: {
-        &quot;domain&quot;: &quot;bonfida.sol&quot;
+    "jsonrpc": "2.0",
+    "method": "get_domain_key",
+    "params": {
+        "domain": "bonfida.sol"
     },
-    &quot;id&quot;: 5678
+    "id": 5678
 }
 </code></pre>
 <p>The response is a JSON object. For example:</p>
 <pre><code class="language-json">{
-    &quot;jsonrpc&quot;: &quot;2.0&quot;,
-    &quot;result&quot;: &quot;HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA&quot;,
-    &quot;id&quot;: 5678
+    "jsonrpc": "2.0",
+    "result": "HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA",
+    "id": 5678
 }
 </code></pre>
 <p>The API supports a variety of methods which are detailed in this chapter.</p>
@@ -3095,35 +3023,35 @@ The result will be an RPCResponse JSON object with field:
 </ul>
 <h2 id="example-1"><a class="header" href="#example-1">Example</a></h2>
 <pre><code class="language-json">{
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;method&quot;: &quot;sns_getAllDomainsForOwner&quot;,
-  &quot;params&quot;: [
-    &quot;HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA&quot;
+  "jsonrpc": "2.0",
+  "method": "sns_getAllDomainsForOwner",
+  "params": [
+    "HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA"
   ],
-  &quot;id&quot;: 42
+  "id": 42
 }
 </code></pre>
 <pre><code class="language-json">{
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;result&quot;: [
+  "jsonrpc": "2.0",
+  "result": [
     {
-      &quot;key&quot;: &quot;Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb&quot;,
-      &quot;name&quot;: &quot;bonfida&quot;
+      "key": "Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb",
+      "name": "bonfida"
     },
     {
-      &quot;key&quot;: &quot;8xMJaFHqas1gzS7xLuWh298TDuBUw4hqLXL2ZFs376hH&quot;,
-      &quot;name&quot;: &quot;springboks&quot;
+      "key": "8xMJaFHqas1gzS7xLuWh298TDuBUw4hqLXL2ZFs376hH",
+      "name": "springboks"
     },
     {
-      &quot;key&quot;: &quot;BAW7NsKcY8SLr98ZNYcH2HeDvPBPE2EoyjuPKcJ9bW1d&quot;,
-      &quot;name&quot;: &quot;9772&quot;
+      "key": "BAW7NsKcY8SLr98ZNYcH2HeDvPBPE2EoyjuPKcJ9bW1d",
+      "name": "9772"
     },
     {
-      &quot;key&quot;: &quot;9B8y69VYEvLuwnaPdqNWL2wrV2XCLKrNAewC3FQEXptn&quot;,
-      &quot;name&quot;: &quot;👨‍🌾&quot;
+      "key": "9B8y69VYEvLuwnaPdqNWL2wrV2XCLKrNAewC3FQEXptn",
+      "name": "👨‍🌾"
     }
   ],
-  &quot;id&quot;: 42
+  "id": 42
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sns_getdomaindata"><a class="header" href="#sns_getdomaindata"><code>sns_getDomainData</code></a></h1>
@@ -3140,19 +3068,19 @@ The result will be an RPCResponse JSON object with field:
 </ul>
 <h2 id="example-2"><a class="header" href="#example-2">Example</a></h2>
 <pre><code class="language-json">{
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;method&quot;: &quot;sns_getDomainData&quot;,
-  &quot;params&quot;: [
-    &quot;bonfida.sol&quot;,
-    &quot;github&quot;
+  "jsonrpc": "2.0",
+  "method": "sns_getDomainData",
+  "params": [
+    "bonfida.sol",
+    "github"
   ],
-  &quot;id&quot;: 42
+  "id": 42
 }
 </code></pre>
 <pre><code class="language-json">{
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;result&quot;: &quot;aHR0cHM6Ly9naXRodWIuY29tL0JvbmZpZGEvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=&quot;,
-  &quot;id&quot;: 42
+  "jsonrpc": "2.0",
+  "result": "aHR0cHM6Ly9naXRodWIuY29tL0JvbmZpZGEvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+  "id": 42
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sns_getdomainkey"><a class="header" href="#sns_getdomainkey"><code>sns_getDomainKey</code></a></h1>
@@ -3168,18 +3096,18 @@ The result will be an RPCResponse JSON object with field:
 </ul>
 <h2 id="example-3"><a class="header" href="#example-3">Example</a></h2>
 <pre><code class="language-json">{
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;method&quot;: &quot;sns_getDomainKey&quot;,
-  &quot;params&quot;: [
-    &quot;bonfida.sol&quot;
+  "jsonrpc": "2.0",
+  "method": "sns_getDomainKey",
+  "params": [
+    "bonfida.sol"
   ],
-  &quot;id&quot;: 42
+  "id": 42
 }
 </code></pre>
 <pre><code class="language-json">{
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;result&quot;: &quot;Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb&quot;,
-  &quot;id&quot;: 42
+  "jsonrpc": "2.0",
+  "result": "Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb",
+  "id": 42
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sns_getdomainrecordkey"><a class="header" href="#sns_getdomainrecordkey"><code>sns_getDomainRecordKey</code></a></h1>
@@ -3196,19 +3124,19 @@ The result will be an RPCResponse JSON object with field:
 </ul>
 <h2 id="example-4"><a class="header" href="#example-4">Example</a></h2>
 <pre><code class="language-json">{
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;method&quot;: &quot;sns_getDomainRecordKey&quot;,
-  &quot;params&quot;: [
-    &quot;bonfida.sol&quot;,
-    &quot;github&quot;
+  "jsonrpc": "2.0",
+  "method": "sns_getDomainRecordKey",
+  "params": [
+    "bonfida.sol",
+    "github"
   ],
-  &quot;id&quot;: 42
+  "id": 42
 }
 </code></pre>
 <pre><code class="language-json">{
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;result&quot;: &quot;4sQDE98ZzQ23Rygb7tx1HhXQiuxswKhSBvECCREW35Ei&quot;,
-  &quot;id&quot;: 42
+  "jsonrpc": "2.0",
+  "result": "4sQDE98ZzQ23Rygb7tx1HhXQiuxswKhSBvECCREW35Ei",
+  "id": 42
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sns_getfavouritedomain"><a class="header" href="#sns_getfavouritedomain"><code>sns_getFavouriteDomain</code></a></h1>
@@ -3229,21 +3157,21 @@ The result will be an RPCResponse JSON object with field:
 </ul>
 <h2 id="example-5"><a class="header" href="#example-5">Example</a></h2>
 <pre><code class="language-json">{
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;method&quot;: &quot;sns_getFavouriteDomain&quot;,
-  &quot;params&quot;: [
-    &quot;HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA&quot;
+  "jsonrpc": "2.0",
+  "method": "sns_getFavouriteDomain",
+  "params": [
+    "HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA"
   ],
-  &quot;id&quot;: 42
+  "id": 42
 }
 </code></pre>
 <pre><code class="language-json">{
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;result&quot;: {
-    &quot;key&quot;: &quot;Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb&quot;,
-    &quot;name&quot;: &quot;bonfida&quot;
+  "jsonrpc": "2.0",
+  "result": {
+    "key": "Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb",
+    "name": "bonfida"
   },
-  &quot;id&quot;: 42
+  "id": 42
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sns_getregistrationtransaction"><a class="header" href="#sns_getregistrationtransaction"><code>sns_getRegistrationTransaction</code></a></h1>
@@ -3275,22 +3203,22 @@ The result will be an RPCResponse JSON object with field:
 </ul>
 <h2 id="example-6"><a class="header" href="#example-6">Example</a></h2>
 <pre><code class="language-json">{
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;method&quot;: &quot;sns_getSubdomains&quot;,
-  &quot;params&quot;: [
-    &quot;bonfida.sol&quot;
+  "jsonrpc": "2.0",
+  "method": "sns_getSubdomains",
+  "params": [
+    "bonfida.sol"
   ],
-  &quot;id&quot;: 42
+  "id": 42
 }
 </code></pre>
 <pre><code class="language-json">{
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;result&quot;: [
-    &quot;naming&quot;,
-    &quot;dex&quot;,
-    &quot;test&quot;
+  "jsonrpc": "2.0",
+  "result": [
+    "naming",
+    "dex",
+    "test"
   ],
-  &quot;id&quot;: 42
+  "id": 42
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sns_getsupportedrecords"><a class="header" href="#sns_getsupportedrecords"><code>sns_getSupportedRecords</code></a></h1>
@@ -3304,37 +3232,37 @@ The result will be an RPCResponse JSON object with field:
 </ul>
 <h2 id="example-7"><a class="header" href="#example-7">Example</a></h2>
 <pre><code class="language-json">{
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;method&quot;: &quot;sns_getSupportedRecords&quot;,
-  &quot;params&quot;: [],
-  &quot;id&quot;: 42
+  "jsonrpc": "2.0",
+  "method": "sns_getSupportedRecords",
+  "params": [],
+  "id": 42
 }
 </code></pre>
 <pre><code class="language-json">{
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;result&quot;: [
-    &quot;IPFS&quot;,
-    &quot;ARWV&quot;,
-    &quot;SOL&quot;,
-    &quot;ETH&quot;,
-    &quot;BTC&quot;,
-    &quot;LTC&quot;,
-    &quot;DOGE&quot;,
-    &quot;email&quot;,
-    &quot;url&quot;,
-    &quot;discord&quot;,
-    &quot;github&quot;,
-    &quot;reddit&quot;,
-    &quot;twitter&quot;,
-    &quot;telegram&quot;,
-    &quot;pic&quot;,
-    &quot;SHDW&quot;,
-    &quot;POINT&quot;,
-    &quot;BSC&quot;,
-    &quot;INJ&quot;,
-    &quot;backpack&quot;
+  "jsonrpc": "2.0",
+  "result": [
+    "IPFS",
+    "ARWV",
+    "SOL",
+    "ETH",
+    "BTC",
+    "LTC",
+    "DOGE",
+    "email",
+    "url",
+    "discord",
+    "github",
+    "reddit",
+    "twitter",
+    "telegram",
+    "pic",
+    "SHDW",
+    "POINT",
+    "BSC",
+    "INJ",
+    "backpack"
   ],
-  &quot;id&quot;: 42
+  "id": 42
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sns_resolvedomain"><a class="header" href="#sns_resolvedomain"><code>sns_resolveDomain</code></a></h1>
@@ -3350,18 +3278,18 @@ The result will be an RPCResponse JSON object with field:
 </ul>
 <h2 id="example-8"><a class="header" href="#example-8">Example</a></h2>
 <pre><code class="language-json">{
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;method&quot;: &quot;sns_resolveDomain&quot;,
-  &quot;params&quot;: [
-    &quot;bonfida.sol&quot;
+  "jsonrpc": "2.0",
+  "method": "sns_resolveDomain",
+  "params": [
+    "bonfida.sol"
   ],
-  &quot;id&quot;: 42
+  "id": 42
 }
 </code></pre>
 <pre><code class="language-json">{
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;result&quot;: &quot;HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA&quot;,
-  &quot;id&quot;: 42
+  "jsonrpc": "2.0",
+  "result": "HKKp49qGWXd639QsuH7JiLijfVW5UtCVY4s1n2HANwEA",
+  "id": 42
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sns_reverse_lookup"><a class="header" href="#sns_reverse_lookup"><code>sns_reverse_lookup</code></a></h1>
@@ -3377,18 +3305,18 @@ The result will be an RPCResponse JSON object with field:
 </ul>
 <h2 id="example-9"><a class="header" href="#example-9">Example</a></h2>
 <pre><code class="language-json">{
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;method&quot;: &quot;sns_reverseLookup&quot;,
-  &quot;params&quot;: [
-    &quot;Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb&quot;
+  "jsonrpc": "2.0",
+  "method": "sns_reverseLookup",
+  "params": [
+    "Crf8hzfthWGbGbLTVCiqRqV5MVnbpHB1L9KQMd6gsinb"
   ],
-  &quot;id&quot;: 42
+  "id": 42
 }
 </code></pre>
 <pre><code class="language-json">{
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;result&quot;: &quot;bonfida&quot;,
-  &quot;id&quot;: 42
+  "jsonrpc": "2.0",
+  "result": "bonfida",
+  "id": 42
 }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sns_getdomainreversekey"><a class="header" href="#sns_getdomainreversekey"><code>sns_getDomainReverseKey</code></a></h1>
@@ -3404,18 +3332,18 @@ The result will be an RPCResponse JSON object with field:
 </ul>
 <h2 id="example-10"><a class="header" href="#example-10">Example</a></h2>
 <pre><code class="language-json">{
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;method&quot;: &quot;sns_getDomainReverseKey&quot;,
-  &quot;params&quot;: [
-    &quot;bonfida.sol&quot;
+  "jsonrpc": "2.0",
+  "method": "sns_getDomainReverseKey",
+  "params": [
+    "bonfida.sol"
   ],
-  &quot;id&quot;: 42
+  "id": 42
 }
 </code></pre>
 <pre><code class="language-json">{
-  &quot;jsonrpc&quot;: &quot;2.0&quot;,
-  &quot;result&quot;: &quot;DqgmWxe2PPrfy45Ja3UPyFGwcbRzkRuwXt3NyxjX8krg&quot;,
-  &quot;id&quot;: 42
+  "jsonrpc": "2.0",
+  "result": "DqgmWxe2PPrfy45Ja3UPyFGwcbRzkRuwXt3NyxjX8krg",
+  "id": 42
 }
 </code></pre>
 
