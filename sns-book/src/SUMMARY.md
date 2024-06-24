@@ -57,6 +57,7 @@
   - [Sales](sns-api/sales.md)
   - [Volumes](sns-api/volumes.md)
   - [Owners](sns-api/owners.md)
+  - [Images](sns-api/images.md)
 
 - [Marketplace](marketplace.md)
 
