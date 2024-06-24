@@ -14,6 +14,8 @@ Please note the base URL for images differs from other endpoints.
 https://image-api.bonfida.com
 ```
 
+API response times can vary based on if a request for an image has been previously made. The image is generated upon the first request and then cached, greatly reducing subsequent response times.
+
 ### Get a list of domain images
 
 This endpoint can be used to retrieve images for a list of domains.
@@ -21,7 +23,7 @@ This endpoint can be used to retrieve images for a list of domains.
 > Request
 
 ```
-GET /image/list
+GET /image?domain=foo&domain=bar
 ```
 
 > Response
@@ -29,8 +31,8 @@ GET /image/list
 ```json
 {
   "result": [
-    { "domain": "bonfida", "image": "https://..." },
-    { "domain": "snsid", "image": "https://..." }
+    { "domain": "foo", "image": "https://..." },
+    { "domain": "bar", "image": "https://..." }
     // ...
   ]
 }
