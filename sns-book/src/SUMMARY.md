@@ -51,6 +51,7 @@
 
 - [SNS API](sns-api/README.md)
 
+  - [Domains](sns-api/domains.md)
   - [Categories](sns-api/categories.md)
   - [Users](sns-api/users.md)
   - [Listings](sns-api/listings.md)
