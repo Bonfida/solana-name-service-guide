@@ -12,6 +12,8 @@ This endpoint can be used to retrieve the transaction history for all registered
 
 `last_token` - This token is used to fetch the next set of responses and is recieved from the API response. After the initial API call, you can pass this as a parameter for further responses.
 
+> Request
+
 ```
 GET v2/domains/history?limit={limit}&start_time={start_time}&end_time={end_time}&last_token={last_token}
 ```
@@ -35,5 +37,17 @@ GET v2/domains/history?limit={limit}&start_time={start_time}&end_time={end_time}
     }
   ],
   "last_token": "1622592000:abcdef1234567890:domain1"
+}
+```
+
+The `operation` property in the response has the structure below. The `transaction_type` property correlates to `operation` where a value of 0 indicates a registration, and a value of 1 indicates a sale or transfer. For other operations, the `transaction_type` is `null`.
+
+```ts
+enum Operation {
+  Create, // registration (0)
+  Transfer, // sale or transfer (1)
+  Update, // update data in a name record (2)
+  Delete, // delete or burn a domain (3)
+  Realloc, // change the domain storage size (4)
 }
 ```
