@@ -1,6 +1,6 @@
 # useProfilePic
 
-Users can set a profile picture using the `pic` record of their favorite domain name. This record holds the URI to their profile picture.
+Users can set a profile picture using the `pic` record of their primary domain name. This record holds the URI to their profile picture.
 
 ```ts
 import { useEffect, useRef, useState } from "react";
@@ -10,17 +10,17 @@ import { getDomainKey, NameRegistryState } from "@bonfida/spl-name-service";
 
 export const useProfilePic = (user: PublicKey) => {
   const { connection } = useConnection();
-  const favorite = useFavoriteDomain(user);
+  const primary = usePrimaryDomain(user);
   const [result, setResult] = useState<Result>(undefined);
   const mounted = useRef(true);
 
   useEffect(() => {
     const fn = async () => {
-      if (!favorite) {
+      if (!primary) {
         return setResult(undefined);
       }
 
-      const registry = await getPicRecord(connection, favorite.toBase58());
+      const registry = await getPicRecord(connection, primary.toBase58());
 
       if (!registry.data) {
         return setResult(undefined);
@@ -34,7 +34,7 @@ export const useProfilePic = (user: PublicKey) => {
     };
 
     fn().catch(console.error);
-  }, [user.toBase58(), favorite]);
+  }, [user.toBase58(), primary]);
 
   return result;
 };

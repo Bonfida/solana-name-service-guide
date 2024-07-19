@@ -1,8 +1,10 @@
-# useFavoriteDomain
+# usePrimaryDomain
 
-Favorite domains allow users who own several domains to select one of them as their default identity.
+> 💡 Primary domains used to be called favorite domains.
 
-**This favorite domain should be used by default by dApps.**
+Primary domains allow users who own several domains to select one of them as their default identity.
+
+**This primary domain should be used by default by dApps.**
 
 ```ts
 import { useEffect, useRef, useState } from "react";
@@ -13,7 +15,7 @@ import { FavouriteDomain, NAME_OFFERS_ID } from "@bonfida/name-offers";
 
 type Result = string | undefined;
 
-export const useFavoriteDomain = (user: PublicKey) => {
+export const usePrimaryDomain = (user: PublicKey) => {
   const { connection } = useConnection();
   const [result, setResult] = useState<Result>(undefined);
   const mounted = useRef(true);
