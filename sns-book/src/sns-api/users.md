@@ -19,14 +19,16 @@ GET /v2/user/domains/{pubkeys}
 }
 ```
 
-### Favorite domains
+### Primary domains
 
-This endpoint can be used to retrieve the favorite domains of a list of user public keys. You may include up to 20 public keys in a comma separated list. Results are cached, and refreshed every 5 minutes. If you're integrating SNS into your dApp, we strongly recommend using favorite domains since users have selected these domains specifically to represent their identities apart from other domains they may own.
+> 💡 Primary domains used to be called favorite domains.
+
+This endpoint can be used to retrieve the primary domains of a list of user public keys. You may include up to 20 public keys in a comma separated list. Results are cached, and refreshed every 5 minutes. If you're integrating SNS into your dApp, we strongly recommend using primary domains since users have selected these domains specifically to represent their identities apart from other domains they may own.
 
 > Request
 
 ```
-GET /v2/user/fav-domains/{pubkeys}
+GET /v2/user/primary-domains/{pubkeys}
 ```
 
 > Response

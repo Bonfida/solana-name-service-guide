@@ -11,7 +11,7 @@ This following sections provide information on the following:
 - [Records](records.md)
 - [Transfer domains](transfer.md)
 - [Edit domain content](edit-domain-content.md)
-- [Favorite domain](favorite-domains.md)
+- [Primary domain](primary-domains.md)
 - [React hooks](react-hooks)
 - [Domain name tokenization](tokenization.md)
 - [Domain registration](registration.md)

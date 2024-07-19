@@ -5,5 +5,5 @@ The list below show how to implement your own React hooks using vanilla React. F
 1. [useDomains](/domain-name/react-hooks/use-domains.md)
 2. [useDomainRecords](/domain-name/react-hooks/use-domain-records.md)
 3. [useDomainsForUser](/domain-name/react-hooks/use-domains-for-user.md)
-4. [useFavoriteDomain](/domain-name/react-hooks/use-favorite-domain.md)
+4. [usePrimaryDomain](/domain-name/react-hooks/use-primary-domain.md)
 5. [useProfilePic](/domain-name/react-hooks/use-profile-pic.md)
