@@ -8,7 +8,7 @@ This endpoint can be used to retrieve the listing details of a specific domain. 
 | --- | --------------------- | --------------------------------------------------- |
 | d   | String                | The domain name                                     |
 | p   | Float (`f32`)         | The price of the domain                             |
-| q   | String                | The token mint of the listing                       |
+| q   | String                | The token mint of the listing (i.e the currency)    |
 | a   | Enum (`u8`)           | The availability ID (see `PlatformEnum` definition) |
 | l   | Enum (`u8`)           | Language code (see definition below)                |
 | up  | Float (`f32`)         | The price in USD                                    |
