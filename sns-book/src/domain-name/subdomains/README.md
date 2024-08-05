@@ -16,6 +16,7 @@ This code snippet creates a subdomain and its reverse lookup account:
 
 ```js
 import { createSubdomain } from "@bonfida/spl-name-service";
+import { TransactionInstruction } from "@solana/web3.js";
 
 // The subdomain to create with or without .sol e.g something.bonfida.sol or something.bonfida
 const subdomain = "something.bonfida.sol";
@@ -23,7 +24,11 @@ const subdomain = "something.bonfida.sol";
 // The owner of the parent domain
 const owner = new PublicKey("...");
 
-const ix = createSubdomain(connection, subdomain, owner);
+const instructions: TransactionInstuction[] = [];
+
+const [, ix] = await createSubdomain(connection, subdomain, owner);
+
+instructions.push(...ix);
 
 // Sign and send the tx...
 ```
