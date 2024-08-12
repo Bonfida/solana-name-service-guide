@@ -4,7 +4,7 @@
 
 This endpoint can be used to retrieve the details of listings across marketplaces such as Sns.id, MagicEden, Tensor, and SolSniper.
 
-The endpoint takes optional params to help filter results.
+The endpoint takes a JSON body with a `params` object containing optional filters:
 
 - `lang` - Language filter. Language struct shared below.
 - `palindrome` - Boolean filter for palindromic domains.
@@ -28,7 +28,7 @@ The endpoint takes optional params to help filter results.
 > Request
 
 ```
-POST /v2/listings/listings-v3
+POST /v2/listings/listings-v3 -H 'Content-Type: application/json'  -d '{ "params": { "page_size": 10, "contain": "0" } }'
 ```
 
 > Response
