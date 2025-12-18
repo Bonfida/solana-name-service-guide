@@ -3,7 +3,6 @@
 - [SNS IP](sns-ip/README.md)
 - [Videos](videos.md)
 - [SNS Library](installation.md)
-- [SIWSNS](siwsns/README.md)
 - [FAQ](faq.md)
 - [Name Registry](registry.md)
 - [Wallet Guide](domain-name/wallet-guide/README.md)
