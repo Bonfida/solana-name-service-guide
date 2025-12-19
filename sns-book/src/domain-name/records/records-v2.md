@@ -2,7 +2,7 @@
 
 Records V2 improves on-chain trust by introducing the `verifyStaleness` method to ensure records are not stale, and the `verifyRightOfAssociation` to ensure records are authentic. These functions are described in detail below.
 
-- Related to [SNS-IP-2](https://github.com/Bonfida/sns-ip/blob/master/proposals/sns-ip-2.md) and [SNS-IP-3](https://github.com/Bonfida/sns-ip/blob/master/proposals/sns-ip-3.md)
+- Related to [SNS-IP-2](https://github.com/SolanaNameService/sns-ip/blob/master/proposals/sns-ip-2.md) and [SNS-IP-3](https://github.com/SolanaNameService/sns-ip/blob/master/proposals/sns-ip-3.md)
 
 ## Record V2 derivation
 

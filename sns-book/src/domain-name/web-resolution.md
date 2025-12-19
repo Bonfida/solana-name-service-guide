@@ -8,7 +8,7 @@ Below are three such methods for resolving .sol domain names:
 
 - Natively in the [Brave browser](https://brave.com)
 <!-- - Via the [Backpack](https://www.backpack.app) wallet extension -->
-- Through a proxy service called [sol-domain.org](https://github.com/Bonfida/name-resolver)
+- Through a proxy service called [sol-domain.org](https://github.com/SolanaNameService/name-resolver)
 
 ### Brave browser
 
@@ -25,7 +25,7 @@ The [Brave browser](https://brave.com) supports native resolution of .sol domain
 
 ### Resolution via sol-domain.org Proxy Service
 
-The [sol-domain.org](https://github.com/Bonfida/name-resolver) service is a proxy that enables users to access SNS domains via the traditional DNS system. To resolve a .sol domain using sol-domain.org, append the domain name to the beginning of the sol-domain.org URL. For example, to resolve the `pyth.sol` domain, you would enter [https://pyth.sol-domain.org](https://pyth.sol-domain.org/) in the URL bar of your browser.
+The [sol-domain.org](https://github.com/SolanaNameService/name-resolver) service is a proxy that enables users to access SNS domains via the traditional DNS system. To resolve a .sol domain using sol-domain.org, append the domain name to the beginning of the sol-domain.org URL. For example, to resolve the `pyth.sol` domain, you would enter [https://pyth.sol-domain.org](https://pyth.sol-domain.org/) in the URL bar of your browser.
 
 ## Resolving .sol domain names in practice
 

@@ -19,7 +19,7 @@ Below is the correct methodology to resolve `.sol` domain names. It's **strongly
 
 3. The correct destination of funds is the domain owner
 
-A JS implementation can be found on the [SDK repository](https://github.com/Bonfida/sns-sdk/blob/3098c811e77e3aae1ad390b5f6bea57b1cfc78c0/js/src/resolve.ts)
+A JS implementation can be found on the [SDK repository](https://github.com/SolanaNameService/sns-sdk/blob/3098c811e77e3aae1ad390b5f6bea57b1cfc78c0/js/src/resolve.ts)
 
 > Not resolving domains properly might lead to loss of funds ⚠️
 

@@ -5,7 +5,7 @@
 - The base URL of the API is:
 
 ```
-https://sns-api.bonfida.com
+https://api.sns.id
 ```
 
 - The platform enum returned by `sales` endpoint is defined as below:
