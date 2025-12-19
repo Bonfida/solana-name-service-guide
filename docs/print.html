@@ -223,13 +223,13 @@ Still, this has privacy implications that require you to have an identifiable Tw
 </li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sns-sdk"><a class="header" href="#sns-sdk">SNS SDK</a></h1>
-<p>The SNS SDK monorepo can be found <a href="https://github.com/Bonfida/sns-sdk">here</a>. It contains SDK for:</p>
+<p>The SNS SDK monorepo can be found <a href="https://github.com/SolanaNameService/sns-sdk">here</a>. It contains SDK for:</p>
 <ul>
 <li><a href="https://crates.io/crates/sns-sdk">A Rust SDK</a></li>
-<li><a href="https://github.com/Bonfida/sns-sdk#javascript">A Javascript SDK</a></li>
-<li><a href="https://github.com/Bonfida/sns-sdk#react">A React hooks library</a></li>
-<li><a href="https://github.com/Bonfida/sns-sdk/tree/main#vue">A Vue SDK</a></li>
-<li><a href="https://github.com/Bonfida/sns-sdk#cli">A CLI</a></li>
+<li><a href="https://github.com/SolanaNameService/sns-sdk#javascript">A Javascript SDK</a></li>
+<li><a href="https://github.com/SolanaNameService/sns-sdk#react">A React hooks library</a></li>
+<li><a href="https://github.com/SolanaNameService/sns-sdk/tree/main#vue">A Vue SDK</a></li>
+<li><a href="https://github.com/SolanaNameService/sns-sdk#cli">A CLI</a></li>
 </ul>
 <h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
 <h3 id="rust-sdk"><a class="header" href="#rust-sdk">Rust SDK</a></h3>
@@ -261,7 +261,7 @@ Still, this has privacy implications that require you to have an identifiable Tw
 <pre><code>yarn add @bonfida/sns-vue
 </code></pre>
 <h3 id="cli"><a class="header" href="#cli">CLI</a></h3>
-<pre><code>cargo install --git https://github.com/Bonfida/sns-sdk.git sns
+<pre><code>cargo install --git https://github.com/SolanaNameService/sns-sdk.git sns
 </code></pre>
 <h2 id="example"><a class="header" href="#example">Example</a></h2>
 <p>The following examples show how to resolve the domain <code>bonfida.sol</code>:</p>
@@ -836,12 +836,12 @@ export const getAllRegisteredDomains = async (connection: Connection) =&gt; {
 <li><code>ARWV</code></li>
 <li><code>SHDW</code></li>
 </ul>
-<p>The implementation of this resolver can be found <a href="https://github.com/Bonfida/name-resolver">on Github</a></p>
+<p>The implementation of this resolver can be found <a href="https://github.com/SolanaNameService/name-resolver">on Github</a></p>
 <blockquote>
 <p>For example <a href="https://bonfida.sol-domain.org">https://bonfida.sol-domain.org</a></p>
 </blockquote>
 <h2 id="records-v1--v2"><a class="header" href="#records-v1--v2">Records V1 &amp; V2</a></h2>
-<p>There are notable differences between Records V1 and V2. Records V1 use a derivation prefix of <code>0x01</code> and encode their content based on the <a href="https://github.com/Bonfida/sns-ip/blob/master/proposals/sns-ip-1.md">SNS-IP-1 guidelines</a>. In response to challenges related to data authenticity and staleness issues prevalent in V1, Records V2 was introduced. V2 employs a class in the derivation and a distinct encoding schema detailed in <a href="https://github.com/Bonfida/sns-ip/blob/master/proposals/sns-ip-3.md">SNS-IP-3</a>. Records V2 incorporates a validation ID system to ensure data integrity and freshness. Importantly, due to the distinct derivation, Records V1 and V2 can co-exist without collisions. However, the goal of the ecosystem is a complete migration to Records V2.</p>
+<p>There are notable differences between Records V1 and V2. Records V1 use a derivation prefix of <code>0x01</code> and encode their content based on the <a href="https://github.com/SolanaNameService/sns-ip/blob/master/proposals/sns-ip-1.md">SNS-IP-1 guidelines</a>. In response to challenges related to data authenticity and staleness issues prevalent in V1, Records V2 was introduced. V2 employs a class in the derivation and a distinct encoding schema detailed in <a href="https://github.com/SolanaNameService/sns-ip/blob/master/proposals/sns-ip-3.md">SNS-IP-3</a>. Records V2 incorporates a validation ID system to ensure data integrity and freshness. Importantly, due to the distinct derivation, Records V1 and V2 can co-exist without collisions. However, the goal of the ecosystem is a complete migration to Records V2.</p>
 <h2 id="difference-between-records-and-subdomains"><a class="header" href="#difference-between-records-and-subdomains">Difference between records and subdomains</a></h2>
 <p>In practice, let us consider the name <code>foo.sol</code> . If we want to find the domain's A record, containing an associated IPv4 address, then we can find it by querying <code>\1A.foo.sol</code>, with \1 the character of code value 1. The specification makes use of this prefix in order to differentiate between actual domains and records, which means that it is still possible to use the <code>A.foo.sol</code> subdomain with no collision.</p>
 <blockquote>

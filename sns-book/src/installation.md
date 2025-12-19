@@ -1,12 +1,12 @@
 # SNS SDK
 
-The SNS SDK monorepo can be found [here](https://github.com/Bonfida/sns-sdk). It contains SDK for:
+The SNS SDK monorepo can be found [here](https://github.com/SolanaNameService/sns-sdk). It contains SDK for:
 
 - [A Rust SDK](https://crates.io/crates/sns-sdk)
-- [A Javascript SDK](https://github.com/Bonfida/sns-sdk#javascript)
-- [A React hooks library](https://github.com/Bonfida/sns-sdk#react)
-- [A Vue SDK](https://github.com/Bonfida/sns-sdk/tree/main#vue)
-- [A CLI](https://github.com/Bonfida/sns-sdk#cli)
+- [A Javascript SDK](https://github.com/SolanaNameService/sns-sdk#javascript)
+- [A React hooks library](https://github.com/SolanaNameService/sns-sdk#react)
+- [A Vue SDK](https://github.com/SolanaNameService/sns-sdk/tree/main#vue)
+- [A CLI](https://github.com/SolanaNameService/sns-sdk#cli)
 
 ## Installation
 
@@ -69,7 +69,7 @@ yarn add @bonfida/sns-vue
 ### CLI
 
 ```
-cargo install --git https://github.com/Bonfida/sns-sdk.git sns
+cargo install --git https://github.com/SolanaNameService/sns-sdk.git sns
 ```
 
 ## Example
