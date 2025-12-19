@@ -1410,8 +1410,7 @@ export const useProfilePic = (user: PublicKey) =&gt; {
 <li><a href="https://github.com/Bonfida/sns-sdk/blob/main/examples/vue-app/src/components/examples/useSubdomains.vue">useSubdomains</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="tokenization"><a class="header" href="#tokenization">Tokenization</a></h1>
-<p>Domain names are <strong>not</strong> SPL tokens, however, they can be tokenized in NFTs that follow the Metaplex standard. It's only recommended to tokenize your domain if you want to resell your domain on an NFT market place like <a href="https://magiceden.io/marketplace/bonfida">Magic Eden</a>, <a href="https://hyperspace.xyz/collection/solananameservice">Hyperspace</a>, <a href="https://www.tensor.trade/trade/sol_domain_names">Tensor</a>, or <a href="https://www.sniper.xyz/collection/bonfida">SolSniper</a>.</p>
-<p>The smart contract handling the tokenization of domain names can be found here: <a href="https://github.com/Bonfida/name-tokenizer">Name tokenizer</a></p>
+<p>Domain names are <strong>not</strong> SPL tokens, however, they can be tokenized in NFTs that follow the Metaplex standard. It's only recommended to tokenize your domain if you want to resell your domain on an NFT market place like <a href="https://magiceden.io/marketplace/sns">Magic Eden</a> and <a href="https://www.tensor.trade/trade/sns">Tensor</a>.</p>
 <h2 id="js-example"><a class="header" href="#js-example">JS example</a></h2>
 <p>To retrieve all currently tokenized domain names use the <code>retrieveNfts</code> function. This function returns an array of currently tokenized domains as public keys, and contains all the mints of the tokenized domain name.</p>
 <pre><code class="language-js">import { retrieveNfts } from "@bonfida/spl-name-service";
@@ -2904,7 +2903,7 @@ const ix = await acceptP2p(connection, NAME_OFFERS_ID, p2pOfferKey);
 </code></pre>
 <p>P2P offers can be cancelled using <code>cancelP2p</code></p>
 <h2 id="nft-marketplace"><a class="header" href="#nft-marketplace">NFT Marketplace</a></h2>
-<p>Tokenized domain names can be purchased on NFT marketplaces such as <a href="https://magiceden.io/marketplace/bonfida">Magic Eden</a>, <a href="https://www.tensor.trade/trade/bonfida">Tensor</a>, <a href="https://www.sniper.xyz/collection/bonfida">Sniper</a> etc...</p>
+<p>Tokenized domain names can be purchased on NFT marketplaces such as <a href="https://magiceden.io/marketplace/sns">Magic Eden</a> and <a href="https://www.tensor.trade/trade/sns">Tensor</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sns-suggest-introduction---alpha"><a class="header" href="#sns-suggest-introduction---alpha">SNS Suggest Introduction - Alpha</a></h1>
 <p>The SNS Suggest API can be used by applications looking to offer autocomplete or autosuggest for <code>.sol</code> domains.</p>
 <p>⚠️ This API is not meant to replace the blockchain as the source of truth. The blockchain should always be considered as the only source of truth. This API is only a snapshot of the blockchain at a certain point in time and might be stale by a few seconds/minutes.</p>

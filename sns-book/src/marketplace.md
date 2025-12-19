@@ -303,4 +303,4 @@ P2P offers can be cancelled using `cancelP2p`
 
 ## NFT Marketplace
 
-Tokenized domain names can be purchased on NFT marketplaces such as [Magic Eden](https://magiceden.io/marketplace/bonfida), [Tensor](https://www.tensor.trade/trade/bonfida), [Sniper](https://www.sniper.xyz/collection/bonfida) etc...
+Tokenized domain names can be purchased on NFT marketplaces such as [Magic Eden](https://magiceden.io/marketplace/sns) and [Tensor](https://www.tensor.trade/trade/sns).
