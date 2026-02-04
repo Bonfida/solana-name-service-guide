@@ -64,17 +64,3 @@
 - [SNS Suggest API - Alpha](sns-suggest/README.md)
 
   - [Current Owner](sns-suggest/current-owner.md)
-
-- [SNS Quicknode API](sns-quicknode/README.md)
-
-  - [sns_getAllDomainsForOwner](sns-quicknode/sns_getAllDomainsForOwner.md)
-  - [sns_getDomainData](sns-quicknode/sns_getDomainData.md)
-  - [sns_getDomainKey](sns-quicknode/sns_getDomainKey.md)
-  - [sns_getDomainRecordKey](sns-quicknode/sns_getDomainRecordKey.md)
-  - [sns_getFavouriteDomain](sns-quicknode/sns_getFavouriteDomain.md)
-  - [sns_getRegistrationTransaction](sns-quicknode/sns_getRegistrationTransaction.md)
-  - [sns_getSubdomains](sns-quicknode/sns_getSubdomains.md)
-  - [sns_getSupportedRecords](sns-quicknode/sns_getSupportedRecords.md)
-  - [sns_resolveDomain](sns-quicknode/sns_resolveDomain.md)
-  - [sns_reverseLookup](sns-quicknode/sns_reverseLookup.md)
-  - [sns_getDomainReverseKey](sns-quicknode/sns_getDomainReverseKey.md)
